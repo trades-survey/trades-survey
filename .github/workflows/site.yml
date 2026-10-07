@@ -26,6 +26,8 @@ jobs:
       EDITEUR_NOM: ${{ vars.EDITEUR_NOM }}
       EDITEUR_CONTACT: ${{ vars.EDITEUR_CONTACT }}
       HEBERGEUR: ${{ vars.HEBERGEUR }}
+      EDITEUR_ANONYME: ${{ vars.EDITEUR_ANONYME }}
+      SOUTENIR_URL: ${{ vars.SOUTENIR_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
