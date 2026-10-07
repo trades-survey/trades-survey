@@ -9,7 +9,8 @@ Chaque lundi, GitHub Actions (`.github/workflows/site.yml`) :
 2. extrait les participations (`scripts/extract_participations.py`) et les mouvements
    (`scripts/compute_mouvements.py`) ;
 3. archive les CSV de la semaine dans `data/out/` ;
-4. construit `public/index.html` (`site/build.py` + `site/template.html`) et le publie sur GitHub Pages.
+4. construit `public/index.html` (`site/build.py` + `site/template.html`) et, si les secrets
+   `FTP_SERVER`, `FTP_USER` et `FTP_PASSWORD` sont définis, l'envoie par FTPS sur l'hébergement o2switch.
 
 Règle juridique appliquée dans le code : déclarations d'intérêts pour tous, déclarations
 de patrimoine pour les seuls membres du gouvernement. Les DSP des parlementaires ne sont
