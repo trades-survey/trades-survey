@@ -1,0 +1,13 @@
+# Copié en public/.htaccess par site/build.py (hébergement Apache o2switch).
+# HTTPS obligatoire (sécurité des échanges, article 32 du RGPD).
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Referrer-Policy "no-referrer"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Permissions-Policy "interest-cohort=(), browsing-topics=(), camera=(), microphone=(), geolocation=()"
+  # Aucune ressource tierce : tout est servi par le site lui-même.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+</IfModule>

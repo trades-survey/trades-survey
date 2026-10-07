@@ -47,13 +47,15 @@ parts=[r for r in csv.DictReader(open(D+'out/participations.csv')) if r['categor
 assert not [r for r in parts if r['type_declaration'].startswith('DSP') and r['categorie']!='gouvernement']
 bydecl=C.defaultdict(list)
 for r in parts: bydecl[r['declaration_id']].append(r)
-elus=[]; soc=C.defaultdict(lambda:{'names':C.Counter(),'holders':[]}); ids={}
-for k,p in persons.items():
+elus=[]; soc=C.defaultdict(lambda:{'names':C.Counter(),'holders':[]}); ids={}; taken=set()
+for k,p in sorted(persons.items()):
     ds=sorted(p['decls'],key=lambda d:d['date_depot'])
     last=ds[-1]
     eid=slug(p['prenom']+' '+p['nom']); 
-    if eid in ids: eid+='-'+k[2][:4]
-    ids[k]=eid
+    # homonymes : suffixe numérique (jamais l'année de naissance, donnée non publiée par le site)
+    base,n=eid,1
+    while eid in taken: n+=1; eid=f'{base}-{n}'
+    taken.add(eid); ids[k]=eid
     lrows=liste.get((k[0],k[1]),[])
     page=next((('https://www.hatvp.fr'+r['url_dossier']) for r in lrows if r['url_dossier']),'')
     def pdf(d):
@@ -101,9 +103,16 @@ def disp(k,v):
     if k in ISIN: return k.title()
     return v['names'].most_common(1)[0][0] if v['names'] else k
 socs=[{'k':k,'id':slug(k) or 'x','name':disp(k,v),'isin':ISIN.get(k),'holders':v['holders']} for k,v in soc.items()]
-out={'built':BUILT,'elus':sorted(elus,key=lambda e:(e['n'],e['p'])),'socs':socs,'mv':sorted(mv,key=lambda m:m['dp'],reverse=True)}
+# mentions légales : renseignées par les variables du dépôt (voir docs/CONFORMITE.md)
+HEBERGEUR_DEFAUT="o2switch SAS, 222-224 boulevard Gustave Flaubert, 63000 Clermont-Ferrand, France, téléphone 04 44 44 60 40."
+legal={'editeur':os.environ.get('EDITEUR_NOM','').strip(),'contact':os.environ.get('EDITEUR_CONTACT','').strip(),
+       'hebergeur':os.environ.get('HEBERGEUR','').strip() or HEBERGEUR_DEFAUT}
+out={'built':BUILT,'legal':legal,'elus':sorted(elus,key=lambda e:(e['n'],e['p'])),'socs':socs,'mv':sorted(mv,key=lambda m:m['dp'],reverse=True)}
 data=json.dumps(out,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 os.makedirs(os.path.join(ROOT,'public'),exist_ok=True)
+import shutil
+shutil.copytree(os.path.join(ROOT,'site','fonts'),os.path.join(ROOT,'public','fonts'),dirs_exist_ok=True)
+shutil.copy(os.path.join(ROOT,'site','htaccess'),os.path.join(ROOT,'public','.htaccess'))
 tpl=open(os.path.join(ROOT,'site','template.html'),encoding='utf-8').read()
 head='<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
 open(os.path.join(ROOT,'public','index.html'),'w',encoding='utf-8').write(head+tpl.replace('__DATA__',data).replace('<header class="top">','</head>\n<body>\n<header class="top">',1)+'\n</body>\n</html>\n')
