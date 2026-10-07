@@ -1,0 +1,5 @@
+declaration_id,type_declaration,modificative,date_depot,categorie,civilite,prenom,nom,date_naissance,type_mandat,mandat,organe,departement,section,nature_ligne,societe,societe_masquee,nb_parts,valeur_eur,capital_detenu_pct,remuneration,conseil_activite,commentaire,isin,valeur_brute,nb_parts_brut
+u1,DIA,non,2022-07-15,depute,Mme,Marie,DUPONT,1970-02-01,Député,Député ou sénateur,Paris(75),75,participationFinanciereDto,participation,TotalEnergies SE,non,200,12500.5,0.0001,Dividendes,Non,PEA,,"12 500,50 €",200
+u1,DIA,non,2022-07-15,depute,Mme,Marie,DUPONT,1970-02-01,Député,Député ou sénateur,Paris(75),75,participationFinanciereDto,participation,SCI,oui,50,1000,,,,,,1.000,50
+u3,DSP,non,2024-06-01,gouvernement,,Paul,MARTIN,,Membre du Gouvernement,Membre du Gouvernement,Ministère des armées,,valeursEnBourseDto,portefeuille_titres,PEA (BNP PARIBAS),non,,30000,,,,,,30 000,
+u3,DSP,non,2024-06-01,gouvernement,,Paul,MARTIN,,Membre du Gouvernement,Membre du Gouvernement,Ministère des armées,,valeursNonEnBourseDto,titres_non_cotes,SAS Exemple,non,,5000,12.5,,,,,5000,

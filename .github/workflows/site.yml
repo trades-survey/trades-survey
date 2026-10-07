@@ -1,0 +1,57 @@
+name: Mise à jour et publication
+
+on:
+  schedule:
+    - cron: "0 5 * * 1"   # chaque lundi à 5 h UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Télécharger l'open data HATVP
+        run: bash scripts/fetch_hatvp.sh
+      - name: Extraire participations et mouvements
+        run: |
+          python3 -I scripts/extract_participations.py data/raw/declarations.xml --liste data/raw/liste.csv \
+            --ministres-patrimoine --declarations-out data/out/declarations.csv -o data/out/participations.csv
+          python3 -I scripts/compute_mouvements.py data/out/participations.csv data/out/declarations.csv \
+            -o data/out/mouvements.csv
+      - name: Construire le site
+        run: python3 -I site/build.py
+      - name: Archiver les données de la semaine
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/out
+          git diff --cached --quiet || git commit -m "Données HATVP du $(date -u +%F)"
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

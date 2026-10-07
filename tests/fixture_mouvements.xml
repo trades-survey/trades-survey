@@ -1,0 +1,23 @@
+<declarations>
+ <declaration><dateDepot>15/07/2022</dateDepot><uuid>a1</uuid>
+  <general><declarant><nom>DUPONT</nom><prenom>Marie</prenom></declarant><typeDeclaration><id>DIA</id></typeDeclaration></general>
+  <participationFinanciereDto><neant>false</neant><items>
+   <items><nomSociete>TotalEnergies SE</nomSociete><evaluation>12 500 €</evaluation><nombreParts>200</nombreParts></items>
+   <items><nomSociete>Airbus</nomSociete><evaluation>3 000</evaluation><nombreParts>20</nombreParts></items>
+  </items></participationFinanciereDto></declaration>
+ <declaration><dateDepot>01/06/2023</dateDepot><uuid>a15</uuid>
+  <general><declarant><nom>DUPONT</nom><prenom>Marie</prenom></declarant><typeDeclaration><id>DIM</id></typeDeclaration></general>
+  <activProfCinqDerniereDto><neant>true</neant></activProfCinqDerniereDto></declaration>
+ <declaration><dateDepot>10/01/2024</dateDepot><uuid>a2</uuid>
+  <general><declarant><nom>DUPONT</nom><prenom>Marie</prenom></declarant><typeDeclaration><id>DIM</id></typeDeclaration></general>
+  <participationFinanciereDto><neant>false</neant><items>
+   <items><nomSociete>TOTALENERGIES</nomSociete><evaluation>20 000</evaluation><nombreParts>300</nombreParts></items>
+   <items><nomSociete>LVMH</nomSociete><evaluation>7 000</evaluation><nombreParts>10</nombreParts></items>
+  </items></participationFinanciereDto></declaration>
+ <declaration><dateDepot>01/09/2025</dateDepot><uuid>a3</uuid>
+  <general><declarant><nom>DUPONT</nom><prenom>Marie</prenom></declarant><typeDeclaration><id>DIM</id></typeDeclaration></general>
+  <participationFinanciereDto><neant>true</neant></participationFinanciereDto></declaration>
+ <declaration><dateDepot>01/03/2023</dateDepot><uuid>a9</uuid>
+  <general><declarant><nom>DUPONT</nom><prenom>Marie</prenom></declarant><typeDeclaration><id>DSP</id></typeDeclaration></general>
+  <valeursMobilieresDto><items><items><nature>Actions LVMH</nature><valeur>99999</valeur></items></items></valeursMobilieresDto></declaration>
+</declarations>

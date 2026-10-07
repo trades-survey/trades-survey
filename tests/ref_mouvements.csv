@@ -1,0 +1,8 @@
+prenom,nom,famille,societe,isin,mouvement,declaration_avant,date_avant,declaration_apres,date_apres,nb_parts_avant,nb_parts_apres,valeur_avant,valeur_apres,delta_parts,delta_valeur
+Marie,DUPONT,interets,Airbus,,position_initiale,,,a1,2022-07-15,,20,,3000,,
+Marie,DUPONT,interets,TotalEnergies SE,,position_initiale,,,a1,2022-07-15,,200,,12500,,
+Marie,DUPONT,interets,Airbus,,disparition,a1,2022-07-15,a2,2024-01-10,20,,3000,,-20,-3000
+Marie,DUPONT,interets,LVMH,,apparition,a1,2022-07-15,a2,2024-01-10,,10,,7000,10,7000
+Marie,DUPONT,interets,TOTALENERGIES,,hausse,a1,2022-07-15,a2,2024-01-10,200,300,12500,20000,100,7500
+Marie,DUPONT,interets,LVMH,,disparition,a2,2024-01-10,a3,2025-09-01,10,,7000,,-10,-7000
+Marie,DUPONT,interets,TOTALENERGIES,,disparition,a2,2024-01-10,a3,2025-09-01,300,,20000,,-300,-20000

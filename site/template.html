@@ -1,0 +1,259 @@
+<title>Registre des élus actionnaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: registre administratif — bandeau étroit, colonne de lecture unique, tableaux de pièces justificatives */
+:root{
+  --bg:#f5f6f4; --surface:#ffffff; --ink:#18212b; --muted:#5b6670; --line:#d9ddd8;
+  --accent:#1d5c63; --accent-soft:#e3eeee; --up:#2f6b3a; --down:#9a3b2a; --warn-bg:#fbf3df; --warn-ink:#6b4e10;
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-data:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12171c; --surface:#1a2128; --ink:#e4e8ea; --muted:#9aa5ad; --line:#2d363e;
+  --accent:#7fc0c4; --accent-soft:#1d3136; --up:#8fca94; --down:#ec9a86; --warn-bg:#2c2614; --warn-ink:#e8cf8e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171c; --surface:#1a2128; --ink:#e4e8ea; --muted:#9aa5ad; --line:#2d363e;
+  --accent:#7fc0c4; --accent-soft:#1d3136; --up:#8fca94; --down:#ec9a86; --warn-bg:#2c2614; --warn-ink:#e8cf8e; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-body)}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding-inline:16px}
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding-block:14px}
+.brand{font:650 22px/1.1 var(--f-display);color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.brand small{display:block;font:500 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+nav.main{display:flex;flex-wrap:wrap;gap:4px 18px;margin-left:auto}
+nav.main a{color:var(--muted);text-decoration:none;font-weight:500;padding-block:4px;border-bottom:2px solid transparent}
+nav.main a.on{color:var(--ink);border-color:var(--accent)}
+.mock{background:var(--warn-bg);color:var(--warn-ink);font-size:13px}
+.mock .wrap{padding-block:8px}
+main.wrap{padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
+h1{font:650 clamp(26px,4vw,36px)/1.15 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:600 20px/1.25 var(--f-display);margin:0 0 10px;text-wrap:balance}
+.lede{color:var(--muted);max-width:65ch;margin:6px 0 0}
+.search{display:flex;gap:8px;flex-wrap:wrap}
+.search input{flex:1 1 260px;min-width:0;font:inherit;font-size:16px;padding:11px 14px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.results{background:var(--surface);border:1px solid var(--line);border-radius:6px;margin-top:6px}
+.results a{display:flex;justify-content:space-between;gap:12px;padding:9px 14px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.results a:first-child{border-top:0}
+.results a:hover{background:var(--accent-soft)}
+.kind{font:500 11px var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.figs div{background:var(--surface);padding:12px 14px}
+.figs b{display:block;font:500 24px var(--f-data);font-variant-numeric:tabular-nums}
+.figs span{color:var(--muted);font-size:13px}
+.cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:28px}
+@media (max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{font:500 11px var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}
+tr:first-child td{border-top:0}
+td.n,th.n{text-align:right;font-family:var(--f-data);font-variant-numeric:tabular-nums;white-space:nowrap}
+.mono{font-family:var(--f-data);font-size:13px}
+.pill{display:inline-block;font:500 11px/1 var(--f-body);letter-spacing:.05em;text-transform:uppercase;padding:4px 7px;border-radius:3px;border:1px solid currentColor;white-space:nowrap}
+.m-apparition,.m-hausse{color:var(--up)} .m-disparition,.m-baisse{color:var(--down)}
+.cat{color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters select,.filters input{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.filters input{flex:1 1 200px;min-width:0}
+.filters label{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:14px}
+.note{border-left:3px solid var(--line);padding:2px 0 2px 14px;color:var(--muted);font-size:14px;max-width:70ch}
+.note strong{color:var(--ink)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:14px;margin-top:8px}
+.crumb{font-size:13px;color:var(--muted)}
+.more{font:inherit;color:var(--accent);background:none;border:1px solid var(--line);border-radius:6px;padding:7px 12px;cursor:pointer;margin-top:10px}
+.empty{color:var(--muted);padding:14px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{padding-block:20px}
+.prose p{max-width:68ch;margin:0 0 12px}
+.prose h2{margin-top:18px}
+</style>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#accueil">Registre des élus actionnaires<small>Participations déclarées à la HATVP</small></a>
+  <nav class="main" id="nav">
+    <a href="#accueil">Accueil</a><a href="#elus">Élus</a><a href="#societes">Sociétés</a><a href="#mouvements">Mouvements</a><a href="#methode">Méthode</a>
+  </nav>
+</div></header>
+<div class="mock"><div class="wrap"><strong>Version de test.</strong> Données réelles de la HATVP, mises à jour chaque semaine. Présentation en cours de mise au point.</div></div>
+<main class="wrap" id="app" aria-live="polite"></main>
+<footer><div class="wrap">Source : Haute Autorité pour la transparence de la vie publique, déclarations d'intérêts (députés, sénateurs, ministres) et déclarations de situation patrimoniale des seuls membres du gouvernement. Les montants sont ceux déclarés par les élus. Une erreur ? La procédure de correction et le droit de réponse sont décrits dans la page Méthode.</div></footer>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const DB=JSON.parse(document.getElementById('data').textContent);
+const E=new Map(DB.elus.map(e=>[e.id,e])), S=new Map(DB.socs.map(s=>[s.k,s])), SID=new Map(DB.socs.map(s=>[s.id,s]));
+const CAT={depute:'Député',senateur:'Sénateur',gouvernement:'Gouvernement'};
+const MV={apparition:'Apparition',disparition:'Disparition',hausse:'Hausse',baisse:'Baisse'};
+const TD={DI:"Déclaration d'intérêts",DIA:"Déclaration d'intérêts et d'activités",DIM:"Déclaration d'intérêts modificative",DIAM:"Déclaration d'intérêts et d'activités modificative",DSP:'Déclaration de situation patrimoniale',DSPFM:'Déclaration de situation patrimoniale (fin de mandat)'};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const eur=v=>v==null?'—':v.toLocaleString('fr-FR')+' €';
+const num=v=>v==null||v===''?'—':Number(v).toLocaleString('fr-FR');
+const date=d=>d?new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'}):'—';
+const fold=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const eName=e=>`${e.p} ${e.n}`;
+const eLink=id=>{const e=E.get(id);return e?`<a href="#e-${e.id}">${esc(eName(e))}</a>`:''};
+const sLink=k=>{const s=S.get(k);return s?`<a href="#s-${s.id}">${esc(s.name)}</a>`:esc(k)};
+const holdersOf=s=>{const m=new Map();s.holders.forEach(h=>{if(!m.has(h.e))m.set(h.e,h)});return [...m.values()]};
+const app=document.getElementById('app');
+
+function mvRows(list,{showElu=true,showSoc=true}={}){
+  if(!list.length)return `<p class="empty">Aucun mouvement entre deux déclarations successives.</p>`;
+  return `<div class="tbl"><table><thead><tr><th>Écart constaté</th>${showElu?'<th>Élu</th>':''}${showSoc?'<th>Société</th>':''}<th>Entre le</th><th>et le</th><th class="n">Titres</th><th class="n">Valeur déclarée</th></tr></thead><tbody>${
+  list.map(m=>`<tr><td><span class="pill m-${m.m}">${MV[m.m]}</span></td>${showElu?`<td>${eLink(m.e)}</td>`:''}${showSoc?`<td>${sLink(m.s)}</td>`:''}<td class="mono">${m.da?date(m.da):'—'}</td><td class="mono">${date(m.dp)}</td><td class="n">${num(m.qa)} → ${num(m.qp)}</td><td class="n">${eur(m.va)} → ${eur(m.vp)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function paged(id,total,render,step=40){
+  let n=step;const box=document.getElementById(id);
+  const draw=()=>{box.innerHTML=render(n)+(total>n?`<button class="more" type="button">Afficher plus (${(total-n).toLocaleString('fr-FR')} restants)</button>`:'');
+    const b=box.querySelector('.more');if(b)b.onclick=()=>{n+=step*2;draw()}};
+  draw();
+}
+
+function search(q){
+  q=fold(q.trim());if(q.length<2)return [];
+  const qi=q.replace(/\s/g,'');
+  const out=[];
+  DB.elus.forEach(e=>{if(fold(eName(e)).includes(q)||fold(e.n+' '+e.p).includes(q))out.push({h:`#e-${e.id}`,t:eName(e),k:CAT[e.cat]})});
+  DB.socs.forEach(s=>{if(fold(s.name).includes(q)||fold(s.k).includes(q)||(s.isin&&s.isin.toLowerCase().includes(qi)))out.push({h:`#s-${s.id}`,t:s.name+(s.isin?` · ${s.isin}`:''),k:'Société'})});
+  return out.slice(0,12);
+}
+function bindSearch(){
+  const i=document.getElementById('q'),r=document.getElementById('qr');
+  i.oninput=()=>{const res=search(i.value);r.hidden=!res.length&&i.value.trim().length<2;
+    r.innerHTML=res.length?res.map(x=>`<a href="${x.h}"><span>${esc(x.t)}</span><span class="kind">${x.k}</span></a>`).join(''):(i.value.trim().length>=2?'<p class="empty">Aucun élu ni aucune société ne correspond.</p>':'')};
+}
+
+function home(){
+  const holders=DB.elus.filter(e=>e.h.length).length;
+  const top=[...DB.socs].map(s=>({s,n:holdersOf(s).length})).filter(x=>x.n).sort((a,b)=>b.n-a.n).slice(0,12);
+  app.innerHTML=`
+  <section><h1>Qui détient quoi, d'après leurs propres déclarations</h1>
+  <p class="lede">Les participations dans des sociétés déclarées par les députés, les sénateurs et les membres du gouvernement à la Haute Autorité pour la transparence de la vie publique, et leur évolution d'une déclaration à l'autre.</p></section>
+  <section><label for="q" class="kind">Rechercher un élu, une société ou un code ISIN</label>
+    <div class="search" style="margin-top:6px"><input id="q" type="search" placeholder="Ex. Air Liquide, FR0000120271, Dupont" autocomplete="off"></div>
+    <div class="results" id="qr" hidden></div></section>
+  <section class="figs" aria-label="Chiffres clés">
+    <div><b>${DB.elus.length.toLocaleString('fr-FR')}</b><span>élus avec une déclaration publiée</span></div>
+    <div><b>${holders.toLocaleString('fr-FR')}</b><span>déclarent au moins une participation</span></div>
+    <div><b>${DB.socs.filter(s=>s.holders.length).length.toLocaleString('fr-FR')}</b><span>sociétés citées</span></div>
+    <div><b>${DB.mv.length.toLocaleString('fr-FR')}</b><span>écarts entre deux déclarations</span></div>
+  </section>
+  <p class="note"><strong>À lire avant tout.</strong> En France, les élus ne déclarent pas leurs achats et ventes de titres au fil de l'eau. Ils déposent des déclarations à des dates données. Un « mouvement » ici est donc un écart entre deux déclarations successives, pas une transaction datée.</p>
+  <div class="cols">
+    <section><h2>Derniers mouvements déclarés</h2><div id="lastmv"></div><p><a href="#mouvements">Tous les mouvements</a></p></section>
+    <section><h2>Sociétés les plus citées</h2><div class="tbl"><table><thead><tr><th>Société</th><th class="n">Élus</th></tr></thead><tbody>${
+      top.map(x=>`<tr><td>${sLink(x.s.k)}${x.s.isin?`<div class="mono cat">${x.s.isin}</div>`:''}</td><td class="n">${x.n}</td></tr>`).join('')}</tbody></table></div><p><a href="#societes">Toutes les sociétés</a></p></section>
+  </div>`;
+  document.getElementById('lastmv').innerHTML=mvRows(DB.mv.slice(0,8),{showElu:true,showSoc:true}).replace(/<th>Entre le<\/th>/,'<th>Avant</th>').replace(/<th>et le<\/th>/,'<th>Après</th>');
+  bindSearch();
+}
+
+let eluF={q:'',cat:'',has:true};
+function elus(){
+  app.innerHTML=`<section><h1>Élus</h1><p class="lede">Participations figurant dans la dernière déclaration publiée de chaque élu.</p></section>
+  <div class="filters"><input id="fq" type="search" placeholder="Filtrer par nom ou département" value="${esc(eluF.q)}">
+  <select id="fc"><option value="">Tous</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option></select>
+  <label><input id="fh" type="checkbox" ${eluF.has?'checked':''}> Avec participations</label></div><div id="el"></div>`;
+  document.getElementById('fc').value=eluF.cat;
+  const draw=()=>{const L=DB.elus.filter(e=>(!eluF.cat||e.cat===eluF.cat)&&(!eluF.has||e.h.length)&&(!eluF.q||fold(eName(e)+' '+e.org).includes(fold(eluF.q))));
+    paged('el',L.length,n=>L.length?`<div class="tbl"><table><thead><tr><th>Élu</th><th>Fonction</th><th>Circonscription ou ministère</th><th class="n">Lignes</th><th class="n">Valeur déclarée</th></tr></thead><tbody>${
+      L.slice(0,n).map(e=>{const v=e.h.reduce((a,h)=>a+(h.v||0),0);return `<tr><td>${eLink(e.id)}</td><td class="cat">${CAT[e.cat]}</td><td>${esc(e.org)}</td><td class="n">${e.h.length}</td><td class="n">${e.h.length?eur(v):'—'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne correspond à ces filtres.</p>')};
+  document.getElementById('fq').oninput=ev=>{eluF.q=ev.target.value;draw()};
+  document.getElementById('fc').onchange=ev=>{eluF.cat=ev.target.value;draw()};
+  document.getElementById('fh').onchange=ev=>{eluF.has=ev.target.checked;draw()};
+  draw();
+}
+
+function elu(id){
+  const e=E.get(id);if(!e)return notFound();
+  const I=e.h.filter(h=>h.f==='interets'),P=e.h.filter(h=>h.f==='patrimoine');
+  const mv=DB.mv.filter(m=>m.e===id);
+  const hold=(L,title,src)=>`<section><h2>${title}</h2><p class="crumb">${src}</p>${L.length?`<div class="tbl"><table><thead><tr><th>Société ou support</th><th class="n">Titres</th><th class="n">Capital</th><th class="n">Valeur déclarée</th></tr></thead><tbody>${
+    L.map(h=>`<tr><td>${h.nl==='participation'||h.f==='patrimoine'?sLink(h.s):esc(h.n)}${h.nl==='portefeuille_titres'?' <span class="cat">(compte-titres, lignes non détaillées)</span>':''}</td><td class="n">${num(h.q)}</td><td class="n">${h.c?esc(h.c)+' %':'—'}</td><td class="n">${eur(h.v)}</td></tr>`).join('')}</tbody></table></div>`:'<p class="empty">Aucune participation déclarée dans cette déclaration.</p>'}</section>`;
+  const lastI=I[0]||null, lastP=P[0]||null;
+  const srcI=lastI?`${TD[lastI.t]||lastI.t} du ${date(lastI.d)}`:'Dernière déclaration d\'intérêts';
+  app.innerHTML=`<p class="crumb"><a href="#elus">Élus</a></p>
+  <section><h1>${esc(eName(e))}</h1><div class="meta"><span>${CAT[e.cat]}</span><span>${esc(e.org)}</span>${e.cats.length>1?`<span>Aussi : ${e.cats.filter(c=>c!==e.cat).map(c=>CAT[c]).join(', ')}</span>`:''}${e.page?`<a href="${esc(e.page)}" rel="noopener" target="_blank">Fiche HATVP</a>`:''}</div></section>
+  ${hold(I,'Participations déclarées',srcI)}
+  ${e.cat==='gouvernement'||P.length?hold(P,'Valeurs mobilières (patrimoine)',lastP?`${TD[lastP.t]||lastP.t} du ${date(lastP.d)}. Publiée pour les membres du gouvernement uniquement.`:'Aucune déclaration de patrimoine publiée au format ouvert.'):''}
+  ${e.masked?`<p class="note">${e.masked} ligne${e.masked>1?'s':''} dont le nom a été occulté par la HATVP (le plus souvent une société civile familiale) n'${e.masked>1?'apparaissent':'apparaît'} pas ici.</p>`:''}
+  <section><h2>Évolution d'une déclaration à l'autre</h2>${mvRows(mv,{showElu:false})}</section>
+  <section><h2>Déclarations sources</h2><div class="tbl"><table><thead><tr><th>Déclaration</th><th>Déposée le</th><th>Document</th></tr></thead><tbody>${
+    [...e.decls].reverse().map(d=>`<tr><td>${esc(TD[d.t]||d.t)}${d.m?' <span class="cat">(modificative)</span>':''}</td><td class="mono">${date(d.d)}</td><td>${d.u?`<a href="${esc(d.u)}" target="_blank" rel="noopener">PDF HATVP</a>`:(e.page?`<a href="${esc(e.page)}" target="_blank" rel="noopener">Fiche HATVP</a>`:'—')}</td></tr>`).join('')}</tbody></table></div></section>
+  <p class="note">Cette page juxtapose des informations publiées par la HATVP. Elle ne porte aucune appréciation sur la situation de l'élu.</p>`;
+}
+
+let socF={q:'',cot:false};
+function societes(){
+  app.innerHTML=`<section><h1>Sociétés</h1><p class="lede">Chaque société citée dans au moins une déclaration, avec le nombre d'élus qui la détiennent d'après leur dernière déclaration.</p></section>
+  <div class="filters"><input id="sq" type="search" placeholder="Filtrer par nom ou ISIN" value="${esc(socF.q)}"><label><input id="sc" type="checkbox" ${socF.cot?'checked':''}> Avec ISIN seulement</label></div><div id="sl"></div>`;
+  const draw=()=>{const q=fold(socF.q).replace(/\s/g,'');
+    const L=DB.socs.map(s=>({s,n:holdersOf(s).length,m:DB.mv.filter(m=>m.s===s.k).length})).filter(x=>(x.n||x.m)&&(!socF.cot||x.s.isin)&&(!q||fold(x.s.name+x.s.k).replace(/\s/g,'').includes(q)||(x.s.isin||'').toLowerCase().includes(q))).sort((a,b)=>b.n-a.n||a.s.name.localeCompare(b.s.name,'fr'));
+    paged('sl',L.length,n=>L.length?`<div class="tbl"><table><thead><tr><th>Société</th><th>ISIN</th><th class="n">Élus détenteurs</th><th class="n">Mouvements</th></tr></thead><tbody>${
+      L.slice(0,n).map(x=>`<tr><td>${sLink(x.s.k)}</td><td class="mono">${x.s.isin||'<span class="cat">non rattaché</span>'}</td><td class="n">${x.n}</td><td class="n">${x.m}</td></tr>`).join('')}</tbody></table></div>`:'<p class="empty">Aucune société ne correspond.</p>',50)};
+  document.getElementById('sq').oninput=ev=>{socF.q=ev.target.value;draw()};
+  document.getElementById('sc').onchange=ev=>{socF.cot=ev.target.checked;draw()};
+  draw();
+}
+
+function societe(id){
+  const s=SID.get(id);if(!s)return notFound();
+  const H=holdersOf(s).sort((a,b)=>(b.v||0)-(a.v||0));
+  const names=[...new Set([...s.holders.map(h=>h),...DB.mv.filter(m=>m.s===s.k)].map(x=>x.n).filter(Boolean))];
+  app.innerHTML=`<p class="crumb"><a href="#societes">Sociétés</a></p>
+  <section><h1>${esc(s.name)}</h1><div class="meta">${s.isin?`<span class="mono">ISIN ${s.isin}</span><span>Rattachement manuel, à vérifier</span>`:'<span>Pas encore rattachée à un code ISIN</span>'}</div></section>
+  <section><h2>Élus qui déclarent la détenir</h2>${H.length?`<div class="tbl"><table><thead><tr><th>Élu</th><th>Fonction</th><th class="n">Titres</th><th class="n">Valeur déclarée</th><th>Déclaration du</th></tr></thead><tbody>${
+    H.map(h=>{const e=E.get(h.e);return `<tr><td>${eLink(h.e)}${h.f==='patrimoine'?' <span class="cat">(patrimoine)</span>':''}</td><td class="cat">${CAT[e.cat]}</td><td class="n">${num(h.q)}</td><td class="n">${eur(h.v)}</td><td class="mono">${date(h.d)}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne la déclare dans sa dernière déclaration.</p>'}</section>
+  <section><h2>Mouvements</h2>${mvRows(DB.mv.filter(m=>m.s===s.k),{showSoc:false})}</section>
+  ${names.length>1?`<p class="note">Libellés regroupés sous ce nom : ${names.map(esc).join(' · ')}</p>`:''}`;
+}
+
+let mvF={t:'',cat:''};
+function mouvements(){
+  app.innerHTML=`<section><h1>Mouvements</h1><p class="lede">Écarts constatés entre deux déclarations successives d'un même élu : une société qui apparaît ou disparaît, un nombre de titres ou une valeur qui augmente ou baisse.</p></section>
+  <p class="note"><strong>Ce ne sont pas des transactions.</strong> La date « et le » est celle du dépôt de la seconde déclaration. L'achat ou la vente a eu lieu entre les deux dates, sans que l'on sache quand. Une hausse de valeur peut aussi venir du cours de bourse.</p>
+  <div class="filters"><select id="mt" aria-label="Type d'écart"><option value="">Tous les écarts</option>${Object.entries(MV).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>
+  <select id="mc" aria-label="Fonction"><option value="">Tous les élus</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option></select></div><div id="ml"></div>`;
+  document.getElementById('mt').value=mvF.t;document.getElementById('mc').value=mvF.cat;
+  const draw=()=>{const L=DB.mv.filter(m=>(!mvF.t||m.m===mvF.t)&&(!mvF.cat||E.get(m.e).cat===mvF.cat));paged('ml',L.length,n=>mvRows(L.slice(0,n)),50)};
+  document.getElementById('mt').onchange=ev=>{mvF.t=ev.target.value;draw()};
+  document.getElementById('mc').onchange=ev=>{mvF.cat=ev.target.value;draw()};
+  draw();
+}
+
+function methode(){
+  app.innerHTML=`<section class="prose"><h1>Méthode et limites</h1>
+  <h2>D'où viennent les données</h2>
+  <p>Toutes les informations proviennent du fichier ouvert publié par la Haute Autorité pour la transparence de la vie publique (declarations.xml). Ce fichier ne contient que les déclarations déposées au format structuré : depuis juillet 2024 pour les députés, octobre 2023 pour les sénateurs et juillet 2023 pour les membres du gouvernement. Une partie des sénateurs renouvelés en 2026 n'a pas encore de déclaration publiée.</p>
+  <h2>Ce qui est publié, et ce qui ne l'est pas</h2>
+  <p>Pour les députés et les sénateurs, seules les déclarations d'intérêts sont utilisées. Leurs déclarations de patrimoine ne sont consultables qu'en préfecture et ne peuvent pas être republiées : ce site n'en reprend aucune donnée.</p>
+  <p>Pour les membres du gouvernement, les déclarations de patrimoine sont publiques. Le site en reprend les valeurs mobilières (comptes-titres, PEA, sociétés non cotées). Les comptes-titres y figurent pour leur valeur globale, sans le détail des lignes.</p>
+  <h2>Ce qu'est un mouvement</h2>
+  <p>La France n'impose pas aux élus de déclarer chaque achat ou vente de titres. Le site compare donc les déclarations successives d'un même élu. Un mouvement signale un écart entre deux déclarations, sans date de transaction. Une déclaration modificative qui ne reprend pas la rubrique des participations est ignorée.</p>
+  <h2>Noms de sociétés et ISIN</h2>
+  <p>Les élus écrivent le nom des sociétés librement. Les variantes évidentes sont regroupées (par exemple « Total Energies SE » et « TotalEnergies »). Dans cette maquette, les codes ISIN des principales sociétés cotées ont été rattachés à la main et restent à vérifier. Les sociétés dont la HATVP a occulté le nom ne sont pas affichées.</p>
+  <h2>Ce que le site ne dit pas</h2>
+  <p>Le site présente des faits déclarés, avec leur source. Il ne qualifie aucune situation et ne présume d'aucun conflit d'intérêts. Détenir des actions d'une société est légal et la déclaration de ces titres est précisément ce que la loi demande.</p>
+  <h2>Corrections et droit de réponse</h2>
+  <p>Un élu ou un lecteur qui relève une erreur pourra demander sa correction. Le droit de réponse sera publié sur la fiche concernée. (Procédure à définir avant la mise en ligne.)</p>
+  <p class="crumb">Données extraites le ${date(DB.built)}.</p></section>`;
+}
+function notFound(){app.innerHTML=`<h1>Page introuvable</h1><p><a href="#accueil">Retour à l'accueil</a></p>`}
+
+function route(){
+  const h=decodeURIComponent(location.hash.slice(1))||'accueil';
+  const sec=h.startsWith('e-')?'elus':h.startsWith('s-')?'societes':h;
+  document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+sec));
+  if(h==='accueil')home();else if(h==='elus')elus();else if(h==='societes')societes();else if(h==='mouvements')mouvements();else if(h==='methode')methode();
+  else if(h.startsWith('e-'))elu(h.slice(2));else if(h.startsWith('s-'))societe(h.slice(2));else notFound();
+  window.scrollTo(0,0);
+}
+addEventListener('hashchange',route);route();
+</script>

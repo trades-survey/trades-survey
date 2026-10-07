@@ -1,0 +1,35 @@
+<declarations>
+ <declaration>
+  <dateDepot>15/07/2022 10:21:32</dateDepot><uuid>u1</uuid>
+  <general>
+   <declarant><civilite>Mme</civilite><nom>DUPONT</nom><prenom>Marie</prenom><dateNaissance>01/02/1970</dateNaissance></declarant>
+   <mandat><label>Député ou sénateur</label></mandat>
+   <qualiteMandat><labelTypeMandat>Député</labelTypeMandat></qualiteMandat>
+   <organe><codeListeOrgane>ZEP</codeListeOrgane><labelOrgane>Paris(75)</labelOrgane></organe>
+   <typeDeclaration><id>DIA</id><label>Déclaration d'intérêts</label></typeDeclaration>
+  </general>
+  <participationFinanciereDto><neant>false</neant><items>
+   <items><nomSociete>TotalEnergies SE</nomSociete><evaluation>12 500,50 €</evaluation><nombreParts>200</nombreParts><capitalDetenu>0,0001</capitalDetenu><remuneration>Dividendes</remuneration><actiConseil>Non</actiConseil><commentaire>PEA</commentaire></items>
+   <items><nomSociete>SCI
+        [Données non publiées]
+    </nomSociete><evaluation>1.000</evaluation><nombreParts>50</nombreParts></items>
+  </items></participationFinanciereDto>
+ </declaration>
+ <declaration>
+  <dateDepot>01/03/2023</dateDepot><uuid>u2</uuid>
+  <general><declarant><nom>DUPONT</nom><prenom>Marie</prenom></declarant>
+   <mandat><label>Député ou sénateur</label></mandat>
+   <typeDeclaration><id>DSP</id></typeDeclaration></general>
+  <valeursEnBourseDto><items><items><nature>Actions LVMH</nature><valeur>99999</valeur></items></items></valeursEnBourseDto>
+ </declaration>
+ <declaration>
+  <dateDepot>01/06/2024</dateDepot><uuid>u3</uuid>
+  <general><declarant><nom>MARTIN</nom><prenom>Paul</prenom></declarant>
+   <mandat><label>Membre du Gouvernement</label></mandat>
+   <organe><codeListeOrgane>MIN</codeListeOrgane><labelOrgane>Ministère des armées</labelOrgane></organe>
+   <typeDeclaration><id>DSP</id></typeDeclaration></general>
+  <valeursEnBourseDto><items><items><etablissement>BNP PARIBAS</etablissement><naturePlacement>PEA</naturePlacement><valeur>30 000</valeur></items></items><neant>false</neant></valeursEnBourseDto>
+  <valeursNonEnBourseDto><items><items><denomination>SAS Exemple</denomination><participation>12.5</participation><valeurActuelle>5000</valeurActuelle></items></items></valeursNonEnBourseDto>
+  <participationFinanciereDto><neant>true</neant></participationFinanciereDto>
+ </declaration>
+</declarations>
