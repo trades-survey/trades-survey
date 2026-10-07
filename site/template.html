@@ -84,13 +84,13 @@ footer .wrap{padding-block:20px}
 </div></header>
 <div class="mock"><div class="wrap"><strong>Version de test.</strong> Données réelles de la HATVP, mises à jour chaque semaine. Présentation en cours de mise au point.</div></div>
 <main class="wrap" id="app" aria-live="polite"></main>
-<footer><div class="wrap">Source : Haute Autorité pour la transparence de la vie publique, déclarations d'intérêts (députés, sénateurs, ministres) et déclarations de situation patrimoniale des seuls membres du gouvernement. Les montants sont ceux déclarés par les élus. Une erreur ? La procédure de correction et le droit de réponse sont décrits dans la page Méthode.</div></footer>
+<footer><div class="wrap">Source : Haute Autorité pour la transparence de la vie publique, déclarations d'intérêts (députés, sénateurs, ministres, députés européens, élus locaux) et déclarations de situation patrimoniale des seuls membres du gouvernement. Les montants sont ceux déclarés par les élus. Une erreur ? La procédure de correction et le droit de réponse sont décrits dans la page Méthode.</div></footer>
 
 <script id="data" type="application/json">__DATA__</script>
 <script>
 const DB=JSON.parse(document.getElementById('data').textContent);
 const E=new Map(DB.elus.map(e=>[e.id,e])), S=new Map(DB.socs.map(s=>[s.k,s])), SID=new Map(DB.socs.map(s=>[s.id,s]));
-const CAT={depute:'Député',senateur:'Sénateur',gouvernement:'Gouvernement'};
+const CAT={depute:'Député',senateur:'Sénateur',gouvernement:'Gouvernement',depute_europeen:'Député européen',elu_local:'Élu local'};
 const MV={apparition:'Apparition',disparition:'Disparition',hausse:'Hausse',baisse:'Baisse'};
 const TD={DI:"Déclaration d'intérêts",DIA:"Déclaration d'intérêts et d'activités",DIM:"Déclaration d'intérêts modificative",DIAM:"Déclaration d'intérêts et d'activités modificative",DSP:'Déclaration de situation patrimoniale',DSPFM:'Déclaration de situation patrimoniale (fin de mandat)'};
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -120,7 +120,7 @@ function search(q){
   q=fold(q.trim());if(q.length<2)return [];
   const qi=q.replace(/\s/g,'');
   const out=[];
-  DB.elus.forEach(e=>{if(fold(eName(e)).includes(q)||fold(e.n+' '+e.p).includes(q))out.push({h:`#e-${e.id}`,t:eName(e),k:CAT[e.cat]})});
+  DB.elus.forEach(e=>{if(fold(eName(e)).includes(q)||fold(e.n+' '+e.p).includes(q))out.push({h:`#e-${e.id}`,t:eName(e),k:e.fn})});
   DB.socs.forEach(s=>{if(fold(s.name).includes(q)||fold(s.k).includes(q)||(s.isin&&s.isin.toLowerCase().includes(qi)))out.push({h:`#s-${s.id}`,t:s.name+(s.isin?` · ${s.isin}`:''),k:'Société'})});
   return out.slice(0,12);
 }
@@ -135,7 +135,7 @@ function home(){
   const top=[...DB.socs].map(s=>({s,n:holdersOf(s).length})).filter(x=>x.n).sort((a,b)=>b.n-a.n).slice(0,12);
   app.innerHTML=`
   <section><h1>Qui détient quoi, d'après leurs propres déclarations</h1>
-  <p class="lede">Les participations dans des sociétés déclarées par les députés, les sénateurs et les membres du gouvernement à la Haute Autorité pour la transparence de la vie publique, et leur évolution d'une déclaration à l'autre.</p></section>
+  <p class="lede">Les participations dans des sociétés déclarées par les députés, les sénateurs, les membres du gouvernement, les députés européens élus en France et les principaux élus locaux à la Haute Autorité pour la transparence de la vie publique, et leur évolution d'une déclaration à l'autre.</p></section>
   <section><label for="q" class="kind">Rechercher un élu, une société ou un code ISIN</label>
     <div class="search" style="margin-top:6px"><input id="q" type="search" placeholder="Ex. Air Liquide, FR0000120271, Dupont" autocomplete="off"></div>
     <div class="results" id="qr" hidden></div></section>
@@ -159,12 +159,12 @@ let eluF={q:'',cat:'',has:true};
 function elus(){
   app.innerHTML=`<section><h1>Élus</h1><p class="lede">Participations figurant dans la dernière déclaration publiée de chaque élu.</p></section>
   <div class="filters"><input id="fq" type="search" placeholder="Filtrer par nom ou département" value="${esc(eluF.q)}">
-  <select id="fc"><option value="">Tous</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option></select>
+  <select id="fc"><option value="">Tous</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option><option value="depute_europeen">Députés européens</option><option value="elu_local">Élus locaux</option></select>
   <label><input id="fh" type="checkbox" ${eluF.has?'checked':''}> Avec participations</label></div><div id="el"></div>`;
   document.getElementById('fc').value=eluF.cat;
   const draw=()=>{const L=DB.elus.filter(e=>(!eluF.cat||e.cat===eluF.cat)&&(!eluF.has||e.h.length)&&(!eluF.q||fold(eName(e)+' '+e.org).includes(fold(eluF.q))));
     paged('el',L.length,n=>L.length?`<div class="tbl"><table><thead><tr><th>Élu</th><th>Fonction</th><th>Circonscription ou ministère</th><th class="n">Lignes</th><th class="n">Valeur déclarée</th></tr></thead><tbody>${
-      L.slice(0,n).map(e=>{const v=e.h.reduce((a,h)=>a+(h.v||0),0);return `<tr><td>${eLink(e.id)}</td><td class="cat">${CAT[e.cat]}</td><td>${esc(e.org)}</td><td class="n">${e.h.length}</td><td class="n">${e.h.length?eur(v):'—'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne correspond à ces filtres.</p>')};
+      L.slice(0,n).map(e=>{const v=e.h.reduce((a,h)=>a+(h.v||0),0);return `<tr><td>${eLink(e.id)}</td><td class="cat">${esc(e.fn)}</td><td>${esc(e.org)}</td><td class="n">${e.h.length}</td><td class="n">${e.h.length?eur(v):'—'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne correspond à ces filtres.</p>')};
   document.getElementById('fq').oninput=ev=>{eluF.q=ev.target.value;draw()};
   document.getElementById('fc').onchange=ev=>{eluF.cat=ev.target.value;draw()};
   document.getElementById('fh').onchange=ev=>{eluF.has=ev.target.checked;draw()};
@@ -180,7 +180,7 @@ function elu(id){
   const lastI=I[0]||null, lastP=P[0]||null;
   const srcI=lastI?`${TD[lastI.t]||lastI.t} du ${date(lastI.d)}`:'Dernière déclaration d\'intérêts';
   app.innerHTML=`<p class="crumb"><a href="#elus">Élus</a></p>
-  <section><h1>${esc(eName(e))}</h1><div class="meta"><span>${CAT[e.cat]}</span><span>${esc(e.org)}</span>${e.cats.length>1?`<span>Aussi : ${e.cats.filter(c=>c!==e.cat).map(c=>CAT[c]).join(', ')}</span>`:''}${e.page?`<a href="${esc(e.page)}" rel="noopener" target="_blank">Fiche HATVP</a>`:''}</div></section>
+  <section><h1>${esc(eName(e))}</h1><div class="meta"><span>${esc(e.fn)}</span><span>${esc(e.org)}</span>${e.cats.length>1?`<span>Aussi : ${e.cats.filter(c=>c!==e.cat).map(c=>CAT[c]).join(', ')}</span>`:''}${e.page?`<a href="${esc(e.page)}" rel="noopener" target="_blank">Fiche HATVP</a>`:''}</div></section>
   ${hold(I,'Participations déclarées',srcI)}
   ${e.cat==='gouvernement'||P.length?hold(P,'Valeurs mobilières (patrimoine)',lastP?`${TD[lastP.t]||lastP.t} du ${date(lastP.d)}. Publiée pour les membres du gouvernement uniquement.`:'Aucune déclaration de patrimoine publiée au format ouvert.'):''}
   ${e.masked?`<p class="note">${e.masked} ligne${e.masked>1?'s':''} dont le nom a été occulté par la HATVP (le plus souvent une société civile familiale) n'${e.masked>1?'apparaissent':'apparaît'} pas ici.</p>`:''}
@@ -210,7 +210,7 @@ function societe(id){
   app.innerHTML=`<p class="crumb"><a href="#societes">Sociétés</a></p>
   <section><h1>${esc(s.name)}</h1><div class="meta">${s.isin?`<span class="mono">ISIN ${s.isin}</span><span>Rattachement manuel, à vérifier</span>`:'<span>Pas encore rattachée à un code ISIN</span>'}</div></section>
   <section><h2>Élus qui déclarent la détenir</h2>${H.length?`<div class="tbl"><table><thead><tr><th>Élu</th><th>Fonction</th><th class="n">Titres</th><th class="n">Valeur déclarée</th><th>Déclaration du</th></tr></thead><tbody>${
-    H.map(h=>{const e=E.get(h.e);return `<tr><td>${eLink(h.e)}${h.f==='patrimoine'?' <span class="cat">(patrimoine)</span>':''}</td><td class="cat">${CAT[e.cat]}</td><td class="n">${num(h.q)}</td><td class="n">${eur(h.v)}</td><td class="mono">${date(h.d)}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne la déclare dans sa dernière déclaration.</p>'}</section>
+    H.map(h=>{const e=E.get(h.e);return `<tr><td>${eLink(h.e)}${h.f==='patrimoine'?' <span class="cat">(patrimoine)</span>':''}</td><td class="cat">${esc(e.fn)}</td><td class="n">${num(h.q)}</td><td class="n">${eur(h.v)}</td><td class="mono">${date(h.d)}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne la déclare dans sa dernière déclaration.</p>'}</section>
   <section><h2>Mouvements</h2>${mvRows(DB.mv.filter(m=>m.s===s.k),{showSoc:false})}</section>
   ${names.length>1?`<p class="note">Libellés regroupés sous ce nom : ${names.map(esc).join(' · ')}</p>`:''}`;
 }
@@ -220,7 +220,7 @@ function mouvements(){
   app.innerHTML=`<section><h1>Mouvements</h1><p class="lede">Écarts constatés entre deux déclarations successives d'un même élu : une société qui apparaît ou disparaît, un nombre de titres ou une valeur qui augmente ou baisse.</p></section>
   <p class="note"><strong>Ce ne sont pas des transactions.</strong> La date « et le » est celle du dépôt de la seconde déclaration. L'achat ou la vente a eu lieu entre les deux dates, sans que l'on sache quand. Une hausse de valeur peut aussi venir du cours de bourse.</p>
   <div class="filters"><select id="mt" aria-label="Type d'écart"><option value="">Tous les écarts</option>${Object.entries(MV).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>
-  <select id="mc" aria-label="Fonction"><option value="">Tous les élus</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option></select></div><div id="ml"></div>`;
+  <select id="mc" aria-label="Fonction"><option value="">Tous les élus</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option><option value="depute_europeen">Députés européens</option><option value="elu_local">Élus locaux</option></select></div><div id="ml"></div>`;
   document.getElementById('mt').value=mvF.t;document.getElementById('mc').value=mvF.cat;
   const draw=()=>{const L=DB.mv.filter(m=>(!mvF.t||m.m===mvF.t)&&(!mvF.cat||E.get(m.e).cat===mvF.cat));paged('ml',L.length,n=>mvRows(L.slice(0,n)),50)};
   document.getElementById('mt').onchange=ev=>{mvF.t=ev.target.value;draw()};
@@ -233,7 +233,7 @@ function methode(){
   <h2>D'où viennent les données</h2>
   <p>Toutes les informations proviennent du fichier ouvert publié par la Haute Autorité pour la transparence de la vie publique (declarations.xml). Ce fichier ne contient que les déclarations déposées au format structuré : depuis juillet 2024 pour les députés, octobre 2023 pour les sénateurs et juillet 2023 pour les membres du gouvernement. Une partie des sénateurs renouvelés en 2026 n'a pas encore de déclaration publiée.</p>
   <h2>Ce qui est publié, et ce qui ne l'est pas</h2>
-  <p>Pour les députés et les sénateurs, seules les déclarations d'intérêts sont utilisées. Leurs déclarations de patrimoine ne sont consultables qu'en préfecture et ne peuvent pas être republiées : ce site n'en reprend aucune donnée.</p>
+  <p>Pour les députés, les sénateurs, les députés européens et les élus locaux, seules les déclarations d'intérêts sont utilisées. Les déclarations de patrimoine des parlementaires ne sont consultables qu'en préfecture et ne peuvent pas être republiées. Celles des élus locaux ne sont pas publiées. Ce site n'en reprend aucune donnée.</p><p>Les élus locaux concernés sont ceux que la loi oblige à déclarer : présidents et vice-présidents délégués des régions et des départements, maires et adjoints des communes de plus de 20 000 habitants, présidents et vice-présidents des grandes intercommunalités. Pour eux comme pour les sénateurs, seules les déclarations déposées au format ouvert figurent dans le fichier de la HATVP.</p>
   <p>Pour les membres du gouvernement, les déclarations de patrimoine sont publiques. Le site en reprend les valeurs mobilières (comptes-titres, PEA, sociétés non cotées). Les comptes-titres y figurent pour leur valeur globale, sans le détail des lignes.</p>
   <h2>Ce qu'est un mouvement</h2>
   <p>La France n'impose pas aux élus de déclarer chaque achat ou vente de titres. Le site compare donc les déclarations successives d'un même élu. Un mouvement signale un écart entre deux déclarations, sans date de transaction. Une déclaration modificative qui ne reprend pas la rubrique des participations est ignorée.</p>

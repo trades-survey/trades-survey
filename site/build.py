@@ -3,7 +3,13 @@ import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D=os.path.join(ROOT,'data')+'/'
 BUILT=sys.argv[1] if len(sys.argv)>1 else __import__('datetime').date.today().isoformat()
-SCOPE={'depute','senateur','gouvernement'}
+SCOPE={'depute','senateur','gouvernement','depute_europeen','elu_local'}
+FN={'depute':'Député','senateur':'Sénateur','gouvernement':'Gouvernement','depute_europeen':'Député européen'}
+LOCAL={'Elu départemental':'Élu départemental','Elu régional':'Élu régional','Collectivité à statut particulier':'Élu de collectivité à statut particulier','Maire ou adjoint municipal':'Maire ou adjoint'}
+def fn(d):
+    if d['categorie']!='elu_local': return FN[d['categorie']]
+    t=d['type_mandat']
+    return LOCAL.get(t,'Élu intercommunal' if 'EPCI' in t else 'Élu local')
 def norm(s):
     s=unicodedata.normalize('NFKD',s or '').encode('ascii','ignore').decode().upper()
     return re.sub(r'[^A-Z0-9]+',' ',s).strip()
@@ -71,7 +77,7 @@ for k,p in persons.items():
                 soc[sk]['names'][r['societe']]+=1
                 soc[sk]['holders'].append({'e':eid,'v':h['v'],'q':h['q'],'d':h['d'],'f':fam})
     cats=p['cats']; cat='gouvernement' if 'gouvernement' in cats and last['categorie']=='gouvernement' else last['categorie']
-    elus.append({'id':eid,'p':p['prenom'].title(),'n':p['nom'].upper(),'cat':cat,'cats':sorted(cats),'org':last['organe'],'mandat':last['mandat'],
+    elus.append({'id':eid,'p':p['prenom'].title(),'n':p['nom'].upper(),'cat':cat,'fn':fn(next(d for d in reversed(ds) if d['categorie']==cat)),'cats':sorted(cats),'org':last['organe'] or ('Parlement européen' if cat=='depute_europeen' else ''),'mandat':last['mandat'],
       'page':page,'masked':masked,'h':holds,
       'decls':[{'t':d['type_declaration'],'d':d['date_depot'],'m':d['modificative']=='oui','u':pdf(d)} for d in ds]})
 # mouvements
