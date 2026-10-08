@@ -6,7 +6,7 @@ donc rien de non conforme n'est publié. Voir docs/CONFORMITE.md pour la justifi
   python3 -I site/check_conformite.py                 # contrôle du build
   python3 -I site/check_conformite.py --publication   # exige aussi des mentions légales complètes
 """
-import html, json, os, re, sys
+import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = os.path.join(ROOT, 'public')
@@ -48,16 +48,8 @@ TYPES_PATRIMOINE = {'DSP', 'DSPM', 'DSPFM'}
 TODO = '[à compléter]'
 
 
-PAYPAL = r'https://(?:www\.)?paypal\.(?:com|me)/[\w./?=&%-]+'
-
-
-def scanner(page, nom, err, soutenir=''):
-    """Règles valables pour toute page HTML publiée : ressources, liens, traceurs, politique de sécurité.
-
-    soutenir : lien PayPal validé, seul lien sortant hors liste admis (bouton « Soutenir » des fiches).
-    """
-    if soutenir and re.fullmatch(PAYPAL, soutenir):
-        page = page.replace('href="' + html.escape(soutenir, quote=True) + '"', 'href=""')
+def scanner(page, nom, err):
+    """Règles valables pour toute page HTML publiée : ressources, liens, traceurs, politique de sécurité."""
     # 1. Aucune ressource tierce chargée par le navigateur (l'IP du visiteur ne part chez personne).
     for tag in re.findall(r'<(?:link|script|img|iframe|source|video|audio|embed|object)\b[^>]*>', page, re.I):
         if re.search(r'(?:src|href)\s*=\s*["\']?(?:https?:)?//', tag, re.I):
@@ -94,7 +86,7 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
     for u in re.findall(r'@import[^;]*|url\(\s*["\']?(?:https?:)?//[^)]*\)', ''.join((css or {}).values())):
         err.append(f'ressource CSS externe : {u[:120]}')
     for nom, p in (pages or {}).items():
-        scanner(p, nom, err, (idx.get('legal') or {}).get('soutenir', ''))
+        scanner(p, nom, err)
     for nom, cols in (exports or {}).items():
         extra = set(cols) - EXPORTS.get(nom, set())
         if extra:
@@ -173,9 +165,6 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
     if not re.fullmatch(r'\d{4}-\d\d-\d\d', idx.get('built', '')):
         err.append('date de mise à jour des données absente (attribution Etalab)')
     legal = idx.get('legal') or {}
-    # Lien de don : seulement un lien sortant vers PayPal, jamais un script ou un widget (voir règle 1).
-    if legal.get('soutenir') and not re.fullmatch(PAYPAL, legal['soutenir']):
-        err.append(f"lien de soutien non autorisé (PayPal uniquement) : {legal['soutenir'][:120]}")
     if publication:
         for k, nom in [('editeur', 'nom de l\'éditeur (variable EDITEUR_NOM, ou EDITEUR_ANONYME)'), ('contact', 'adresse de contact (variable EDITEUR_CONTACT)'),
                        ('hebergeur', 'hébergeur')]:

@@ -18,7 +18,6 @@ n'est archivé ni publié. `tests/test_conformite.py` vérifie que le contrôle 
 | Aucun cookie, stockage navigateur ou mesure d'audience | Art. 82 loi Informatique et libertés (pas de bandeau à prévoir) | recherche des API et traceurs |
 | Mentions légales, information RGPD, droit de réponse, CNIL | LCEN art. 6 III et IV, RGPD art. 14 | présence des textes |
 | Attribution de la source et date de mise à jour | Licence ouverte Etalab 2.0 | pied de page et date des données |
-| Lien de don uniquement vers PayPal, en lien sortant | Pas de widget tiers (règle ci-dessus), pas de redirection piégée | variable `SOUTENIR_URL` |
 | Aucune ressource tierce ni connexion sortante, même si le code change | RGPD art. 32 | politique de sécurité (CSP) dans chaque page ; HTTPS imposé par GitHub Pages |
 | Groupe politique pour les seuls députés et sénateurs en exercice | RGPD art. 9, 2, e : appartenance rendue publique par l'élu et publiée par son assemblée | catégorie de l'élu portant un groupe |
 | Exports CSV sans date de naissance, commentaire ni donnée du conjoint | Minimisation | liste blanche des colonnes de `public/donnees/*.csv` |
@@ -33,7 +32,6 @@ Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éd
    - `EDITEUR_NOM` : nom et prénom de l'éditeur, directeur de la publication ;
    - `EDITEUR_CONTACT` : adresse e-mail qui reçoit les demandes (droits RGPD, corrections, droit de réponse) ;
    - `EDITEUR_ANONYME` (facultatif) : `1` pour ne pas afficher le nom de l'éditeur (LCEN art. 6 III 2, éditeur non professionnel). L'identité doit alors être à jour chez l'hébergeur (le compte GitHub qui publie le site), et `EDITEUR_NOM` peut rester vide. `EDITEUR_CONTACT` reste obligatoire : utiliser une adresse qui ne contient pas le nom ;
-   - `SOUTENIR_URL` (facultatif) : lien de don PayPal (`https://www.paypal.com/...` ou `https://paypal.me/...`). Le site affiche alors un bouton « Soutenir » et un paragraphe « Soutien » dans les mentions. Simple lien sortant : aucun script PayPal n'est chargé, le contrôle refuse tout autre domaine ;
    - `HEBERGEUR` (facultatif) : coordonnées de l'hébergeur, si celles par défaut dans `site/build.py` (GitHub Pages) changent ou sont inexactes.
 2. Répondre aux demandes reçues à cette adresse : un mois pour les droits RGPD, trois jours pour publier un droit de réponse.
 

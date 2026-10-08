@@ -45,7 +45,7 @@ def date(d):
 
 
 class Site:
-    def __init__(self, tpl, db, soutenir=''):
+    def __init__(self, tpl, db):
         self.tpl, self.db = tpl, db
         self.DEPN, self.TD = js_dict(tpl, 'DEPN'), js_dict(tpl, 'TD')
         self.E = {e['id']: e for e in db['elus']}
@@ -59,9 +59,6 @@ class Site:
         foot = tpl[tpl.index('<footer'):tpl.index('</footer>') + 9]
         rel = lambda s: re.sub(r'href="(#[^"]*|donnees/[^"]*|flux\.xml)"', r'href="../\1"', s)
         self.header, self.footer = rel(hdr), rel(foot)
-        if soutenir:
-            a = f'<a href="{esc(soutenir)}" class="soutenir" target="_blank" rel="noopener noreferrer nofollow">Soutenir</a>'
-            self.header = self.header.replace('</nav>', a + '</nav>', 1)
 
     def dep_name(self, c):
         return f"{self.DEPN.get(c, c)}{'' if c == '099' else f' ({c})'}" if c else ''

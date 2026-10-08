@@ -212,9 +212,7 @@ HEBERGEUR_DEFAUT="GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Str
 legal={'editeur':os.environ.get('EDITEUR_NOM','').strip(),'contact':os.environ.get('EDITEUR_CONTACT','').strip(),
        'hebergeur':os.environ.get('HEBERGEUR','').strip() or HEBERGEUR_DEFAUT,
        # éditeur non professionnel anonyme (LCEN art. 6 III 2) : nom absent du site, identité connue de l'hébergeur
-       'anonyme':os.environ.get('EDITEUR_ANONYME','').strip().lower() in ('1','oui','true'),
-       # lien de don (PayPal) affiché en bouton « Soutenir », seulement s'il est renseigné
-       'soutenir':os.environ.get('SOUTENIR_URL','').strip()}
+       'anonyme':os.environ.get('EDITEUR_ANONYME','').strip().lower() in ('1','oui','true')}
 SITE_URL=(os.environ.get('SITE_URL','').strip() or 'https://trades-survey.github.io/trades-survey/').rstrip('/')+'/'
 out={'built':BUILT,'legal':legal,'elus':sorted(elus,key=lambda e:(e['n'],e['p'])),'socs':socs,'mv':sorted(mv,key=lambda m:(m['dp'],m['e'],m['s']),reverse=True)}
 PUB=os.path.join(ROOT,'public')
@@ -244,8 +242,7 @@ write('index.html',HEAD+tpl.replace('__DATA__',data).replace('<header class="top
 # 3. une page statique par élu et par société
 sys.path.insert(0,os.path.join(ROOT,'site'))
 from pages import Site, NAT, MV as MVL, date as pdate
-soutenir=legal['soutenir'] if re.fullmatch(r'https://(?:www\.)?paypal\.(?:com|me)/[\w./?=&%-]+',legal['soutenir']) else ''
-site=Site(tpl,out,soutenir)
+site=Site(tpl,out)
 for e in out['elus']: write(f"elus/{e['id']}.html",site.elu(e))
 for s_ in socs: write(f"societes/{s_['id']}.html",site.societe(s_,LABELS[s_['k']]))
 # 4. exports CSV (mêmes données que le site, sans date de naissance ni identifiant HATVP)
