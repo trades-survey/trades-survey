@@ -19,7 +19,11 @@ n'est archivé ni publié. `tests/test_conformite.py` vérifie que le contrôle 
 | Mentions légales, information RGPD, droit de réponse, CNIL | LCEN art. 6 III et IV, RGPD art. 14 | présence des textes |
 | Attribution de la source et date de mise à jour | Licence ouverte Etalab 2.0 | pied de page et date des données |
 | Lien de don uniquement vers PayPal, en lien sortant | Pas de widget tiers (règle ci-dessus), pas de redirection piégée | variable `SOUTENIR_URL` |
-| Aucune ressource tierce ni connexion sortante, même si le code change | RGPD art. 32 | politique de sécurité (CSP) dans la page ; HTTPS imposé par GitHub Pages |
+| Aucune ressource tierce ni connexion sortante, même si le code change | RGPD art. 32 | politique de sécurité (CSP) dans chaque page ; HTTPS imposé par GitHub Pages |
+| Groupe politique pour les seuls députés et sénateurs en exercice | RGPD art. 9, 2, e : appartenance rendue publique par l'élu et publiée par son assemblée | catégorie de l'élu portant un groupe |
+| Exports CSV sans date de naissance, commentaire ni donnée du conjoint | Minimisation | liste blanche des colonnes de `public/donnees/*.csv` |
+
+Le contrôle porte sur l'accueil (`index.html` et ses données réduites), sur les données complètes (`donnees/registre.json`), sur chaque fiche statique (`elus/*.html`, `societes/*.html`) et sur les en-têtes des exports CSV.
 
 Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éditeur et l'adresse de contact soient renseignés.
 
@@ -40,8 +44,8 @@ Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éd
 - **Finalité :** information du public, transparence de la vie publique.
 - **Base légale :** intérêt légitime (art. 6, 1, f). Les données sont rendues publiques par la loi et librement réutilisables (licence Etalab, open data HATVP).
 - **Personnes concernées :** députés, sénateurs, membres du gouvernement, députés européens, élus locaux soumis à déclaration ; leurs conjoints, partenaires de PACS ou concubins, pour leur seule activité professionnelle (sans nom).
-- **Données :** identité (nom, prénom), fonction, mandat et département d'élection, participations (société, titres, part du capital, valeur), dates et liens des déclarations ; activité et employeur du conjoint tels que publiés par la HATVP (ni nom, ni commentaire, ni croisement avec d'autres sources, ni recherche par employeur). Patrimoine : membres du gouvernement uniquement.
-- **Source :** open data HATVP (`declarations.xml`, `liste.csv`), téléchargé chaque lundi.
+- **Données :** identité (nom, prénom), fonction, mandat et département d'élection, groupe politique des parlementaires en exercice, participations (société, titres, part du capital, valeur), dates et liens des déclarations ; activité et employeur du conjoint tels que publiés par la HATVP (ni nom, ni commentaire, ni croisement avec d'autres sources, ni recherche par employeur). Patrimoine : membres du gouvernement uniquement.
+- **Source :** open data HATVP (`declarations.xml`, `liste.csv`), téléchargé chaque lundi ; groupes politiques : open data de l'Assemblée nationale et du Sénat (licence ouverte), rapprochés par nom et date de naissance (non publiée).
 - **Destinataires :** public. Sous-traitant : GitHub (hébergement GitHub Pages, dépôt public et exécution des mises à jour, États-Unis, cadre UE-États-Unis).
 - **Durée :** affichage aligné sur le fichier HATVP de la semaine ; archives hebdomadaires dans le dépôt public pour la traçabilité des corrections.
 - **Sécurité :** site statique sans base de données ni formulaire, HTTPS imposé par GitHub Pages, aucun secret dans le dépôt.

@@ -27,6 +27,7 @@ jobs:
       HEBERGEUR: ${{ vars.HEBERGEUR }}
       EDITEUR_ANONYME: ${{ vars.EDITEUR_ANONYME }}
       SOUTENIR_URL: ${{ vars.SOUTENIR_URL }}
+      SITE_URL: ${{ vars.SITE_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -34,6 +35,9 @@ jobs:
           python-version: "3.12"
       - name: Télécharger l'open data HATVP
         run: bash scripts/fetch_hatvp.sh
+      # Groupes politiques (open data Assemblée nationale et Sénat) : facultatif, le site se construit sans
+      - name: Télécharger les groupes politiques
+        run: python3 -I scripts/fetch_groupes.py || echo "::warning::groupes politiques indisponibles cette semaine"
       - name: Extraire participations et mouvements
         run: |
           python3 -I scripts/extract_participations.py data/raw/declarations.xml --liste data/raw/liste.csv \
