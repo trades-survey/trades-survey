@@ -32,6 +32,7 @@ header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;pad
 nav.main{display:flex;flex-wrap:wrap;gap:4px 18px;margin-left:auto}
 nav.main a{color:var(--muted);text-decoration:none;font-weight:500;padding-block:4px;border-bottom:2px solid transparent}
 nav.main a.on{color:var(--ink);border-color:var(--accent)}
+nav.main a.soutenir{color:var(--accent);font-weight:600}
 .mock{background:var(--warn-bg);color:var(--warn-ink);font-size:13px}
 .mock .wrap{padding-block:8px}
 main.wrap{padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
@@ -248,12 +249,21 @@ function methode(){
   <p class="crumb">Données extraites le ${date(DB.built)}.</p></section>`;
 }
 const LG=DB.legal, TODO='[à compléter]';
+// Bouton « Soutenir » : simple lien sortant vers PayPal (aucun script ni widget chargé).
+if(/^https:\/\/(www\.)?paypal\.(com|me)\//.test(LG.soutenir||'')){
+  const a=document.createElement('a');a.href=LG.soutenir;a.textContent='Soutenir';a.className='soutenir';a.target='_blank';a.rel='noopener noreferrer nofollow';
+  document.getElementById('nav').appendChild(a);
+  const f=document.createElement('span');f.innerHTML=` Site gratuit et sans publicité : vous pouvez le <a href="${esc(LG.soutenir)}" target="_blank" rel="noopener noreferrer nofollow">soutenir</a>.`;
+  document.querySelector('footer .wrap').appendChild(f);
+}
 const lv=x=>x?esc(x):`<mark>${TODO}</mark>`;
 const contact=()=>LG.contact?`<a href="mailto:${esc(LG.contact)}">${esc(LG.contact)}</a>`:lv('');
 function mentions(){
   app.innerHTML=`<section class="prose"><h1>Mentions légales et données personnelles</h1>
   <h2>Éditeur</h2>
-  <p>Site édité par ${lv(LG.editeur)}, à titre non professionnel. Directeur de la publication : ${lv(LG.editeur)}. Contact : ${contact()}.</p>
+  <p>${LG.anonyme?`Site édité à titre non professionnel par une personne ayant choisi de garder l'anonymat (article 6, III, 2 de la loi du 21 juin 2004) : ses coordonnées ont été communiquées à l'hébergeur ci-dessous.`:`Site édité par ${lv(LG.editeur)}, à titre non professionnel. Directeur de la publication : ${lv(LG.editeur)}.`} Contact : ${contact()}.</p>${LG.soutenir?`
+  <h2>Soutien</h2>
+  <p>Le site est gratuit, sans publicité ni contenu réservé. Les dons, facultatifs, couvrent l'hébergement et le nom de domaine et ne donnent droit à aucune contrepartie ni à aucune influence sur le contenu. Le bouton « Soutenir » mène à PayPal, qui traite le paiement selon ses propres conditions ; ce site ne reçoit ni ne conserve aucune donnée sur les donateurs en dehors de ce que PayPal lui transmet.</p>`:''}
   <h2>Hébergeur</h2>
   <p>${lv(LG.hebergeur)}</p>
   <h2>Source et licence des données</h2>

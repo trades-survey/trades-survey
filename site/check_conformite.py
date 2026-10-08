@@ -108,10 +108,13 @@ def controler(html, publication=False, css=None):
     if not re.fullmatch(r'\d{4}-\d\d-\d\d', db.get('built', '')):
         err.append('date de mise à jour des données absente (attribution Etalab)')
     legal = db.get('legal') or {}
+    # Lien de don : seulement un lien sortant vers PayPal, jamais un script ou un widget (voir règle 1).
+    if legal.get('soutenir') and not re.fullmatch(r'https://(?:www\.)?paypal\.(?:com|me)/[\w./?=&%-]+', legal['soutenir']):
+        err.append(f"lien de soutien non autorisé (PayPal uniquement) : {legal['soutenir'][:120]}")
     if publication:
-        for k, nom in [('editeur', 'nom de l\'éditeur (variable EDITEUR_NOM)'), ('contact', 'adresse de contact (variable EDITEUR_CONTACT)'),
+        for k, nom in [('editeur', 'nom de l\'éditeur (variable EDITEUR_NOM, ou EDITEUR_ANONYME)'), ('contact', 'adresse de contact (variable EDITEUR_CONTACT)'),
                        ('hebergeur', 'hébergeur')]:
-            if not legal.get(k):
+            if not legal.get(k) and not (k == 'editeur' and legal.get('anonyme')):
                 err.append(f'mentions légales incomplètes : {nom}')
         if legal.get('contact') and not re.fullmatch(r'[^@\s]+@[^@\s]+\.[^@\s]+', legal['contact']):
             err.append('adresse de contact invalide')

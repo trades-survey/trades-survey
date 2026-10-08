@@ -38,6 +38,10 @@ R = [
     cas('donnée occultée', muter(lambda d: d['elus'][0]['h'][0].update(n='[Données non publiées]')), 'occultée'),
     cas('lien source hors HATVP', muter(lambda d: d['elus'][0].update(page='https://exemple.com/x')), 'hors HATVP'),
     cas('éditeur manquant à la publication', muter(lambda d: d['legal'].update(editeur='')), 'éditeur', publication=True),
+    cas('éditeur anonyme à la publication', muter(lambda d: d['legal'].update(editeur='', anonyme=True)), None, publication=True),
+    cas('lien PayPal', muter(lambda d: d['legal'].update(soutenir='https://www.paypal.com/donate/?hosted_button_id=ABC123')), None, publication=True),
+    cas('lien de soutien hors PayPal', muter(lambda d: d['legal'].update(soutenir='https://exemple.com/don')), 'lien de soutien'),
+    cas('lien de soutien javascript', muter(lambda d: d['legal'].update(soutenir='javascript:alert(1)')), 'lien de soutien'),
     cas('politique de sécurité retirée', page(tpl=TPL.replace('http-equiv="Content-Security-Policy"', 'name="x"')), 'Content-Security-Policy'),
     cas('page mentions supprimée', page(tpl=TPL.replace('Responsable du traitement', 'Responsable')), 'RGPD'),
 ]

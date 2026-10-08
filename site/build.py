@@ -106,7 +106,11 @@ socs=[{'k':k,'id':slug(k) or 'x','name':disp(k,v),'isin':ISIN.get(k),'holders':v
 # mentions légales : renseignées par les variables du dépôt (voir docs/CONFORMITE.md)
 HEBERGEUR_DEFAUT="GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis."
 legal={'editeur':os.environ.get('EDITEUR_NOM','').strip(),'contact':os.environ.get('EDITEUR_CONTACT','').strip(),
-       'hebergeur':os.environ.get('HEBERGEUR','').strip() or HEBERGEUR_DEFAUT}
+       'hebergeur':os.environ.get('HEBERGEUR','').strip() or HEBERGEUR_DEFAUT,
+       # éditeur non professionnel anonyme (LCEN art. 6 III 2) : nom absent du site, identité connue de l'hébergeur
+       'anonyme':os.environ.get('EDITEUR_ANONYME','').strip().lower() in ('1','oui','true'),
+       # lien de don (PayPal) affiché en bouton « Soutenir », seulement s'il est renseigné
+       'soutenir':os.environ.get('SOUTENIR_URL','').strip()}
 out={'built':BUILT,'legal':legal,'elus':sorted(elus,key=lambda e:(e['n'],e['p'])),'socs':socs,'mv':sorted(mv,key=lambda m:m['dp'],reverse=True)}
 data=json.dumps(out,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 os.makedirs(os.path.join(ROOT,'public'),exist_ok=True)
