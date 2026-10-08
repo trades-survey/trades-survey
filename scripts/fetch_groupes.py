@@ -5,7 +5,11 @@ Sources : open data de l'Assemblée nationale (députés actifs et organes) et d
 (liste générale des sénateurs). Écrit data/raw/groupes.csv, qui n'est pas archivé :
 la date de naissance n'y sert qu'au rapprochement avec les déclarations HATVP.
 
-  python3 -I scripts/fetch_groupes.py [data/raw/groupes.csv]
+Chaque source est facultative. data.senat.fr ne répond pas depuis les serveurs de GitHub Actions :
+à défaut, les groupes du Sénat viennent de data/ref/senateurs_groupes.csv (nom, prénom et groupe,
+sans date de naissance), instantané à rafraîchir après un renouvellement en lançant ce script en local.
+
+  python3 -I scripts/fetch_groupes.py [data/raw/groupes.csv] [--instantane]   # --instantane : rafraîchit data/ref
 """
 import csv, io, json, os, sys, urllib.request, zipfile
 
@@ -17,8 +21,11 @@ SENAT_LIB = {'SER': 'Socialiste, Écologiste et Républicain', 'CRCE-K': 'Commun
              'GEST': 'Écologiste – Solidarité et Territoires', 'NI': 'Non inscrits'}
 
 
+REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'ref', 'senateurs_groupes.csv')
+
+
 def get(url):
-    with urllib.request.urlopen(url, timeout=120) as r:
+    with urllib.request.urlopen(url, timeout=60) as r:
         return r.read()
 
 
@@ -53,9 +60,30 @@ def senateurs():
                    'date_naissance': r['Date naissance'][:10], 'sigle': s, 'groupe': SENAT_LIB.get(s, s)}
 
 
+def senateurs_ref():
+    with open(REF, encoding='utf-8') as f:
+        for r in csv.DictReader(f):
+            yield {'chambre': 'senateur', 'prenom': r['prenom'], 'nom': r['nom'], 'date_naissance': '', 'sigle': r['sigle'], 'groupe': r['groupe']}
+
+
+def charger(nom, source, secours=None):
+    try:
+        return list(source())
+    except Exception as e:
+        print(f'::warning::{nom} : source indisponible ({e})' + (', instantané du dépôt utilisé' if secours else ''))
+        return list(secours()) if secours else []
+
+
 def main():
-    out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'raw', 'groupes.csv')
-    rows = list(deputes()) + list(senateurs())
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    out = args[0] if args else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'raw', 'groupes.csv')
+    sen = charger('Sénat', senateurs, senateurs_ref)
+    if '--instantane' in sys.argv and sen and sen[0]['date_naissance']:
+        with open(REF, 'w', newline='', encoding='utf-8') as f:
+            w = csv.writer(f)
+            w.writerow(['prenom', 'nom', 'sigle', 'groupe'])
+            w.writerows([r['prenom'], r['nom'], r['sigle'], r['groupe']] for r in sorted(sen, key=lambda r: (r['nom'], r['prenom'])))
+    rows = charger('Assemblée nationale', deputes) + sen
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, 'w', newline='', encoding='utf-8') as f:
         w = csv.DictWriter(f, fieldnames=['chambre', 'prenom', 'nom', 'date_naissance', 'sigle', 'groupe'])

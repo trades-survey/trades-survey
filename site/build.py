@@ -136,6 +136,10 @@ for r in parts: bydecl[r['declaration_id']].append(r)
 GRP={}
 if os.path.exists(D+'raw/groupes.csv'):
     for r in csv.DictReader(open(D+'raw/groupes.csv',encoding='utf-8')): GRP[(r['chambre'],norm(r['prenom']),norm(r['nom']),r['date_naissance'])]=(r['sigle'],r['groupe'])
+# instantané sans date de naissance (sénateurs, quand data.senat.fr ne répond pas) : rapprochement sur le seul nom, s'il est unique
+GRP_NOM=C.Counter(k[:3] for k in GRP)
+def groupe(cat,k):
+    return GRP.get((cat,)+k) or (GRP.get((cat,k[0],k[1],'')) if GRP_NOM[(cat,k[0],k[1])]==1 else None)
 elus=[]; soc=C.defaultdict(lambda:{'names':C.Counter(),'holders':[]}); ids={}; taken=set()
 for k,p in sorted(persons.items()):
     ds=sorted(p['decls'],key=lambda d:d['date_depot'])
@@ -172,7 +176,7 @@ for k,p in sorted(persons.items()):
     cats=p['cats']; cat='gouvernement' if 'gouvernement' in cats and last['categorie']=='gouvernement' else last['categorie']
     dcat=next(d for d in reversed(ds) if d['categorie']==cat); f=fn(dcat)
     elus.append({'id':eid,'p':p['prenom'].title(),'n':p['nom'].upper(),'cat':cat,'fn':f,'dep':departement(dcat,f,lrows),'cats':sorted(cats),'org':last['organe'] or ('Parlement européen' if cat=='depute_europeen' else ''),'mandat':last['mandat'],
-      'page':page,'masked':masked,'h':holds,'cj':cj,**({'g':g[0],'gl':g[1]} if (g:=GRP.get((cat,)+k)) else {}),
+      'page':page,'masked':masked,'h':holds,'cj':cj,**({'g':g[0],'gl':g[1]} if (g:=groupe(cat,k)) else {}),
       'decls':[{'t':d['type_declaration'],'d':d['date_depot'],'m':d['modificative']=='oui','u':pdf(d)} for d in ds]})
 # mouvements
 mv=[]
