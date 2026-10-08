@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["scripts/**", "site/**", ".github/workflows/**"]
+    paths: ["scripts/**", "site/**", "tests/**", ".github/workflows/**"]
 
 permissions:
   contents: write
@@ -20,6 +20,11 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Mentions légales (variables du dépôt, pas des secrets : elles sont publiées sur le site).
+      EDITEUR_NOM: ${{ vars.EDITEUR_NOM }}
+      EDITEUR_CONTACT: ${{ vars.EDITEUR_CONTACT }}
+      HEBERGEUR: ${{ vars.HEBERGEUR }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,6 +40,11 @@ jobs:
             -o data/out/mouvements.csv
       - name: Construire le site
         run: python3 -I site/build.py
+      # Bloque le workflow si le site construit n'est pas conforme (voir docs/CONFORMITE.md).
+      - name: Contrôler la conformité (RGPD, transparence, mentions)
+        run: |
+          python3 -I tests/test_conformite.py
+          python3 -I site/check_conformite.py
       - name: Archiver les données de la semaine
         if: github.event_name != 'push'
         run: |
@@ -43,6 +53,10 @@ jobs:
           git add data/out
           git diff --cached --quiet || git commit -m "Données HATVP du $(date -u +%F)"
           git push
+      # Avant toute mise en ligne, les mentions légales doivent être complètes.
+      - name: Contrôler les mentions avant publication
+        if: github.event_name != 'push' && env.EDITEUR_CONTACT != ''
+        run: python3 -I site/check_conformite.py --publication
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public

@@ -16,6 +16,10 @@ Règle juridique appliquée dans le code : déclarations d'intérêts pour tous,
 de patrimoine pour les seuls membres du gouvernement. Les DSP des parlementaires ne sont
 jamais lues ni republiées (`site/build.py` s'arrête si une telle ligne apparaît).
 
+Conformité (RGPD, transparence, LCEN, licence Etalab) : `site/check_conformite.py` contrôle chaque build
+et bloque archivage et publication en cas de manquement. Détail et variables à renseigner avant la mise en
+ligne : `docs/CONFORMITE.md`. Les polices sont auto-hébergées dans `site/fonts/` (licence SIL OFL).
+
 Un « mouvement » est un écart entre deux déclarations successives, pas une transaction datée.
 
 Construire en local : `bash scripts/fetch_hatvp.sh`, puis les commandes du workflow.
