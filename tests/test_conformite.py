@@ -38,6 +38,7 @@ R = [
     cas('donnée occultée', muter(lambda d: d['elus'][0]['h'][0].update(n='[Données non publiées]')), 'occultée'),
     cas('lien source hors HATVP', muter(lambda d: d['elus'][0].update(page='https://exemple.com/x')), 'hors HATVP'),
     cas('éditeur manquant à la publication', muter(lambda d: d['legal'].update(editeur='')), 'éditeur', publication=True),
+    cas('politique de sécurité retirée', page(tpl=TPL.replace('http-equiv="Content-Security-Policy"', 'name="x"')), 'Content-Security-Policy'),
     cas('page mentions supprimée', page(tpl=TPL.replace('Responsable du traitement', 'Responsable')), 'RGPD'),
 ]
 sys.exit(0 if all(R) else 1)

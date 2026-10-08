@@ -17,16 +17,16 @@ n'est archivé ni publié. `tests/test_conformite.py` vérifie que le contrôle 
 | Aucun cookie, stockage navigateur ou mesure d'audience | Art. 82 loi Informatique et libertés (pas de bandeau à prévoir) | recherche des API et traceurs |
 | Mentions légales, information RGPD, droit de réponse, CNIL | LCEN art. 6 III et IV, RGPD art. 14 | présence des textes |
 | Attribution de la source et date de mise à jour | Licence ouverte Etalab 2.0 | pied de page et date des données |
-| HTTPS forcé, en-têtes de sécurité | RGPD art. 32 | `public/.htaccess` présent |
+| Aucune ressource tierce ni connexion sortante, même si le code change | RGPD art. 32 | politique de sécurité (CSP) dans la page ; HTTPS imposé par GitHub Pages |
 
-Avant l'envoi FTP, `--publication` exige en plus que l'éditeur et l'adresse de contact soient renseignés.
+Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éditeur et l'adresse de contact soient renseignés.
 
 ## À faire par l'éditeur avant la mise en ligne
 
 1. Dans GitHub, *Settings > Secrets and variables > Actions > Variables*, créer :
    - `EDITEUR_NOM` : nom et prénom de l'éditeur, directeur de la publication ;
    - `EDITEUR_CONTACT` : adresse e-mail qui reçoit les demandes (droits RGPD, corrections, droit de réponse) ;
-   - `HEBERGEUR` (facultatif) : coordonnées de l'hébergeur, si celles par défaut dans `site/build.py` (o2switch) changent ou sont inexactes.
+   - `HEBERGEUR` (facultatif) : coordonnées de l'hébergeur, si celles par défaut dans `site/build.py` (GitHub Pages) changent ou sont inexactes.
 2. Répondre aux demandes reçues à cette adresse : un mois pour les droits RGPD, trois jours pour publier un droit de réponse.
 
 ## Registre des traitements (RGPD art. 30)
@@ -38,9 +38,9 @@ Avant l'envoi FTP, `--publication` exige en plus que l'éditeur et l'adresse de 
 - **Personnes concernées :** députés, sénateurs, membres du gouvernement, députés européens, élus locaux soumis à déclaration.
 - **Données :** identité (nom, prénom), fonction et mandat, participations (société, titres, part du capital, valeur), dates et liens des déclarations. Patrimoine : membres du gouvernement uniquement.
 - **Source :** open data HATVP (`declarations.xml`, `liste.csv`), téléchargé chaque lundi.
-- **Destinataires :** public. Sous-traitants : o2switch (hébergement, France), GitHub (dépôt privé et exécution des mises à jour, États-Unis, cadre UE-États-Unis).
-- **Durée :** affichage aligné sur le fichier HATVP de la semaine ; archives hebdomadaires dans le dépôt privé pour la traçabilité des corrections.
-- **Sécurité :** site statique sans base de données ni formulaire, HTTPS forcé, envoi FTP chiffré, dépôt privé.
+- **Destinataires :** public. Sous-traitant : GitHub (hébergement GitHub Pages, dépôt public et exécution des mises à jour, États-Unis, cadre UE-États-Unis).
+- **Durée :** affichage aligné sur le fichier HATVP de la semaine ; archives hebdomadaires dans le dépôt public pour la traçabilité des corrections.
+- **Sécurité :** site statique sans base de données ni formulaire, HTTPS imposé par GitHub Pages, aucun secret dans le dépôt.
 
 ## Ce qui reste hors du contrôle automatique
 
