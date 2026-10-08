@@ -17,7 +17,13 @@ contient « participationFinanciere » et lit chaque item qui porte un nomSociet
 
 Usage :
   python3 -I extract_participations.py declarations.xml -o participations.csv \
-      [--liste liste.csv] [--ministres-patrimoine] [--declarations-out declarations.csv]
+      [--liste liste.csv] [--ministres-patrimoine] [--declarations-out declarations.csv] \
+      [--conjoints-out conjoints.csv]
+
+--conjoints-out écrit l'activité professionnelle du conjoint déclarée dans les
+déclarations d'intérêts : activité et employeur seulement, tels que publiés par
+la HATVP. Le nom du conjoint et le commentaire ne sont jamais lus, et un champ
+occulté par la HATVP reste vide.
 """
 import argparse
 import csv
@@ -47,6 +53,9 @@ FIELDS = [
 
 DECL_FIELDS = ["declaration_id", "type_declaration", "modificative", "date_depot", "categorie",
                "prenom", "nom", "date_naissance", "type_mandat", "mandat", "organe", "section_presente"]
+
+CONJOINT_FIELDS = ["declaration_id", "neant", "activite", "employeur"]
+NEANT_RE = re.compile(r"^(n[ée]ant|aucune?|sans( objet)?|non|n/?a|-+|\.+)$", re.I)
 
 
 def local(tag):
@@ -235,6 +244,35 @@ def rows_for(decl, ministres_patrimoine, stats, seen=None):
             }
 
 
+def conjoint_rows(decl):
+    """Activité professionnelle du conjoint (déclarations d'intérêts seulement).
+
+    Ne lit que activiteProf et employeurConjoint : ni nomConjoint, ni commentaire.
+    Une section « néant » (ou dont toutes les lignes disent néant) donne une ligne neant=oui.
+    """
+    info = general_info(decl)
+    if info["type_declaration"] not in INTEREST_TYPES:
+        return []
+    section = next((c for c in decl if "activprofconjoint" in local(c.tag).lower()), None)
+    if section is None:
+        return []
+    rows = []
+    for el in section.iter():
+        leaves = {local(c.tag).lower(): text(c) for c in el if len(c) == 0}
+        if "activiteprof" not in leaves:
+            continue
+        activite = " ".join(leaves["activiteprof"].split())
+        employeur = " ".join(leaves.get("employeurconjoint", "").split())
+        activite = "" if NEANT_RE.match(activite) else activite
+        employeur = "" if NEANT_RE.match(employeur) else employeur
+        if activite or employeur:
+            rows.append({"declaration_id": info["declaration_id"], "neant": "non",
+                         "activite": activite, "employeur": employeur})
+    if not rows:
+        rows.append({"declaration_id": info["declaration_id"], "neant": "oui", "activite": "", "employeur": ""})
+    return rows
+
+
 def load_liste(path):
     """Index des métadonnées de liste.csv par (nom, prenom) pour compléter mandat/département."""
     idx = {}
@@ -254,11 +292,14 @@ def main(argv=None):
                     help="inclure les titres des DSP des membres du gouvernement")
     ap.add_argument("--declarations-out",
                     help="CSV listant toutes les déclarations retenues, y compris sans participation")
+    ap.add_argument("--conjoints-out",
+                    help="CSV de l'activité professionnelle du conjoint (activité et employeur seulement)")
     args = ap.parse_args(argv)
 
     liste = load_liste(args.liste) if args.liste else {}
     stats = {"declarations": 0, "types": {}, "dsp_ignorees": 0, "sections_neant": 0, "rows": 0}
     seen = [] if args.declarations_out else None
+    conjoints = [] if args.conjoints_out else None
     with open(args.output, "w", newline="", encoding="utf-8") as out:
         w = csv.DictWriter(out, fieldnames=FIELDS)
         w.writeheader()
@@ -277,12 +318,19 @@ def main(argv=None):
                     row["departement"] = row["departement"] or meta.get("departement", "")
                 w.writerow(row)
                 stats["rows"] += 1
+            if conjoints is not None:
+                conjoints.extend(conjoint_rows(el))
             el.clear()
     if seen is not None:
         with open(args.declarations_out, "w", newline="", encoding="utf-8") as fh:
             w = csv.DictWriter(fh, fieldnames=DECL_FIELDS)
             w.writeheader()
             w.writerows(seen)
+    if conjoints is not None:
+        with open(args.conjoints_out, "w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=CONJOINT_FIELDS)
+            w.writeheader()
+            w.writerows(conjoints)
     print(f"{stats['declarations']} déclarations lues, {stats['rows']} participations écrites "
           f"dans {args.output}", file=sys.stderr)
     print(f"types: {dict(sorted(stats['types'].items()))}", file=sys.stderr)

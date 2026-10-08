@@ -10,6 +10,7 @@ n'est archivé ni publié. `tests/test_conformite.py` vérifie que le contrôle 
 |---|---|---|
 | Aucune déclaration de patrimoine d'un élu non ministre | Art. LO 135-2 code électoral, loi 2013-907 (45 000 € d'amende) | type de déclaration de chaque ligne et de chaque lien |
 | Seuls les champs prévus sont publiés (pas de date de naissance, commentaire, rémunération, adresse) | RGPD art. 5, 1, c (minimisation) | liste blanche des champs embarqués |
+| Activité du conjoint : activité et employeur seulement, tirés d'une déclaration d'intérêts (jamais le nom ni le commentaire) | RGPD art. 5, 1, c ; le conjoint est un tiers, la HATVP publie ces champs sans son nom | liste blanche des champs et type de déclaration |
 | Aucune donnée occultée par la HATVP | Choix de la HATVP, minimisation | recherche de « [Données non publiées] » |
 | Pas d'année de naissance dans les adresses des fiches | Minimisation | identifiants des élus |
 | Liens sources uniquement vers hatvp.fr ; liens sortants vers les fiches Pappers des sociétés (simple navigation) | Exactitude (art. 5, 1, d) | liens des fiches et des PDF, domaines des liens, format des SIREN |
@@ -38,8 +39,8 @@ Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éd
 - **Responsable :** l'éditeur (`EDITEUR_NOM`, `EDITEUR_CONTACT`).
 - **Finalité :** information du public, transparence de la vie publique.
 - **Base légale :** intérêt légitime (art. 6, 1, f). Les données sont rendues publiques par la loi et librement réutilisables (licence Etalab, open data HATVP).
-- **Personnes concernées :** députés, sénateurs, membres du gouvernement, députés européens, élus locaux soumis à déclaration.
-- **Données :** identité (nom, prénom), fonction, mandat et département d'élection, participations (société, titres, part du capital, valeur), dates et liens des déclarations. Patrimoine : membres du gouvernement uniquement.
+- **Personnes concernées :** députés, sénateurs, membres du gouvernement, députés européens, élus locaux soumis à déclaration ; leurs conjoints, partenaires de PACS ou concubins, pour leur seule activité professionnelle (sans nom).
+- **Données :** identité (nom, prénom), fonction, mandat et département d'élection, participations (société, titres, part du capital, valeur), dates et liens des déclarations ; activité et employeur du conjoint tels que publiés par la HATVP (ni nom, ni commentaire, ni croisement avec d'autres sources, ni recherche par employeur). Patrimoine : membres du gouvernement uniquement.
 - **Source :** open data HATVP (`declarations.xml`, `liste.csv`), téléchargé chaque lundi.
 - **Destinataires :** public. Sous-traitant : GitHub (hébergement GitHub Pages, dépôt public et exécution des mises à jour, États-Unis, cadre UE-États-Unis).
 - **Durée :** affichage aligné sur le fichier HATVP de la semaine ; archives hebdomadaires dans le dépôt public pour la traçabilité des corrections.

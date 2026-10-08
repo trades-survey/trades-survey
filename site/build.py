@@ -69,6 +69,9 @@ for d in decl.values():
 parts=[r for r in csv.DictReader(open(D+'out/participations.csv')) if r['categorie'] in SCOPE]
 # garde-fou juridique : aucune DSP hors gouvernement
 assert not [r for r in parts if r['type_declaration'].startswith('DSP') and r['categorie']!='gouvernement']
+# activité professionnelle du conjoint (déclarations d'intérêts) : activité et employeur, jamais le nom
+conj=C.defaultdict(list)
+for r in (csv.DictReader(open(D+'out/conjoints.csv')) if os.path.exists(D+'out/conjoints.csv') else []): conj[r['declaration_id']].append(r)
 bydecl=C.defaultdict(list)
 for r in parts: bydecl[r['declaration_id']].append(r)
 elus=[]; soc=C.defaultdict(lambda:{'names':C.Counter(),'holders':[]}); ids={}; taken=set()
@@ -102,10 +105,12 @@ for k,p in sorted(persons.items()):
             if r['nature_ligne']=='participation' or fam=='patrimoine':
                 soc[sk]['names'][r['societe']]+=1
                 soc[sk]['holders'].append({'e':eid,'v':h['v'],'q':h['q'],'d':h['d'],'f':fam})
+    dc=next((d for d in reversed(ds) if not d['type_declaration'].startswith('DSP') and conj[d['declaration_id']]),None)
+    cj={'d':dc['date_depot'],'t':dc['type_declaration'],'l':[{'a':r['activite'],'e':r['employeur']} for r in conj[dc['declaration_id']] if r['neant']=='non']} if dc else None
     cats=p['cats']; cat='gouvernement' if 'gouvernement' in cats and last['categorie']=='gouvernement' else last['categorie']
     dcat=next(d for d in reversed(ds) if d['categorie']==cat); f=fn(dcat)
     elus.append({'id':eid,'p':p['prenom'].title(),'n':p['nom'].upper(),'cat':cat,'fn':f,'dep':departement(dcat,f,lrows),'cats':sorted(cats),'org':last['organe'] or ('Parlement européen' if cat=='depute_europeen' else ''),'mandat':last['mandat'],
-      'page':page,'masked':masked,'h':holds,
+      'page':page,'masked':masked,'h':holds,'cj':cj,
       'decls':[{'t':d['type_declaration'],'d':d['date_depot'],'m':d['modificative']=='oui','u':pdf(d)} for d in ds]})
 # mouvements
 mv=[]

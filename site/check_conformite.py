@@ -19,7 +19,10 @@ TRACEURS = [r'document\.cookie', r'localStorage', r'sessionStorage', r'indexedDB
             r'gtag\(', r'matomo', r'_paq', r'facebook\.net', r'hotjar', r'plausible', r'doubleclick']
 # Seuls champs que le site a le droit d'embarquer, par objet (minimisation des données).
 CHAMPS = {
-    'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls'},
+    'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls', 'cj'},
+    # activité du conjoint : activité et employeur seulement (jamais le nom ni le commentaire)
+    'conjoint': {'d', 't', 'l'},
+    'conjoint_ligne': {'a', 'e'},
     'holding': {'s', 'n', 'f', 'nl', 'v', 'q', 'c', 'd', 't'},
     'decl': {'t', 'd', 'm', 'u'},
     'soc': {'k', 'id', 'name', 'isin', 'siren', 'holders'},
@@ -69,6 +72,12 @@ def controler(html, publication=False, css=None):
                 err.append(f"type de déclaration inconnu {h['t']} : {e['id']}")
             if h['f'] == 'patrimoine' and h['t'] not in TYPES_PATRIMOINE:
                 err.append(f"famille patrimoine sur une déclaration d'intérêts : {e['id']}")
+        if e.get('cj'):
+            champs(e['cj'], 'conjoint')
+            if e['cj']['t'] not in TYPES_INTERETS:
+                err.append(f"activité du conjoint hors déclaration d'intérêts : {e['id']}")
+            for c in e['cj']['l']:
+                champs(c, 'conjoint_ligne')
         for d in e['decls']:
             champs(d, 'decl')
             if d['t'] in TYPES_PATRIMOINE and e['cat'] != 'gouvernement' and 'gouvernement' not in e['cats']:
