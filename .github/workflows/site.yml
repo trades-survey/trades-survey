@@ -10,6 +10,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: publication
@@ -18,10 +20,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FTP_SERVER: ${{ secrets.FTP_SERVER }}
-      FTP_USER: ${{ secrets.FTP_USER }}
-      FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -45,11 +43,19 @@ jobs:
           git add data/out
           git diff --cached --quiet || git commit -m "Données HATVP du $(date -u +%F)"
           git push
-      # Envoi sur o2switch (FTP chiffré), uniquement quand les trois secrets FTP existent.
-      # Le compte FTP doit pointer sur le dossier du domaine : son contenu est remplacé par public/.
-      - name: Publier sur o2switch
-        if: env.FTP_SERVER != '' && github.event_name != 'push'
-        run: |
-          sudo apt-get install -y -qq lftp
-          lftp -u "$FTP_USER,$FTP_PASSWORD" "ftp://$FTP_SERVER" \
-            -e "set ftp:ssl-force true; set ssl:verify-certificate yes; mirror -R --delete --verbose public/ ./; bye"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  # Mise en ligne sur GitHub Pages, seulement quand les mentions légales sont renseignées
+  # (variable de dépôt EDITEUR_CONTACT) et jamais sur un simple push de code.
+  deploy:
+    needs: build
+    if: github.event_name != 'push' && vars.EDITEUR_CONTACT != ''
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
