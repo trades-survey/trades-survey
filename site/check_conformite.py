@@ -26,7 +26,7 @@ CHAMPS = {
     'conjoint_ligne': {'a', 'e'},
     'holding': {'s', 'n', 'f', 'nl', 'v', 'q', 'c', 'd', 't'},
     'decl': {'t', 'd', 'm', 'u'},
-    'soc': {'k', 'id', 'name', 'isin', 'siren', 'nat', 'holders'},
+    'soc': {'k', 'id', 'name', 'isin', 'iv', 'siren', 'nat', 'holders'},
     'holder': {'e', 'v', 'q', 'd', 'f'},
     'mv': {'e', 's', 'n', 'f', 'm', 'da', 'dp', 'qa', 'qp', 'va', 'vp'},
 }
