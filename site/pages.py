@@ -167,7 +167,7 @@ class Site:
         mv = [m for m in self.db['mv'] if m['s'] == s['k']]
         names = list(dict.fromkeys([n for n in labels if n] + [m['n'] for m in mv if m['n']]))
         meta = [f'<span>{NAT[s.get("nat", "")]}</span>']
-        meta.append(f'<span class="mono">ISIN {s["isin"]}</span><span>Rattachement manuel</span>' if s['isin'] else '<span>Pas encore rattachée à un code ISIN</span>')
+        meta.append(f'<span class="mono">ISIN {s["isin"]}</span><span>' + ('Vérifié dans la liste Euronext' if s.get('iv') else 'Rattachement manuel') + '</span>' if s['isin'] else '<span>Pas encore rattachée à un code ISIN</span>')
         if s['siren']:
             meta.append(f'<span class="mono">SIREN {s["siren"]}</span>')
         meta.append(self.pappers(s))

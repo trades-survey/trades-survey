@@ -33,7 +33,7 @@ ISIN={'AIR LIQUIDE':'FR0000120073','AXA':'FR0000120628','ENGIE':'FR0010208488','
  'EDF':'FR0010242511','ARKEMA':'FR0010313833','CREDIT AGRICOLE SA':'FR0000045072','TELEPERFORMANCE':'FR0000051807','ASML HOLDING':'NL0010273215',
  'RUBIS':'FR0013269123','NOKIA':'FI0009000681','EDENRED':'FR0010908533','ESSILORLUXOTTICA':'FR0000121667','GENFIT':'FR0004163111','UBISOFT':'FR0000054470',
  'SAP':'DE0007164600','NOVARTIS':'CH0012005267','PROSUS':'NL0013654783','ELIS':'FR0012435121','VALEO':'FR0013176526','BUREAU VERITAS':'FR0006174348',
- 'PUBLICIS GROUPE':'FR0000130577','SOITEC':'FR0013227113','WORLDLINE':'FR0011981968','INDITEX':'ES0148396007','EIFFAGE':'FR0000130452',
+ 'PUBLICIS GROUPE':'FR0000130577','SOITEC':'FR0013227113','WORLDLINE':'FR00140182K6','INDITEX':'ES0148396007','EIFFAGE':'FR0000130452',
  'MICROSOFT':'US5949181045','BIOMERIEUX':'FR0013280286','PUMA':'DE0006969603','REXEL':'FR0010451203','LEGRAND':'FR0010307819','UNIBAIL RODAMCO':'FR0013326246',
  'SIEMENS':'DE0007236101','ENI':'IT0003132476','EURAZEO':'FR0000121121','BIC':'FR0000120966','GETLINK':'FR0010533075','NEOEN':'FR0011675362','TRIGANO':'FR0005691656',
  'VALNEVA':'FR0004056851','AMAZON':'US0231351067','EUTELSAT COMMUNICATIONS':'FR0010221234','ERAMET':'FR0000131757','FNAC DARTY':'FR0011476928','DERICHEBOURG':'FR0000053381',
@@ -76,6 +76,23 @@ def isin_ok(c):
         d=int(ch)*(2 if i%2==0 else 1); t+=d-9 if d>9 else d
     return re.fullmatch(r'[A-Z]{2}[A-Z0-9]{9}\d',c) and (10-t%10)%10==int(c[-1])
 assert all(isin_ok(v) for v in ISIN.values()), [k for k,v in ISIN.items() if not isin_ok(v)]
+# Contrôle des ISIN avec la liste officielle d'Euronext (scripts/fetch_euronext.py), quand elle a pu être téléchargée :
+# un ISIN présent sur Euronext sous un autre nom est retiré ; un ISIN absent (société étrangère, radiée) est gardé sans être marqué vérifié.
+VERIFIES=set()
+if os.path.exists(D+'raw/euronext.csv'):
+    EUR={r['isin']:r['name'] for r in csv.DictReader(open(D+'raw/euronext.csv',encoding='utf-8'))}
+    VIDES={'SA','SE','NV','AG','PLC','SCA','GROUP','GROUPE','HOLDING','HOLDINGS','CIE','COMPAGNIE','DE','DES','DU','LA','LE','LES','ET','INTERNATIONAL','INTL'}
+    def meme(k,nom):
+        e=norm(nom); et=set(e.split())-VIDES; ec=e.replace(' ','')
+        for c in [k]+[a for a,v in ALIAS.items() if v==k]:
+            cc=c.replace(' ','')
+            if set(c.split())-VIDES & et or cc==ec or (len(cc)>=4 and (cc in ec or ec in cc)): return True
+        return False
+    for k,c in list(ISIN.items()):
+        if c not in EUR: continue
+        if meme(k,EUR[c]): VERIFIES.add(c)
+        else: print(f"::warning::ISIN {c} retiré de {k} : Euronext le donne pour {EUR[c]}"); del ISIN[k]
+    print(f'ISIN vérifiés sur Euronext : {len(VERIFIES)}/{len(ISIN)}')
 BY_ISIN={v:k for k,v in ISIN.items()}
 # formes juridiques en fin de nom, retirées avant le regroupement (« Arkema SA » = « Arkema »)
 SUFFIX=re.compile(r'( (SA|SE|NV|AG|PLC|SCA|INC|CORP|CORPORATION|S A|N V))+$')
@@ -205,7 +222,7 @@ def disp(k,v):
     if k in DISP: return DISP[k]
     if k in ISIN: return k.title()
     return v['names'].most_common(1)[0][0] if v['names'] else k
-socs=[{'k':k,'id':slug(k) or 'x','name':disp(k,v),'isin':ISIN.get(k),'siren':SIREN.get(k),'nat':nature(k,v['names']),'holders':v['holders']} for k,v in soc.items()]
+socs=[{'k':k,'id':slug(k) or 'x','name':disp(k,v),'isin':ISIN.get(k),'iv':ISIN.get(k) in VERIFIES,'siren':SIREN.get(k),'nat':nature(k,v['names']),'holders':v['holders']} for k,v in soc.items()]
 LABELS={k:[n for n,c in v['names'].most_common()] for k,v in soc.items()}
 # mentions légales : renseignées par les variables du dépôt (voir docs/CONFORMITE.md)
 HEBERGEUR_DEFAUT="GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis."

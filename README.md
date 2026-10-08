@@ -10,6 +10,8 @@ Chaque lundi, GitHub Actions (`.github/workflows/site.yml`) :
    (`scripts/compute_mouvements.py`) ;
 3. archive les CSV de la semaine dans `data/out/` ;
 4. récupère le groupe politique des députés et sénateurs (`scripts/fetch_groupes.py`, open data Assemblée et Sénat) ;
+   télécharge la liste officielle Euronext (`scripts/fetch_euronext.py`) pour vérifier chaque ISIN : un code
+   qu'Euronext attribue à une autre société est retiré, un code confirmé est marqué vérifié ;
 5. construit le site (`site/build.py`, `site/template.html`, `site/pages.py`) et le publie sur GitHub Pages,
    dès que la variable de dépôt `EDITEUR_CONTACT` (mentions légales) est renseignée.
 
