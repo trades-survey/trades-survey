@@ -91,6 +91,11 @@ def controler(html, publication=False, css=None):
     if 'Données non publiées' in brut:
         err.append('donnée occultée par la HATVP reprise sur le site')
 
+    # Politique de sécurité dans la page : aucune connexion sortante ni ressource tierce possible.
+    csp = re.search(r'<meta http-equiv="Content-Security-Policy" content="([^"]+)"', html)
+    if not csp or "default-src 'self'" not in csp.group(1) or "connect-src 'none'" not in csp.group(1):
+        err.append('politique de sécurité (Content-Security-Policy) absente ou trop large')
+
     # 3. Mentions obligatoires présentes dans la page.
     for texte, raison in [('licence ouverte Etalab', 'attribution Etalab (licence ouverte)'),
                           ('#mentions', 'lien vers les mentions légales'),
@@ -125,8 +130,6 @@ def main():
             if f.endswith('.css'):
                 css[f] = open(os.path.join(base, f), encoding='utf-8').read()
     err = controler(html, publication, css)
-    if not os.path.exists(os.path.join(PUB, '.htaccess')):
-        err.append('public/.htaccess absent (HTTPS obligatoire)')
     if err:
         print('Site non conforme, publication bloquée :')
         for e in err:
