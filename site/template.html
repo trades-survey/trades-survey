@@ -65,7 +65,7 @@ td.n,th.n{text-align:right;font-family:var(--f-data);font-variant-numeric:tabula
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .filters select,.filters input{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
 .filters input{flex:1 1 200px;min-width:0}
-.filters label{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:14px}
+.filters label{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:14px;white-space:nowrap}
 .note{border-left:3px solid var(--line);padding:2px 0 2px 14px;color:var(--muted);font-size:14px;max-width:70ch}
 .note strong{color:var(--ink)}
 .meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:14px;margin-top:8px}
@@ -95,6 +95,25 @@ const E=new Map(DB.elus.map(e=>[e.id,e])), S=new Map(DB.socs.map(s=>[s.k,s])), S
 const CAT={depute:'Député',senateur:'Sénateur',gouvernement:'Gouvernement',depute_europeen:'Député européen',elu_local:'Élu local'};
 const MV={apparition:'Apparition',disparition:'Disparition',hausse:'Hausse',baisse:'Baisse'};
 const TD={DI:"Déclaration d'intérêts",DIA:"Déclaration d'intérêts et d'activités",DIM:"Déclaration d'intérêts modificative",DIAM:"Déclaration d'intérêts et d'activités modificative",DSP:'Déclaration de situation patrimoniale',DSPFM:'Déclaration de situation patrimoniale (fin de mandat)'};
+const DEPN={'01':'Ain','02':'Aisne','03':'Allier','04':'Alpes-de-Haute-Provence','05':'Hautes-Alpes','06':'Alpes-Maritimes','07':'Ardèche','08':'Ardennes','09':'Ariège','10':'Aube','11':'Aude','12':'Aveyron','13':'Bouches-du-Rhône','14':'Calvados','15':'Cantal','16':'Charente','17':'Charente-Maritime','18':'Cher','19':'Corrèze','2A':'Corse-du-Sud','2B':'Haute-Corse','21':"Côte-d'Or",'22':"Côtes-d'Armor",'23':'Creuse','24':'Dordogne','25':'Doubs','26':'Drôme','27':'Eure','28':'Eure-et-Loir','29':'Finistère','30':'Gard','31':'Haute-Garonne','32':'Gers','33':'Gironde','34':'Hérault','35':'Ille-et-Vilaine','36':'Indre','37':'Indre-et-Loire','38':'Isère','39':'Jura','40':'Landes','41':'Loir-et-Cher','42':'Loire','43':'Haute-Loire','44':'Loire-Atlantique','45':'Loiret','46':'Lot','47':'Lot-et-Garonne','48':'Lozère','49':'Maine-et-Loire','50':'Manche','51':'Marne','52':'Haute-Marne','53':'Mayenne','54':'Meurthe-et-Moselle','55':'Meuse','56':'Morbihan','57':'Moselle','58':'Nièvre','59':'Nord','60':'Oise','61':'Orne','62':'Pas-de-Calais','63':'Puy-de-Dôme','64':'Pyrénées-Atlantiques','65':'Hautes-Pyrénées','66':'Pyrénées-Orientales','67':'Bas-Rhin','68':'Haut-Rhin','69':'Rhône','70':'Haute-Saône','71':'Saône-et-Loire','72':'Sarthe','73':'Savoie','74':'Haute-Savoie','75':'Paris','76':'Seine-Maritime','77':'Seine-et-Marne','78':'Yvelines','79':'Deux-Sèvres','80':'Somme','81':'Tarn','82':'Tarn-et-Garonne','83':'Var','84':'Vaucluse','85':'Vendée','86':'Vienne','87':'Haute-Vienne','88':'Vosges','89':'Yonne','90':'Territoire de Belfort','91':'Essonne','92':'Hauts-de-Seine','93':'Seine-Saint-Denis','94':'Val-de-Marne','95':"Val-d'Oise",'971':'Guadeloupe','972':'Martinique','973':'Guyane','974':'La Réunion','975':'Saint-Pierre-et-Miquelon','976':'Mayotte','977':'Saint-Barthélemy','978':'Saint-Martin','986':'Wallis-et-Futuna','987':'Polynésie française','988':'Nouvelle-Calédonie','099':'Français établis hors de France'};
+const depName=c=>c?`${DEPN[c]||c}${c==='099'?'':` (${c})`}`:'';
+// Code postal ou numéro de département saisi → code du département (null si la saisie n'en est pas un)
+function depOf(q){
+  q=String(q||'').trim().toUpperCase().replace(/\s/g,'');
+  if(/^\d{5}$/.test(q)){
+    if(q.startsWith('20'))return +q<20200?'2A':'2B';
+    if(q==='97133')return '977';if(q==='97150')return '978';
+    if(/^9[78]/.test(q))return q.slice(0,3);
+    return q.slice(0,2);
+  }
+  if(/^(\d{1,3}|2[AB])$/.test(q)){const c=/^\d$/.test(q)?'0'+q:q;return DEPN[c]?c:null}
+  return null;
+}
+const DEPS=[...new Set(DB.elus.map(e=>e.dep).filter(Boolean))].sort((a,b)=>(a==='099')-(b==='099')||a.localeCompare(b));
+const depOptions=sel=>`<option value="">Tous les départements</option>${DEPS.map(c=>`<option value="${c}"${c===sel?' selected':''}>${c==='099'?'':c+' · '}${esc(DEPN[c]||c)}</option>`).join('')}`;
+// Fiche Pappers : par SIREN quand il est connu, sinon recherche sur le nom (pas pour les sociétés étrangères identifiées par leur ISIN)
+const pappers=s=>s.siren?`https://www.pappers.fr/entreprise/${s.siren}`:(s.isin&&!s.isin.startsWith('FR')?'':`https://www.pappers.fr/recherche?q=${encodeURIComponent(s.name)}`);
+const pLink=(s,label)=>{const u=pappers(s);return u?`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer nofollow">${label||(s.siren?'Fiche Pappers':'Rechercher sur Pappers')}</a>`:''};
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const eur=v=>v==null?'—':v.toLocaleString('fr-FR')+' €';
 const num=v=>v==null||v===''?'—':Number(v).toLocaleString('fr-FR');
@@ -119,9 +138,11 @@ function paged(id,total,render,step=40){
 }
 
 function search(q){
-  q=fold(q.trim());if(q.length<2)return [];
+  const dq=depOf(q);
+  q=fold(q.trim());if(q.length<2&&!dq)return [];
   const qi=q.replace(/\s/g,'');
   const out=[];
+  if(dq){const n=DB.elus.filter(e=>e.dep===dq).length;out.push({h:`#d-${dq}`,t:`${depName(dq)} : ${n} élu${n>1?'s':''}`,k:'Département'})}
   DB.elus.forEach(e=>{if(fold(eName(e)).includes(q)||fold(e.n+' '+e.p).includes(q))out.push({h:`#e-${e.id}`,t:eName(e),k:e.fn})});
   DB.socs.forEach(s=>{if(fold(s.name).includes(q)||fold(s.k).includes(q)||(s.isin&&s.isin.toLowerCase().includes(qi)))out.push({h:`#s-${s.id}`,t:s.name+(s.isin?` · ${s.isin}`:''),k:'Société'})});
   return out.slice(0,12);
@@ -138,8 +159,8 @@ function home(){
   app.innerHTML=`
   <section><h1>Qui détient quoi, d'après leurs propres déclarations</h1>
   <p class="lede">Les participations dans des sociétés déclarées par les députés, les sénateurs, les membres du gouvernement, les députés européens élus en France et les principaux élus locaux à la Haute Autorité pour la transparence de la vie publique, et leur évolution d'une déclaration à l'autre.</p></section>
-  <section><label for="q" class="kind">Rechercher un élu, une société ou un code ISIN</label>
-    <div class="search" style="margin-top:6px"><input id="q" type="search" placeholder="Ex. Air Liquide, FR0000120271, Dupont" autocomplete="off"></div>
+  <section><label for="q" class="kind">Rechercher un élu, une société, un code ISIN ou un code postal</label>
+    <div class="search" style="margin-top:6px"><input id="q" type="search" placeholder="Ex. Air Liquide, FR0000120271, Dupont, 69003" autocomplete="off"></div>
     <div class="results" id="qr" hidden></div></section>
   <section class="figs" aria-label="Chiffres clés">
     <div><b>${DB.elus.length.toLocaleString('fr-FR')}</b><span>élus avec une déclaration publiée</span></div>
@@ -157,18 +178,22 @@ function home(){
   bindSearch();
 }
 
-let eluF={q:'',cat:'',has:true};
+let eluF={q:'',cat:'',dep:'',has:true};
 function elus(){
   app.innerHTML=`<section><h1>Élus</h1><p class="lede">Participations figurant dans la dernière déclaration publiée de chaque élu.</p></section>
-  <div class="filters"><input id="fq" type="search" placeholder="Filtrer par nom ou département" value="${esc(eluF.q)}">
+  <div class="filters"><input id="fq" type="search" placeholder="Nom, département ou code postal" aria-label="Filtrer par nom, département ou code postal" value="${esc(eluF.q)}">
+  <select id="fd" aria-label="Département">${depOptions(eluF.dep)}</select>
   <select id="fc"><option value="">Tous</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option><option value="depute_europeen">Députés européens</option><option value="elu_local">Élus locaux</option></select>
   <label><input id="fh" type="checkbox" ${eluF.has?'checked':''}> Avec participations</label></div><div id="el"></div>`;
   document.getElementById('fc').value=eluF.cat;
-  const draw=()=>{const L=DB.elus.filter(e=>(!eluF.cat||e.cat===eluF.cat)&&(!eluF.has||e.h.length)&&(!eluF.q||fold(eName(e)+' '+e.org).includes(fold(eluF.q))));
-    paged('el',L.length,n=>L.length?`<div class="tbl"><table><thead><tr><th>Élu</th><th>Fonction</th><th>Circonscription ou ministère</th><th class="n">Lignes</th><th class="n">Valeur déclarée</th></tr></thead><tbody>${
-      L.slice(0,n).map(e=>{const v=e.h.reduce((a,h)=>a+(h.v||0),0);return `<tr><td>${eLink(e.id)}</td><td class="cat">${esc(e.fn)}</td><td>${esc(e.org)}</td><td class="n">${e.h.length}</td><td class="n">${e.h.length?eur(v):'—'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne correspond à ces filtres.</p>')};
+  // un code postal ou un numéro de département saisi prime sur le menu des départements
+  const draw=()=>{const qd=depOf(eluF.q);
+    const L=DB.elus.filter(e=>(!eluF.cat||e.cat===eluF.cat)&&(!eluF.has||e.h.length)&&(qd?e.dep===qd:(!eluF.dep||e.dep===eluF.dep)&&(!eluF.q||fold(eName(e)+' '+e.org+' '+depName(e.dep)).includes(fold(eluF.q)))));
+    paged('el',L.length,n=>L.length?`<div class="tbl"><table><thead><tr><th>Élu</th><th>Fonction</th><th>Circonscription ou ministère</th><th>Département</th><th class="n">Lignes</th><th class="n">Valeur déclarée</th></tr></thead><tbody>${
+      L.slice(0,n).map(e=>{const v=e.h.reduce((a,h)=>a+(h.v||0),0);return `<tr><td>${eLink(e.id)}</td><td class="cat">${esc(e.fn)}</td><td>${esc(e.org)}</td><td>${e.dep?esc(depName(e.dep)):'<span class="cat">—</span>'}</td><td class="n">${e.h.length}</td><td class="n">${e.h.length?eur(v):'—'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne correspond à ces filtres.</p>')};
   document.getElementById('fq').oninput=ev=>{eluF.q=ev.target.value;draw()};
   document.getElementById('fc').onchange=ev=>{eluF.cat=ev.target.value;draw()};
+  document.getElementById('fd').onchange=ev=>{eluF.dep=ev.target.value;draw()};
   document.getElementById('fh').onchange=ev=>{eluF.has=ev.target.checked;draw()};
   draw();
 }
@@ -182,7 +207,7 @@ function elu(id){
   const lastI=I[0]||null, lastP=P[0]||null;
   const srcI=lastI?`${TD[lastI.t]||lastI.t} du ${date(lastI.d)}`:'Dernière déclaration d\'intérêts';
   app.innerHTML=`<p class="crumb"><a href="#elus">Élus</a></p>
-  <section><h1>${esc(eName(e))}</h1><div class="meta"><span>${esc(e.fn)}</span><span>${esc(e.org)}</span>${e.cats.length>1?`<span>Aussi : ${e.cats.filter(c=>c!==e.cat).map(c=>CAT[c]).join(', ')}</span>`:''}${e.page?`<a href="${esc(e.page)}" rel="noopener" target="_blank">Fiche HATVP</a>`:''}</div></section>
+  <section><h1>${esc(eName(e))}</h1><div class="meta"><span>${esc(e.fn)}</span><span>${esc(e.org)}</span>${e.dep&&!e.org.includes(DEPN[e.dep]||'\u0000')?`<span>${esc(depName(e.dep))}</span>`:''}${e.cats.length>1?`<span>Aussi : ${e.cats.filter(c=>c!==e.cat).map(c=>CAT[c]).join(', ')}</span>`:''}${e.page?`<a href="${esc(e.page)}" rel="noopener" target="_blank">Fiche HATVP</a>`:''}</div></section>
   ${hold(I,'Participations déclarées',srcI)}
   ${e.cat==='gouvernement'||P.length?hold(P,'Valeurs mobilières (patrimoine)',lastP?`${TD[lastP.t]||lastP.t} du ${date(lastP.d)}. Publiée pour les membres du gouvernement uniquement.`:'Aucune déclaration de patrimoine publiée au format ouvert.'):''}
   ${e.masked?`<p class="note">${e.masked} ligne${e.masked>1?'s':''} dont le nom a été occulté par la HATVP (le plus souvent une société civile familiale) n'${e.masked>1?'apparaissent':'apparaît'} pas ici.</p>`:''}
@@ -198,8 +223,8 @@ function societes(){
   <div class="filters"><input id="sq" type="search" placeholder="Filtrer par nom ou ISIN" value="${esc(socF.q)}"><label><input id="sc" type="checkbox" ${socF.cot?'checked':''}> Avec ISIN seulement</label></div><div id="sl"></div>`;
   const draw=()=>{const q=fold(socF.q).replace(/\s/g,'');
     const L=DB.socs.map(s=>({s,n:holdersOf(s).length,m:DB.mv.filter(m=>m.s===s.k).length})).filter(x=>(x.n||x.m)&&(!socF.cot||x.s.isin)&&(!q||fold(x.s.name+x.s.k).replace(/\s/g,'').includes(q)||(x.s.isin||'').toLowerCase().includes(q))).sort((a,b)=>b.n-a.n||a.s.name.localeCompare(b.s.name,'fr'));
-    paged('sl',L.length,n=>L.length?`<div class="tbl"><table><thead><tr><th>Société</th><th>ISIN</th><th class="n">Élus détenteurs</th><th class="n">Mouvements</th></tr></thead><tbody>${
-      L.slice(0,n).map(x=>`<tr><td>${sLink(x.s.k)}</td><td class="mono">${x.s.isin||'<span class="cat">non rattaché</span>'}</td><td class="n">${x.n}</td><td class="n">${x.m}</td></tr>`).join('')}</tbody></table></div>`:'<p class="empty">Aucune société ne correspond.</p>',50)};
+    paged('sl',L.length,n=>L.length?`<div class="tbl"><table><thead><tr><th>Société</th><th>ISIN</th><th>Pappers</th><th class="n">Élus détenteurs</th><th class="n">Mouvements</th></tr></thead><tbody>${
+      L.slice(0,n).map(x=>`<tr><td>${sLink(x.s.k)}</td><td class="mono">${x.s.isin||'<span class="cat">non rattaché</span>'}</td><td>${pLink(x.s,x.s.siren?'Fiche':'Recherche')||'<span class="cat">—</span>'}</td><td class="n">${x.n}</td><td class="n">${x.m}</td></tr>`).join('')}</tbody></table></div>`:'<p class="empty">Aucune société ne correspond.</p>',50)};
   document.getElementById('sq').oninput=ev=>{socF.q=ev.target.value;draw()};
   document.getElementById('sc').onchange=ev=>{socF.cot=ev.target.checked;draw()};
   draw();
@@ -210,23 +235,25 @@ function societe(id){
   const H=holdersOf(s).sort((a,b)=>(b.v||0)-(a.v||0));
   const names=[...new Set([...s.holders.map(h=>h),...DB.mv.filter(m=>m.s===s.k)].map(x=>x.n).filter(Boolean))];
   app.innerHTML=`<p class="crumb"><a href="#societes">Sociétés</a></p>
-  <section><h1>${esc(s.name)}</h1><div class="meta">${s.isin?`<span class="mono">ISIN ${s.isin}</span><span>Rattachement manuel, à vérifier</span>`:'<span>Pas encore rattachée à un code ISIN</span>'}</div></section>
+  <section><h1>${esc(s.name)}</h1><div class="meta">${s.isin?`<span class="mono">ISIN ${s.isin}</span><span>Rattachement manuel, à vérifier</span>`:'<span>Pas encore rattachée à un code ISIN</span>'}${s.siren?`<span class="mono">SIREN ${s.siren}</span>`:''}${pLink(s)}</div></section>
   <section><h2>Élus qui déclarent la détenir</h2>${H.length?`<div class="tbl"><table><thead><tr><th>Élu</th><th>Fonction</th><th class="n">Titres</th><th class="n">Valeur déclarée</th><th>Déclaration du</th></tr></thead><tbody>${
     H.map(h=>{const e=E.get(h.e);return `<tr><td>${eLink(h.e)}${h.f==='patrimoine'?' <span class="cat">(patrimoine)</span>':''}</td><td class="cat">${esc(e.fn)}</td><td class="n">${num(h.q)}</td><td class="n">${eur(h.v)}</td><td class="mono">${date(h.d)}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="empty">Aucun élu ne la déclare dans sa dernière déclaration.</p>'}</section>
   <section><h2>Mouvements</h2>${mvRows(DB.mv.filter(m=>m.s===s.k),{showSoc:false})}</section>
   ${names.length>1?`<p class="note">Libellés regroupés sous ce nom : ${names.map(esc).join(' · ')}</p>`:''}`;
 }
 
-let mvF={t:'',cat:''};
+let mvF={t:'',cat:'',dep:''};
 function mouvements(){
   app.innerHTML=`<section><h1>Mouvements</h1><p class="lede">Écarts constatés entre deux déclarations successives d'un même élu : une société qui apparaît ou disparaît, un nombre de titres ou une valeur qui augmente ou baisse.</p></section>
   <p class="note"><strong>Ce ne sont pas des transactions.</strong> La date « et le » est celle du dépôt de la seconde déclaration. L'achat ou la vente a eu lieu entre les deux dates, sans que l'on sache quand. Une hausse de valeur peut aussi venir du cours de bourse.</p>
   <div class="filters"><select id="mt" aria-label="Type d'écart"><option value="">Tous les écarts</option>${Object.entries(MV).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>
-  <select id="mc" aria-label="Fonction"><option value="">Tous les élus</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option><option value="depute_europeen">Députés européens</option><option value="elu_local">Élus locaux</option></select></div><div id="ml"></div>`;
+  <select id="mc" aria-label="Fonction"><option value="">Tous les élus</option><option value="depute">Députés</option><option value="senateur">Sénateurs</option><option value="gouvernement">Gouvernement</option><option value="depute_europeen">Députés européens</option><option value="elu_local">Élus locaux</option></select>
+  <select id="md" aria-label="Département">${depOptions(mvF.dep)}</select></div><div id="ml"></div>`;
   document.getElementById('mt').value=mvF.t;document.getElementById('mc').value=mvF.cat;
-  const draw=()=>{const L=DB.mv.filter(m=>(!mvF.t||m.m===mvF.t)&&(!mvF.cat||E.get(m.e).cat===mvF.cat));paged('ml',L.length,n=>mvRows(L.slice(0,n)),50)};
+  const draw=()=>{const L=DB.mv.filter(m=>(!mvF.t||m.m===mvF.t)&&(!mvF.cat||E.get(m.e).cat===mvF.cat)&&(!mvF.dep||E.get(m.e).dep===mvF.dep));paged('ml',L.length,n=>mvRows(L.slice(0,n)),50)};
   document.getElementById('mt').onchange=ev=>{mvF.t=ev.target.value;draw()};
   document.getElementById('mc').onchange=ev=>{mvF.cat=ev.target.value;draw()};
+  document.getElementById('md').onchange=ev=>{mvF.dep=ev.target.value;draw()};
   draw();
 }
 
@@ -241,6 +268,9 @@ function methode(){
   <p>La France n'impose pas aux élus de déclarer chaque achat ou vente de titres. Le site compare donc les déclarations successives d'un même élu. Un mouvement signale un écart entre deux déclarations, sans date de transaction. Une déclaration modificative qui ne reprend pas la rubrique des participations est ignorée.</p>
   <h2>Noms de sociétés et ISIN</h2>
   <p>Les élus écrivent le nom des sociétés librement. Les variantes évidentes sont regroupées (par exemple « Total Energies SE » et « TotalEnergies »). Dans cette maquette, les codes ISIN des principales sociétés cotées ont été rattachés à la main et restent à vérifier. Les sociétés dont la HATVP a occulté le nom ne sont pas affichées.</p>
+  <h2>Département et code postal</h2>
+  <p>Le département est celui du mandat retenu pour chaque élu, tel qu'il figure dans sa déclaration ou dans la liste publiée par la HATVP : circonscription des députés et des sénateurs, département des élus départementaux et municipaux. Les élus régionaux, les membres du gouvernement et les députés européens n'en ont pas, de même que les élus de collectivités qui couvrent deux départements (Corse, Alsace). Un code postal saisi dans la recherche est ramené à son département ; il ne désigne pas la circonscription précise.</p>
+  <p>Les liens Pappers mènent à la fiche de la société lorsque son numéro SIREN a été rattaché à la main (principales sociétés cotées françaises), sinon à une recherche sur son nom, dont le premier résultat n'est pas forcément la bonne société.</p>
   <h2>Ce que le site ne dit pas</h2>
   <p>Le site présente des faits déclarés, avec leur source. Il ne qualifie aucune situation et ne présume d'aucun conflit d'intérêts. Détenir des actions d'une société est légal et la déclaration de ces titres est précisément ce que la loi demande.</p>
   <h2>Corrections et droit de réponse</h2>
@@ -272,7 +302,7 @@ function mentions(){
   <p><strong>Responsable du traitement :</strong> l'éditeur, joignable à ${contact()}.</p>
   <p><strong>Finalité :</strong> informer le public sur les participations financières que les responsables publics déclarent à la HATVP, dans le prolongement de la transparence voulue par les lois du 11 octobre 2013.</p>
   <p><strong>Base légale :</strong> l'intérêt légitime à informer le public (article 6, 1, f du RGPD). Les données sont celles que la loi impose de rendre publiques ; le site n'en ajoute aucune.</p>
-  <p><strong>Données traitées :</strong> nom, prénom, fonction, mandat et circonscription ; participations dans des sociétés (nom, nombre de titres, part du capital, valeur déclarée) ; dates des déclarations et liens vers leur source. Ne sont jamais repris : les déclarations de patrimoine des parlementaires et des élus locaux, la date de naissance, les commentaires libres, les rémunérations et activités de conseil, les données occultées par la HATVP.</p>
+  <p><strong>Données traitées :</strong> nom, prénom, fonction, mandat, circonscription et département ; participations dans des sociétés (nom, nombre de titres, part du capital, valeur déclarée) ; dates des déclarations et liens vers leur source. Ne sont jamais repris : les déclarations de patrimoine des parlementaires et des élus locaux, la date de naissance, les commentaires libres, les rémunérations et activités de conseil, les données occultées par la HATVP.</p>
   <p><strong>Source :</strong> fichier ouvert de la HATVP, téléchargé chaque semaine. Les personnes concernées sont informées par la présente page (article 14, 5, b du RGPD).</p>
   <p><strong>Durée :</strong> le site reflète l'état du fichier de la HATVP de la semaine. Une déclaration retirée par la HATVP disparaît du site à la mise à jour suivante. Les extractions hebdomadaires sont archivées dans le dépôt public du projet pour pouvoir justifier et corriger les données publiées.</p>
   <p><strong>Destinataires et transferts :</strong> les données sont publiques sur ce site. Le site est hébergé par GitHub Pages et ses mises à jour s'exécutent sur GitHub Actions (GitHub Inc., États-Unis, adhérent au cadre de protection des données UE-États-Unis).</p>
@@ -284,10 +314,11 @@ function notFound(){app.innerHTML=`<h1>Page introuvable</h1><p><a href="#accueil
 
 function route(){
   const h=decodeURIComponent(location.hash.slice(1))||'accueil';
-  const sec=h.startsWith('e-')?'elus':h.startsWith('s-')?'societes':h;
+  if(h.startsWith('d-')){eluF={q:'',cat:'',dep:DEPN[h.slice(2)]?h.slice(2):'',has:false}}
+  const sec=h.startsWith('e-')||h.startsWith('d-')?'elus':h.startsWith('s-')?'societes':h;
   document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+sec));
   if(h==='accueil')home();else if(h==='elus')elus();else if(h==='societes')societes();else if(h==='mouvements')mouvements();else if(h==='methode')methode();else if(h==='mentions')mentions();
-  else if(h.startsWith('e-'))elu(h.slice(2));else if(h.startsWith('s-'))societe(h.slice(2));else notFound();
+  else if(h.startsWith('e-'))elu(h.slice(2));else if(h.startsWith('s-'))societe(h.slice(2));else if(h.startsWith('d-'))elus();else notFound();
   window.scrollTo(0,0);
 }
 addEventListener('hashchange',route);route();
