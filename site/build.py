@@ -27,6 +27,30 @@ ISIN={'AIR LIQUIDE':'FR0000120073','AXA':'FR0000120628','ENGIE':'FR0010208488','
  'STMICROELECTRONICS':'NL0000226223','TOTALENERGIES':'FR0000120271','ACCOR':'FR0000120404','CARREFOUR':'FR0000120172','SOCIETE GENERALE':'FR0000130809',
  'ADP':'FR0010340141','VALLOUREC':'FR0013506730','EUROAPI':'FR0014008VX5','DASSAULT SYSTEMES':'FR0014003TT8','CAPGEMINI':'FR0000125338','KERING':'FR0000121485',
  'VIVENDI':'FR0000127771','HERMES':'FR0000052292','AMUNDI':'FR0004125920','TF1':'FR0000054900','ARCELORMITTAL':'LU1598757687','SOPRA STERIA':'FR0000050809','ALLIANZ':'DE0008404005'}
+# Département de l'élu, d'après le mandat retenu (code INSEE : 01-95, 2A, 2B, 971-988 ; 099 = Français de l'étranger)
+DEP_RE=re.compile(r'\(\s*(0[1-9]|[1-8]\d|9[0-5]|2[AB]|9[78]\d|099)\s*\)')
+# type_mandat de liste.csv correspondant à chaque fonction (les régions, le gouvernement et le Parlement européen n'ont pas de département)
+LISTE_MANDAT={'depute':'depute','senateur':'senateur','Élu départemental':'departement','Maire ou adjoint':'commune','Élu intercommunal':'epci','Élu de collectivité à statut particulier':'ctsp'}
+# collectivités sans code dans le libellé (la Corse et l'Alsace couvrent deux départements : pas de code)
+ORG_DEP={'HORS DE FRANCE':'099','POLYNESIE':'987','NOUVELLE CALEDONIE':'988','GUYANE':'973','MARTINIQUE':'972','SAINT MARTIN':'978','SAINT BARTHELEMY':'977','SAINT PIERRE ET MIQUELON':'975','WALLIS':'986','MAYOTTE':'976'}
+def departement(d,f,lrows):
+    if f in ('Élu régional','Gouvernement','Député européen'): return ''
+    m=DEP_RE.search(d['organe'] or '')
+    if m: return m.group(1)
+    o=norm(d['organe'])
+    for k,v in ORG_DEP.items():
+        if k in o: return v
+    tm=LISTE_MANDAT.get(d['categorie'],LISTE_MANDAT.get(f))
+    # 997 et 998 : les deux séries de sénateurs des Français de l'étranger
+    deps=C.Counter('099' if r['departement'] in ('997','998') else r['departement'] for r in lrows if r['type_mandat']==tm and r['departement'])
+    return deps.most_common(1)[0][0] if len(deps)==1 else ''
+# SIREN des sociétés cotées françaises, vérifiés dans l'annuaire des entreprises (recherche-entreprises.api.gouv.fr) le 2026-10-08
+SIREN={'TOTALENERGIES':'542051180','AIR LIQUIDE':'552096281','AXA':'572093920','ORANGE':'380129866','SANOFI':'395030844','BNP PARIBAS':'662042449',
+ 'SOCIETE GENERALE':'552120222','LVMH':'775670417','ENGIE':'542107651','DANONE':'552032534','L OREAL':'632012100','RENAULT':'441639465','SAFRAN':'562082909',
+ 'THALES':'552059024','VINCI':'552037806','KERING':'552075020','HERMES':'572076396','MICHELIN':'855200887','CAPGEMINI':'330703844','CARREFOUR':'652014051',
+ 'BOUYGUES':'572015246','SAINT GOBAIN':'542039532','SCHNEIDER ELECTRIC':'542048574','VEOLIA':'403210032','PERNOD RICARD':'582041943','ACCOR':'602036444',
+ 'ALSTOM':'389058447','VIVENDI':'343134763','ADP':'552016628','FDJ':'315065292','AMUNDI':'314222902','TF1':'326300159','DASSAULT SYSTEMES':'322306440',
+ 'SOPRA STERIA':'326820065','AIR FRANCE KLM':'552043002','VALLOUREC':'552142200','EUROAPI':'890974413'}
 def skey(name):
     n=norm(name); return ALIAS.get(n,n)
 def slug(s): return re.sub(r'[^a-z0-9]+','-',norm(s).lower()).strip('-')
@@ -79,7 +103,8 @@ for k,p in sorted(persons.items()):
                 soc[sk]['names'][r['societe']]+=1
                 soc[sk]['holders'].append({'e':eid,'v':h['v'],'q':h['q'],'d':h['d'],'f':fam})
     cats=p['cats']; cat='gouvernement' if 'gouvernement' in cats and last['categorie']=='gouvernement' else last['categorie']
-    elus.append({'id':eid,'p':p['prenom'].title(),'n':p['nom'].upper(),'cat':cat,'fn':fn(next(d for d in reversed(ds) if d['categorie']==cat)),'cats':sorted(cats),'org':last['organe'] or ('Parlement européen' if cat=='depute_europeen' else ''),'mandat':last['mandat'],
+    dcat=next(d for d in reversed(ds) if d['categorie']==cat); f=fn(dcat)
+    elus.append({'id':eid,'p':p['prenom'].title(),'n':p['nom'].upper(),'cat':cat,'fn':f,'dep':departement(dcat,f,lrows),'cats':sorted(cats),'org':last['organe'] or ('Parlement européen' if cat=='depute_europeen' else ''),'mandat':last['mandat'],
       'page':page,'masked':masked,'h':holds,
       'decls':[{'t':d['type_declaration'],'d':d['date_depot'],'m':d['modificative']=='oui','u':pdf(d)} for d in ds]})
 # mouvements
@@ -102,7 +127,7 @@ def disp(k,v):
     if k in DISP: return DISP[k]
     if k in ISIN: return k.title()
     return v['names'].most_common(1)[0][0] if v['names'] else k
-socs=[{'k':k,'id':slug(k) or 'x','name':disp(k,v),'isin':ISIN.get(k),'holders':v['holders']} for k,v in soc.items()]
+socs=[{'k':k,'id':slug(k) or 'x','name':disp(k,v),'isin':ISIN.get(k),'siren':SIREN.get(k),'holders':v['holders']} for k,v in soc.items()]
 # mentions légales : renseignées par les variables du dépôt (voir docs/CONFORMITE.md)
 HEBERGEUR_DEFAUT="GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis."
 legal={'editeur':os.environ.get('EDITEUR_NOM','').strip(),'contact':os.environ.get('EDITEUR_CONTACT','').strip(),

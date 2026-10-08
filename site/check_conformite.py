@@ -12,17 +12,17 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = os.path.join(ROOT, 'public')
 
 # Domaines vers lesquels le site peut faire des liens (navigation seulement, jamais de chargement).
-LIENS_AUTORISES = {'www.hatvp.fr', 'www.etalab.gouv.fr', 'www.cnil.fr'}
+LIENS_AUTORISES = {'www.hatvp.fr', 'www.etalab.gouv.fr', 'www.cnil.fr', 'www.pappers.fr'}
 # Mouchards, stockage côté navigateur et appels réseau : interdits (pas de bandeau cookies, pas de consentement à recueillir).
 TRACEURS = [r'document\.cookie', r'localStorage', r'sessionStorage', r'indexedDB', r'sendBeacon', r'\bfetch\(',
             r'XMLHttpRequest', r'WebSocket', r'<iframe', r'<img[^>]+src=["\']https?:', r'googletagmanager', r'google-analytics',
             r'gtag\(', r'matomo', r'_paq', r'facebook\.net', r'hotjar', r'plausible', r'doubleclick']
 # Seuls champs que le site a le droit d'embarquer, par objet (minimisation des données).
 CHAMPS = {
-    'elu': {'id', 'p', 'n', 'cat', 'fn', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls'},
+    'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls'},
     'holding': {'s', 'n', 'f', 'nl', 'v', 'q', 'c', 'd', 't'},
     'decl': {'t', 'd', 'm', 'u'},
-    'soc': {'k', 'id', 'name', 'isin', 'holders'},
+    'soc': {'k', 'id', 'name', 'isin', 'siren', 'holders'},
     'holder': {'e', 'v', 'q', 'd', 'f'},
     'mv': {'e', 's', 'n', 'f', 'm', 'da', 'dp', 'qa', 'qp', 'va', 'vp'},
 }
@@ -81,6 +81,8 @@ def controler(html, publication=False, css=None):
             err.append(f"année dans l'identifiant public : {e['id']}")
     for s in db['socs']:
         champs(s, 'soc')
+        if s.get('siren') and not re.fullmatch(r'\d{9}', s['siren']):
+            err.append(f"SIREN invalide pour {s['k']} : {s['siren']}")
         for h in s['holders']:
             champs(h, 'holder')
     for mv in db['mv']:

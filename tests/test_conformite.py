@@ -6,11 +6,11 @@ from check_conformite import controler
 
 TPL = open(os.path.join(ROOT, 'site', 'template.html'), encoding='utf-8').read()
 DB = {'built': '2026-10-05', 'legal': {'editeur': 'Éditeur Test', 'contact': 'contact@exemple.fr', 'hebergeur': 'Hébergeur'},
-      'elus': [{'id': 'jean-dupont', 'p': 'Jean', 'n': 'DUPONT', 'cat': 'depute', 'fn': 'Député', 'cats': ['depute'], 'org': 'Ain (01)',
+      'elus': [{'id': 'jean-dupont', 'p': 'Jean', 'n': 'DUPONT', 'cat': 'depute', 'fn': 'Député', 'dep': '01', 'cats': ['depute'], 'org': 'Ain (01)',
                 'mandat': 'Député', 'page': 'https://www.hatvp.fr/pages_nominatives/dupont-jean', 'masked': 0,
                 'h': [{'s': 'AXA', 'n': 'AXA', 'f': 'interets', 'nl': 'participation', 'v': 1000, 'q': '10', 'c': None, 'd': '2025-01-01', 't': 'DI'}],
                 'decls': [{'t': 'DI', 'd': '2025-01-01', 'm': False, 'u': 'https://www.hatvp.fr/livraison/dossiers/x.pdf'}]}],
-      'socs': [{'k': 'AXA', 'id': 'axa', 'name': 'AXA', 'isin': 'FR0000120628', 'holders': [{'e': 'jean-dupont', 'v': 1000, 'q': '10', 'd': '2025-01-01', 'f': 'interets'}]}],
+      'socs': [{'k': 'AXA', 'id': 'axa', 'name': 'AXA', 'isin': 'FR0000120628', 'siren': '572093920', 'holders': [{'e': 'jean-dupont', 'v': 1000, 'q': '10', 'd': '2025-01-01', 'f': 'interets'}]}],
       'mv': []}
 
 def page(db=DB, tpl=TPL):
@@ -36,6 +36,7 @@ R = [
     cas('année dans l\'identifiant', muter(lambda d: d['elus'][0].update(id='jean-dupont-1970')), "année dans l'identifiant"),
     cas('commentaire libre', muter(lambda d: d['elus'][0]['h'][0].update(com='x')), 'champ non prévu'),
     cas('donnée occultée', muter(lambda d: d['elus'][0]['h'][0].update(n='[Données non publiées]')), 'occultée'),
+    cas('SIREN invalide', muter(lambda d: d['socs'][0].update(siren='https://exemple.com')), 'SIREN invalide'),
     cas('lien source hors HATVP', muter(lambda d: d['elus'][0].update(page='https://exemple.com/x')), 'hors HATVP'),
     cas('éditeur manquant à la publication', muter(lambda d: d['legal'].update(editeur='')), 'éditeur', publication=True),
     cas('éditeur anonyme à la publication', muter(lambda d: d['legal'].update(editeur='', anonyme=True)), None, publication=True),

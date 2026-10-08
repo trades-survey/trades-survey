@@ -12,7 +12,7 @@ n'est archivé ni publié. `tests/test_conformite.py` vérifie que le contrôle 
 | Seuls les champs prévus sont publiés (pas de date de naissance, commentaire, rémunération, adresse) | RGPD art. 5, 1, c (minimisation) | liste blanche des champs embarqués |
 | Aucune donnée occultée par la HATVP | Choix de la HATVP, minimisation | recherche de « [Données non publiées] » |
 | Pas d'année de naissance dans les adresses des fiches | Minimisation | identifiants des élus |
-| Liens sources uniquement vers hatvp.fr | Exactitude (art. 5, 1, d) | liens des fiches et des PDF |
+| Liens sources uniquement vers hatvp.fr ; liens sortants vers les fiches Pappers des sociétés (simple navigation) | Exactitude (art. 5, 1, d) | liens des fiches et des PDF, domaines des liens, format des SIREN |
 | Aucune ressource tierce (polices, scripts, images) | RGPD art. 44 et jurisprudence Google Fonts : l'IP du visiteur ne doit pas partir chez un tiers | balises et CSS de la page |
 | Aucun cookie, stockage navigateur ou mesure d'audience | Art. 82 loi Informatique et libertés (pas de bandeau à prévoir) | recherche des API et traceurs |
 | Mentions légales, information RGPD, droit de réponse, CNIL | LCEN art. 6 III et IV, RGPD art. 14 | présence des textes |
@@ -39,7 +39,7 @@ Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éd
 - **Finalité :** information du public, transparence de la vie publique.
 - **Base légale :** intérêt légitime (art. 6, 1, f). Les données sont rendues publiques par la loi et librement réutilisables (licence Etalab, open data HATVP).
 - **Personnes concernées :** députés, sénateurs, membres du gouvernement, députés européens, élus locaux soumis à déclaration.
-- **Données :** identité (nom, prénom), fonction et mandat, participations (société, titres, part du capital, valeur), dates et liens des déclarations. Patrimoine : membres du gouvernement uniquement.
+- **Données :** identité (nom, prénom), fonction, mandat et département d'élection, participations (société, titres, part du capital, valeur), dates et liens des déclarations. Patrimoine : membres du gouvernement uniquement.
 - **Source :** open data HATVP (`declarations.xml`, `liste.csv`), téléchargé chaque lundi.
 - **Destinataires :** public. Sous-traitant : GitHub (hébergement GitHub Pages, dépôt public et exécution des mises à jour, États-Unis, cadre UE-États-Unis).
 - **Durée :** affichage aligné sur le fichier HATVP de la semaine ; archives hebdomadaires dans le dépôt public pour la traçabilité des corrections.
