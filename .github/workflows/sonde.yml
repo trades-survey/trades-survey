@@ -10,18 +10,17 @@ jobs:
       - name: Sonder
         run: |
           set +e
-          p(){ echo "== $1 -> $(curl -sSL --compressed -m 90 -A 'Mozilla/5.0' -o /tmp/o -w '%{http_code} %{size_download} %{url_effective}' "$1")"; }
-          p "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-v3-marches-valides/records?limit=2"; head -c 5000 /tmp/o; echo
-          p "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-v3-marches-valides"; head -c 3000 /tmp/o; echo
-          p "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets?where=search(%22decp%22)&limit=20"; python3 -c "
-          import json; d=json.load(open('/tmp/o'))
-          for x in d.get('results',[]): print(x['dataset_id'], x.get('metas',{}).get('default',{}).get('records_count'), x.get('metas',{}).get('default',{}).get('modified'))"
-          p "https://www.assemblee-nationale.fr/dyn/deontologie"; grep -oiE '.{0,200}(registre|d[ée]port).{0,200}' /tmp/o | head -20
-          p "https://www.assemblee-nationale.fr/dyn/17/amendements/0772/CION-ECO/CE198"
+          p(){ for i in 1 2 3; do r=$(curl -sSL --compressed -m 60 -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36' -H 'Accept: text/html' -o /tmp/o -w '%{http_code} %{size_download} %{url_effective}' "$1"); case $r in 503*|000*) sleep 5;; *) break;; esac; done; echo "== $1 -> $r"; grep -oE '<title>[^<]*' /tmp/o | head -1; }
+          for u in 0772/CION-ECO/CE198 0772/CION-ECO/198 AMANR5L17PO419610B0772P0D1N000198 1490/AN/12 TC1490/AN/12 0324A/AN/1548; do p "https://www.assemblee-nationale.fr/dyn/17/amendements/$u"; done
           p "https://www.assemblee-nationale.fr/dyn/17/scrutins/156"
-          p "https://echanges.dila.gouv.fr/OPENDATA/JORF/"; grep -oE 'JORF_2026[0-9-]+\.tar\.gz' /tmp/o | sort -u | tail -3; f=$(grep -oE 'JORF_2026[0-9-]+\.tar\.gz' /tmp/o | sort -u | tail -40 | head -1)
-          for f in $(grep -oE 'JORF_2026[0-9-]+\.tar\.gz' /tmp/o | sort -u | tail -60); do curl -sS -m 60 -o /tmp/j.tgz "https://echanges.dila.gouv.fr/OPENDATA/JORF/$f"; mkdir -p /tmp/j; tar -xzf /tmp/j.tgz -C /tmp/j 2>/dev/null; done
-          du -sh /tmp/j; find /tmp/j -type f | head -5; find /tmp/j -type f | wc -l
-          grep -rl "59-178" /tmp/j | head -5
-          for x in $(grep -rl "article 2-1 du décret n° 59-178" /tmp/j | head -3); do echo "---- $x"; head -c 6000 "$x"; echo; done
-          grep -rlE "d[ée]port" /tmp/j | head -5
+          q(){ curl -sS -m 60 --compressed "$1" | head -c 2500; echo; }
+          q "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-2022-marches-valides/records?limit=1"
+          q "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-2022-marches-valides/records?select=count(*)%20as%20n,sum(montant)%20as%20total&where=titulaire_id_1%3E%3D55203780600000%20and%20titulaire_id_1%3C55203780700000&group_by=acheteur_nom&order_by=total%20desc&limit=5"
+          q "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-v3-marches-valides/records?select=count(*)%20as%20n,sum(montant)%20as%20total,min(datenotification)%20as%20d0,max(datenotification)%20as%20d1&where=titulaire_id_1%3E%3D55203780600000%20and%20titulaire_id_1%3C55203780700000&limit=5"
+          curl -sSI -m 30 https://echanges.dila.gouv.fr/OPENDATA/JORF/Freemium_jorf_global_20250713-140000.tar.gz | grep -i length
+          curl -sS -m 30 https://echanges.dila.gouv.fr/OPENDATA/JORF/ -o /tmp/l; grep -oE 'JORF_2025[0-9-]+\.tar\.gz</a> +[0-9: -]+ +[0-9.]+[KMG]' /tmp/l | head -3; grep -c 'JORF_20' /tmp/l
+          for f in $(grep -oE 'JORF_2026[0-9-]+\.tar\.gz' /tmp/l | sort -u | tail -60); do curl -sS -m 60 -o /tmp/j.tgz "https://echanges.dila.gouv.fr/OPENDATA/JORF/$f"; mkdir -p /tmp/j; tar -xzf /tmp/j.tgz -C /tmp/j --wildcards '*/texte/*' '*/article/*' 2>/dev/null; done
+          find /tmp/j -path '*texte*' -name '*.xml' | head -3
+          for x in $(grep -rl --include='*.xml' "2-1 du décret n° 59-178" /tmp/j | grep '/texte/' | head -4); do echo "---- $x"; cat "$x" | head -c 4000; echo; done
+          a=$(grep -rl --include='*.xml' "ne connaît pas" /tmp/j | grep '/article/' | head -3); for x in $a; do echo "---- $x"; head -c 5000 "$x"; echo; done
+          grep -rl --include='*.xml' "2-1 du décret n° 59-178" /tmp/j | grep '/texte/version' | wc -l
