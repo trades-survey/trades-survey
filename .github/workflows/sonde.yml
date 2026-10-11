@@ -1,0 +1,34 @@
+name: Sonde temporaire des sources
+on:
+  push:
+    branches: [claude/project-thread-up8zjt]
+    paths: [".github/workflows/sonde.yml"]
+jobs:
+  sonde:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sonder
+        run: |
+          set +e
+          p(){ echo "== $1 -> $(curl -sSL -m 40 -A 'Mozilla/5.0' -o /tmp/o -w '%{http_code} %{size_download} %{url_effective}' "$1")"; }
+          p "https://www.assemblee-nationale.fr/dyn/17/amendements/0772/CION-ECO/198"
+          p "https://www.assemblee-nationale.fr/dyn/17/amendements/AMANR5L17PO419610B0772P0D1N000198"
+          p "https://www.assemblee-nationale.fr/dyn/17/scrutins/156"
+          p "https://www.assemblee-nationale.fr/dyn/deontologie"; grep -oiE 'href="[^"]*d[ée]port[^"]*"' /tmp/o | sort -u | head
+          p "https://www.assemblee-nationale.fr/dyn/la-deontologie"; grep -oiE 'href="[^"]*d[ée]port[^"]*"' /tmp/o | sort -u | head
+          p "https://www.assemblee-nationale.fr/dyn/deontologue/registre-des-deports"; grep -oiE 'href="[^"]*d[ée]port[^"]*"' /tmp/o | sort -u | head
+          p "https://www2.assemblee-nationale.fr/deontologie/le-registre-des-deports"; head -c 300 /tmp/o; echo
+          p "https://www.senat.fr/deontologie/registre-deports.html"
+          p "https://www.senat.fr/role/deontologie.html"; grep -oiE 'href="[^"]*d[ée]port[^"]*"' /tmp/o | sort -u | head
+          p "https://www.legifrance.gouv.fr/search/jorf?query=%22article+2-1+du+d%C3%A9cret+n%C2%B0+59-178%22"; grep -oE 'JORFTEXT[0-9]+' /tmp/o | sort -u | head
+          p "https://echanges.dila.gouv.fr/OPENDATA/JORF/"; head -c 1500 /tmp/o; echo
+          p "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-v3-marches-valides/records?limit=1"; head -c 3000 /tmp/o; echo
+          p "https://recherche-entreprises.api.gouv.fr/search?q=sanofi"; head -c 300 /tmp/o; echo
+          p "https://www.data.gouv.fr/api/1/datasets/?q=decp&page_size=15"
+          python3 -c "
+          import json
+          d=json.load(open('/tmp/o'))
+          for x in d['data']:
+            print(x['id'],'|',x['title'],'|',(x['organization'] or {}).get('name'),'|',x.get('last_update'))
+            for r in x['resources'][:8]: print('    ',r['format'],r.get('filesize'),r['title'][:60],r['url'])
+          "
