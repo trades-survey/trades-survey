@@ -2,7 +2,7 @@
 import copy, json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'site'))
-from check_conformite import controler
+from check_conformite import controler, qualifications
 
 TPL = open(os.path.join(ROOT, 'site', 'template.html'), encoding='utf-8').read()
 DB = {'built': '2026-10-05', 'legal': {'editeur': 'Éditeur Test', 'contact': 'contact@exemple.fr', 'hebergeur': 'Hébergeur'},
@@ -67,5 +67,20 @@ R = [
     cas('fiche avec un lien PayPal', 'domaine non prévu', pages={'elus/x.html': FICHE.replace('</nav>', '<a href="https://www.paypal.com/donate/?hosted_button_id=ABC123">Soutenir</a></nav>')}),
     cas('données complètes absentes', 'introuvables', db=None),
     cas('page mentions supprimée', 'RGPD', tpl=TPL.replace('Responsable du traitement', 'Responsable')),
+    cas('activités déclarées', None, db=muter(lambda d: d['elus'][0].update(ac={'d': '2025-01-01', 't': 'DI', 'l': [{'r': 'conseil', 'i': 'Conseil', 'o': 'Cabinet X', 'db': '01/2020', 'fi': ''}]}))),
+    cas('rémunération déclarée par année', None, db=muter(lambda d: d['elus'][0].update(ac={'d': '2025-01-01', 't': 'DI', 'l': [{'r': 'conseil', 'i': 'Conseil', 'o': 'X', 'db': '', 'fi': '', 'bn': 'Net', 'rm': [['2024', 10000]]}]}))),
+    cas('rémunération en texte libre', 'rémunération mal formée', db=muter(lambda d: d['elus'][0].update(ac={'d': '2025-01-01', 't': 'DI', 'l': [{'r': 'conseil', 'i': 'Conseil', 'o': 'X', 'db': '', 'fi': '', 'bn': 'Net', 'rm': [['2024', '10 000 [Données non publiées]']]}]}))),
+    cas('autre champ sur une activité', 'champ non prévu', db=muter(lambda d: d['elus'][0].update(ac={'d': '2025-01-01', 't': 'DI', 'l': [{'r': 'conseil', 'i': 'Conseil', 'o': 'X', 'db': '', 'fi': '', 'commentaire': 'x'}]}))),
+    cas('activités tirées du patrimoine', "autre déclaration que la déclaration d'intérêts", db=muter(lambda d: d['elus'][0].update(ac={'d': '2025-01-01', 't': 'DSP', 'l': []}))),
+    cas('amendements d\'un élu local', 'non député', db=muter(lambda d: d['elus'][0].update(cat='elu_local', an=[{'k': 'vote', 'n': '1', 'ti': 'x', 'd': '2025-01-01', 'so': 'adopté', 'p': 'pour', 's': ['AXA']}]))),
+    cas('commission d\'un ministre', 'non parlementaire', db=muter(lambda d: d['elus'][0].update(cat='gouvernement', com='Commission des finances'))),
+    cas('dirigeants d\'un lobby', 'champ non prévu', db=muter(lambda d: d['socs'][0].update(lob=[{'nom': 'AXA', 'siren': '', 'id': '', 'depense': '', 'exercice': '', 'n': 1, 'np': 0, 'ng': 0, 'objets': [], 'lien': 'nom', 'dirigeants': ['X']}]))),
+    cas('lien vers l\'Assemblée nationale', None, pages={'elus/x.html': FICHE.replace('</nav>', '<a href="https://www.assemblee-nationale.fr/dyn/17/scrutins/1">Scrutin</a></nav>')}),
 ]
+for nom, texte, attendu in [('qualification dans le gabarit', "<p>Ce député est en conflit d'intérêts.</p>", True),
+                            ('négation acceptée', "<p>Il ne présume d'aucun conflit d'intérêts.</p>", False),
+                            ('corruption dans une fiche', "f'<p>Soupçon de corruption</p>'", True)]:
+    ok = bool(qualifications({'x': texte})) == attendu
+    print(('ok   ' if ok else 'ÉCHEC'), nom)
+    R.append(ok)
 sys.exit(0 if all(R) else 1)

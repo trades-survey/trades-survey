@@ -12,13 +12,17 @@ Chaque lundi, GitHub Actions (`.github/workflows/site.yml`) :
 4. récupère le groupe politique des députés et sénateurs (`scripts/fetch_groupes.py`, open data Assemblée et Sénat) ;
    télécharge la liste officielle Euronext (`scripts/fetch_euronext.py`) pour vérifier chaque ISIN : un code
    qu'Euronext attribue à une autre société est retiré, un code confirmé est marqué vérifié ;
+   récupère les sources des croisements (`site/croisements.py`), toutes facultatives : répertoire des représentants
+   d'intérêts (`scripts/fetch_lobbying.py`), amendements et scrutins de l'Assemblée (`scripts/fetch_assemblee.py`),
+   marchés publics (`scripts/fetch_decp.py`) et décrets de déport des ministres au Journal officiel
+   (`scripts/fetch_deports.py`, état archivé dans `data/ref/deports.json`) ;
 5. construit le site (`site/build.py`, `site/template.html`, `site/pages.py`) et le publie sur GitHub Pages,
    dès que la variable de dépôt `EDITEUR_CONTACT` (mentions légales) est renseignée.
 
 Le site construit dans `public/` comprend l'accueil (listes, filtres et recherche ; l'état des filtres et du tri est dans
 l'adresse, par exemple `#elus?cat=depute&dep=69&tri=-v`), une page statique par élu (`elus/<id>.html`) et par société
 (`societes/<id>.html`), les exports `donnees/*.csv` et `donnees/registre.json`, un flux RSS des mouvements (`flux.xml`)
-et un `sitemap.xml`. La variable de dépôt `SITE_URL` donne l'adresse publique utilisée par le flux et le sitemap
+et un `sitemap.xml`. La page Chiffres donne une vue d'ensemble par secteur, par groupe et par fonction. La variable de dépôt `SITE_URL` donne l'adresse publique utilisée par le flux et le sitemap
 (par défaut `https://trades-survey.github.io/trades-survey/`).
 
 Règle juridique appliquée dans le code : déclarations d'intérêts pour tous, déclarations

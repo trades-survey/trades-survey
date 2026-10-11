@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Télécharge le groupe politique des députés et des sénateurs en exercice (licence ouverte).
+"""Télécharge le groupe politique et la commission permanente des députés et des sénateurs en exercice (licence ouverte).
 
 Sources : open data de l'Assemblée nationale (députés actifs et organes) et du Sénat
 (liste générale des sénateurs). Écrit data/raw/groupes.csv, qui n'est pas archivé :
-la date de naissance n'y sert qu'au rapprochement avec les déclarations HATVP.
+la date de naissance n'y sert qu'au rapprochement avec les déclarations HATVP. Pour les députés, il donne aussi
+la date de prise de fonction (délai de dépôt de la déclaration d'intérêts) et l'identifiant de l'Assemblée
+(rapprochement avec les amendements et les scrutins, scripts/fetch_assemblee.py).
 
 Chaque source est facultative. data.senat.fr ne répond pas depuis les serveurs de GitHub Actions :
 à défaut, les groupes du Sénat viennent de data/ref/senateurs_groupes.csv (nom, prénom et groupe,
-sans date de naissance), instantané à rafraîchir après un renouvellement en lançant ce script en local.
+commission, sans date de naissance), instantané à rafraîchir après un renouvellement en lançant ce script en local.
 
   python3 -I scripts/fetch_groupes.py [data/raw/groupes.csv] [--instantane]   # --instantane : rafraîchit data/ref
 """
@@ -31,12 +33,14 @@ def get(url):
 
 def deputes():
     z = zipfile.ZipFile(io.BytesIO(get(AN)))
-    gp = {}
+    gp, com = {}, {}
     for n in z.namelist():
         if '/organe/' in n:
             o = json.loads(z.read(n))['organe']
             if o['codeType'] == 'GP':
                 gp[o['uid']] = (o['libelleAbrev'], o['libelle'])
+            elif o['codeType'] == 'COMPER':
+                com[o['uid']] = o['libelle']
     for n in z.namelist():
         if '/acteur/' not in n:
             continue
@@ -44,10 +48,18 @@ def deputes():
         ms = a['mandats']['mandat']
         ms = ms if isinstance(ms, list) else [ms]
         g = next((gp[m['organes']['organeRef']] for m in ms if m['typeOrgane'] == 'GP' and not m.get('dateFin') and m['organes']['organeRef'] in gp), None)
+        actif = [m for m in ms if not m.get('dateFin')]
+        c = next((m for m in actif if m['typeOrgane'] == 'COMPER' and m['organes']['organeRef'] in com), None)
+        an = next((m for m in actif if m['typeOrgane'] == 'ASSEMBLEE'), None)
         if g:
             i = a['etatCivil']
+            uid = a['uid']['#text'] if isinstance(a['uid'], dict) else a['uid']
             yield {'chambre': 'depute', 'prenom': i['ident']['prenom'], 'nom': i['ident']['nom'],
-                   'date_naissance': i['infoNaissance']['dateNais'][:10], 'sigle': g[0], 'groupe': g[1]}
+                   'date_naissance': i['infoNaissance']['dateNais'][:10], 'sigle': g[0], 'groupe': g[1],
+                   'commission': com[c['organes']['organeRef']] if c else '',
+                   'fonction_commission': c['infosQualite']['codeQualite'] if c else '',
+                   'debut_mandat': ((an.get('mandature') or {}).get('datePriseFonction') or an['dateDebut'] or '')[:10] if an else '',
+                   'acteur': uid}
 
 
 def senateurs():
@@ -57,13 +69,15 @@ def senateurs():
         if r['État'] == 'ACTIF' and r['Groupe politique']:
             s = r['Groupe politique']
             yield {'chambre': 'senateur', 'prenom': r['Prénom usuel'], 'nom': r['Nom usuel'],
-                   'date_naissance': r['Date naissance'][:10], 'sigle': s, 'groupe': SENAT_LIB.get(s, s)}
+                   'date_naissance': r['Date naissance'][:10], 'sigle': s, 'groupe': SENAT_LIB.get(s, s),
+                   'commission': r.get('Commission permanente', '')}
 
 
 def senateurs_ref():
     with open(REF, encoding='utf-8') as f:
         for r in csv.DictReader(f):
-            yield {'chambre': 'senateur', 'prenom': r['prenom'], 'nom': r['nom'], 'date_naissance': '', 'sigle': r['sigle'], 'groupe': r['groupe']}
+            yield {'chambre': 'senateur', 'prenom': r['prenom'], 'nom': r['nom'], 'date_naissance': '', 'sigle': r['sigle'], 'groupe': r['groupe'],
+                   'commission': r.get('commission', '')}
 
 
 def charger(nom, source, secours=None):
@@ -81,12 +95,13 @@ def main():
     if '--instantane' in sys.argv and sen and sen[0]['date_naissance']:
         with open(REF, 'w', newline='', encoding='utf-8') as f:
             w = csv.writer(f)
-            w.writerow(['prenom', 'nom', 'sigle', 'groupe'])
-            w.writerows([r['prenom'], r['nom'], r['sigle'], r['groupe']] for r in sorted(sen, key=lambda r: (r['nom'], r['prenom'])))
+            w.writerow(['prenom', 'nom', 'sigle', 'groupe', 'commission'])
+            w.writerows([r['prenom'], r['nom'], r['sigle'], r['groupe'], r['commission']] for r in sorted(sen, key=lambda r: (r['nom'], r['prenom'])))
     rows = charger('Assemblée nationale', deputes) + sen
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, 'w', newline='', encoding='utf-8') as f:
-        w = csv.DictWriter(f, fieldnames=['chambre', 'prenom', 'nom', 'date_naissance', 'sigle', 'groupe'])
+        w = csv.DictWriter(f, fieldnames=['chambre', 'prenom', 'nom', 'date_naissance', 'sigle', 'groupe', 'commission',
+                                          'fonction_commission', 'debut_mandat', 'acteur'], restval='')
         w.writeheader()
         w.writerows(rows)
     print(f"{sum(r['chambre'] == 'depute' for r in rows)} députés et {sum(r['chambre'] == 'senateur' for r in rows)} sénateurs avec un groupe")

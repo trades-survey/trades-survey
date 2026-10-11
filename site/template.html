@@ -78,16 +78,18 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 footer .wrap{padding-block:20px}
 .prose p{max-width:68ch;margin:0 0 12px}
 .prose h2{margin-top:18px}
+h3.kind{margin:16px 0 6px}
+section ul{margin:6px 0;padding-left:20px}
 </style>
 
 <header class="top"><div class="wrap">
   <a class="brand" href="#accueil">Registre des élus actionnaires<small>Participations déclarées à la HATVP</small></a>
   <nav class="main" id="nav">
-    <a href="#accueil">Accueil</a><a href="#elus">Élus</a><a href="#societes">Sociétés</a><a href="#mouvements">Mouvements</a><a href="#methode">Méthode</a><a href="#mentions">Mentions légales</a>
+    <a href="#accueil">Accueil</a><a href="#elus">Élus</a><a href="#societes">Sociétés</a><a href="#mouvements">Mouvements</a><a href="#chiffres">Chiffres</a><a href="#methode">Méthode</a><a href="#mentions">Mentions légales</a>
   </nav>
 </div></header>
 <main class="wrap" id="app" aria-live="polite"></main>
-<footer><div class="wrap">Source : Haute Autorité pour la transparence de la vie publique, déclarations d'intérêts (députés, sénateurs, ministres, députés européens, élus locaux) et déclarations de situation patrimoniale des seuls membres du gouvernement. Les montants sont ceux déclarés par les élus. Données publiées par la HATVP sous <a href="https://www.etalab.gouv.fr/licence-ouverte-open-licence/" rel="noopener" target="_blank">licence ouverte Etalab 2.0</a>, retraitées par ce site (extraction des participations, regroupement des noms de sociétés, calcul des écarts). Groupes politiques : open data de l'Assemblée nationale et du Sénat (licence ouverte). Une erreur ? Voir <a href="#methode">corrections et droit de réponse</a>. <a href="donnees/participations.csv">Télécharger les données</a> · <a href="flux.xml">Flux RSS</a>. <a href="#mentions">Mentions légales et données personnelles</a>. Ce site ne dépose aucun cookie et ne mesure pas l'audience.</div></footer>
+<footer><div class="wrap">Source : Haute Autorité pour la transparence de la vie publique, déclarations d'intérêts (députés, sénateurs, ministres, députés européens, élus locaux) et déclarations de situation patrimoniale des seuls membres du gouvernement. Les montants sont ceux déclarés par les élus. Données publiées par la HATVP sous <a href="https://www.etalab.gouv.fr/licence-ouverte-open-licence/" rel="noopener" target="_blank">licence ouverte Etalab 2.0</a>, retraitées par ce site (extraction des participations, regroupement des noms de sociétés, calcul des écarts). Groupes politiques, commissions, amendements et scrutins : open data de l'Assemblée nationale et du Sénat (licence ouverte). Représentants d'intérêts : répertoire de la HATVP. Marchés publics : données essentielles de la commande publique. Décrets de déport : Journal officiel (DILA). Cours : Euronext. Une erreur ? Voir <a href="#methode">corrections et droit de réponse</a>. <a href="donnees/participations.csv">Télécharger les données</a> · <a href="flux.xml">Flux RSS</a>. <a href="#mentions">Mentions légales et données personnelles</a>. Ce site ne dépose aucun cookie et ne mesure pas l'audience.</div></footer>
 
 <script id="data" type="application/json">__DATA__</script>
 <script>
@@ -96,6 +98,7 @@ const E=new Map(DB.elus.map(e=>[e.id,e])), S=new Map(DB.socs.map(s=>[s.k,s])), S
 const CAT={depute:'Député',senateur:'Sénateur',gouvernement:'Gouvernement',depute_europeen:'Député européen',elu_local:'Élu local'};
 const MV={apparition:'Apparition',disparition:'Disparition',hausse:'Hausse',baisse:'Baisse',valeur:'Variation de valeur'};
 const NAT={cotee:'Cotée',mutualiste:'Parts sociales',fonds:'Compte ou fonds',non_cotee:'Non cotée','':'Non déterminée'};
+const SECT={energie:'Énergie',banque:"Banque, assurance, gestion d'actifs",defense:'Défense, aéronautique, spatial',sante:'Santé, pharmacie',numerique:'Numérique, télécoms, électronique',btp:'BTP, immobilier, concessions',transport:'Automobile, transport',conso:'Luxe, consommation, distribution',agro:'Agroalimentaire, boissons',industrie:'Industrie, chimie, matériaux',medias:'Médias, publicité, jeux',environnement:"Eau, déchets, services à l'environnement",services:'Services aux entreprises'};
 const NATL={cotee:'Cotées en bourse',mutualiste:'Parts sociales (banques mutualistes, coopératives)',fonds:'Comptes-titres, PEA, fonds',non_cotee:'Sociétés non cotées','':'Nature non déterminée'};
 const TD={DI:"Déclaration d'intérêts",DIA:"Déclaration d'intérêts et d'activités",DIM:"Déclaration d'intérêts modificative",DIAM:"Déclaration d'intérêts et d'activités modificative",DSP:'Déclaration de situation patrimoniale',DSPFM:'Déclaration de situation patrimoniale (fin de mandat)'};
 const DEPN={'01':'Ain','02':'Aisne','03':'Allier','04':'Alpes-de-Haute-Provence','05':'Hautes-Alpes','06':'Alpes-Maritimes','07':'Ardèche','08':'Ardennes','09':'Ariège','10':'Aube','11':'Aude','12':'Aveyron','13':'Bouches-du-Rhône','14':'Calvados','15':'Cantal','16':'Charente','17':'Charente-Maritime','18':'Cher','19':'Corrèze','2A':'Corse-du-Sud','2B':'Haute-Corse','21':"Côte-d'Or",'22':"Côtes-d'Armor",'23':'Creuse','24':'Dordogne','25':'Doubs','26':'Drôme','27':'Eure','28':'Eure-et-Loir','29':'Finistère','30':'Gard','31':'Haute-Garonne','32':'Gers','33':'Gironde','34':'Hérault','35':'Ille-et-Vilaine','36':'Indre','37':'Indre-et-Loire','38':'Isère','39':'Jura','40':'Landes','41':'Loir-et-Cher','42':'Loire','43':'Haute-Loire','44':'Loire-Atlantique','45':'Loiret','46':'Lot','47':'Lot-et-Garonne','48':'Lozère','49':'Maine-et-Loire','50':'Manche','51':'Marne','52':'Haute-Marne','53':'Mayenne','54':'Meurthe-et-Moselle','55':'Meuse','56':'Morbihan','57':'Moselle','58':'Nièvre','59':'Nord','60':'Oise','61':'Orne','62':'Pas-de-Calais','63':'Puy-de-Dôme','64':'Pyrénées-Atlantiques','65':'Hautes-Pyrénées','66':'Pyrénées-Orientales','67':'Bas-Rhin','68':'Haut-Rhin','69':'Rhône','70':'Haute-Saône','71':'Saône-et-Loire','72':'Sarthe','73':'Savoie','74':'Haute-Savoie','75':'Paris','76':'Seine-Maritime','77':'Seine-et-Marne','78':'Yvelines','79':'Deux-Sèvres','80':'Somme','81':'Tarn','82':'Tarn-et-Garonne','83':'Var','84':'Vaucluse','85':'Vendée','86':'Vienne','87':'Haute-Vienne','88':'Vosges','89':'Yonne','90':'Territoire de Belfort','91':'Essonne','92':'Hauts-de-Seine','93':'Seine-Saint-Denis','94':'Val-de-Marne','95':"Val-d'Oise",'971':'Guadeloupe','972':'Martinique','973':'Guyane','974':'La Réunion','975':'Saint-Pierre-et-Miquelon','976':'Mayotte','977':'Saint-Barthélemy','978':'Saint-Martin','986':'Wallis-et-Futuna','987':'Polynésie française','988':'Nouvelle-Calédonie','099':'Français établis hors de France'};
@@ -222,19 +225,21 @@ function elus(){
 }
 
 
-const SOCD={q:'',nat:'',tri:'-nh'};let socF=SOCD;
+const SOCD={q:'',nat:'',sec:'',tri:'-nh'};let socF=SOCD;
 function societes(){
   socF=loadQ(SOCD);
   app.innerHTML=`<section><h1>Sociétés</h1><p class="lede">Chaque société citée dans au moins une déclaration, avec le nombre d'élus qui la détiennent d'après leur dernière déclaration. Les parts sociales de banques mutualistes et les sociétés civiles sont distinguées des actions cotées.</p></section>
   <div class="filters"><input id="sq" type="search" placeholder="Filtrer par nom ou ISIN" aria-label="Filtrer par nom ou ISIN" value="${esc(socF.q)}">
-  <select id="sn" aria-label="Nature">${`<option value="">Toutes les natures</option>`+Object.entries(NATL).filter(([k])=>k).map(([k,v])=>`<option value="${k}"${k===socF.nat?' selected':''}>${v}</option>`).join('')}<option value="?"${socF.nat==='?'?' selected':''}>${NATL['']}</option></select></div><div id="sl"></div>`;
+  <select id="sn" aria-label="Nature">${`<option value="">Toutes les natures</option>`+Object.entries(NATL).filter(([k])=>k).map(([k,v])=>`<option value="${k}"${k===socF.nat?' selected':''}>${v}</option>`).join('')}<option value="?"${socF.nat==='?'?' selected':''}>${NATL['']}</option></select>
+  <select id="ss" aria-label="Secteur"><option value="">Tous les secteurs</option>${Object.entries(SECT).map(([k,v])=>`<option value="${k}"${k===socF.sec?' selected':''}>${esc(v)}</option>`).join('')}</select></div><div id="sl"></div>`;
   const get={name:s=>s.name,nat:s=>NAT[s.nat],isin:s=>s.isin||'',nh:s=>s.nh,nm:s=>s.nm};
   const draw=()=>{saveQ('societes',socF,SOCD);const q=fold(socF.q).replace(/\s/g,'');
-    const L=sortBy(DB.socs.filter(s=>(!socF.nat||s.nat===(socF.nat==='?'?'':socF.nat))&&(!q||fold(s.name+s.k).replace(/\s/g,'').includes(q)||(s.isin||'').toLowerCase().includes(q))),socF,get);
+    const L=sortBy(DB.socs.filter(s=>(!socF.nat||s.nat===(socF.nat==='?'?'':socF.nat))&&(!socF.sec||s.sec===socF.sec)&&(!q||fold(s.name+s.k).replace(/\s/g,'').includes(q)||(s.isin||'').toLowerCase().includes(q))),socF,get);
     paged('sl',L.length,n=>L.length?`<p class="crumb">${L.length.toLocaleString('fr-FR')} société${L.length>1?'s':''}</p><div class="tbl"><table><thead><tr>${th('Société','name',socF)}${th('Nature','nat',socF)}${th('ISIN','isin',socF)}<th>Pappers</th>${th('Élus détenteurs','nh',socF,{n:true})}${th('Mouvements','nm',socF,{n:true})}</tr></thead><tbody>${
       L.slice(0,n).map(s=>`<tr><td>${sLink(s.k)}</td><td class="cat">${NAT[s.nat]}</td><td class="mono">${s.isin||'<span class="cat">—</span>'}</td><td>${pLink(s,s.siren?'Fiche':'Recherche')||'<span class="cat">—</span>'}</td><td class="n">${s.nh}</td><td class="n">${s.nm}</td></tr>`).join('')}</tbody></table></div>`:'<p class="empty">Aucune société ne correspond.</p>',40,box=>bindSort(box,socF,draw))};
   document.getElementById('sq').oninput=ev=>{socF.q=ev.target.value;draw()};
   document.getElementById('sn').onchange=ev=>{socF.nat=ev.target.value;draw()};
+  document.getElementById('ss').onchange=ev=>{socF.sec=ev.target.value;draw()};
   draw();
 }
 
@@ -260,6 +265,29 @@ function mouvements(){
   draw();
 }
 
+function chiffres(){
+  const T=DB.stats,tot=T.tot;
+  const row=(lab,x,extra='')=>`<tr><td>${lab}</td>${extra}<td class="n">${x.n.toLocaleString('fr-FR')}</td><td class="n">${x.l.toLocaleString('fr-FR')}</td><td class="n">${eur(x.v)}</td></tr>`;
+  const head=(lab,extra='')=>`<div class="tbl"><table><thead><tr><th>${lab}</th>${extra}<th class="n">Élus</th><th class="n">Lignes</th><th class="n">Valeur déclarée</th></tr></thead><tbody>`;
+  app.innerHTML=`<section><h1>Chiffres</h1><p class="lede">Vue d'ensemble des participations figurant dans la dernière déclaration d'intérêts de chaque élu. Les montants sont ceux déclarés, à la date de chaque déclaration.</p></section>
+  <section class="figs" aria-label="Chiffres clés">
+    <div><b>${tot.n.toLocaleString('fr-FR')}</b><span>élus déclarent au moins une action cotée</span></div>
+    <div><b>${eur(tot.v)}</b><span>valeur déclarée de ces actions</span></div>
+    <div><b>${eur(tot.vc)}</b><span>valeur estimée au dernier cours${tot.cours?` (${date(tot.cours)})`:''}, pour les titres dont le nombre est déclaré</span></div>
+  </section>
+  <section><h2>Par secteur (actions cotées)</h2>${head('Secteur')}${T.sect.map(x=>row(esc(SECT[x.sec]||x.sec),x)).join('')}</tbody></table></div>
+    <p class="crumb">Secteur attribué à la main d'après l'activité principale du groupe. <a href="#societes?nat=cotee">Voir les sociétés par secteur</a>.</p></section>
+  <section><h2>Sociétés cotées les plus détenues en valeur</h2>${head('Société')}${T.top.map(x=>row(sLink(x.k),x)).join('')}</tbody></table></div></section>
+  <section><h2>Par groupe politique (parlementaires en exercice)</h2><p class="crumb">Toutes participations confondues (actions cotées, parts sociales, sociétés non cotées). « Membres » : parlementaires du groupe présents sur le site.</p>
+    <div class="tbl"><table><thead><tr><th>Groupe</th><th>Assemblée</th><th class="n">Membres</th><th class="n">Élus détenteurs</th><th class="n">Lignes</th><th class="n">Valeur déclarée</th></tr></thead><tbody>${
+    T.grp.map(x=>`<tr><td>${esc(x.g)}</td><td class="cat">${x.c==='depute'?'Assemblée nationale':'Sénat'}</td><td class="n">${x.m}</td><td class="n">${x.n}</td><td class="n">${x.l}</td><td class="n">${eur(x.v)}</td></tr>`).join('')}</tbody></table></div></section>
+  <section><h2>Par fonction</h2>${head('Fonction','<th class="n">Élus sur le site</th>')}${T.fn.map(x=>row(esc(x.fn),x,`<td class="n">${x.m.toLocaleString('fr-FR')}</td>`)).join('')}</tbody></table></div></section>
+  <section><h2>Sociétés détenues par des élus et inscrites au répertoire des représentants d'intérêts</h2><p class="crumb">Activités de représentation d'intérêts visant des parlementaires, déclarées à la HATVP par les entités du groupe sur les trois derniers exercices.</p>
+    <div class="tbl"><table><thead><tr><th>Société</th><th class="n">Élus détenteurs</th><th class="n">Activités vers le Parlement</th></tr></thead><tbody>${T.lob.map(x=>`<tr><td>${sLink(x.k)}</td><td class="n">${x.nh}</td><td class="n">${x.np}</td></tr>`).join('')}</tbody></table></div></section>
+  ${DB.nd.length?`<section><h2>Déclarations signalées comme non déposées par la HATVP</h2><p class="crumb">Statut publié tel quel dans la liste des déclarations de la HATVP.</p>
+    <div class="tbl"><table><thead><tr><th>Nom</th><th>Qualité</th><th>Déclaration</th></tr></thead><tbody>${DB.nd.map(x=>`<tr><td>${x.u?`<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.p+' '+x.n)}</a>`:esc(x.p+' '+x.n)}</td><td>${esc(x.q)}</td><td>${esc(TD[x.t]||x.t)}</td></tr>`).join('')}</tbody></table></div></section>`:''}`;
+}
+
 function methode(){
   app.innerHTML=`<section class="prose"><h1>Méthode et limites</h1>
   <h2>D'où viennent les données</h2>
@@ -279,6 +307,22 @@ function methode(){
   <p>Quand le nombre de titres est le même dans deux déclarations successives, l'écart de valeur vient du cours de bourse et non d'un achat ou d'une vente. Ces écarts sont classés « variation de valeur » et masqués par défaut de la page Mouvements et du flux RSS.</p>
   <h2>Groupe politique</h2>
   <p>Le groupe des députés et des sénateurs en exercice provient de l'open data de l'Assemblée nationale et du Sénat (licence ouverte). Celui des députés est mis à jour chaque semaine ; celui des sénateurs l'est quand le site du Sénat répond, sinon il reprend la liste du 8 octobre 2026. Il est rattaché à la déclaration HATVP par le nom, le prénom et la date de naissance, qui n'est pas publiée. Les anciens parlementaires, les ministres, les députés européens et les élus locaux n'ont pas de groupe sur le site.</p>
+  <h2>Activités, fonctions et mandats</h2>
+  <p>La fiche d'un élu reprend les autres rubriques de sa dernière déclaration d'intérêts : activités professionnelles des cinq dernières années, activités de conseil, fonctions dans l'organe dirigeant d'un organisme public ou privé, fonctions bénévoles et mandats électifs. L'intitulé, l'organisme, les dates et la rémunération déclarée pour chaque année sont repris ; les commentaires ne le sont pas. Les montants sont ceux saisis par l'élu, bruts ou nets selon sa déclaration, sans conversion ni total : ils ne sont pas toujours comparables d'un élu à l'autre et portent souvent sur des activités antérieures au mandat. Un montant annuel déclaré pour un mandat électif au-delà de 150 000 €, au-dessus du plafond légal des indemnités d'élu, est signalé comme probable erreur de saisie ; il n'est pas corrigé. Seuls les montants écrits comme un nombre d'euros sont repris.</p>
+  <h2>Commission permanente et secteur</h2>
+  <p>La commission permanente des députés et des sénateurs en exercice provient de l'open data de leur assemblée. Chaque société cotée reçoit à la main un secteur (énergie, banque et assurance, défense, santé…), et chaque commission est associée aux secteurs qu'elle suit : affaires économiques (énergie, numérique, industrie, agroalimentaire, consommation, logement), finances (banque et assurance), défense (défense et aéronautique), affaires sociales (santé), développement durable et aménagement du territoire (transports, énergie, environnement, BTP), culture (médias). Quand une société détenue relève d'un secteur suivi par la commission de l'élu, la fiche le signale comme un lien à examiner. Ce rapprochement est indicatif : il ne dit pas que l'élu a participé à une décision concernant la société.</p>
+  <h2>Amendements et votes</h2>
+  <p>Pour les députés, le site recherche dans l'open data de l'Assemblée nationale (XVIIe législature) les amendements qu'ils ont déposés ou cosignés et dont le dispositif ou l'exposé sommaire cite par son nom une société cotée qu'ils déclarent détenir, ainsi que leur vote nominatif lors des scrutins publics sur ces amendements ou sur un texte dont l'intitulé cite la société. La recherche porte sur le nom exact de la société ; les noms qui sont aussi des mots courants ou des noms de lieu (Orange, Carrefour, Safran…) ne sont cherchés que sous une forme non ambiguë (« groupe Orange »). Une citation peut être critique, neutre ou favorable : le site ne l'interprète pas. Les sénateurs ne sont pas couverts, faute de données comparables réutilisables chaque semaine.</p>
+  <h2>Représentation d'intérêts</h2>
+  <p>Les fiches des sociétés cotées indiquent les entités de leur groupe inscrites au répertoire des représentants d'intérêts tenu par la HATVP (open data), avec le nombre d'activités déclarées sur les trois derniers exercices publiés, celles qui visaient des parlementaires ou le Gouvernement, et la fourchette de dépenses du dernier exercice. Une entité est rattachée à la société par son numéro SIREN, par un nom identique ou par un nom qui commence par celui de la société (« Vinci Autoroutes ») ; ce dernier cas est signalé comme filiale probable. Les dirigeants et collaborateurs inscrits au répertoire ne sont pas repris.</p>
+  <h2>Valeur au dernier cours</h2>
+  <p>Pour les actions cotées dont le code ISIN est vérifié sur Euronext et dont l'élu a déclaré le nombre de titres, le site multiplie ce nombre par le dernier cours de clôture publié par Euronext. C'est une estimation : elle suppose que l'élu détient toujours les mêmes titres, ce que rien ne garantit depuis sa déclaration.</p>
+  <h2>Marchés publics</h2>
+  <p>Les fiches des sociétés cotées dont le SIREN est connu indiquent les marchés publics qui leur ont été notifiés, comme titulaire ou cotitulaire, d'après les données essentielles de la commande publique (data.economie.gouv.fr, licence ouverte, marchés publiés au format de 2022) : nombre, montant total déclaré, période et principaux acheteurs. Seule la société mère est comptée ; ses filiales, qui ont leur propre SIREN, ne le sont pas. Les montants sont ceux déclarés par les acheteurs : pour un accord-cadre, c'est souvent le maximum prévu et non la somme payée, et la saisie peut comporter des erreurs.</p>
+  <h2>Déports des ministres</h2>
+  <p>Un membre du Gouvernement qui a un intérêt dans une entreprise s'abstient d'en connaître : un décret publié au Journal officiel confie les actes correspondants à un autre membre du Gouvernement (article 2-1 du décret n° 59-178 du 22 janvier 1959). Le site lit chaque semaine les livraisons du Journal officiel (open data de la DILA, depuis juillet 2025), retient ces décrets et les rattache aux sociétés qu'ils citent par leur nom. Le texte des décrets n'est pas repris, car il peut nommer des tiers ; la fiche renvoie au décret sur Légifrance.</p>
+  <h2>Délai de dépôt des déclarations</h2>
+  <p>La loi demande aux députés de déposer leur déclaration d'intérêts dans les deux mois qui suivent leur entrée en fonction. La fiche d'un député indique la date d'entrée en fonction donnée par l'Assemblée nationale (le 18 juillet 2024, ouverture de la législature, pour les élus de juin et juillet 2024), la date de dépôt de sa première déclaration d'intérêts du mandat d'après la liste de la HATVP, et si ce dépôt est postérieur à l'échéance de deux mois (reportée au lundi quand elle tombe un week-end). Les déclarations que la HATVP signale elle-même comme non déposées sont listées sur la page <a href="#chiffres">Chiffres</a>.</p>
   <h2>Télécharger les données</h2>
   <p>Les données du site sont téléchargeables, sous la même licence ouverte et avec mention de la source (HATVP) : <a href="donnees/elus.csv">élus</a>, <a href="donnees/participations.csv">participations</a>, <a href="donnees/mouvements.csv">mouvements</a> (CSV, séparateur virgule, UTF-8) et l'ensemble au format <a href="donnees/registre.json">JSON</a>. Les nouveaux mouvements sont aussi publiés dans un <a href="flux.xml">flux RSS</a>.</p>
   <h2>Département et code postal</h2>
@@ -306,10 +350,10 @@ function mentions(){
   <p><strong>Responsable du traitement :</strong> l'éditeur, joignable à ${contact()}.</p>
   <p><strong>Finalité :</strong> informer le public sur les participations financières et les intérêts que les responsables publics déclarent à la HATVP, dans le prolongement de la transparence voulue par les lois du 11 octobre 2013.</p>
   <p><strong>Base légale :</strong> l'intérêt légitime à informer le public (article 6, 1, f du RGPD). Les données sont celles que la loi impose de rendre publiques ; le site n'en ajoute aucune.</p>
-  <p><strong>Données traitées :</strong> nom, prénom, fonction, mandat, circonscription et département ; groupe politique des députés et sénateurs en exercice ; participations dans des sociétés (nom, nombre de titres, part du capital, valeur déclarée) ; dates des déclarations et liens vers leur source ; activité professionnelle et employeur du conjoint, partenaire de PACS ou concubin, sans son nom. Ne sont jamais repris : le nom du conjoint, les déclarations de patrimoine des parlementaires et des élus locaux, la date de naissance, les commentaires libres, les rémunérations et activités de conseil, les données occultées par la HATVP.</p>
+  <p><strong>Données traitées :</strong> nom, prénom, fonction, mandat, circonscription et département ; groupe politique et commission permanente des députés et sénateurs en exercice ; participations dans des sociétés (nom, nombre de titres, part du capital, valeur déclarée) ; activités professionnelles, activités de conseil, fonctions dirigeantes ou bénévoles et mandats déclarés (intitulé, organisme, dates, rémunération déclarée par année) ; dates des déclarations et liens vers leur source ; date d'entrée en fonction des députés ; amendements déposés ou cosignés et votes nominatifs des députés qui citent une société qu'ils déclarent détenir ; décrets de déport des membres du Gouvernement publiés au Journal officiel ; activité professionnelle et employeur du conjoint, partenaire de PACS ou concubin, sans son nom. Ne sont jamais repris : le nom du conjoint, les noms des collaborateurs, les déclarations de patrimoine des parlementaires et des élus locaux, la date de naissance, les commentaires libres, les données occultées par la HATVP.</p>
   <p><strong>Conjoints des élus :</strong> leur activité et leur employeur figurent dans la déclaration d'intérêts de l'élu, que la HATVP publie sans leur nom. Le site les reprend à l'identique pour la même finalité de transparence. Ils peuvent exercer les droits ci-dessous, y compris l'opposition, à la même adresse.</p>
   <p><strong>Groupe politique :</strong> l'appartenance d'un parlementaire à un groupe est rendue publique par l'intéressé lui-même et publiée par son assemblée (article 9, 2, e du RGPD). Le site la reprend de l'open data de l'Assemblée nationale et du Sénat.</p>
-  <p><strong>Source :</strong> fichier ouvert de la HATVP, téléchargé chaque semaine. Les personnes concernées sont informées par la présente page (article 14, 5, b du RGPD).</p>
+  <p><strong>Source :</strong> fichier ouvert de la HATVP, téléchargé chaque semaine ; open data de l'Assemblée nationale et du Sénat pour les groupes, commissions, amendements et scrutins ; Journal officiel (DILA) pour les décrets de déport. Les personnes concernées sont informées par la présente page (article 14, 5, b du RGPD).</p>
   <p><strong>Durée :</strong> le site reflète l'état du fichier de la HATVP de la semaine. Une déclaration retirée par la HATVP disparaît du site à la mise à jour suivante. Les extractions hebdomadaires sont archivées dans le dépôt public du projet pour pouvoir justifier et corriger les données publiées.</p>
   <p><strong>Destinataires et transferts :</strong> les données sont publiques sur ce site. Le site est hébergé par GitHub Pages et ses mises à jour s'exécutent sur GitHub Actions (GitHub Inc., États-Unis, adhérent au cadre de protection des données UE-États-Unis).</p>
   <p><strong>Vos droits :</strong> accès, rectification, effacement, limitation et opposition, en écrivant à ${contact()}. Une demande d'opposition est examinée au regard de l'intérêt du public à connaître des informations que la loi rend publiques. Vous pouvez saisir la <a href="https://www.cnil.fr/fr/plaintes" rel="noopener" target="_blank">CNIL</a>.</p>
@@ -325,7 +369,7 @@ function route(){
   if(h.startsWith('s-')&&SID.has(h.slice(2)))return location.replace(`societes/${h.slice(2)}.html`);
   if(h.startsWith('d-')&&DEPN[h.slice(2)])return location.replace(`#elus?dep=${h.slice(2)}&has=0`);
   document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+h));
-  if(h==='accueil')home();else if(h==='elus')elus();else if(h==='societes')societes();else if(h==='mouvements')mouvements();else if(h==='methode')methode();else if(h==='mentions')mentions();
+  if(h==='accueil')home();else if(h==='elus')elus();else if(h==='societes')societes();else if(h==='mouvements')mouvements();else if(h==='chiffres')chiffres();else if(h==='methode')methode();else if(h==='mentions')mentions();
   else notFound();
   window.scrollTo(0,0);
 }

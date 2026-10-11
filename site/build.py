@@ -10,41 +10,9 @@ def fn(d):
     if d['categorie']!='elu_local': return FN[d['categorie']]
     t=d['type_mandat']
     return LOCAL.get(t,'Élu intercommunal' if 'EPCI' in t else 'Élu local')
-def norm(s):
-    s=unicodedata.normalize('NFKD',s or '').encode('ascii','ignore').decode().upper()
-    return re.sub(r'[^A-Z0-9]+',' ',s).strip()
-ALIAS={'TOTAL ENERGIES':'TOTALENERGIES','TOTAL ENERGIES SE':'TOTALENERGIES','TOTALENERGIES SE':'TOTALENERGIES','TOTAL':'TOTALENERGIES','TOTAL SA':'TOTALENERGIES',
- 'CAP GEMINI':'CAPGEMINI','CAPGEMINI SE':'CAPGEMINI','VEOLIA ENVIRONNEMENT':'VEOLIA','VEOLIA ENVIRONNEMENT SA':'VEOLIA','SCHNEIDER':'SCHNEIDER ELECTRIC','SCHNEIDER ELECTRIC SE':'SCHNEIDER ELECTRIC',
- 'AIRBUS SE':'AIRBUS','AIRBUS GROUP':'AIRBUS','AIR FRANCE':'AIR FRANCE KLM','AIR LIQUIDE SA':'AIR LIQUIDE','AXA SA':'AXA','ENGIE SA':'ENGIE','ORANGE SA':'ORANGE','SANOFI SA':'SANOFI',
- 'BNP':'BNP PARIBAS','BNP PARIBAS SA':'BNP PARIBAS','SOCIETE GENERALE SA':'SOCIETE GENERALE','LVMH MOET HENNESSY LOUIS VUITTON':'LVMH','MICHELIN CGDE':'MICHELIN','COMPAGNIE GENERALE DES ETABLISSEMENTS MICHELIN':'MICHELIN',
- 'SOPRA STERIA GROUP':'SOPRA STERIA','HERMES INTERNATIONAL':'HERMES','STMICROELECTRONICS NV':'STMICROELECTRONICS','STELLANTIS NV':'STELLANTIS','THALES SA':'THALES','DANONE SA':'DANONE',
- 'AEROPORTS DE PARIS':'ADP','GROUPE ADP':'ADP','FRANCAISE DES JEUX':'FDJ','LA FRANCAISE DES JEUX':'FDJ','FDJ UNITED':'FDJ','VINCI SA':'VINCI','KERING SA':'KERING','RENAULT SA':'RENAULT','SAFRAN SA':'SAFRAN',
- 'TOTALENERGIE':'TOTALENERGIES','TOTAL ENERGIE':'TOTALENERGIES','ESSILOR LUXOTTICA':'ESSILORLUXOTTICA','ESSILOR INTL':'ESSILORLUXOTTICA','ESSILOR':'ESSILORLUXOTTICA',
- 'LVMH MOET VUITTON':'LVMH','LVMH MOET HENNESSY':'LVMH','HERMES INTL':'HERMES','SAINT GOBAIN CIE':'SAINT GOBAIN','COMPAGNIE DE SAINT GOBAIN':'SAINT GOBAIN',
- 'DASSAULT SYSTEM':'DASSAULT SYSTEMES','WORDLINE':'WORLDLINE','AIR LIQUIDE PRIME':'AIR LIQUIDE','AIR LIQUIDE PRIME FIDELITE':'AIR LIQUIDE','ASML':'ASML HOLDING',
- 'PUBLICIS':'PUBLICIS GROUPE','UNIBAIL RODAMCO WESTFIELD':'UNIBAIL RODAMCO','UNIBAIL':'UNIBAIL RODAMCO','URW':'UNIBAIL RODAMCO','EUTELSAT':'EUTELSAT COMMUNICATIONS',
- 'BNP PARIBAS ACTIONS A':'BNP PARIBAS','CREDIT AGRICOLE S A':'CREDIT AGRICOLE SA','CASA':'CREDIT AGRICOLE SA','ELECTRICITE DE FRANCE':'EDF',
- 'CAISSE DEPARGNE':'CAISSE D EPARGNE','LMVH MOET HENESSY':'LVMH','LMVH':'LVMH','CAISSE EPARGNE':'CAISSE D EPARGNE'}
-# ISIN rattachés à la main (code vérifié par sa clé de contrôle ; le rattachement au nom déclaré reste à vérifier)
-ISIN={'AIR LIQUIDE':'FR0000120073','AXA':'FR0000120628','ENGIE':'FR0010208488','ORANGE':'FR0000133308','SANOFI':'FR0000120578','MICHELIN':'FR001400AJ45',
- 'AIRBUS':'NL0000235190','BNP PARIBAS':'FR0000131104','RENAULT':'FR0000131906','SAFRAN':'FR0000073272','STELLANTIS':'NL00150001Q9','DANONE':'FR0000120644',
- 'THALES':'FR0000121329','L OREAL':'FR0000120321',
- # ajoutés le 2026-10-08 : sociétés citées par au moins deux élus (clé de contrôle de l'ISIN vérifiée par le build)
- 'EDF':'FR0010242511','ARKEMA':'FR0010313833','CREDIT AGRICOLE SA':'FR0000045072','TELEPERFORMANCE':'FR0000051807','ASML HOLDING':'NL0010273215',
- 'RUBIS':'FR0013269123','NOKIA':'FI0009000681','EDENRED':'FR0010908533','ESSILORLUXOTTICA':'FR0000121667','GENFIT':'FR0004163111','UBISOFT':'FR0000054470',
- 'SAP':'DE0007164600','NOVARTIS':'CH0012005267','PROSUS':'NL0013654783','ELIS':'FR0012435121','VALEO':'FR0013176526','BUREAU VERITAS':'FR0006174348',
- 'PUBLICIS GROUPE':'FR0000130577','SOITEC':'FR0013227113','WORLDLINE':'FR00140182K6','INDITEX':'ES0148396007','EIFFAGE':'FR0000130452',
- 'MICROSOFT':'US5949181045','BIOMERIEUX':'FR0013280286','PUMA':'DE0006969603','REXEL':'FR0010451203','LEGRAND':'FR0010307819','UNIBAIL RODAMCO':'FR0013326246',
- 'SIEMENS':'DE0007236101','ENI':'IT0003132476','EURAZEO':'FR0000121121','BIC':'FR0000120966','GETLINK':'FR0010533075','NEOEN':'FR0011675362','TRIGANO':'FR0005691656',
- 'VALNEVA':'FR0004056851','AMAZON':'US0231351067','EUTELSAT COMMUNICATIONS':'FR0010221234','ERAMET':'FR0000131757','FNAC DARTY':'FR0011476928','DERICHEBOURG':'FR0000053381',
- 'AB SCIENCE':'FR0010557264','APPLE':'US0378331005','NVIDIA':'US67066G1040','TESLA':'US88160R1014','SPIE':'FR0012757854','IPSEN':'FR0010259150','SODEXO':'FR0000121220',
- 'NEXANS':'FR0000044448','COVIVIO':'FR0000064578','KLEPIERRE':'FR0000121964','GECINA':'FR0010040865','JCDECAUX':'FR0000077919','IMERYS':'FR0000120859','SEB':'FR0000121709',
- 'REMY COINTREAU':'FR0000130395','SCOR':'FR0010411983','COFACE':'FR0010667147','BOLLORE':'FR0000039299','DASSAULT AVIATION':'FR0014004L86','ALTEN':'FR0000071946',
- 'NEXITY':'FR0010112524','WENDEL':'FR0000121204','VERALLIA':'FR0013447729','FORVIA':'FR0000121147','ICADE':'FR0000035081','VICAT':'FR0000031775','TECHNIP ENERGIES':'NL0014559478','VEOLIA':'FR0000124141','PERNOD RICARD':'FR0000120693','AIR FRANCE KLM':'FR001400J770','LVMH':'FR0000121014',
- 'BOUYGUES':'FR0000120503','ALSTOM':'FR0010220475','SCHNEIDER ELECTRIC':'FR0000121972','SAINT GOBAIN':'FR0000125007','VINCI':'FR0000125486','FDJ':'FR0013451333',
- 'STMICROELECTRONICS':'NL0000226223','TOTALENERGIES':'FR0000120271','ACCOR':'FR0000120404','CARREFOUR':'FR0000120172','SOCIETE GENERALE':'FR0000130809',
- 'ADP':'FR0010340141','VALLOUREC':'FR0013506730','EUROAPI':'FR0014008VX5','DASSAULT SYSTEMES':'FR0014003TT8','CAPGEMINI':'FR0000125338','KERING':'FR0000121485',
- 'VIVENDI':'FR0000127771','HERMES':'FR0000052292','AMUNDI':'FR0004125920','TF1':'FR0000054900','ARCELORMITTAL':'LU1598757687','SOPRA STERIA':'FR0000050809','ALLIANZ':'DE0008404005'}
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+from societes import *
+import societes
 # Département de l'élu, d'après le mandat retenu (code INSEE : 01-95, 2A, 2B, 971-988 ; 099 = Français de l'étranger)
 DEP_RE=re.compile(r'\(\s*(0[1-9]|[1-8]\d|9[0-5]|2[AB]|9[78]\d|099)\s*\)')
 # type_mandat de liste.csv correspondant à chaque fonction (les régions, le gouvernement et le Parlement européen n'ont pas de département)
@@ -62,20 +30,6 @@ def departement(d,f,lrows):
     # 997 et 998 : les deux séries de sénateurs des Français de l'étranger
     deps=C.Counter('099' if r['departement'] in ('997','998') else r['departement'] for r in lrows if r['type_mandat']==tm and r['departement'])
     return deps.most_common(1)[0][0] if len(deps)==1 else ''
-# SIREN des sociétés cotées françaises, vérifiés dans l'annuaire des entreprises (recherche-entreprises.api.gouv.fr) le 2026-10-08
-SIREN={'TOTALENERGIES':'542051180','AIR LIQUIDE':'552096281','AXA':'572093920','ORANGE':'380129866','SANOFI':'395030844','BNP PARIBAS':'662042449',
- 'SOCIETE GENERALE':'552120222','LVMH':'775670417','ENGIE':'542107651','DANONE':'552032534','L OREAL':'632012100','RENAULT':'441639465','SAFRAN':'562082909',
- 'THALES':'552059024','VINCI':'552037806','KERING':'552075020','HERMES':'572076396','MICHELIN':'855200887','CAPGEMINI':'330703844','CARREFOUR':'652014051',
- 'BOUYGUES':'572015246','SAINT GOBAIN':'542039532','SCHNEIDER ELECTRIC':'542048574','VEOLIA':'403210032','PERNOD RICARD':'582041943','ACCOR':'602036444',
- 'ALSTOM':'389058447','VIVENDI':'343134763','ADP':'552016628','FDJ':'315065292','AMUNDI':'314222902','TF1':'326300159','DASSAULT SYSTEMES':'322306440',
- 'SOPRA STERIA':'326820065','AIR FRANCE KLM':'552043002','VALLOUREC':'552142200','EUROAPI':'890974413',
- 'CREDIT AGRICOLE SA':'784608416'}
-def isin_ok(c):
-    s=''.join(str(int(x,36)) for x in c[:-1]); t=0
-    for i,ch in enumerate(reversed(s)):
-        d=int(ch)*(2 if i%2==0 else 1); t+=d-9 if d>9 else d
-    return re.fullmatch(r'[A-Z]{2}[A-Z0-9]{9}\d',c) and (10-t%10)%10==int(c[-1])
-assert all(isin_ok(v) for v in ISIN.values()), [k for k,v in ISIN.items() if not isin_ok(v)]
 # Contrôle des ISIN avec la liste officielle d'Euronext (scripts/fetch_euronext.py), quand elle a pu être téléchargée :
 # un ISIN présent sur Euronext sous un autre nom est retiré ; un ISIN absent (société étrangère, radiée) est gardé sans être marqué vérifié.
 VERIFIES=set()
@@ -93,41 +47,7 @@ if os.path.exists(D+'raw/euronext.csv'):
         if meme(k,EUR[c]): VERIFIES.add(c)
         else: print(f"::warning::ISIN {c} retiré de {k} : Euronext le donne pour {EUR[c]}"); del ISIN[k]
     print(f'ISIN vérifiés sur Euronext : {len(VERIFIES)}/{len(ISIN)}')
-BY_ISIN={v:k for k,v in ISIN.items()}
-# formes juridiques en fin de nom, retirées avant le regroupement (« Arkema SA » = « Arkema »)
-SUFFIX=re.compile(r'( (SA|SE|NV|AG|PLC|SCA|INC|CORP|CORPORATION|S A|N V))+$')
-def skey(name):
-    n=norm(name)
-    # un ISIN connu écrit dans le libellé (« CREDIT AGRICOLE - FR0000045072 ») désigne la société
-    for c in re.findall(r'\b[A-Z]{2}[A-Z0-9]{9}\d\b',n):
-        if c in BY_ISIN: return BY_ISIN[c]
-    if n in ALIAS: return ALIAS[n]
-    if re.fullmatch(r'CREDIT AGRICOLE (S ?A|SA ACTIONS?|ACTIONS?)',n): return 'CREDIT AGRICOLE SA'
-    m=SUFFIX.sub('',n)
-    return ALIAS.get(m,m) if m else n
-# « Crédit Agricole » sans précision : actions de Crédit Agricole SA (cotée) ou parts sociales d'une caisse régionale.
-# Tranché ligne par ligne d'après le prix unitaire déclaré : l'action CASA a valu de 7 à 20 € depuis 2019, la part sociale
-# d'une caisse locale vaut le plus souvent 1,50 €. Sinon la ligne reste « sans précision ».
-def ca_split(sk,q,v,txt=''):
-    if sk!='CREDIT AGRICOLE': return sk
-    if re.search(r'PARTS? SOCIAL|SOCIETAIRE|CAISSE LOCALE',norm(txt)): return 'CREDIT AGRICOLE PARTS SOCIALES'
-    try: u=float(v)/float(q)
-    except (TypeError,ValueError,ZeroDivisionError): return sk
-    if 7<=u<=20: return 'CREDIT AGRICOLE SA'
-    if 0<u<=5: return 'CREDIT AGRICOLE PARTS SOCIALES'
-    return sk
-# Nature de la société, pour distinguer un portefeuille d'actions cotées de parts sociales bancaires ou d'une SCI
-MUTU=re.compile(r'\b(CREDIT MUTUEL|CAISSE D EPARGNE|BANQUE POPULAIRE|CREDIT COOPERATIF|CASDEN|BRED|CRCAM|CRCA|CAISSES? (LOCALE|REGIONALE)S?|PARTS? SOCIALES?|SOCIETAIRES?|BPCE|ENERCOOP|SCIC|SCOP|COOPERATIVE|CMB)\b')
-FONDS=re.compile(r'\b(PEA|PEE|PERCO|PERP|PER|COMPTES? TITRES?|CTO|SCPI|OPCVM|OPCI|FCP|FCPI|FCPR|FCPE|FIP|SICAV|ASSURANCE VIE|FONDS|ETF|TRACKER|PORTEFEUILLE|EPARGNE SALARIALE)\b')
-NONCOT=re.compile(r'\b(SCI|SARL|SAS|SASU|EURL|SCEA|GFA|GAEC|SNC|SCP|SELARL|SELAS|SELAFA|SCM|EARL|GFR|GFV|SC|SPFPL|HOLDING|S A S|S A R L|SRL|S R L|GMBH|SARLU)\b')
-def nature(k,names):
-    if k in ISIN: return 'cotee'
-    if k=='CREDIT AGRICOLE PARTS SOCIALES': return 'mutualiste'
-    t=' '.join([k]+list(names))
-    if MUTU.search(t): return 'mutualiste'
-    if FONDS.search(t): return 'fonds'
-    if NONCOT.search(t): return 'non_cotee'
-    return ''
+societes.reindex()
 def slug(s): return re.sub(r'[^a-z0-9]+','-',norm(s).lower()).strip('-')
 NEANT={'NEANT','','AUCUNE','AUCUN','NON','NA','N A','0','X'}
 decl={r['declaration_id']:r for r in csv.DictReader(open(D+'out/declarations.csv'))}
@@ -152,11 +72,25 @@ for r in parts: bydecl[r['declaration_id']].append(r)
 # groupe politique des députés et sénateurs en exercice (scripts/fetch_groupes.py), rapproché sur le nom et la date de naissance
 GRP={}
 if os.path.exists(D+'raw/groupes.csv'):
-    for r in csv.DictReader(open(D+'raw/groupes.csv',encoding='utf-8')): GRP[(r['chambre'],norm(r['prenom']),norm(r['nom']),r['date_naissance'])]=(r['sigle'],r['groupe'])
+    for r in csv.DictReader(open(D+'raw/groupes.csv',encoding='utf-8')): GRP[(r['chambre'],norm(r['prenom']),norm(r['nom']),r['date_naissance'])]=(r['sigle'],r['groupe'],r)
 # instantané sans date de naissance (sénateurs, quand data.senat.fr ne répond pas) : rapprochement sur le seul nom, s'il est unique
 GRP_NOM=C.Counter(k[:3] for k in GRP)
 def groupe(cat,k):
     return GRP.get((cat,)+k) or (GRP.get((cat,k[0],k[1],'')) if GRP_NOM[(cat,k[0],k[1])]==1 else None)
+import croisements as X
+# activités, fonctions et mandats déclarés (déclarations d'intérêts) : intitulé, organisme et dates seulement
+act=C.defaultdict(list)
+def remun(r):
+    # rémunération déclarée pour l'activité, par année, telle que saisie (brut ou net selon la déclaration)
+    m=[[a,int(v)] for a,v in (x.split(':') for x in (r.get('remuneration') or '').split('|') if x)]
+    return {'bn':r.get('brut_net',''),'rm':m} if m else {}
+for r in (csv.DictReader(open(D+'out/activites.csv')) if os.path.exists(D+'out/activites.csv') else []): act[r['declaration_id']].append(r)
+# dates de dépôt des déclarations d'intérêts de député (liste HATVP, y compris celles dont la publication est à venir)
+DEPOTS=C.defaultdict(list)
+for rows in liste.values():
+    for r in rows:
+        if r['type_mandat']=='depute' and r['type_document'] in ('di','dia') and r['date_depot']: DEPOTS[(norm(r['prenom']),norm(r['nom']))].append(r['date_depot'])
+AN=X.assemblee(D)
 elus=[]; soc=C.defaultdict(lambda:{'names':C.Counter(),'holders':[]}); ids={}; taken=set()
 for k,p in sorted(persons.items()):
     ds=sorted(p['decls'],key=lambda d:d['date_depot'])
@@ -190,10 +124,15 @@ for k,p in sorted(persons.items()):
                 soc[sk]['holders'].append({'e':eid,'v':h['v'],'q':h['q'],'d':h['d'],'f':fam})
     dc=next((d for d in reversed(ds) if not d['type_declaration'].startswith('DSP') and conj[d['declaration_id']]),None)
     cj={'d':dc['date_depot'],'t':dc['type_declaration'],'l':[{'a':r['activite'],'e':r['employeur']} for r in conj[dc['declaration_id']] if r['neant']=='non']} if dc else None
+    da=next((d for d in reversed(ds) if not d['type_declaration'].startswith('DSP') and act[d['declaration_id']]),None)
+    ac={'d':da['date_depot'],'t':da['type_declaration'],'l':[{'r':r['rubrique'],'i':r['intitule'],'o':r['organisme'],'db':r['debut'],'fi':r['fin'],**remun(r)} for r in act[da['declaration_id']]]} if da else None
     cats=p['cats']; cat='gouvernement' if 'gouvernement' in cats and last['categorie']=='gouvernement' else last['categorie']
     dcat=next(d for d in reversed(ds) if d['categorie']==cat); f=fn(dcat)
     elus.append({'id':eid,'p':p['prenom'].title(),'n':p['nom'].upper(),'cat':cat,'fn':f,'dep':departement(dcat,f,lrows),'cats':sorted(cats),'org':last['organe'] or ('Parlement européen' if cat=='depute_europeen' else ''),'mandat':last['mandat'],
-      'page':page,'masked':masked,'h':holds,'cj':cj,**({'g':g[0],'gl':g[1]} if (g:=groupe(cat,k)) else {}),
+      'page':page,'masked':masked,'h':holds,'cj':cj,**({'ac':ac} if ac else {}),**({'g':g[0],'gl':g[1]} if (g:=groupe(cat,k)) else {}),
+      **({'com':g[2]['commission']} if g and g[2].get('commission') else {}),**({'comf':g[2]['fonction_commission']} if g and g[2].get('fonction_commission','Membre') not in ('','Membre') else {}),
+      **({'dl':dl} if g and cat=='depute' and (dl:=X.delai_depot(g[2].get('debut_mandat',''),DEPOTS[(k[0],k[1])])) else {}),
+      '_an':g[2].get('acteur','') if g and cat=='depute' else '',
       'decls':[{'t':d['type_declaration'],'d':d['date_depot'],'m':d['modificative']=='oui','u':pdf(d)} for d in ds]})
 # mouvements
 mv=[]
@@ -213,17 +152,58 @@ for r in csv.DictReader(open(D+'out/mouvements.csv')):
     if m in ('hausse','baisse') and qa is not None and qa==qp: m='valeur'
     mv.append({'e':ids[k],'s':sk,'n':r['societe'],'f':r['famille'],'m':m,'da':r['date_avant'],'dp':r['date_apres'],'qa':qa,'qp':qp,'va':va,'vp':vp})
     soc[sk]['names'][r['societe']]+=0
-DISP={'CREDIT AGRICOLE':'Crédit Agricole (sans précision)','CREDIT AGRICOLE SA':'Crédit Agricole SA','CREDIT AGRICOLE PARTS SOCIALES':'Crédit Agricole (parts sociales)',
- 'EDF':'EDF','ESSILORLUXOTTICA':'EssilorLuxottica','ASML HOLDING':'ASML','SAP':'SAP','BIOMERIEUX':'bioMérieux','ENI':'ENI','BIC':'BIC','SPIE':'SPIE','SEB':'SEB','SCOR':'SCOR',
- 'JCDECAUX':'JCDecaux','UNIBAIL RODAMCO':'Unibail-Rodamco-Westfield','FNAC DARTY':'Fnac Darty','AB SCIENCE':'AB Science','REMY COINTREAU':'Rémy Cointreau','BOLLORE':'Bolloré',
- 'KLEPIERRE':'Klépierre','EUTELSAT COMMUNICATIONS':'Eutelsat','NVIDIA':'Nvidia','PUBLICIS GROUPE':'Publicis','CREDIT MUTUEL':'Crédit Mutuel','CAISSE D EPARGNE':"Caisse d'Épargne",
- 'L OREAL':"L'Oréal",'TOTALENERGIES':'TotalEnergies','AIR FRANCE KLM':'Air France-KLM','SAINT GOBAIN':'Saint-Gobain','SOCIETE GENERALE':'Société Générale','HERMES':'Hermès','DASSAULT SYSTEMES':'Dassault Systèmes','STMICROELECTRONICS':'STMicroelectronics','ARCELORMITTAL':'ArcelorMittal','EUROAPI':'EuroAPI','TF1':'TF1','FDJ':'FDJ','ADP':'ADP','LVMH':'LVMH','AXA':'AXA','BNP PARIBAS':'BNP Paribas'}
 def disp(k,v):
     if k in DISP: return DISP[k]
     if k in ISIN: return k.title()
     return v['names'].most_common(1)[0][0] if v['names'] else k
 socs=[{'k':k,'id':slug(k) or 'x','name':disp(k,v),'isin':ISIN.get(k),'iv':ISIN.get(k) in VERIFIES,'siren':SIREN.get(k),'nat':nature(k,v['names']),'holders':v['holders']} for k,v in soc.items()]
 LABELS={k:[n for n,c in v['names'].most_common()] for k,v in soc.items()}
+# --- croisements (sources facultatives, voir site/croisements.py) ---
+COURS=X.cours(D); LOB=X.lobbying(D); DECP=X.json_facultatif(D,'raw/decp.json',{}); DEPORTS=X.json_facultatif(D,'ref/deports.json',{}).get('decrets',[])
+SK={s_['k']:s_ for s_ in socs}
+for s_ in socs:
+    k=s_['k']
+    if k in SECTEUR: s_['sec']=SECTEUR[k]
+    if s_['isin'] in COURS and s_['iv']: s_['cours']={'c':COURS[s_['isin']][0],'d':COURS[s_['isin']][1]}
+    if LOB.get(k): s_['lob']=LOB[k]
+    if DECP.get(k): s_['decp']=DECP[k]
+    dp=[d for d in DEPORTS if k in d.get('societes',[])]
+    if dp: s_['dep']=[{'u':d['id'],'d':d['date'],'t':d['titre'],'m':d.get('ministere','')} for d in sorted(dp,key=lambda d:d['date'],reverse=True)]
+# valeur au dernier cours : nombre de titres déclaré × cours de clôture (sociétés cotées dont l'ISIN est vérifié)
+for e in elus:
+    for h in e['h']:
+        c=(SK.get(h['s']) or {}).get('cours')
+        try: q=float(h['q']) if h['q'] else None
+        except ValueError: q=None
+        if c and q and h['nl']=='participation': h['vc']=round(q*c['c'])
+# commission permanente et secteur des sociétés détenues : lien à examiner, sans qualification
+for e in elus:
+    if not e.get('com'): continue
+    secs=X.secteurs_commission(e['cat'],e['com'])
+    lk=sorted({h['s'] for h in e['h'] if h['f']=='interets' and SECTEUR.get(h['s']) in secs})
+    if lk: e['lk']=[{'s':x,'sec':SECTEUR[x]} for x in lk]
+# amendements et votes des députés sur les sociétés qu'ils déclarent détenir
+AMD={a['uid']:a for a in AN['amendements']}
+for e in elus:
+    acteur=e.pop('_an','')
+    if not acteur: continue
+    held={h['s'] for h in e['h'] if h['f']=='interets'}
+    L=[]
+    for a in AN['amendements']:
+        r='auteur' if a['auteur']==acteur else ('cosignataire' if acteur in a['cosign'] else '')
+        if r and held & set(a['societes']):
+            L.append({'k':'amendement','u':a['uid'],'n':a['num'],'o':a['organe'],'tx':a['texte'],'ti':a['titre'],'ar':a['article'],'d':a['date'],'so':a['sort'],'r':r,'s':sorted(held&set(a['societes']))})
+    for sc in AN['scrutins']:
+        if acteur in sc['positions'] and held & set(sc['societes']):
+            L.append({'k':'vote','n':sc['numero'],'ti':sc['titre'],'d':sc['date'],'so':sc['sort'],'p':sc['positions'][acteur],'s':sorted(held&set(sc['societes']))})
+    if L: e['an']=sorted(L,key=lambda x:x['d'],reverse=True)
+for e in elus: e.pop('_an',None)
+NA=C.Counter(x for a in AN['amendements'] for x in a['societes']); NS=C.Counter(x for sc in AN['scrutins'] for x in sc['societes'])
+for s_ in socs:
+    if NA[s_['k']] or NS[s_['k']]: s_['an']={'a':NA[s_['k']],'v':NS[s_['k']]}
+# déclarations que la HATVP signale comme non déposées (liste.csv, statut publié tel quel)
+NONDEP=[{'p':r['prenom'].title(),'n':r['nom'].upper(),'q':r['qualite'],'t':r['type_document'].upper(),'u':'https://www.hatvp.fr'+r['url_dossier'] if r['url_dossier'] else ''}
+        for rows in liste.values() for r in rows if r['statut_publication']=='Déclaration non déposée']
 # mentions légales : renseignées par les variables du dépôt (voir docs/CONFORMITE.md)
 HEBERGEUR_DEFAUT="GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis."
 legal={'editeur':os.environ.get('EDITEUR_NOM','').strip(),'contact':os.environ.get('EDITEUR_CONTACT','').strip(),
@@ -231,7 +211,7 @@ legal={'editeur':os.environ.get('EDITEUR_NOM','').strip(),'contact':os.environ.g
        # éditeur non professionnel anonyme (LCEN art. 6 III 2) : nom absent du site, identité connue de l'hébergeur
        'anonyme':os.environ.get('EDITEUR_ANONYME','').strip().lower() in ('1','oui','true')}
 SITE_URL=(os.environ.get('SITE_URL','').strip() or 'https://trades-survey.github.io/trades-survey/').rstrip('/')+'/'
-out={'built':BUILT,'legal':legal,'elus':sorted(elus,key=lambda e:(e['n'],e['p'])),'socs':socs,'mv':sorted(mv,key=lambda m:(m['dp'],m['e'],m['s']),reverse=True)}
+out={'built':BUILT,'legal':legal,'elus':sorted(elus,key=lambda e:(e['n'],e['p'])),'socs':socs,'mv':sorted(mv,key=lambda m:(m['dp'],m['e'],m['s']),reverse=True),'nd':NONDEP}
 PUB=os.path.join(ROOT,'public')
 import shutil
 for d in ('elus','societes','donnees'): shutil.rmtree(os.path.join(PUB,d),ignore_errors=True); os.makedirs(os.path.join(PUB,d))
@@ -248,12 +228,31 @@ HEAD='<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n<meta n
 write('donnees/registre.json',json.dumps(out,ensure_ascii=False,separators=(',',':')))
 # 2. accueil : seulement ce qu'il faut aux listes, aux filtres et à la recherche ; le détail est dans les fiches statiques
 nm=C.Counter(m['s'] for m in mv)
+# vue d'ensemble (page « Chiffres ») : agrégats des dernières déclarations d'intérêts
+def agg(L):
+    return {'n':len({e['id'] for e,h in L}),'l':len(L),'v':sum(h['v'] or 0 for e,h in L),'vc':sum(h.get('vc') or 0 for e,h in L)}
+IH=[(e,h) for e in out['elus'] for h in e['h'] if h['f']=='interets' and h['nl']=='participation']
+LIST=[(e,h) for e,h in IH if (SK.get(h['s']) or {}).get('nat')=='cotee']
+sect=C.defaultdict(list); grp=C.defaultdict(list); fon=C.defaultdict(list); val=C.defaultdict(list)
+for e,h in LIST:
+    if SECTEUR.get(h['s']): sect[SECTEUR[h['s']]].append((e,h))
+    val[h['s']].append((e,h))
+for e,h in IH:
+    fon[e['fn']].append((e,h))
+    if e.get('g'): grp[(e['cat'],e['g'])].append((e,h))
+NG=C.Counter((e['cat'],e['g']) for e in out['elus'] if e.get('g'))
+stats={'sect':sorted(({'sec':k,**agg(v)} for k,v in sect.items()),key=lambda x:-x['v']),
+       'grp':sorted(({'c':k[0],'g':k[1],'m':NG[k],**agg(v)} for k,v in grp.items()),key=lambda x:(x['c'],-x['n'])),
+       'fn':sorted(({'fn':k,'m':sum(1 for e in out['elus'] if e['fn']==k),**agg(v)} for k,v in fon.items()),key=lambda x:-x['n']),
+       'top':[{'k':k,**agg(v)} for k,v in sorted(val.items(),key=lambda kv:-sum(h['v'] or 0 for e,h in kv[1]))[:20]],
+       'lob':[{'k':s_['k'],'nh':len({h['e'] for h in s_['holders']}),'np':sum(o['np'] for o in s_['lob'])} for s_ in sorted(socs,key=lambda s_:-sum(o['np'] for o in s_.get('lob',[]))) if s_.get('lob') and s_['holders']][:20],
+       'tot':{**agg(LIST),'cours':max((s_['cours']['d'] for s_ in socs if s_.get('cours')),default='')}}
 idx={'built':BUILT,'legal':legal,
      'elus':[{'id':e['id'],'p':e['p'],'n':e['n'],'cat':e['cat'],'fn':e['fn'],'dep':e['dep'],'org':e['org'],'g':e.get('g',''),
               'nh':len(e['h']),'v':sum(h['v'] or 0 for h in e['h'])} for e in out['elus']],
-     'socs':[{'k':s['k'],'id':s['id'],'name':s['name'],'isin':s['isin'],'siren':s['siren'],'nat':s['nat'],'nh':len({h['e'] for h in s['holders']}),'nm':nm[s['k']]}
+     'socs':[{'k':s['k'],'id':s['id'],'name':s['name'],'isin':s['isin'],'siren':s['siren'],'nat':s['nat'],'nh':len({h['e'] for h in s['holders']}),'nm':nm[s['k']],**({'sec':s['sec']} if s.get('sec') else {})}
              for s in socs if s['holders'] or nm[s['k']]],
-     'mv':out['mv']}
+     'mv':out['mv'],'stats':stats,'nd':NONDEP}
 data=json.dumps(idx,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 write('index.html',HEAD+tpl.replace('__DATA__',data).replace('<header class="top">','</head>\n<body>\n<header class="top">',1)+'\n</body>\n</html>\n')
 # 3. une page statique par élu et par société

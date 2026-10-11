@@ -9,7 +9,7 @@ n'est archivé ni publié. `tests/test_conformite.py` vérifie que le contrôle 
 | Règle | Fondement | Contrôle |
 |---|---|---|
 | Aucune déclaration de patrimoine d'un élu non ministre | Art. LO 135-2 code électoral, loi 2013-907 (45 000 € d'amende) | type de déclaration de chaque ligne et de chaque lien |
-| Seuls les champs prévus sont publiés (pas de date de naissance, commentaire, rémunération, adresse) | RGPD art. 5, 1, c (minimisation) | liste blanche des champs embarqués |
+| Seuls les champs prévus sont publiés (pas de date de naissance, commentaire, adresse) | RGPD art. 5, 1, c (minimisation) | liste blanche des champs embarqués |
 | Activité du conjoint : activité et employeur seulement, tirés d'une déclaration d'intérêts (jamais le nom ni le commentaire) | RGPD art. 5, 1, c ; le conjoint est un tiers, la HATVP publie ces champs sans son nom | liste blanche des champs et type de déclaration |
 | Aucune donnée occultée par la HATVP | Choix de la HATVP, minimisation | recherche de « [Données non publiées] » |
 | Pas d'année de naissance dans les adresses des fiches | Minimisation | identifiants des élus |
@@ -20,6 +20,11 @@ n'est archivé ni publié. `tests/test_conformite.py` vérifie que le contrôle 
 | Attribution de la source et date de mise à jour | Licence ouverte Etalab 2.0 | pied de page et date des données |
 | Aucune ressource tierce ni connexion sortante, même si le code change | RGPD art. 32 | politique de sécurité (CSP) dans chaque page ; HTTPS imposé par GitHub Pages |
 | Groupe politique pour les seuls députés et sénateurs en exercice | RGPD art. 9, 2, e : appartenance rendue publique par l'élu et publiée par son assemblée | catégorie de l'élu portant un groupe |
+| Activités et mandats tirés des seules déclarations d'intérêts, sans commentaire ; rémunération reprise seulement sous forme d'années et de montants entiers | Minimisation ; la DSP des parlementaires ne peut être republiée | liste blanche et type de déclaration |
+| Amendements, votes et délai de dépôt pour les seuls députés ; commission pour les seuls parlementaires | Minimisation, exactitude | catégorie de l'élu |
+| Répertoire des représentants d'intérêts : organisations seulement, pas les noms des dirigeants ou collaborateurs | Minimisation | liste blanche des champs |
+| Aucune qualification pénale ou déontologique dans le texte écrit par le site (« conflit d'intérêts », « corruption »…) : les rapprochements sont des liens à examiner | Diffamation (loi de 1881), exactitude | recherche dans `site/template.html` et `site/pages.py` |
+| Liens sortants limités à hatvp.fr, pappers.fr, assemblee-nationale.fr, legifrance.gouv.fr, data.economie.gouv.fr | Exactitude | domaines des liens |
 | Exports CSV sans date de naissance, commentaire ni donnée du conjoint | Minimisation | liste blanche des colonnes de `public/donnees/*.csv` |
 
 Le contrôle porte sur l'accueil (`index.html` et ses données réduites), sur les données complètes (`donnees/registre.json`), sur chaque fiche statique (`elus/*.html`, `societes/*.html`) et sur les en-têtes des exports CSV.
@@ -42,8 +47,8 @@ Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éd
 - **Finalité :** information du public, transparence de la vie publique.
 - **Base légale :** intérêt légitime (art. 6, 1, f). Les données sont rendues publiques par la loi et librement réutilisables (licence Etalab, open data HATVP).
 - **Personnes concernées :** députés, sénateurs, membres du gouvernement, députés européens, élus locaux soumis à déclaration ; leurs conjoints, partenaires de PACS ou concubins, pour leur seule activité professionnelle (sans nom).
-- **Données :** identité (nom, prénom), fonction, mandat et département d'élection, groupe politique des parlementaires en exercice, participations (société, titres, part du capital, valeur), dates et liens des déclarations ; activité et employeur du conjoint tels que publiés par la HATVP (ni nom, ni commentaire, ni croisement avec d'autres sources, ni recherche par employeur). Patrimoine : membres du gouvernement uniquement.
-- **Source :** open data HATVP (`declarations.xml`, `liste.csv`), téléchargé chaque lundi ; groupes politiques : open data de l'Assemblée nationale et du Sénat (licence ouverte), rapprochés par nom et date de naissance (non publiée).
+- **Données :** identité (nom, prénom), fonction, mandat et département d'élection, groupe politique des parlementaires en exercice, participations (société, titres, part du capital, valeur), dates et liens des déclarations ; activité et employeur du conjoint tels que publiés par la HATVP (ni nom, ni commentaire, ni croisement avec d'autres sources, ni recherche par employeur). Patrimoine : membres du gouvernement uniquement. Activités, fonctions et mandats de la déclaration d'intérêts (intitulé, organisme, dates, rémunération déclarée par année, que la HATVP publie et dont la connaissance participe au contrôle des intérêts des responsables publics ; jamais le commentaire). Commission permanente, date d'entrée en fonction, amendements et votes nominatifs des députés citant une société qu'ils détiennent. Décrets de déport des ministres (Journal officiel). Les données sur les sociétés (lobbying, marchés publics, cours) ne sont pas des données personnelles.
+- **Source :** open data HATVP (`declarations.xml`, `liste.csv`), téléchargé chaque lundi ; groupes politiques : open data de l'Assemblée nationale et du Sénat (licence ouverte), rapprochés par nom et date de naissance (non publiée) ; répertoire des représentants d'intérêts (HATVP) ; amendements et scrutins (open data de l'Assemblée nationale) ; données essentielles de la commande publique (data.economie.gouv.fr) ; Journal officiel (DILA) ; cours Euronext.
 - **Destinataires :** public. Sous-traitant : GitHub (hébergement GitHub Pages, dépôt public et exécution des mises à jour, États-Unis, cadre UE-États-Unis).
 - **Durée :** affichage aligné sur le fichier HATVP de la semaine ; archives hebdomadaires dans le dépôt public pour la traçabilité des corrections.
 - **Sécurité :** site statique sans base de données ni formulaire, HTTPS imposé par GitHub Pages, aucun secret dans le dépôt.
