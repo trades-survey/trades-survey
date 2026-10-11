@@ -14,7 +14,7 @@ cherchés que sous une forme non ambiguë (« groupe Orange »).
 
   python3 -I scripts/fetch_assemblee.py [data/raw/assemblee.json] [--dossier data/raw]   # --dossier : zips déjà téléchargés
 """
-import html, json, os, re, sys, urllib.request, zipfile
+import html, json, os, re, sys, time, urllib.error, urllib.request, zipfile
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'site'))
 from societes import motifs, norm
 
@@ -26,10 +26,18 @@ def ouvrir(nom, dossier):
         return zipfile.ZipFile(os.path.join(dossier, os.path.basename(FICHIERS[nom])))
     tmp = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'raw', os.path.basename(FICHIERS[nom]))
     os.makedirs(os.path.dirname(tmp), exist_ok=True)
-    with urllib.request.urlopen(FICHIERS[nom], timeout=600) as r, open(tmp, 'wb') as f:
-        while b := r.read(1 << 20):
-            f.write(b)
-    return zipfile.ZipFile(tmp)
+    # Le serveur de l'Assemblée répond parfois 503 quelques minutes : on réessaie avant d'abandonner pour la semaine.
+    for essai in range(5):
+        try:
+            with urllib.request.urlopen(FICHIERS[nom], timeout=600) as r, open(tmp, 'wb') as f:
+                while b := r.read(1 << 20):
+                    f.write(b)
+            return zipfile.ZipFile(tmp)
+        except (urllib.error.URLError, OSError, zipfile.BadZipFile) as e:
+            if essai == 4:
+                raise
+            print(f'{nom} : {e}, nouvel essai dans {60 * (essai + 1)} s', file=sys.stderr)
+            time.sleep(60 * (essai + 1))
 
 
 def ref(x):
