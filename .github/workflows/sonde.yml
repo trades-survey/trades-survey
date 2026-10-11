@@ -3,24 +3,32 @@ on:
   push:
     branches: [claude/project-thread-up8zjt]
     paths: [".github/workflows/sonde.yml"]
+permissions:
+  contents: write
 jobs:
   sonde:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     steps:
-      - name: Sonder
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Liens Assemblée
         run: |
           set +e
-          p(){ for i in 1 2 3; do r=$(curl -sSL --compressed -m 60 -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36' -H 'Accept: text/html' -o /tmp/o -w '%{http_code} %{size_download} %{url_effective}' "$1"); case $r in 503*|000*) sleep 5;; *) break;; esac; done; echo "== $1 -> $r"; grep -oE '<title>[^<]*' /tmp/o | head -1; }
-          for u in 0772/CION-ECO/CE198 0772/CION-ECO/198 AMANR5L17PO419610B0772P0D1N000198 1490/AN/12 TC1490/AN/12 0324A/AN/1548; do p "https://www.assemblee-nationale.fr/dyn/17/amendements/$u"; done
-          p "https://www.assemblee-nationale.fr/dyn/17/scrutins/156"
-          q(){ curl -sS -m 60 --compressed "$1" | head -c 2500; echo; }
-          q "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-2022-marches-valides/records?limit=1"
-          q "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-2022-marches-valides/records?select=count(*)%20as%20n,sum(montant)%20as%20total&where=titulaire_id_1%3E%3D55203780600000%20and%20titulaire_id_1%3C55203780700000&group_by=acheteur_nom&order_by=total%20desc&limit=5"
-          q "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-v3-marches-valides/records?select=count(*)%20as%20n,sum(montant)%20as%20total,min(datenotification)%20as%20d0,max(datenotification)%20as%20d1&where=titulaire_id_1%3E%3D55203780600000%20and%20titulaire_id_1%3C55203780700000&limit=5"
-          curl -sSI -m 30 https://echanges.dila.gouv.fr/OPENDATA/JORF/Freemium_jorf_global_20250713-140000.tar.gz | grep -i length
-          curl -sS -m 30 https://echanges.dila.gouv.fr/OPENDATA/JORF/ -o /tmp/l; grep -oE 'JORF_2025[0-9-]+\.tar\.gz</a> +[0-9: -]+ +[0-9.]+[KMG]' /tmp/l | head -3; grep -c 'JORF_20' /tmp/l
-          for f in $(grep -oE 'JORF_2026[0-9-]+\.tar\.gz' /tmp/l | sort -u | tail -60); do curl -sS -m 60 -o /tmp/j.tgz "https://echanges.dila.gouv.fr/OPENDATA/JORF/$f"; mkdir -p /tmp/j; tar -xzf /tmp/j.tgz -C /tmp/j --wildcards '*/texte/*' '*/article/*' 2>/dev/null; done
-          find /tmp/j -path '*texte*' -name '*.xml' | head -3
-          for x in $(grep -rl --include='*.xml' "2-1 du décret n° 59-178" /tmp/j | grep '/texte/' | head -4); do echo "---- $x"; cat "$x" | head -c 4000; echo; done
-          a=$(grep -rl --include='*.xml' "ne connaît pas" /tmp/j | grep '/article/' | head -3); for x in $a; do echo "---- $x"; head -c 5000 "$x"; echo; done
-          grep -rl --include='*.xml' "2-1 du décret n° 59-178" /tmp/j | grep '/texte/version' | wc -l
+          p(){ for i in 1 2 3 4; do r=$(curl -sSL -m 60 -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36' -o /tmp/o -w '%{http_code}' "$1"); case $r in 5*|000) sleep 8;; *) break;; esac; done; echo "== $1 -> $r $(grep -oE '<title>[^<]*' /tmp/o | head -1)"; }
+          for u in 3210A/AN/I-428 3210/AN/I-428 2123/AN/275 0324A/AN/1548 0324/AN/1548 3210A/CION_FIN/I-CF1 ; do p "https://www.assemblee-nationale.fr/dyn/17/amendements/$u"; done
+      - name: Commande publique
+        run: |
+          curl -sS --compressed "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-2022-marches-valides" | python3 -c "import json,sys; print([f['name'] for f in json.load(sys.stdin)['fields']])"
+          python3 -I scripts/fetch_decp.py data/ref/decp_essai.json && head -c 3000 data/ref/decp_essai.json
+      - name: Déports
+        run: python3 -I scripts/fetch_deports.py data/ref/deports.json
+      - name: Enregistrer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ref/deports.json data/ref/decp_essai.json
+          git commit -m "Essai : déports et commande publique"
+          git push

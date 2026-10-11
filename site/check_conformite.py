@@ -12,7 +12,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = os.path.join(ROOT, 'public')
 
 # Domaines vers lesquels le site peut faire des liens (navigation seulement, jamais de chargement).
-LIENS_AUTORISES = {'www.hatvp.fr', 'www.etalab.gouv.fr', 'www.cnil.fr', 'www.pappers.fr'}
+LIENS_AUTORISES = {'www.hatvp.fr', 'www.etalab.gouv.fr', 'www.cnil.fr', 'www.pappers.fr', 'www.assemblee-nationale.fr', 'www.legifrance.gouv.fr',
+                   'data.economie.gouv.fr'}
+# Croisements avec d'autres sources : présentés comme des faits côte à côte, jamais qualifiés (risque de diffamation).
+QUALIFICATIONS = [r"conflits? d['’]int[ée]r[êe]ts?", r'\bprise ill[ée]gale', r'\bcorruption', r'\bfavoritisme', r"\btrafic d['’]influence"]
 # Mouchards, stockage côté navigateur et appels réseau : interdits (pas de bandeau cookies, pas de consentement à recueillir).
 TRACEURS = [r'document\.cookie', r'localStorage', r'sessionStorage', r'indexedDB', r'sendBeacon', r'\bfetch\(',
             r'XMLHttpRequest', r'WebSocket', r'<iframe', r'<img[^>]+src=["\']https?:', r'googletagmanager', r'google-analytics',
@@ -20,20 +23,32 @@ TRACEURS = [r'document\.cookie', r'localStorage', r'sessionStorage', r'indexedDB
 # Seuls champs que le site a le droit d'embarquer, par objet (minimisation des données).
 CHAMPS = {
     # groupe politique (g, gl) : parlementaires en exercice seulement, d'après l'open data de leur assemblée (RGPD art. 9, 2, e)
-    'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls', 'cj', 'g', 'gl'},
+    # ac : activités, fonctions et mandats déclarés (intitulé, organisme, dates ; jamais la rémunération ni le commentaire)
+    # com, comf : commission permanente des parlementaires en exercice ; lk : secteur de la commission et des sociétés détenues
+    # dl : délai de dépôt de la déclaration d'intérêts de début de mandat (députés) ; an : amendements et votes citant une société détenue (députés)
+    'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls', 'cj', 'g', 'gl', 'ac', 'com', 'comf', 'dl', 'lk', 'an'},
+    'activites': {'d', 't', 'l'},
+    'activite': {'r', 'i', 'o', 'db', 'fi'},
+    'delai': {'pf', 'dd', 'j', 'ech', 'hors'},
+    'lien': {'s', 'sec'},
+    'acte': {'k', 'u', 'n', 'o', 'tx', 'ti', 'ar', 'd', 'so', 'r', 's', 'p'},
+    'non_depose': {'p', 'n', 'q', 't', 'u'},
     # activité du conjoint : activité et employeur seulement (jamais le nom ni le commentaire)
     'conjoint': {'d', 't', 'l'},
     'conjoint_ligne': {'a', 'e'},
-    'holding': {'s', 'n', 'f', 'nl', 'v', 'q', 'c', 'd', 't'},
+    'holding': {'s', 'n', 'f', 'nl', 'v', 'q', 'c', 'd', 't', 'vc'},
     'decl': {'t', 'd', 'm', 'u'},
-    'soc': {'k', 'id', 'name', 'isin', 'iv', 'siren', 'nat', 'holders'},
+    # sec : secteur ; cours : dernier cours Euronext ; lob : répertoire des représentants d'intérêts (organisations, sans leurs dirigeants) ;
+    # an : nombre d'amendements et de scrutins citant la société ; decp : marchés publics ; dep : décrets de déport des ministres
+    'soc': {'k', 'id', 'name', 'isin', 'iv', 'siren', 'nat', 'holders', 'sec', 'cours', 'lob', 'an', 'decp', 'dep'},
+    'lobby': {'nom', 'siren', 'id', 'depense', 'exercice', 'n', 'np', 'ng', 'objets', 'lien'},
     'holder': {'e', 'v', 'q', 'd', 'f'},
     'mv': {'e', 's', 'n', 'f', 'm', 'da', 'dp', 'qa', 'qp', 'va', 'vp'},
 }
 # Données embarquées dans l'accueil (listes, filtres, recherche) : un sous-ensemble des précédentes
 CHAMPS_ACCUEIL = {
     'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'org', 'g', 'nh', 'v'},
-    'soc': {'k', 'id', 'name', 'isin', 'siren', 'nat', 'nh', 'nm'},
+    'soc': {'k', 'id', 'name', 'isin', 'siren', 'nat', 'nh', 'nm', 'sec'},
     'mv': CHAMPS['mv'],
 }
 MOUVEMENTS = {'apparition', 'disparition', 'hausse', 'baisse', 'valeur'}
@@ -70,6 +85,21 @@ def scanner(page, nom, err):
         err.append(f'donnée occultée par la HATVP reprise sur le site ({nom})')
 
 
+def qualifications(textes):
+    """Termes qui qualifieraient une situation, dans les textes rédigés par le site (gabarit et fiches), hors négation.
+
+    Les données reprises des déclarations ou du répertoire (activités, objets de lobbying) peuvent contenir ces mots :
+    ce sont des citations, d'où un contrôle limité au code qui produit les textes du site.
+    """
+    err = []
+    for nom, t in textes.items():
+        t = re.sub(r"(aucun|jamais|ni|sans)\s+(de\s+|d['’]\s*|«\s*)?conflits? d['’]int[ée]r[êe]ts?", '', t, flags=re.I)
+        for q in QUALIFICATIONS:
+            if re.search(q, t, re.I):
+                err.append(f'qualification interdite dans les textes du site ({nom}) : {q}')
+    return err
+
+
 def controler(html, publication=False, css=None, db=None, pages=None, exports=None):
     """Renvoie la liste des manquements trouvés dans le site construit.
 
@@ -87,6 +117,7 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
         err.append(f'ressource CSS externe : {u[:120]}')
     for nom, p in (pages or {}).items():
         scanner(p, nom, err)
+
     for nom, cols in (exports or {}).items():
         extra = set(cols) - EXPORTS.get(nom, set())
         if extra:
@@ -107,8 +138,26 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
         champs(mv, 'mv', CHAMPS_ACCUEIL)
     if json.dumps(idx, ensure_ascii=False).count('Données non publiées'):
         err.append('donnée occultée par la HATVP reprise sur le site')
+    for x in db.get('nd', []):
+        champs(x, 'non_depose')
     for e in db['elus']:
         champs(e, 'elu')
+        if e.get('ac'):
+            champs(e['ac'], 'activites')
+            if e['ac']['t'] not in TYPES_INTERETS:
+                err.append(f"activités tirées d'une autre déclaration que la déclaration d'intérêts : {e['id']}")
+            for a in e['ac']['l']:
+                champs(a, 'activite')
+        if e.get('dl'):
+            champs(e['dl'], 'delai')
+        for x in e.get('lk', []):
+            champs(x, 'lien')
+        for x in e.get('an', []):
+            champs(x, 'acte')
+        if (e.get('an') or e.get('dl')) and e['cat'] != 'depute':
+            err.append(f"activité ou délai de l'Assemblée publié pour un élu non député : {e['id']}")
+        if (e.get('com') or e.get('lk')) and e['cat'] not in ('depute', 'senateur'):
+            err.append(f"commission publiée pour un élu non parlementaire : {e['id']}")
         for h in e['h']:
             champs(h, 'holding')
             # Garde-fou loi 2013-907 / art. LO 135-2 : aucune déclaration de patrimoine hors gouvernement.
@@ -142,6 +191,8 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
             err.append(f"SIREN invalide pour {s['k']} : {s['siren']}")
         for h in s['holders']:
             champs(h, 'holder')
+        for o in s.get('lob', []):
+            champs(o, 'lobby')
     for mv in db['mv']:
         champs(mv, 'mv')
         if mv['m'] not in MOUVEMENTS:
@@ -194,6 +245,7 @@ def main():
         if f.endswith('.csv'):
             exports[f] = lire('donnees', f).lstrip('\ufeff').split('\n', 1)[0].strip().split(',')
     err = controler(html, publication, css, db, pages, exports)
+    err += qualifications({f: open(os.path.join(ROOT, 'site', f), encoding='utf-8').read() for f in ('template.html', 'pages.py')})
     if err:
         print('Site non conforme, publication bloquée :')
         for e in err:

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Télécharge la liste officielle des actions cotées sur Euronext (nom et ISIN), pour vérifier les ISIN du site.
 
-Écrit data/raw/euronext.csv (colonnes name, isin). Facultatif : si Euronext ne répond pas ou si le fichier
+Écrit data/raw/euronext.csv (colonnes name, isin, et quand l'export les donne : devise, cours de clôture, date du
+cours et marché ; le cours sert à estimer la valeur actuelle des titres déclarés). Facultatif : si Euronext ne répond pas ou si le fichier
 reçu n'a pas la forme attendue, le script le signale et n'écrit rien ; le build garde alors ses ISIN sans
 les marquer vérifiés.
 
@@ -27,7 +28,11 @@ def lire(texte):
     tete = [c.strip().lower() for c in next(rd)]
     ci = tete.index('isin')
     cn = next((k for k, c in enumerate(tete) if c in ('name', 'nom', 'libellé', 'libelle')), 0)
-    return [(r[cn].strip(), r[ci].strip()) for r in rd if len(r) > max(ci, cn) and ISIN_RE.fullmatch(r[ci].strip())]
+    col = lambda *noms: next((k for k, c in enumerate(tete) if c in noms), None)
+    cc, cd, cm, cv = col('closing price'), col('closing price datetime'), col('market'), col('currency')
+    get = lambda r, k: r[k].strip() if k is not None and k < len(r) else ''
+    return [(r[cn].strip(), r[ci].strip(), get(r, cv), get(r, cc), get(r, cd), get(r, cm))
+            for r in rd if len(r) > max(ci, cn) and ISIN_RE.fullmatch(r[ci].strip())]
 
 
 def main():
@@ -51,7 +56,7 @@ def main():
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, 'w', newline='', encoding='utf-8') as f:
         w = csv.writer(f)
-        w.writerow(['name', 'isin'])
+        w.writerow(['name', 'isin', 'devise', 'cours', 'date_cours', 'marche'])
         w.writerows(rows)
     print(f'{len(rows)} actions Euronext')
 
