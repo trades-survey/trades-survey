@@ -45,9 +45,13 @@ def eur(v):
 
 
 def an_url(a):
-    """Page d'un amendement sur le site de l'Assemblée nationale (numéro du texte, organe d'examen, numéro de l'amendement)."""
-    m = re.search(r'B(TC)?(\d+)', a['tx'])
-    return f"https://www.assemblee-nationale.fr/dyn/17/amendements/{m.group(2)}{'A' if m.group(1) else ''}/{a['o']}/{a['n']}" if m else ''
+    """Page d'un amendement sur le site de l'Assemblée nationale : numéro du texte sur quatre chiffres, suivi de A ou C
+    pour la première ou la seconde partie d'une loi de finances, organe d'examen, numéro sans le préfixe I- ou II-."""
+    m = re.search(r'B(?:TC)?(\d+)(?:P(\d))?', a['u'])
+    if not m:
+        return ''
+    partie = {'1': 'A', '2': 'C'}.get(m.group(2), '')
+    return f"https://www.assemblee-nationale.fr/dyn/17/amendements/{m.group(1).zfill(4)}{partie}/{a['o']}/{re.sub(r'^I+-', '', a['n'])}"
 
 
 def scrutin_url(n):
