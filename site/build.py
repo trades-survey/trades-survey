@@ -155,7 +155,7 @@ def disp(k,v):
 socs=[{'k':k,'id':slug(k) or 'x','name':disp(k,v),'isin':ISIN.get(k),'iv':ISIN.get(k) in VERIFIES,'siren':SIREN.get(k),'nat':nature(k,v['names']),'holders':v['holders']} for k,v in soc.items()]
 LABELS={k:[n for n,c in v['names'].most_common()] for k,v in soc.items()}
 # --- croisements (sources facultatives, voir site/croisements.py) ---
-COURS=X.cours(D); LOB=X.lobbying(D); DECP=X.json_facultatif(D,'raw/decp.json',{}); DEPORTS=X.json_facultatif(D,'ref/deports.json',[])
+COURS=X.cours(D); LOB=X.lobbying(D); DECP=X.json_facultatif(D,'raw/decp.json',{}); DEPORTS=X.json_facultatif(D,'ref/deports.json',{}).get('decrets',[])
 SK={s_['k']:s_ for s_ in socs}
 for s_ in socs:
     k=s_['k']
@@ -164,7 +164,7 @@ for s_ in socs:
     if LOB.get(k): s_['lob']=LOB[k]
     if DECP.get(k): s_['decp']=DECP[k]
     dp=[d for d in DEPORTS if k in d.get('societes',[])]
-    if dp: s_['dep']=[{'u':d['id'],'d':d['date'],'t':d['titre'],'m':d.get('ministere','')} for d in dp]
+    if dp: s_['dep']=[{'u':d['id'],'d':d['date'],'t':d['titre'],'m':d.get('ministere','')} for d in sorted(dp,key=lambda d:d['date'],reverse=True)]
 # valeur au dernier cours : nombre de titres déclaré × cours de clôture (sociétés cotées dont l'ISIN est vérifié)
 for e in elus:
     for h in e['h']:

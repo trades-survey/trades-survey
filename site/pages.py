@@ -143,10 +143,31 @@ class Site:
         return h + '</section>'
 
     def decp(self, s):
-        return ''
+        m = s.get('decp')
+        if not m or not m.get('n'):
+            return ''
+        u = 'https://data.economie.gouv.fr/explore/dataset/decp-2022-marches-valides/table/?q=' + esc(m.get('siren', ''))
+        h = (f'<section><h2>Marchés publics</h2><p>{m["n"]} marché{"s" if m["n"] > 1 else ""} public{"s" if m["n"] > 1 else ""} notifié{"s" if m["n"] > 1 else ""} '
+             f'à la société (titulaire ou cotitulaire, SIREN {esc(m.get("siren", ""))}) entre le {date(m["d0"])} et le {date(m["d1"])}, '
+             f'pour un montant total déclaré de {eur(m["total"])}. Les filiales qui ont leur propre SIREN ne sont pas comptées. Pour un accord-cadre, le montant déclaré est souvent le maximum prévu, pas la somme payée. '
+             f'<a href="{u}" target="_blank" rel="noopener">Voir les marchés</a></p>')
+        if m.get('acheteurs'):
+            h += ('<h3 class="kind">Principaux acheteurs</h3><div class="tbl"><table><thead><tr><th>Acheteur</th><th class="n">Marchés</th><th class="n">Montant</th></tr></thead><tbody>'
+                  + ''.join(f'<tr><td>{esc(a["nom"])}</td><td class="n">{a["n"]}</td><td class="n">{eur(a["total"])}</td></tr>' for a in m['acheteurs'])
+                  + '</tbody></table></div>')
+        return h + '</section>'
 
     def deports(self, s):
-        return ''
+        L = s.get('dep')
+        if not L:
+            return ''
+        h = ('<section><h2>Déports de membres du Gouvernement</h2><p class="crumb">Décrets publiés au Journal officiel par lesquels un ministre '
+             's\'abstient de connaître des actes relatifs aux entités qu\'ils citent, dont cette société ; ces actes sont alors confiés à un autre membre du Gouvernement.</p><ul>')
+        for d in L:
+            h += (f'<li><a href="https://www.legifrance.gouv.fr/jorf/id/{esc(d["u"])}" target="_blank" rel="noopener">{esc(d["t"])}</a>'
+                  f' <span class="cat">({date(d["d"])}{", " + esc(d["m"]) if d.get("m") else ""})</span>'
+                  + '</li>')
+        return h + '</ul></section>'
 
     def mv_rows(self, L, elu=True, soc=True):
         if not L:

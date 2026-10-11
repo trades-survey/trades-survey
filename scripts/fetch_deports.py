@@ -5,7 +5,8 @@ Un ministre qui a un intérêt dans une entreprise ou un organisme s'abstient d'
 application de l'article 2-1 [ou 2-2] du décret n° 59-178 du 22 janvier 1959 relatif aux attributions des ministres »
 confie les actes correspondants à un autre membre du Gouvernement. Ce script lit les livraisons quotidiennes du JO
 (https://echanges.dila.gouv.fr/OPENDATA/JORF/), retient ces décrets et en garde le titre, le ministère, la date et le
-texte des articles, ainsi que les sociétés cotées du site qu'ils citent.
+ministère et la date, ainsi que les sociétés cotées du site qu'ils citent (le texte des articles, qui peut nommer
+des tiers, n'est pas conservé).
 
 État conservé dans data/ref/deports.json (archivé) : {"dernier": nom de la dernière livraison lue, "decrets": [...]}.
 Chaque exécution ne lit que les livraisons plus récentes ; les livraisons quotidiennes remontent à juillet 2025.
@@ -65,7 +66,7 @@ def main():
     livraisons = sorted(set(re.findall(r'JORF_\d{8}-\d{6}\.tar\.gz', index)))
     a_lire = [f for f in livraisons if f > etat['dernier']][:mx]
     decrets = {d['id']: d for d in etat['decrets']}
-    articles = {d['id']: d.get('articles', {}) for d in etat['decrets']}
+    articles = {}
     for f in a_lire:
         with tempfile.NamedTemporaryFile(suffix='.tar.gz') as tmp:
             try:
@@ -80,8 +81,13 @@ def main():
         etat['dernier'] = f
     rx, noms = motifs()
     for i, d in decrets.items():
-        d['articles'] = articles.get(i, {})
-        d['societes'] = sorted({noms[x] for x in rx.findall(norm(' '.join(d['articles'].values())))})
+        # Le texte des articles n'est pas conservé : il peut nommer des tiers (conjoint, associés). Seules les sociétés
+        # du site qu'il cite sont gardées ; un décret déjà lu garde celles trouvées à sa lecture.
+        a = articles.get(i) or d.pop('articles', None)
+        if a:
+            d['societes'] = sorted({noms[x] for x in rx.findall(norm(' '.join(a.values())))})
+        d.pop('articles', None)
+        d.setdefault('societes', [])
     etat['decrets'] = sorted(decrets.values(), key=lambda d: d['date'], reverse=True)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     json.dump(etat, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

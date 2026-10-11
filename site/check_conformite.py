@@ -41,6 +41,9 @@ CHAMPS = {
     # sec : secteur ; cours : dernier cours Euronext ; lob : répertoire des représentants d'intérêts (organisations, sans leurs dirigeants) ;
     # an : nombre d'amendements et de scrutins citant la société ; decp : marchés publics ; dep : décrets de déport des ministres
     'soc': {'k', 'id', 'name', 'isin', 'iv', 'siren', 'nat', 'holders', 'sec', 'cours', 'lob', 'an', 'decp', 'dep'},
+    'decp': {'n', 'total', 'd0', 'd1', 'siren', 'acheteurs', 'dep'},
+    'acheteur': {'nom', 'n', 'total'},
+    'deport': {'u', 'd', 't', 'm'},
     'lobby': {'nom', 'siren', 'id', 'depense', 'exercice', 'n', 'np', 'ng', 'objets', 'lien'},
     'holder': {'e', 'v', 'q', 'd', 'f'},
     'mv': {'e', 's', 'n', 'f', 'm', 'da', 'dp', 'qa', 'qp', 'va', 'vp'},
@@ -193,6 +196,14 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
             champs(h, 'holder')
         for o in s.get('lob', []):
             champs(o, 'lobby')
+        if s.get('decp'):
+            champs(s['decp'], 'decp')
+            for a in s['decp'].get('acheteurs', []):
+                champs(a, 'acheteur')
+        for d in s.get('dep', []):
+            champs(d, 'deport')
+            if not re.fullmatch(r'JORFTEXT\d{12}', d['u']):
+                err.append(f"identifiant de décret de déport invalide : {d['u']}")
     for mv in db['mv']:
         champs(mv, 'mv')
         if mv['m'] not in MOUVEMENTS:

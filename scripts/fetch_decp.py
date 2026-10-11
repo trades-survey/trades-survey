@@ -39,8 +39,8 @@ def departement(code):
     c = (code or '').strip().upper()
     if re.fullmatch(r'\d{5}', c):
         return ('2A' if int(c) < 20200 else '2B') if c.startswith('20') else (c[:3] if c.startswith('97') else c[:2])
-    if re.fullmatch(r'0?\d{1,2}|2[AB]|97\d', c):
-        return c.zfill(2) if c.isdigit() and len(c) < 3 else c
+    if re.fullmatch(r'0{0,2}\d{1,2}|2[AB]|97\d', c):
+        return c if not c.isdigit() or c.startswith('97') else str(int(c)).zfill(2)
     return ''
 
 
@@ -64,8 +64,8 @@ def main():
     for k, siren in sorted(SIREN.items()):
         where = ' or '.join(f'startswith(titulaire_id_{i}, "{siren}")' for i in (1, 2, 3))
         try:
-            tot = requete(select='count(*) as n, sum(montant) as total, min(datenotification) as d0, max(datenotification) as d1', where=where)[0]
-            if not tot['n']:
+            tot = (requete(select='count(*) as n, sum(montant) as total, min(datenotification) as d0, max(datenotification) as d1', where=where) or [{}])[0]
+            if not tot.get('n'):
                 continue
             ach = requete(select='acheteur_id, count(*) as n, sum(montant) as total', where=where, group_by='acheteur_id', order_by='total desc', limit=5)
             dep = requete(select='lieuexecution_code, count(*) as n, sum(montant) as total', where=where, group_by='lieuexecution_code', limit=1000)

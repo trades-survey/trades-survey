@@ -3,32 +3,12 @@ on:
   push:
     branches: [claude/project-thread-up8zjt]
     paths: [".github/workflows/sonde.yml"]
-permissions:
-  contents: write
 jobs:
   sonde:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
       - name: Liens Assemblée
         run: |
           set +e
           p(){ for i in 1 2 3 4; do r=$(curl -sSL -m 60 -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36' -o /tmp/o -w '%{http_code}' "$1"); case $r in 5*|000) sleep 8;; *) break;; esac; done; echo "== $1 -> $r $(grep -oE '<title>[^<]*' /tmp/o | head -1)"; }
-          for u in 3210A/AN/I-428 3210/AN/I-428 2123/AN/275 0324A/AN/1548 0324/AN/1548 3210A/CION_FIN/I-CF1 ; do p "https://www.assemblee-nationale.fr/dyn/17/amendements/$u"; done
-      - name: Commande publique
-        run: |
-          curl -sS --compressed "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp-2022-marches-valides" | python3 -c "import json,sys; print([f['name'] for f in json.load(sys.stdin)['fields']])"
-          python3 -I scripts/fetch_decp.py data/ref/decp_essai.json && head -c 3000 data/ref/decp_essai.json
-      - name: Déports
-        run: python3 -I scripts/fetch_deports.py data/ref/deports.json
-      - name: Enregistrer
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ref/deports.json data/ref/decp_essai.json
-          git commit -m "Essai : déports et commande publique"
-          git push
+          for u in 0324B/AN/1099 0324C/AN/1099 0324/AN/1099 0324A/AN/2180 0324A/CION_FIN/CF96 0324B/CION_FIN/CF2248 0324C/CION_FIN/CF2248 1906B/CION_LOIS/CL92 1906C/CION_LOIS/CL92 1490/AN/12 1490A/AN/12; do p "https://www.assemblee-nationale.fr/dyn/17/amendements/$u"; done
