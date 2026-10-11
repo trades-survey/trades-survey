@@ -54,6 +54,21 @@ def an_url(a):
     return f"https://www.assemblee-nationale.fr/dyn/17/amendements/{m.group(1).zfill(4)}{partie}/{a['o']}/{re.sub(r'^I+-', '', a['n'])}"
 
 
+# Plafond des indemnités cumulées d'un élu (une fois et demie l'indemnité parlementaire de base) : un montant annuel
+# déclaré pour un mandat au-delà de ce seuil relève presque toujours d'une erreur de saisie dans la déclaration.
+PLAFOND_MANDAT = 150000
+
+
+def remuneration(a):
+    if not a.get('rm'):
+        return '—'
+    bn = f' {a["bn"].lower()}' if a.get('bn') else ''
+    h = '<br>'.join(f'{y} : {num(v)} €{bn}' for y, v in a['rm'])
+    if a['r'] == 'mandat' and any(v > PLAFOND_MANDAT for _, v in a['rm']):
+        h += '<br><span class="cat">Montant supérieur au plafond légal des indemnités d\'élu : probable erreur de saisie dans la déclaration.</span>'
+    return h
+
+
 def scrutin_url(n):
     return f'https://www.assemblee-nationale.fr/dyn/17/scrutins/{n}'
 
@@ -231,14 +246,18 @@ class Site:
         body += self.commission(e) + self.activite_an(e)
         ac = e.get('ac')
         if ac:
-            body += f'<section><h2>Activités, fonctions et mandats déclarés</h2><p class="crumb">{TD.get(ac["t"], ac["t"])} du {date(ac["d"])}. Rémunérations non reprises.</p>'
+            body += (f'<section><h2>Activités, fonctions et mandats déclarés</h2><p class="crumb">{TD.get(ac["t"], ac["t"])} du {date(ac["d"])}. '
+                     'Rémunérations telles que déclarées, par année, brutes ou nettes selon la déclaration ; elles peuvent porter sur une activité antérieure au mandat.</p>')
             for code, titre in RUB.items():
                 L = [a for a in ac['l'] if a['r'] == code]
                 if not L:
                     continue
-                body += (f'<h3 class="kind">{titre}</h3><div class="tbl"><table><thead><tr><th>Intitulé</th><th>Organisme</th><th>Période</th></tr></thead><tbody>'
+                rem = code != 'benevole'
+                body += (f'<h3 class="kind">{titre}</h3><div class="tbl"><table><thead><tr><th>Intitulé</th><th>Organisme</th><th>Période</th>'
+                         + ('<th>Rémunération déclarée</th>' if rem else '') + '</tr></thead><tbody>'
                          + ''.join(f'<tr><td>{esc(a["i"]) or "—"}</td><td>{esc(a["o"]) or "—"}</td><td class="mono">'
-                                   + (f'{mois(a["db"])} – {mois(a["fi"]) if a["fi"] else "en cours"}' if a['db'] else '—') + '</td></tr>' for a in L)
+                                   + (f'{mois(a["db"])} – {mois(a["fi"]) if a["fi"] else "en cours"}' if a['db'] else '—') + '</td>'
+                                   + (f'<td>{remuneration(a)}</td>' if rem else '') + '</tr>' for a in L)
                          + '</tbody></table></div>')
             body += '</section>'
         cj = e.get('cj')

@@ -28,7 +28,7 @@ occulté par la HATVP reste vide.
 --activites-out écrit les autres rubriques des déclarations d'intérêts : activités
 professionnelles des cinq dernières années, activités de conseil, fonctions dans
 l'organe dirigeant d'un organisme, fonctions bénévoles et mandats électifs. Seuls
-l'intitulé, l'organisme et les dates sont lus : ni rémunération, ni commentaire.
+l'intitulé, l'organisme, les dates et la rémunération déclarée par année sont lus, jamais le commentaire.
 """
 import argparse
 import csv
@@ -60,7 +60,7 @@ DECL_FIELDS = ["declaration_id", "type_declaration", "modificative", "date_depot
                "prenom", "nom", "date_naissance", "type_mandat", "mandat", "organe", "section_presente"]
 
 CONJOINT_FIELDS = ["declaration_id", "neant", "activite", "employeur"]
-ACTIVITE_FIELDS = ["declaration_id", "rubrique", "intitule", "organisme", "debut", "fin"]
+ACTIVITE_FIELDS = ["declaration_id", "rubrique", "intitule", "organisme", "debut", "fin", "brut_net", "remuneration"]
 # rubrique de la déclaration -> (code publié, champ de l'intitulé, champ de l'organisme)
 ACTIVITE_SECTIONS = {
     "activprofcinqdernieredto": ("activite_pro", "description", "employeur"),
@@ -287,8 +287,27 @@ def conjoint_rows(decl):
     return rows
 
 
+def remuneration(item):
+    """Rémunération déclarée pour une activité : (« Brut » ou « Net », « 2022:10312|2023:12000 »).
+    Seuls les montants lisibles comme un nombre entier d'euros sont gardés ; les montants occultés sont ignorés."""
+    rem = next((c for c in item if local(c.tag).lower() == "remuneration"), None)
+    if rem is None:
+        return "", ""
+    bn = next((text(c) for c in rem if local(c.tag).lower() == "brutnet"), "")
+    montants = []
+    for m in rem.iter():
+        if local(m.tag).lower() != "montant" or len(m) == 0:
+            continue
+        leaves = {local(c.tag).lower(): text(c) for c in m if len(c) == 0}
+        annee, val = leaves.get("annee", "").strip(), re.sub(r"[\s\u00a0\u202f]|,00$|€", "", leaves.get("montant", ""))
+        if re.fullmatch(r"(19|20)\d\d", annee) and re.fullmatch(r"\d{1,9}", val):
+            montants.append(f"{annee}:{int(val)}")
+    return (bn if bn in ("Brut", "Net") else ""), "|".join(montants)
+
+
 def activite_rows(decl):
-    """Activités, fonctions et mandats déclarés (déclarations d'intérêts seulement), sans rémunération ni commentaire."""
+    """Activités, fonctions et mandats déclarés (déclarations d'intérêts seulement), avec la rémunération déclarée par
+    année, sans commentaire."""
     info = general_info(decl)
     if info["type_declaration"] not in INTEREST_TYPES:
         return []
@@ -306,8 +325,10 @@ def activite_rows(decl):
             intitule = "" if NEANT_RE.match(intitule) else intitule
             organisme = "" if NEANT_RE.match(organisme) else organisme
             if intitule or organisme:
+                bn, rem = remuneration(item)
                 rows.append({"declaration_id": info["declaration_id"], "rubrique": code, "intitule": intitule,
-                             "organisme": organisme, "debut": leaves.get("datedebut", ""), "fin": leaves.get("datefin", "")})
+                             "organisme": organisme, "debut": leaves.get("datedebut", ""), "fin": leaves.get("datefin", ""),
+                             "brut_net": bn if rem else "", "remuneration": rem})
     return rows
 
 

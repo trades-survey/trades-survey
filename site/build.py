@@ -80,6 +80,10 @@ def groupe(cat,k):
 import croisements as X
 # activités, fonctions et mandats déclarés (déclarations d'intérêts) : intitulé, organisme et dates seulement
 act=C.defaultdict(list)
+def remun(r):
+    # rémunération déclarée pour l'activité, par année, telle que saisie (brut ou net selon la déclaration)
+    m=[[a,int(v)] for a,v in (x.split(':') for x in (r.get('remuneration') or '').split('|') if x)]
+    return {'bn':r.get('brut_net',''),'rm':m} if m else {}
 for r in (csv.DictReader(open(D+'out/activites.csv')) if os.path.exists(D+'out/activites.csv') else []): act[r['declaration_id']].append(r)
 # dates de dépôt des déclarations d'intérêts de député (liste HATVP, y compris celles dont la publication est à venir)
 DEPOTS=C.defaultdict(list)
@@ -121,7 +125,7 @@ for k,p in sorted(persons.items()):
     dc=next((d for d in reversed(ds) if not d['type_declaration'].startswith('DSP') and conj[d['declaration_id']]),None)
     cj={'d':dc['date_depot'],'t':dc['type_declaration'],'l':[{'a':r['activite'],'e':r['employeur']} for r in conj[dc['declaration_id']] if r['neant']=='non']} if dc else None
     da=next((d for d in reversed(ds) if not d['type_declaration'].startswith('DSP') and act[d['declaration_id']]),None)
-    ac={'d':da['date_depot'],'t':da['type_declaration'],'l':[{'r':r['rubrique'],'i':r['intitule'],'o':r['organisme'],'db':r['debut'],'fi':r['fin']} for r in act[da['declaration_id']]]} if da else None
+    ac={'d':da['date_depot'],'t':da['type_declaration'],'l':[{'r':r['rubrique'],'i':r['intitule'],'o':r['organisme'],'db':r['debut'],'fi':r['fin'],**remun(r)} for r in act[da['declaration_id']]]} if da else None
     cats=p['cats']; cat='gouvernement' if 'gouvernement' in cats and last['categorie']=='gouvernement' else last['categorie']
     dcat=next(d for d in reversed(ds) if d['categorie']==cat); f=fn(dcat)
     elus.append({'id':eid,'p':p['prenom'].title(),'n':p['nom'].upper(),'cat':cat,'fn':f,'dep':departement(dcat,f,lrows),'cats':sorted(cats),'org':last['organe'] or ('Parlement européen' if cat=='depute_europeen' else ''),'mandat':last['mandat'],

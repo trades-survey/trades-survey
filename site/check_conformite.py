@@ -23,12 +23,12 @@ TRACEURS = [r'document\.cookie', r'localStorage', r'sessionStorage', r'indexedDB
 # Seuls champs que le site a le droit d'embarquer, par objet (minimisation des données).
 CHAMPS = {
     # groupe politique (g, gl) : parlementaires en exercice seulement, d'après l'open data de leur assemblée (RGPD art. 9, 2, e)
-    # ac : activités, fonctions et mandats déclarés (intitulé, organisme, dates ; jamais la rémunération ni le commentaire)
+    # ac : activités, fonctions et mandats déclarés (intitulé, organisme, dates, rémunération déclarée par année ; jamais le commentaire)
     # com, comf : commission permanente des parlementaires en exercice ; lk : secteur de la commission et des sociétés détenues
     # dl : délai de dépôt de la déclaration d'intérêts de début de mandat (députés) ; an : amendements et votes citant une société détenue (députés)
     'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls', 'cj', 'g', 'gl', 'ac', 'com', 'comf', 'dl', 'lk', 'an'},
     'activites': {'d', 't', 'l'},
-    'activite': {'r', 'i', 'o', 'db', 'fi'},
+    'activite': {'r', 'i', 'o', 'db', 'fi', 'bn', 'rm'},
     'delai': {'pf', 'dd', 'j', 'ech', 'hors'},
     'lien': {'s', 'sec'},
     'acte': {'k', 'u', 'n', 'o', 'tx', 'ti', 'ar', 'd', 'so', 'r', 's', 'p'},
@@ -151,6 +151,10 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
                 err.append(f"activités tirées d'une autre déclaration que la déclaration d'intérêts : {e['id']}")
             for a in e['ac']['l']:
                 champs(a, 'activite')
+                if a.get('bn', '') not in ('', 'Brut', 'Net') or any(
+                        not (isinstance(x, list) and len(x) == 2 and re.fullmatch(r'(19|20)\d\d', str(x[0])) and isinstance(x[1], int))
+                        for x in a.get('rm', [])):
+                    err.append(f"rémunération mal formée : {e['id']}")
         if e.get('dl'):
             champs(e['dl'], 'delai')
         for x in e.get('lk', []):
