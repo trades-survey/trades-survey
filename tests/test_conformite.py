@@ -75,6 +75,9 @@ R = [
     cas('amendements d\'un élu local', 'non député', db=muter(lambda d: d['elus'][0].update(cat='elu_local', an=[{'k': 'vote', 'n': '1', 'ti': 'x', 'd': '2025-01-01', 'so': 'adopté', 'p': 'pour', 's': ['AXA']}]))),
     cas('commission d\'un ministre', 'non parlementaire', db=muter(lambda d: d['elus'][0].update(cat='gouvernement', com='Commission des finances'))),
     cas('dirigeants d\'un lobby', 'champ non prévu', db=muter(lambda d: d['socs'][0].update(lob=[{'nom': 'AXA', 'siren': '', 'id': '', 'depense': '', 'exercice': '', 'n': 1, 'np': 0, 'ng': 0, 'objets': [], 'lien': 'nom', 'dirigeants': ['X']}]))),
+    cas('mandats sociaux au RNE', None, db=muter(lambda d: d['elus'][0].update(rne=[{'si': '123456789', 'n': 'DUPONT CONSEIL', 'fj': 'SARL', 'q': 'Gérant', 'et': 'A', 'dc': '2015-03-01', 'df': '', 'di': True}]))),
+    cas('date de naissance d\'un dirigeant', 'champ non prévu', db=muter(lambda d: d['elus'][0].update(rne=[{'si': '123456789', 'n': 'X', 'fj': 'SAS', 'q': '', 'et': 'A', 'dc': '', 'df': '', 'di': False, 'naissance': '1970-01'}]))),
+    cas('SIREN de mandat social invalide', 'SIREN invalide', db=muter(lambda d: d['elus'][0].update(rne=[{'si': 'x', 'n': 'X', 'fj': 'SAS', 'q': '', 'et': 'A', 'dc': '', 'df': '', 'di': False}]))),
     cas('lien vers l\'Assemblée nationale', None, pages={'elus/x.html': FICHE.replace('</nav>', '<a href="https://www.assemblee-nationale.fr/dyn/17/scrutins/1">Scrutin</a></nav>')}),
 ]
 for nom, texte, attendu in [('qualification dans le gabarit', "<p>Ce député est en conflit d'intérêts.</p>", True),

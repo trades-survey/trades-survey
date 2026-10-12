@@ -260,6 +260,7 @@ class Site:
                                    + (f'<td>{remuneration(a)}</td>' if rem else '') + '</tr>' for a in L)
                          + '</tbody></table></div>')
             body += '</section>'
+        body += self.rne(e)
         cj = e.get('cj')
         if cj:
             t = ('<div class="tbl"><table><thead><tr><th>Activité</th><th>Employeur</th></tr></thead><tbody>'
@@ -291,6 +292,24 @@ class Site:
         desc = f"{name}, {e['fn']} ({e['org']}). " + (f"Participations déclarées à la HATVP : {', '.join(socs[:6])}{'…' if len(socs) > 6 else ''}."
                                                        if socs else 'Aucune participation dans sa dernière déclaration à la HATVP.')
         return self.page(f'{name} : participations déclarées', desc, 'elus', body)
+
+    def rne(self, e):
+        L = e.get('rne')
+        if not L:
+            return ''
+        rows = ''.join(
+            f'<tr><td><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/{esc(x["si"])}" target="_blank" rel="noopener">{esc(x["n"]) or "—"}</a>'
+            + (' <span class="cat">(aussi dans sa déclaration d\'intérêts)</span>' if x['di'] else '')
+            + f'</td><td class="mono">{esc(x["si"])}</td><td>{esc(x["fj"])}</td><td>{esc(x["q"]) or "—"}</td><td class="mono">{date(x["dc"]) if x["dc"] else "—"}</td>'
+            f'<td>{"En activité" if x["et"] == "A" else "Fermée le " + date(x["df"]) if x["df"] else "Fermée"}</td></tr>' for x in L)
+        return ('<section><h2>Sociétés au Registre national des entreprises</h2>'
+                '<p class="crumb">Sociétés en activité, ou fermées depuis moins de cinq ans, dont un dirigeant inscrit au Registre national des entreprises (INPI) '
+                'porte le même nom, le même premier prénom et le même mois de naissance que l\'élu dans sa déclaration à la HATVP '
+                '(rapprochement établi par ce site, via l\'annuaire des entreprises de l\'État). Un homonyme né le même mois reste possible. '
+                'Le registre ne donne pas les dates du mandat : la fonction indiquée est la dernière inscrite. Lien à examiner, '
+                'qui ne dit rien de l\'activité réelle de la société ni du rôle de l\'élu.</p>'
+                '<div class="tbl"><table><thead><tr><th>Société</th><th>SIREN</th><th>Forme</th><th>Fonction au registre</th><th>Créée le</th><th>État</th></tr></thead><tbody>'
+                + rows + '</tbody></table></div></section>')
 
     def commission(self, e):
         if not e.get('com'):

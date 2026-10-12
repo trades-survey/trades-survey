@@ -198,6 +198,12 @@ for e in elus:
             L.append({'k':'vote','n':sc['numero'],'ti':sc['titre'],'d':sc['date'],'so':sc['sort'],'p':sc['positions'][acteur],'s':sorted(held&set(sc['societes']))})
     if L: e['an']=sorted(L,key=lambda x:x['d'],reverse=True)
 for e in elus: e.pop('_an',None)
+# mandats sociaux au Registre national des entreprises (scripts/fetch_rne.py), rapprochés sur le nom, le prénom et le mois de naissance
+RNE=X.json_facultatif(D,'raw/rne.json',{})
+KEYS={v:k for k,v in ids.items()}
+for e in elus:
+    k=KEYS[e['id']]; L=X.mandats_sociaux(RNE.get('|'.join(k),[]),e,BUILT)
+    if L: e['rne']=L
 NA=C.Counter(x for a in AN['amendements'] for x in a['societes']); NS=C.Counter(x for sc in AN['scrutins'] for x in sc['societes'])
 for s_ in socs:
     if NA[s_['k']] or NS[s_['k']]: s_['an']={'a':NA[s_['k']],'v':NS[s_['k']]}
