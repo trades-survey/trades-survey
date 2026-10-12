@@ -15,12 +15,14 @@ n'est pas écrite dans le fichier de sortie autrement que dans la clé, et n'est
   python3 -I scripts/fetch_rne.py [data/raw/rne.json] [--declarations data/out/declarations.csv] [--limite N]
 """
 import calendar, csv, json, os, sys, time, urllib.error, urllib.parse, urllib.request
+from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'site'))
 from societes import norm
 
 URL = 'https://recherche-entreprises.api.gouv.fr/search'
 SCOPE = {'depute', 'senateur', 'gouvernement', 'depute_europeen', 'elu_local'}
-PAUSE = 0.16  # l'API accepte 7 requêtes par seconde
+PARALLELE = 4
+PAUSE = 0.6  # par fil : 4 fils restent sous les 7 requêtes par seconde acceptées par l'API
 PAGES_MAX = 10
 
 
@@ -92,19 +94,24 @@ def main():
     if limite:
         personnes = personnes[:limite]
     res, erreurs = {}, 0
-    for i, (p, n, dn) in enumerate(personnes):
+
+    def un(t):
         try:
-            L = chercher(p, n, dn)
+            return t, chercher(*t), None
         except Exception as e:  # une personne injoignable ne bloque pas les autres
-            erreurs += 1
-            print(f'::warning::RNE : recherche impossible ({type(e).__name__})')
-            if erreurs > 50:
-                raise
-            continue
-        if L:
-            res[f'{norm(p)}|{norm(n)}|{dn}'] = sorted(L, key=lambda s: s['siren'])
-        if i % 250 == 0:
-            print(f'{i}/{len(personnes)} élus recherchés')
+            return t, [], e
+    # quelques requêtes en parallèle : l'API répond en environ une seconde et accepte 7 requêtes par seconde
+    with ThreadPoolExecutor(PARALLELE) as ex:
+        for i, ((p, n, dn), L, e) in enumerate(ex.map(un, personnes)):
+            if e:
+                erreurs += 1
+                print(f'::warning::RNE : recherche impossible ({type(e).__name__})')
+                if erreurs > 50:
+                    raise e
+            if L:
+                res[f'{norm(p)}|{norm(n)}|{dn}'] = sorted(L, key=lambda s: s['siren'])
+            if i % 250 == 0:
+                print(f'{i}/{len(personnes)} élus recherchés', flush=True)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     json.dump(res, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
     print(f'{len(res)} élus sur {len(personnes)} retrouvés parmi les dirigeants du RNE ({sum(map(len, res.values()))} sociétés), {erreurs} erreurs')
