@@ -1,0 +1,33 @@
+name: Test RNE (temporaire)
+on:
+  push:
+    branches: [claude/project-thread-gf13ff]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: bash scripts/fetch_hatvp.sh
+      - run: time python3 -I scripts/fetch_rne.py
+      - name: Statistiques
+        run: |
+          python3 -I site/build.py >/dev/null
+          python3 -I site/check_conformite.py
+          python3 - <<'P'
+          import json, collections as C
+          db = json.load(open('public/donnees/registre.json'))
+          E = [e for e in db['elus'] if e.get('rne')]
+          print('élus avec au moins une société :', len(E), '/', len(db['elus']))
+          print('par fonction :', C.Counter(e['cat'] for e in E))
+          L = [x for e in E for x in e['rne']]
+          print('sociétés :', len(L), 'formes :', C.Counter(x['fj'] for x in L).most_common(8))
+          print('actives :', sum(x['et'] == 'A' for x in L), 'aussi dans la DI :', sum(x['di'] for x in L))
+          print('sociétés par élu :', C.Counter(min(len(e['rne']), 10) for e in E))
+          for e in sorted(E, key=lambda e: -len(e['rne']))[:5]:
+              print(e['id'], e['cat'], len(e['rne']), [(x['n'], x['fj'], x['q'], x['di']) for x in e['rne'][:6]])
+          P
