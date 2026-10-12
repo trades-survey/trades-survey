@@ -87,3 +87,40 @@ def delai_depot(prise_fonction, depots):
     dd = DT.date.fromisoformat(ds[0])
     ech = plus_deux_mois(pf)
     return {'pf': pf.isoformat(), 'dd': dd.isoformat(), 'j': (dd - pf).days, 'ech': ech.isoformat(), 'hors': dd > ech}
+
+
+# Forme juridique d'après le code de catégorie juridique de l'INSEE
+def forme(nj):
+    nj = str(nj or '')
+    for pre, lib in (('1', 'Entreprise individuelle'), ('5498', 'EURL'), ('54', 'SARL'), ('5710', 'SAS'), ('5720', 'SASU'), ('55', 'SA'), ('56', 'SA'),
+                     ('52', 'Société en nom collectif'), ('53', 'Société en commandite'), ('6540', 'SCI'), ('65', 'Société civile'), ('92', 'Association')):
+        if nj.startswith(pre):
+            return lib
+    return 'Autre forme'
+
+
+FORMES = re.compile(r'\b(SARL|EURL|SASU|SAS|SA|SCI|SCEA|SC|SNC|GAEC|EARL|SELARL|SELAS|STE|SOCIETE|CIVILE|IMMOBILIERE)\b')
+
+
+def base_nom(n):
+    return ' '.join(FORMES.sub(' ', norm(n)).split())
+
+
+def mandats_sociaux(L, e, built, annees=5):
+    """Sociétés du RNE dont l'élu est dirigeant : en activité, ou fermées depuis moins de cinq ans (durée couverte par la
+    déclaration d'intérêts). « di » signale une société dont le nom figure aussi dans sa déclaration d'intérêts (activités,
+    fonctions ou participations) ; son absence ne signifie rien, les noms étant écrits librement."""
+    lim = f'{int(built[:4]) - annees}{built[4:10]}'
+    noms = [base_nom(a.get('o', '')) for a in (e.get('ac') or {}).get('l', [])] + [base_nom(a.get('i', '')) for a in (e.get('ac') or {}).get('l', [])]
+    noms += [base_nom(h['n']) for h in e['h'] if h['f'] == 'interets']
+    noms = [n for n in noms if n]
+    out = []
+    for s in L:
+        if s['et'] != 'A' and not (s['df'] and s['df'] >= lim):
+            continue
+        b = base_nom(s['nom'])
+        # une entreprise individuelle porte le nom de l'élu : son nom ne dit rien de la déclaration
+        di = bool(b) and not str(s['nj']).startswith('1') and any(n == b or (len(b) >= 5 and re.search(r'\b' + re.escape(b) + r'\b', n)) or (len(n) >= 5 and re.search(r'\b' + re.escape(n) + r'\b', b)) for n in noms)
+        q = ', '.join(x for x in s['q'] if x) or ('Entrepreneur individuel' if str(s['nj']).startswith('1') else '')
+        out.append({'si': s['siren'], 'n': s['nom'], 'fj': forme(s['nj']), 'q': q, 'et': s['et'], 'dc': s['dc'], 'df': s['df'], 'di': di})
+    return sorted(out, key=lambda x: (x['et'] != 'A', x['n']))

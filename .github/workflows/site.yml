@@ -57,6 +57,9 @@ jobs:
             -o data/out/participations.csv
           python3 -I scripts/compute_mouvements.py data/out/participations.csv data/out/declarations.csv \
             -o data/out/mouvements.csv
+      # Recherche les élus de la semaine parmi les dirigeants du RNE (scripts/fetch_rne.py) : facultatif, le site se construit sans
+      - name: Rechercher les élus au Registre national des entreprises
+        run: python3 -I scripts/fetch_rne.py || echo "::warning::Registre national des entreprises indisponible cette semaine"
       - name: Construire le site
         run: python3 -I site/build.py
       # Bloque le workflow si le site construit n'est pas conforme (voir docs/CONFORMITE.md).

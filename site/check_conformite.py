@@ -13,7 +13,7 @@ PUB = os.path.join(ROOT, 'public')
 
 # Domaines vers lesquels le site peut faire des liens (navigation seulement, jamais de chargement).
 LIENS_AUTORISES = {'www.hatvp.fr', 'www.etalab.gouv.fr', 'www.cnil.fr', 'www.pappers.fr', 'www.assemblee-nationale.fr', 'www.legifrance.gouv.fr',
-                   'data.economie.gouv.fr'}
+                   'data.economie.gouv.fr', 'annuaire-entreprises.data.gouv.fr'}
 # Croisements avec d'autres sources : présentés comme des faits côte à côte, jamais qualifiés (risque de diffamation).
 QUALIFICATIONS = [r"conflits? d['’]int[ée]r[êe]ts?", r'\bprise ill[ée]gale', r'\bcorruption', r'\bfavoritisme', r"\btrafic d['’]influence"]
 # Mouchards, stockage côté navigateur et appels réseau : interdits (pas de bandeau cookies, pas de consentement à recueillir).
@@ -25,12 +25,14 @@ CHAMPS = {
     # groupe politique (g, gl) : parlementaires en exercice seulement, d'après l'open data de leur assemblée (RGPD art. 9, 2, e)
     # ac : activités, fonctions et mandats déclarés (intitulé, organisme, dates, rémunération déclarée par année ; jamais le commentaire)
     # com, comf : commission permanente des parlementaires en exercice ; lk : secteur de la commission et des sociétés détenues
+    # rne : sociétés dont l'élu est dirigeant au Registre national des entreprises (société, forme, fonction, état ; jamais la date de naissance)
     # dl : délai de dépôt de la déclaration d'intérêts de début de mandat (députés) ; an : amendements et votes citant une société détenue (députés)
-    'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls', 'cj', 'g', 'gl', 'ac', 'com', 'comf', 'dl', 'lk', 'an'},
+    'elu': {'id', 'p', 'n', 'cat', 'fn', 'dep', 'cats', 'org', 'mandat', 'page', 'masked', 'h', 'decls', 'cj', 'g', 'gl', 'ac', 'com', 'comf', 'dl', 'lk', 'an', 'rne'},
     'activites': {'d', 't', 'l'},
     'activite': {'r', 'i', 'o', 'db', 'fi', 'bn', 'rm'},
     'delai': {'pf', 'dd', 'j', 'ech', 'hors'},
     'lien': {'s', 'sec'},
+    'mandat_social': {'si', 'n', 'fj', 'q', 'et', 'dc', 'df', 'di'},
     'acte': {'k', 'u', 'n', 'o', 'tx', 'ti', 'ar', 'd', 'so', 'r', 's', 'p'},
     'non_depose': {'p', 'n', 'q', 't', 'u'},
     # activité du conjoint : activité et employeur seulement (jamais le nom ni le commentaire)
@@ -161,6 +163,10 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
             champs(x, 'lien')
         for x in e.get('an', []):
             champs(x, 'acte')
+        for x in e.get('rne', []):
+            champs(x, 'mandat_social')
+            if not re.fullmatch(r'\d{9}', str(x.get('si', ''))):
+                err.append(f"SIREN invalide dans les mandats sociaux : {e['id']}")
         if (e.get('an') or e.get('dl')) and e['cat'] != 'depute':
             err.append(f"activité ou délai de l'Assemblée publié pour un élu non député : {e['id']}")
         if (e.get('com') or e.get('lk')) and e['cat'] not in ('depute', 'senateur'):
