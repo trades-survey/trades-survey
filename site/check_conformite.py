@@ -14,6 +14,10 @@ PUB = os.path.join(ROOT, 'public')
 # Domaines vers lesquels le site peut faire des liens (navigation seulement, jamais de chargement).
 LIENS_AUTORISES = {'www.hatvp.fr', 'www.etalab.gouv.fr', 'www.cnil.fr', 'www.pappers.fr', 'www.assemblee-nationale.fr', 'www.legifrance.gouv.fr',
                    'data.economie.gouv.fr', 'annuaire-entreprises.data.gouv.fr'}
+# Adresse publique du site (variable SITE_URL, comme site/build.py) : adresses canoniques, aperçus de partage et données structurées
+SITE_URL = (os.environ.get('SITE_URL', '').strip() or 'https://trades-survey.github.io/trades-survey/').rstrip('/') + '/'
+# Vocabulaire des données structurées (JSON-LD) : un identifiant, jamais chargé par le navigateur
+LIENS_AUTORISES |= {SITE_URL.split('/')[2].lower(), 'schema.org'}
 # Croisements avec d'autres sources : présentés comme des faits côte à côte, jamais qualifiés (risque de diffamation).
 QUALIFICATIONS = [r"conflits? d['’]int[ée]r[êe]ts?", r'\bprise ill[ée]gale', r'\bcorruption', r'\bfavoritisme', r"\btrafic d['’]influence"]
 # Mouchards, stockage côté navigateur et appels réseau : interdits (pas de bandeau cookies, pas de consentement à recueillir).
@@ -72,6 +76,9 @@ def scanner(page, nom, err):
     """Règles valables pour toute page HTML publiée : ressources, liens, traceurs, politique de sécurité."""
     # 1. Aucune ressource tierce chargée par le navigateur (l'IP du visiteur ne part chez personne).
     for tag in re.findall(r'<(?:link|script|img|iframe|source|video|audio|embed|object)\b[^>]*>', page, re.I):
+        # l'adresse canonique de la page, sur le site lui-même, n'est pas chargée par le navigateur
+        if re.fullmatch(r'<link rel="canonical" href="' + re.escape(SITE_URL) + r'[^"]*">', tag):
+            continue
         if re.search(r'(?:src|href)\s*=\s*["\']?(?:https?:)?//', tag, re.I):
             err.append(f'ressource externe chargée ({nom}) : {tag[:120]}')
     for u in re.findall(r'@import[^;]*|url\(\s*["\']?(?:https?:)?//[^)]*\)', page):
@@ -225,6 +232,10 @@ def controler(html, publication=False, css=None, db=None, pages=None, exports=No
         err.append('donnée occultée par la HATVP reprise sur le site')
 
 
+    # Référencement : l'accueil ne doit jamais être exclu des moteurs par erreur.
+    if re.search(r'<meta name="robots"[^>]*noindex', page):
+        err.append("accueil exclu des moteurs de recherche (noindex)")
+
     # 3. Mentions obligatoires présentes dans la page.
     for texte, raison in [('licence ouverte Etalab', 'attribution Etalab (licence ouverte)'),
                           ('#mentions', 'lien vers les mentions légales'),
@@ -266,7 +277,7 @@ def main():
         if f.endswith('.csv'):
             exports[f] = lire('donnees', f).lstrip('\ufeff').split('\n', 1)[0].strip().split(',')
     err = controler(html, publication, css, db, pages, exports)
-    err += qualifications({f: open(os.path.join(ROOT, 'site', f), encoding='utf-8').read() for f in ('template.html', 'pages.py')})
+    err += qualifications({f: open(os.path.join(ROOT, 'site', f), encoding='utf-8').read() for f in ('template.html', 'pages.py', 'seo.py')})
     if err:
         print('Site non conforme, publication bloquée :')
         for e in err:

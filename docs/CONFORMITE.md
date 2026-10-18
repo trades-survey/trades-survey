@@ -23,12 +23,13 @@ n'est archivé ni publié. `tests/test_conformite.py` vérifie que le contrôle 
 | Activités et mandats tirés des seules déclarations d'intérêts, sans commentaire ; rémunération reprise seulement sous forme d'années et de montants entiers | Minimisation ; la DSP des parlementaires ne peut être republiée | liste blanche et type de déclaration |
 | Amendements, votes et délai de dépôt pour les seuls députés ; commission pour les seuls parlementaires | Minimisation, exactitude | catégorie de l'élu |
 | Répertoire des représentants d'intérêts : organisations seulement, pas les noms des dirigeants ou collaborateurs | Minimisation | liste blanche des champs |
-| Aucune qualification pénale ou déontologique dans le texte écrit par le site (« conflit d'intérêts », « corruption »…) : les rapprochements sont des liens à examiner | Diffamation (loi de 1881), exactitude | recherche dans `site/template.html` et `site/pages.py` |
-| Liens sortants limités à hatvp.fr, pappers.fr, assemblee-nationale.fr, legifrance.gouv.fr, data.economie.gouv.fr, annuaire-entreprises.data.gouv.fr | Exactitude | domaines des liens |
+| Aucune qualification pénale ou déontologique dans le texte écrit par le site (« conflit d'intérêts », « corruption »…) : les rapprochements sont des liens à examiner | Diffamation (loi de 1881), exactitude | recherche dans `site/template.html`, `site/pages.py` et `site/seo.py` |
+| Liens sortants limités à hatvp.fr, pappers.fr, assemblee-nationale.fr, legifrance.gouv.fr, data.economie.gouv.fr, annuaire-entreprises.data.gouv.fr ; adresses du site lui-même (`SITE_URL`) et vocabulaire schema.org dans les métadonnées de référencement, jamais chargés par le navigateur | Exactitude | domaines des liens ; seule balise `<link>` absolue admise : l'adresse canonique de la page sur le site |
+| Accueil jamais exclu des moteurs de recherche | Transparence (visibilité du site) | absence de `noindex` dans l'accueil |
 | Sociétés au Registre national des entreprises : élus seulement (jamais le conjoint), société, SIREN, forme, fonction et dates de la société ; rapprochement sur nom, premier prénom et mois de naissance (non publié), sans dirigeant à date de naissance inconnue | Minimisation, exactitude (homonymes) | liste blanche des champs, format des SIREN |
 | Exports CSV sans date de naissance, commentaire ni donnée du conjoint | Minimisation | liste blanche des colonnes de `public/donnees/*.csv` |
 
-Le contrôle porte sur l'accueil (`index.html` et ses données réduites), sur les données complètes (`donnees/registre.json`), sur chaque fiche statique (`elus/*.html`, `societes/*.html`) et sur les en-têtes des exports CSV.
+Le contrôle porte sur l'accueil (`index.html` et ses données réduites), sur les données complètes (`donnees/registre.json`), sur chaque page statique (fiches `elus/*.html` et `societes/*.html`, index, méthode, page introuvable) et sur les en-têtes des exports CSV.
 
 Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éditeur et l'adresse de contact soient renseignés.
 
@@ -38,6 +39,9 @@ Avant la mise en ligne sur GitHub Pages, `--publication` exige en plus que l'éd
    - `EDITEUR_NOM` : nom et prénom de l'éditeur, directeur de la publication ;
    - `EDITEUR_CONTACT` : adresse e-mail qui reçoit les demandes (droits RGPD, corrections, droit de réponse) ;
    - `EDITEUR_ANONYME` (facultatif) : `1` pour ne pas afficher le nom de l'éditeur (LCEN art. 6 III 2, éditeur non professionnel). L'identité doit alors être à jour chez l'hébergeur (le compte GitHub qui publie le site), et `EDITEUR_NOM` peut rester vide. `EDITEUR_CONTACT` reste obligatoire : utiliser une adresse qui ne contient pas le nom ;
+   - `SITE_URL` (facultatif) : adresse publique du site, si elle change (nom de domaine propre) ;
+   - `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION` (facultatifs) : jeton de la balise de vérification de Google Search Console et de Bing Webmaster Tools, pour y déclarer le site et son sitemap ;
+   - `INDEXNOW_KEY` (facultatif) : clé IndexNow (8 à 128 lettres, chiffres ou tirets, publique par nature) ; chaque publication signale alors à Bing et aux moteurs IndexNow les pages modifiées dans la semaine ;
    - `HEBERGEUR` (facultatif) : coordonnées de l'hébergeur, si celles par défaut dans `site/build.py` (GitHub Pages) changent ou sont inexactes.
 2. Répondre aux demandes reçues à cette adresse : un mois pour les droits RGPD, trois jours pour publier un droit de réponse.
 

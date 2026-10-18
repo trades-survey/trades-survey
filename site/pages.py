@@ -3,6 +3,7 @@
 Reprend la présentation de site/template.html : même en-tête, même pied de page, même feuille de style.
 """
 import html, re
+import seo
 
 CAT = {'depute': 'Député', 'senateur': 'Sénateur', 'gouvernement': 'Gouvernement', 'depute_europeen': 'Député européen', 'elu_local': 'Élu local'}
 MV = {'apparition': 'Apparition', 'disparition': 'Disparition', 'hausse': 'Hausse', 'baisse': 'Baisse', 'valeur': 'Variation de valeur'}
@@ -14,6 +15,8 @@ SECTEURS = {'energie': 'Énergie', 'banque': "Banque, assurance, gestion d'actif
             'numerique': 'Numérique, télécoms, électronique', 'btp': 'BTP, immobilier, concessions', 'transport': 'Automobile, transport',
             'conso': 'Luxe, consommation, distribution', 'agro': 'Agroalimentaire, boissons', 'industrie': 'Industrie, chimie, matériaux',
             'medias': 'Médias, publicité, jeux', 'environnement': "Eau, déchets, services à l'environnement", 'services': 'Services aux entreprises'}
+# Fonction en toutes lettres, dans les titres et les descriptions des fiches
+FONCTION = {'Gouvernement': 'membre du gouvernement', 'Maire ou adjoint': 'maire ou adjoint au maire'}
 VOTE = {'pour': 'Pour', 'contre': 'Contre', 'abstention': 'Abstention', 'non-votant': 'Non-votant'}
 MOIS = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.']
 
@@ -87,8 +90,9 @@ def date(d):
 
 
 class Site:
-    def __init__(self, tpl, db):
+    def __init__(self, tpl, db, site=None):
         self.tpl, self.db = tpl, db
+        self.site = site or seo.site_url()
         self.DEPN, self.TD = js_dict(tpl, 'DEPN'), js_dict(tpl, 'TD')
         self.E = {e['id']: e for e in db['elus']}
         self.S = {s['k']: s for s in db['socs']}
@@ -96,10 +100,10 @@ class Site:
         head = tpl[:i]
         # même feuille de style que l'accueil, chargée depuis le dossier parent
         head = re.sub(r'<style>.*?</style>', '<link rel="stylesheet" href="../style.css">', head, flags=re.S)
-        self.head = head.replace('href="fonts/', 'href="../fonts/').replace('href="flux.xml"', 'href="../flux.xml"').replace('href="style.css"', 'href="../style.css"')
+        self.head = re.sub(r'href="(?![a-z]+:|#|/|\.\./)', 'href="../', head)
         hdr = tpl[i:tpl.index('<main')]
         foot = tpl[tpl.index('<footer'):tpl.index('</footer>') + 9]
-        rel = lambda s: re.sub(r'href="(#[^"]*|donnees/[^"]*|flux\.xml)"', r'href="../\1"', s)
+        rel = lambda s: re.sub(r'href="(#[^"]*|donnees/[^"]*|flux\.xml|methode\.html[^"]*|elus/|societes/)"', r'href="../\1"', s)
         self.header, self.footer = rel(hdr), rel(foot)
 
     def dep_name(self, c):
@@ -199,12 +203,16 @@ class Site:
         return ('<div class="tbl"><table><thead><tr><th>Écart constaté</th>' + ('<th>Élu</th>' if elu else '') + ('<th>Société</th>' if soc else '')
                 + '<th>Entre le</th><th>et le</th><th class="n">Titres</th><th class="n">Valeur déclarée</th></tr></thead><tbody>' + rows + '</tbody></table></div>')
 
-    def page(self, title, desc, nav, body):
+    def page(self, title, desc, nav, body, rel, graphe, og_type='website', prefix='../', extra=''):
+        """Page complète. rel : chemin de la page dans le site ; prefix : chemin de la racine vu de la page."""
+        url = self.site + rel.removesuffix('index.html')
         h = self.head.replace('<title>Registre des élus actionnaires</title>',
-                              f'<title>{esc(title)} · Registre des élus actionnaires</title>\n<meta name="description" content="{esc(desc)}">', 1)
-        hdr = self.header.replace(f'href="../#{nav}"', f'href="../#{nav}" class="on"', 1)
-        return ('<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-                + h + '</head>\n<body>\n' + hdr + '<main class="wrap">' + body + '</main>\n' + self.footer + '\n</body>\n</html>\n')
+                              f'<title>{esc(title)} · {seo.NOM}</title>\n' + seo.meta(url, title, desc, seo.website(self.site) + graphe,
+                                                                                 self.site + 'og.png', og_type, extra), 1)
+        hdr = re.sub(f'href="\\.\\./(#{nav}|{nav}\\.html)"', r'href="../\1" class="on"', self.header, count=1) if nav else self.header
+        out = ('<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+               + h + '</head>\n<body>\n' + hdr + '<main class="wrap">' + body + '</main>\n' + self.footer + '\n</body>\n</html>\n')
+        return out if prefix == '../' else out.replace('="../', '="' + prefix)
 
     def elu(self, e):
         TD = self.TD
@@ -287,11 +295,24 @@ class Site:
         body += "<p class=\"note\">Cette page juxtapose des informations publiées par la HATVP. Elle ne porte aucune appréciation sur la situation de l'élu.</p>"
         socs = []
         for h in I + P:
-            if h['n'] not in socs:
-                socs.append(h['n'])
-        desc = f"{name}, {e['fn']} ({e['org']}). " + (f"Participations déclarées à la HATVP : {', '.join(socs[:6])}{'…' if len(socs) > 6 else ''}."
-                                                       if socs else 'Aucune participation dans sa dernière déclaration à la HATVP.')
-        return self.page(f'{name} : participations déclarées', desc, 'elus', body)
+            n = self.S[h['s']]['name'] if h['s'] in self.S and h['nl'] == 'participation' else h['n']
+            if n not in socs:
+                socs.append(n)
+        fonction = FONCTION.get(e['fn'], e['fn'].lower())
+        name = e['p'] + ' ' + e['n'].title()  # « Jean Dupont » dans les titres et les données structurées, comme on le cherche
+        lieu = self.dep_name(e['dep']).split(' (')[0] if e['dep'] and e['dep'] != '099' else ''
+        n = len(socs)
+        desc = (f"{name}, {fonction}{' (' + lieu + ')' if lieu else ''}. "
+                + (f"{n} participation{'s' if n > 1 else ''} déclarée{'s' if n > 1 else ''} à la HATVP : {', '.join(socs[:5])}{'…' if n > 5 else ''}. "
+                   if socs else 'Aucune participation dans sa dernière déclaration à la HATVP. ')
+                + "Déclarations sources et écarts d'une déclaration à l'autre.")
+        rel = f"elus/{e['id']}.html"
+        url = self.site + rel
+        titre = f'{name}, {fonction} : actions et participations déclarées'
+        personne = {'@type': 'Person', 'name': name, 'givenName': e['p'], 'familyName': e['n'].title(), 'jobTitle': e['fn'],
+                    **({'workLocation': {'@type': 'Place', 'name': e['org']}} if e['org'] else {}), **({'sameAs': [e['page']]} if e['page'] else {})}
+        graphe = [seo.page_web(self.site, url, titre, desc, [('Élus', self.site + 'elus/'), (name, url)], personne, 'ProfilePage')]
+        return self.page(titre, desc, 'elus', body, rel, graphe, 'profile')
 
     def rne(self, e):
         L = e.get('rne')
@@ -378,5 +399,149 @@ class Site:
         if len(names) > 1:
             body += f'<p class="note">Libellés regroupés sous ce nom : {" · ".join(esc(n) for n in names)}</p>'
         n = len(H)
-        desc = f"{s['name']}{' (ISIN ' + s['isin'] + ')' if s['isin'] else ''} : {n} élu{'s' if n > 1 else ''} français la déclare{'nt' if n > 1 else ''} dans sa déclaration à la HATVP."
-        return self.page(f"{s['name']} : élus actionnaires", desc, 'societes', body)
+        qui = [v for k, v in (('depute', 'députés'), ('senateur', 'sénateurs'), ('gouvernement', 'membres du gouvernement'))
+               if any(self.E[h['e']]['cat'] == k for h in H)]
+        desc = (f"{s['name']}{' (ISIN ' + s['isin'] + ')' if s['isin'] else ''} : "
+                + (f"{n} élu{'s' if n > 1 else ''} français la déclare{'nt' if n > 1 else ''} dans sa déclaration à la HATVP" if n else "aucun élu ne la déclare dans sa dernière déclaration à la HATVP")
+                + (f" ({', '.join(qui)})" if qui else '')
+                + ". Nombre de titres, valeur déclarée et écarts entre deux déclarations.")
+        rel = f"societes/{s['id']}.html"
+        url = self.site + rel
+        titre = f"{s['name']} : {n} élu{'s' if n > 1 else ''} actionnaire{'s' if n > 1 else ''}" if n else f"{s['name']} : élus actionnaires"
+        ids = [{'@type': 'PropertyValue', 'propertyID': k.upper(), 'value': s[k]} for k in ('isin', 'siren') if s.get(k)]
+        org = {'@type': 'Organization', 'name': s['name'], **({'identifier': ids} if ids else {}),
+               **({'sameAs': [f"https://annuaire-entreprises.data.gouv.fr/entreprise/{s['siren']}"]} if s.get('siren') else {})}
+        graphe = [seo.page_web(self.site, url, titre, desc, [('Sociétés', self.site + 'societes/'), (s['name'], url)], org)]
+        return self.page(titre, desc, 'societes', body, rel, graphe)
+
+    # Pages sans fiche : accueil (contenu lisible sans JavaScript), index, méthode, page introuvable
+
+    def accueil(self, idx):
+        """Contenu de l'accueil, rendu au build dans <main id="app"> : visible sans JavaScript, et repris tel quel par la route #accueil."""
+        holders = sum(1 for e in idx['elus'] if e['nh'])
+        socs = [s for s in idx['socs'] if s['nh']]
+        mvt = [m for m in idx['mv'] if m['m'] != 'valeur']
+        top = sorted((s for s in socs if s['nat'] == 'cotee'), key=lambda s: -s['nh'])[:12]
+        last = self.mv_rows(mvt[:8]).replace('<th>Entre le</th>', '<th>Avant</th>').replace('<th>et le</th>', '<th>Après</th>')
+        h = ('''<section><h1>Actions et participations des élus, d'après leurs propres déclarations</h1>
+  <p class="lede">Les participations dans des sociétés déclarées par les députés, les sénateurs, les membres du gouvernement, les députés européens élus en France et les principaux élus locaux à la Haute Autorité pour la transparence de la vie publique, et leur évolution d'une déclaration à l'autre.</p></section>
+  <section><label for="q" class="kind">Rechercher un élu, une société, un code ISIN ou un code postal</label>
+    <div class="search" style="margin-top:6px"><input id="q" type="search" placeholder="Ex. Air Liquide, FR0000120271, Dupont, 69003" autocomplete="off"></div>
+    <div class="results" id="qr" hidden></div></section>
+  <section class="figs" aria-label="Chiffres clés">'''
+             f'<div><b>{num(len(idx["elus"]))}</b><span>élus avec une déclaration publiée</span></div>'
+             f'<div><b>{num(holders)}</b><span>déclarent au moins une participation</span></div>'
+             f'<div><b>{num(len(socs))}</b><span>sociétés citées</span></div>'
+             f'<div><b>{num(len(mvt))}</b><span>écarts entre deux déclarations (hors variations de cours)</span></div></section>'
+             '''
+  <p class="note"><strong>À lire avant tout.</strong> En France, les élus ne déclarent pas leurs achats et ventes de titres au fil de l'eau. Ils déposent des déclarations à des dates données. Un « mouvement » ici est donc un écart entre deux déclarations successives, pas une transaction datée.</p>
+  <div class="cols">
+    <section><h2>Derniers mouvements déclarés</h2><div id="lastmv">''' + last + '''</div><p><a href="#mouvements">Tous les mouvements</a></p></section>
+    <section><h2>Sociétés cotées les plus citées</h2><div class="tbl"><table><thead><tr><th>Société</th><th class="n">Élus</th></tr></thead><tbody>'''
+             + ''.join(f'<tr><td>{self.s_link(s["k"])}' + (f'<div class="mono cat">{s["isin"]}</div>' if s['isin'] else '') + f'</td><td class="n">{s["nh"]}</td></tr>' for s in top)
+             + '''</tbody></table></div><p><a href="#societes?nat=cotee">Toutes les sociétés cotées</a></p></section>
+  </div>
+  <section><h2>Parcourir</h2><ul>
+    <li><a href="elus/">Index des élus</a> : une fiche par député, sénateur, membre du gouvernement, député européen et élu local</li>
+    <li><a href="societes/">Index des sociétés</a> : une fiche par société citée, avec les élus qui la déclarent</li>
+    <li><a href="methode.html">Méthode et limites</a> : sources, traitements, corrections et droit de réponse</li>
+    <li>Données ouvertes : <a href="donnees/participations.csv">participations</a>, <a href="donnees/mouvements.csv">mouvements</a>, <a href="donnees/elus.csv">élus</a> (CSV), <a href="donnees/registre.json">ensemble des données</a> (JSON), <a href="flux.xml">flux RSS</a></li>
+  </ul></section>
+  <section class="prose"><h2>Questions fréquentes</h2>'''
+             + ''.join(f'<h3>{esc(q)}</h3><p>{r}</p>' for q, r in self.faq(idx)) + '</section>')
+        return h.replace('href="../', 'href="')
+
+    def faq(self, idx):
+        """Questions et réponses de l'accueil (aussi en données structurées et dans llms.txt). Réponses en HTML, liens depuis la racine."""
+        top = sorted((s for s in idx['socs'] if s['nh'] and s['nat'] == 'cotee'), key=lambda s: -s['nh'])[:5]
+        return [
+            ("Les députés et les sénateurs doivent-ils déclarer leurs actions ?",
+             "Oui. Les députés, les sénateurs, les membres du gouvernement et les principaux élus locaux déclarent à la Haute Autorité pour la transparence de la vie publique (HATVP) "
+             "leurs participations financières directes dans le capital de sociétés, dans leur déclaration d'intérêts, au début de leur mandat puis à chaque modification substantielle. "
+             "La HATVP publie ces déclarations ; ce site en reprend les participations, élu par élu et société par société."),
+            ("Peut-on connaître les achats et ventes d'actions d'un élu ?",
+             "Pas au jour le jour : la loi française n'impose pas aux élus de déclarer chaque transaction. Le site compare les déclarations successives d'un même élu "
+             "et signale les écarts (une société qui apparaît ou disparaît, un nombre de titres qui augmente ou baisse), sans date de transaction. "
+             '<a href="#mouvements">Voir les derniers mouvements</a>.'),
+            ("Quelles sociétés cotées les élus détiennent-ils le plus ?",
+             "D'après la dernière déclaration de chaque élu : " + ', '.join(f'{self.s_link(s["k"])} ({s["nh"]} élus)' for s in top) + '. '
+             f"Données extraites le {date(idx['built'])}."),
+            ("Pourquoi le patrimoine des parlementaires n'apparaît-il pas ?",
+             "Les déclarations de patrimoine des députés et des sénateurs sont seulement consultables en préfecture et la loi interdit de les publier. "
+             "Le site n'utilise donc que leurs déclarations d'intérêts. Les déclarations de patrimoine des membres du gouvernement sont publiques : le site en reprend les valeurs mobilières."),
+            ("Détenir des actions est-il interdit pour un élu ?",
+             "Non. Détenir des actions est légal, et les déclarer est précisément ce que la loi demande. Le site présente des faits déclarés, avec leur source ; "
+             "il ne qualifie aucune situation et ne présume d'aucun conflit d'intérêts."),
+            ("D'où viennent les données et peut-on les réutiliser ?",
+             "De l'open data de la HATVP, téléchargé chaque lundi, sous licence ouverte Etalab 2.0. Les données retraitées sont téléchargeables sous la même licence : "
+             '<a href="donnees/participations.csv">participations</a>, <a href="donnees/mouvements.csv">mouvements</a> et <a href="donnees/elus.csv">élus</a> au format CSV. '
+             '<a href="methode.html">Méthode et limites</a>.'),
+        ]
+
+    def index_elus(self):
+        ordre = ['depute', 'senateur', 'gouvernement', 'depute_europeen', 'elu_local']
+        titres = {'depute': 'Députés', 'senateur': 'Sénateurs', 'gouvernement': 'Membres du gouvernement', 'depute_europeen': 'Députés européens', 'elu_local': 'Élus locaux'}
+
+        def li(e):
+            k = len(e['h'])
+            return (f'<li><a href="{e["id"]}.html">{esc(e["p"] + " " + e["n"])}</a> <span class="cat">{esc(e["org"] or e["fn"])}'
+                    f'{" · " + esc(e["fn"]) if e["cat"] == "elu_local" else ""} · {k if k else "aucune"} participation{"s" if k > 1 else ""}</span></li>')
+        body = ('<p class="crumb"><a href="../#elus">Liste filtrable des élus</a></p><section><h1>Index des élus</h1>'
+                '<p class="lede">Tous les élus dont une déclaration est publiée par la HATVP, avec le nombre de participations figurant dans leur dernière déclaration.</p>'
+                '<p>' + ' · '.join(f'<a href="#{c}">{titres[c]}</a>' for c in ordre) + '</p></section>')
+        for c in ordre:
+            L = sorted((e for e in self.db['elus'] if e['cat'] == c), key=lambda e: (e['n'], e['p']))
+            body += f'<section><h2 id="{c}">{titres[c]} ({num(len(L))})</h2>'
+            if c == 'elu_local':
+                deps = {}
+                for e in L:
+                    deps.setdefault(e['dep'], []).append(e)
+                for d in sorted(deps, key=lambda d: (d == '', d == '099', d)):
+                    body += f'<h3 class="kind">{esc(self.dep_name(d)) if d else "Région, collectivité ou département non déterminé"}</h3><ul>' + ''.join(li(e) for e in deps[d]) + '</ul>'
+            else:
+                body += '<ul>' + ''.join(li(e) for e in L) + '</ul>'
+            body += '</section>'
+        titre = 'Index des élus : députés, sénateurs, ministres et élus locaux'
+        desc = (f"Les {num(len(self.db['elus']))} élus dont une déclaration est publiée par la HATVP : députés, sénateurs, membres du gouvernement, "
+                "députés européens et élus locaux, avec leurs participations déclarées dans des sociétés.")
+        url = self.site + 'elus/'
+        return self.page(titre, desc, 'elus', body.replace('href="../elus/', 'href="'), 'elus/index.html',
+                         [seo.page_web(self.site, url, titre, desc, [('Élus', url)], kind='CollectionPage')])
+
+    def index_societes(self):
+        ordre = ['cotee', 'mutualiste', 'fonds', 'non_cotee', '']
+        n_el = {s['k']: len({h['e'] for h in s['holders']}) for s in self.db['socs']}
+        body = ('<p class="crumb"><a href="../#societes">Liste filtrable des sociétés</a></p><section><h1>Index des sociétés</h1>'
+                '<p class="lede">Toutes les sociétés citées dans au moins une déclaration, avec le nombre d\'élus qui la détiennent d\'après leur dernière déclaration.</p></section>')
+        for c in ordre:
+            L = sorted((s for s in self.db['socs'] if s.get('nat', '') == c), key=lambda s: s['name'].lower())
+            if not L:
+                continue
+            body += (f'<section><h2>{NAT[c]} ({num(len(L))})</h2><ul>'
+                     + ''.join(f'<li><a href="{s["id"]}.html">{esc(s["name"])}</a> <span class="cat">{(s["isin"] + " · ") if s["isin"] else ""}'
+                               f'{n_el[s["k"]] or "aucun"} élu{"s" if n_el[s["k"]] > 1 else ""}</span></li>' for s in L) + '</ul></section>')
+        titre = 'Index des sociétés détenues par des élus'
+        desc = (f"Les {num(len(self.db['socs']))} sociétés citées dans les déclarations des élus à la HATVP : sociétés cotées, parts sociales, "
+                "comptes-titres et sociétés non cotées, avec le nombre d'élus qui les déclarent.")
+        url = self.site + 'societes/'
+        return self.page(titre, desc, 'societes', body, 'societes/index.html',
+                         [seo.page_web(self.site, url, titre, desc, [('Sociétés', url)], kind='CollectionPage')])
+
+    def methode(self, built):
+        """Page « Méthode et limites », rendue au build depuis la route #methode du gabarit (une seule source pour le texte)."""
+        m = re.search(r"function methode\(\)\{\n  app.innerHTML=`(.*?)`;\n\}", self.tpl, re.S)
+        c = self.db['legal'].get('contact')
+        body = m.group(1).replace('${contact()}', f'<a href="mailto:{esc(c)}">{esc(c)}</a>' if c else '<mark>[à compléter]</mark>').replace('${date(DB.built)}', date(built))
+        assert '${' not in body, 'expression non prise en charge dans la route #methode'
+        titre = 'Méthode et limites'
+        desc = ("Comment le Registre des élus actionnaires extrait les participations des déclarations publiées par la HATVP : sources, regroupement des sociétés, "
+                "codes ISIN, calcul des écarts entre deux déclarations, limites, corrections et droit de réponse.")
+        url = self.site + 'methode.html'
+        return self.page(titre, desc, 'methode', body, 'methode.html', [seo.page_web(self.site, url, titre, desc, [(titre, url)])], prefix='./')
+
+    def introuvable(self):
+        """404.html, servie par GitHub Pages à n'importe quelle profondeur : liens depuis le chemin du site."""
+        from urllib.parse import urlparse
+        body = '<section><h1>Page introuvable</h1><p>Cette adresse ne correspond à aucune page. <a href="../">Retour à l\'accueil</a> · <a href="../elus/">Index des élus</a> · <a href="../societes/">Index des sociétés</a></p></section>'
+        return self.page('Page introuvable', 'Cette adresse ne correspond à aucune page du site.', '', body, '404.html', [],
+                         prefix=urlparse(self.site).path, extra='<meta name="robots" content="noindex">\n')

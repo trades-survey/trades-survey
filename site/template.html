@@ -3,6 +3,9 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="alternate" type="application/rss+xml" title="Derniers mouvements" href="flux.xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" content="#1d5c63">
 <style>
 /* Layout: registre administratif — bandeau étroit, colonne de lecture unique, tableaux de pièces justificatives */
 :root{
@@ -79,17 +82,18 @@ footer .wrap{padding-block:20px}
 .prose p{max-width:68ch;margin:0 0 12px}
 .prose h2{margin-top:18px}
 h3.kind{margin:16px 0 6px}
+label.kind{white-space:normal}
 section ul{margin:6px 0;padding-left:20px}
 </style>
 
 <header class="top"><div class="wrap">
   <a class="brand" href="#accueil">Registre des élus actionnaires<small>Participations déclarées à la HATVP</small></a>
   <nav class="main" id="nav">
-    <a href="#accueil">Accueil</a><a href="#elus">Élus</a><a href="#societes">Sociétés</a><a href="#mouvements">Mouvements</a><a href="#chiffres">Chiffres</a><a href="#methode">Méthode</a><a href="#mentions">Mentions légales</a>
+    <a href="#accueil">Accueil</a><a href="#elus">Élus</a><a href="#societes">Sociétés</a><a href="#mouvements">Mouvements</a><a href="#chiffres">Chiffres</a><a href="methode.html">Méthode</a><a href="#mentions">Mentions légales</a>
   </nav>
 </div></header>
 <main class="wrap" id="app" aria-live="polite"></main>
-<footer><div class="wrap">Source : Haute Autorité pour la transparence de la vie publique, déclarations d'intérêts (députés, sénateurs, ministres, députés européens, élus locaux) et déclarations de situation patrimoniale des seuls membres du gouvernement. Les montants sont ceux déclarés par les élus. Données publiées par la HATVP sous <a href="https://www.etalab.gouv.fr/licence-ouverte-open-licence/" rel="noopener" target="_blank">licence ouverte Etalab 2.0</a>, retraitées par ce site (extraction des participations, regroupement des noms de sociétés, calcul des écarts). Groupes politiques, commissions, amendements et scrutins : open data de l'Assemblée nationale et du Sénat (licence ouverte). Représentants d'intérêts : répertoire de la HATVP. Marchés publics : données essentielles de la commande publique. Décrets de déport : Journal officiel (DILA). Dirigeants de sociétés : Registre national des entreprises (INPI), via l'annuaire des entreprises de l'État. Cours : Euronext. Une erreur ? Voir <a href="#methode">corrections et droit de réponse</a>. <a href="donnees/participations.csv">Télécharger les données</a> · <a href="flux.xml">Flux RSS</a>. <a href="#mentions">Mentions légales et données personnelles</a>. Ce site ne dépose aucun cookie et ne mesure pas l'audience.</div></footer>
+<footer><div class="wrap">Source : Haute Autorité pour la transparence de la vie publique, déclarations d'intérêts (députés, sénateurs, ministres, députés européens, élus locaux) et déclarations de situation patrimoniale des seuls membres du gouvernement. Les montants sont ceux déclarés par les élus. Données publiées par la HATVP sous <a href="https://www.etalab.gouv.fr/licence-ouverte-open-licence/" rel="noopener" target="_blank">licence ouverte Etalab 2.0</a>, retraitées par ce site (extraction des participations, regroupement des noms de sociétés, calcul des écarts). Groupes politiques, commissions, amendements et scrutins : open data de l'Assemblée nationale et du Sénat (licence ouverte). Représentants d'intérêts : répertoire de la HATVP. Marchés publics : données essentielles de la commande publique. Décrets de déport : Journal officiel (DILA). Dirigeants de sociétés : Registre national des entreprises (INPI), via l'annuaire des entreprises de l'État. Cours : Euronext. Une erreur ? Voir <a href="methode.html#corrections">corrections et droit de réponse</a>. <a href="donnees/participations.csv">Télécharger les données</a> · <a href="flux.xml">Flux RSS</a> · Index des <a href="elus/">élus</a> et des <a href="societes/">sociétés</a>. <a href="#mentions">Mentions légales et données personnelles</a>. Ce site ne dépose aucun cookie et ne mesure pas l'audience.</div></footer>
 
 <script id="data" type="application/json">__DATA__</script>
 <script>
@@ -143,7 +147,7 @@ function sortBy(L,st,get){const k=st.tri.replace(/^-/,''),d=st.tri.startsWith('-
   return [...L].sort((a,b)=>{const x=f(a),y=f(b);if(typeof x==='string'||typeof y==='string')return d*String(x??'').localeCompare(String(y??''),'fr');return d*((x??-Infinity)-(y??-Infinity))})}
 function bindSort(box,st,redraw){box.querySelectorAll('button.sort').forEach(b=>b.onclick=()=>{const k=b.dataset.k;
   st.tri=st.tri===k?'-'+k:st.tri==='-'+k?k:(b.dataset.n==='1'?'-'+k:k);redraw()})}
-const app=document.getElementById('app');
+const app=document.getElementById('app'), HOME=app.innerHTML;
 
 function mvRows(list,{showElu=true,showSoc=true,st=null}={}){
   if(!list.length)return `<p class="empty">Aucun mouvement entre deux déclarations successives.</p>`;
@@ -176,30 +180,8 @@ function bindSearch(){
     r.innerHTML=res.length?res.map(x=>`<a href="${x.h}"><span>${esc(x.t)}</span><span class="kind">${x.k}</span></a>`).join(''):(i.value.trim().length>=2?'<p class="empty">Aucun élu ni aucune société ne correspond.</p>':'')};
 }
 
-function home(){
-  const holders=DB.elus.filter(e=>e.nh).length, MVT=DB.mv.filter(m=>m.m!=='valeur');
-  const top=DB.socs.filter(s=>s.nh&&s.nat==='cotee').sort((a,b)=>b.nh-a.nh).slice(0,12);
-  app.innerHTML=`
-  <section><h1>Qui détient quoi, d'après leurs propres déclarations</h1>
-  <p class="lede">Les participations dans des sociétés déclarées par les députés, les sénateurs, les membres du gouvernement, les députés européens élus en France et les principaux élus locaux à la Haute Autorité pour la transparence de la vie publique, et leur évolution d'une déclaration à l'autre.</p></section>
-  <section><label for="q" class="kind">Rechercher un élu, une société, un code ISIN ou un code postal</label>
-    <div class="search" style="margin-top:6px"><input id="q" type="search" placeholder="Ex. Air Liquide, FR0000120271, Dupont, 69003" autocomplete="off"></div>
-    <div class="results" id="qr" hidden></div></section>
-  <section class="figs" aria-label="Chiffres clés">
-    <div><b>${DB.elus.length.toLocaleString('fr-FR')}</b><span>élus avec une déclaration publiée</span></div>
-    <div><b>${holders.toLocaleString('fr-FR')}</b><span>déclarent au moins une participation</span></div>
-    <div><b>${DB.socs.filter(s=>s.nh).length.toLocaleString('fr-FR')}</b><span>sociétés citées</span></div>
-    <div><b>${MVT.length.toLocaleString('fr-FR')}</b><span>écarts entre deux déclarations (hors variations de cours)</span></div>
-  </section>
-  <p class="note"><strong>À lire avant tout.</strong> En France, les élus ne déclarent pas leurs achats et ventes de titres au fil de l'eau. Ils déposent des déclarations à des dates données. Un « mouvement » ici est donc un écart entre deux déclarations successives, pas une transaction datée.</p>
-  <div class="cols">
-    <section><h2>Derniers mouvements déclarés</h2><div id="lastmv"></div><p><a href="#mouvements">Tous les mouvements</a></p></section>
-    <section><h2>Sociétés cotées les plus citées</h2><div class="tbl"><table><thead><tr><th>Société</th><th class="n">Élus</th></tr></thead><tbody>${
-      top.map(s=>`<tr><td>${sLink(s.k)}${s.isin?`<div class="mono cat">${s.isin}</div>`:''}</td><td class="n">${s.nh}</td></tr>`).join('')}</tbody></table></div><p><a href="#societes?nat=cotee">Toutes les sociétés cotées</a></p></section>
-  </div>`;
-  document.getElementById('lastmv').innerHTML=mvRows(MVT.slice(0,8),{showElu:true,showSoc:true}).replace(/<th>Entre le<\/th>/,'<th>Avant</th>').replace(/<th>et le<\/th>/,'<th>Après</th>');
-  bindSearch();
-}
+// Accueil rendu au build dans <main id="app"> (site/pages.py, Site.accueil) : lisible sans JavaScript et par les moteurs
+function home(){app.innerHTML=HOME;bindSearch()}
 
 const ELUD={q:'',cat:'',dep:'',g:'',has:true,tri:'n'};let eluF=ELUD;
 function elus(){
@@ -333,7 +315,7 @@ function methode(){
   <p>Les liens Pappers mènent à la fiche de la société lorsque son numéro SIREN a été rattaché à la main (principales sociétés cotées françaises), sinon à une recherche sur son nom, dont le premier résultat n'est pas forcément la bonne société.</p>
   <h2>Ce que le site ne dit pas</h2>
   <p>Le site présente des faits déclarés, avec leur source. Il ne qualifie aucune situation et ne présume d'aucun conflit d'intérêts. Détenir des actions d'une société est légal et la déclaration de ces titres est précisément ce que la loi demande.</p>
-  <h2>Corrections et droit de réponse</h2>
+  <h2 id="corrections">Corrections et droit de réponse</h2>
   <p>Un élu ou un lecteur qui relève une erreur peut écrire à ${contact()}. Une erreur de traitement propre au site (regroupement de noms, ISIN, calcul d'un écart) est corrigée dans un délai d'un mois au plus. Une erreur présente dans la déclaration elle-même relève de l'élu et de la HATVP : le site reprend la version corrigée dès sa publication par la HATVP, à la mise à jour hebdomadaire suivante.</p>
   <p>Toute personne nommée sur le site dispose d'un droit de réponse (article 6, IV de la loi du 21 juin 2004). La demande est à adresser à la même adresse dans les trois mois suivant la mise en ligne de l'information. La réponse est publiée sur la fiche concernée dans les trois jours suivant sa réception.</p>
   <p class="crumb">Données extraites le ${date(DB.built)}.</p></section>`;

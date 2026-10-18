@@ -27,6 +27,10 @@ jobs:
       HEBERGEUR: ${{ vars.HEBERGEUR }}
       EDITEUR_ANONYME: ${{ vars.EDITEUR_ANONYME }}
       SITE_URL: ${{ vars.SITE_URL }}
+      # Référencement (facultatif) : vérification Google Search Console et Bing Webmaster Tools, clé IndexNow
+      GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
+      BING_SITE_VERIFICATION: ${{ vars.BING_SITE_VERIFICATION }}
+      INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -72,7 +76,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/out data/ref/deports.json
+          git add data/out data/ref/deports.json data/ref/pages.json
           git diff --cached --quiet || git commit -m "Données HATVP du $(date -u +%F)"
           git push
       # Avant toute mise en ligne, les mentions légales doivent être complètes.
@@ -95,3 +99,20 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      # Signale aux moteurs qui suivent IndexNow (Bing, et par lui les assistants qui s'en servent ; Yandex…)
+      # les pages dont le contenu a changé cette semaine (date du sitemap = date de la mise à jour). Facultatif.
+      - name: Signaler les pages modifiées (IndexNow)
+        if: vars.INDEXNOW_KEY != ''
+        env:
+          KEY: ${{ vars.INDEXNOW_KEY }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          site="${SITE_URL:-https://trades-survey.github.io/trades-survey/}"; site="${site%/}/"
+          curl -fsS "${site}sitemap.xml" | grep -o "<loc>[^<]*</loc><lastmod>$(date -u +%F)</lastmod>" \
+            | sed 's#<loc>\([^<]*\)</loc>.*#\1#' | head -n 10000 > urls.txt || true
+          echo "$(wc -l < urls.txt) pages modifiées"
+          [ -s urls.txt ] || exit 0
+          jq -Rn --arg h "$(echo "$site" | cut -d/ -f3)" --arg k "$KEY" --arg l "${site}${KEY}.txt" \
+            '{host:$h,key:$k,keyLocation:$l,urlList:[inputs]}' < urls.txt \
+            | curl -sS -o /dev/null -w 'IndexNow : HTTP %{http_code}\n' -X POST -H 'Content-Type: application/json; charset=utf-8' \
+              --data @- https://api.indexnow.org/indexnow || echo "::warning::IndexNow indisponible"
