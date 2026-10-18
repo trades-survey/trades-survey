@@ -222,6 +222,7 @@ PUB=os.path.join(ROOT,'public')
 import shutil
 for d in ('elus','societes','donnees'): shutil.rmtree(os.path.join(PUB,d),ignore_errors=True); os.makedirs(os.path.join(PUB,d))
 shutil.copytree(os.path.join(ROOT,'site','fonts'),os.path.join(PUB,'fonts'),dirs_exist_ok=True)
+for f in ('favicon.svg','icon-180.png','og.png'): shutil.copy(os.path.join(ROOT,'site',f),PUB)
 def write(rel,txt):
     with open(os.path.join(PUB,rel),'w',encoding='utf-8',newline='') as f: f.write(txt)
 tpl=open(os.path.join(ROOT,'site','template.html'),encoding='utf-8').read()
@@ -260,13 +261,29 @@ idx={'built':BUILT,'legal':legal,
              for s in socs if s['holders'] or nm[s['k']]],
      'mv':out['mv'],'stats':stats,'nd':NONDEP}
 data=json.dumps(idx,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
-write('index.html',HEAD+tpl.replace('__DATA__',data).replace('<header class="top">','</head>\n<body>\n<header class="top">',1)+'\n</body>\n</html>\n')
-# 3. une page statique par élu et par société
 sys.path.insert(0,os.path.join(ROOT,'site'))
+import seo
 from pages import Site, NAT, MV as MVL, date as pdate
-site=Site(tpl,out)
-for e in out['elus']: write(f"elus/{e['id']}.html",site.elu(e))
-for s_ in socs: write(f"societes/{s_['id']}.html",site.societe(s_,LABELS[s_['k']]))
+site=Site(tpl,out,SITE_URL)
+# date de dernière modification réelle de chaque page (sitemap, données structurées), gardée d'une semaine à l'autre
+DATES=seo.Dates(os.path.join(D,'ref','pages.json'),BUILT)
+def page(rel,h): write(rel,h.replace(seo.MODIFIE,DATES.date(rel,h)))
+# accueil : métadonnées, données structurées (site, jeu de données, questions fréquentes) et contenu rendu sans JavaScript
+FAQ=site.faq(idx)
+TITRE="Registre des élus actionnaires : les actions des députés, sénateurs et ministres"
+DESC=("Les actions et participations déclarées à la HATVP par "+f"{len(out['elus']):,}".replace(',','\u202f')+
+      " députés, sénateurs, ministres et élus locaux, et leur évolution. Mises à jour chaque semaine.")
+GRAPHE=seo.website(SITE_URL)+[seo.page_web(SITE_URL,SITE_URL,TITRE,DESC,[],{'@id':seo.site_ids(SITE_URL)['donnees']}),
+       seo.dataset(SITE_URL,BUILT,len(out['elus']),len(socs)),seo.faq_ld(FAQ)]
+home=(HEAD+tpl.replace('<title>Registre des élus actionnaires</title>',f'<title>{seo.esc(TITRE)}</title>\n'+seo.meta(SITE_URL,TITRE,DESC,GRAPHE,SITE_URL+'og.png',extra=seo.verification()),1)
+      .replace('__DATA__',data).replace('<header class="top">','</head>\n<body>\n<header class="top">',1)
+      .replace('<main class="wrap" id="app" aria-live="polite"></main>','<main class="wrap" id="app" aria-live="polite">'+site.accueil(idx)+'</main>',1)+'\n</body>\n</html>\n')
+page('index.html',home)
+# 3. une page statique par élu et par société, leurs index, la méthode et la page introuvable
+for e in out['elus']: page(f"elus/{e['id']}.html",site.elu(e))
+for s_ in socs: page(f"societes/{s_['id']}.html",site.societe(s_,LABELS[s_['k']]))
+page('elus/index.html',site.index_elus()); page('societes/index.html',site.index_societes())
+page('methode.html',site.methode(BUILT)); page('404.html',site.introuvable())
 # 4. exports CSV (mêmes données que le site, sans date de naissance ni identifiant HATVP)
 def csv_out(rel,head,rows):
     import io
@@ -296,9 +313,15 @@ for m in [m for m in out['mv'] if m['m']!='valeur'][:100]:
 write('flux.xml','<?xml version="1.0" encoding="utf-8"?>\n<rss version="2.0"><channel><title>Registre des élus actionnaires : derniers mouvements</title>'
       f'<link>{SITE_URL}</link><description>Écarts entre deux déclarations successives des élus à la HATVP (hors simples variations de cours).</description><language>fr</language>'
       f'<lastBuildDate>{rfc(BUILT)}</lastBuildDate>\n'+'\n'.join(items)+'\n</channel></rss>\n')
-urls=[SITE_URL]+[f"{SITE_URL}elus/{e['id']}.html" for e in out['elus']]+[f"{SITE_URL}societes/{s_['id']}.html" for s_ in socs]
-write('sitemap.xml','<?xml version="1.0" encoding="utf-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(f'<url><loc>{xe(u)}</loc><lastmod>{BUILT}</lastmod></url>' for u in urls)+'\n</urlset>\n')
-write('robots.txt',f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n')
+write('sitemap.xml',seo.sitemap(SITE_URL,DATES.new)); DATES.save()
+write('robots.txt',seo.robots(SITE_URL))
+# llms.txt : présentation du site pour les assistants conversationnels (https://llmstxt.org)
+TOP=sorted((s_ for s_ in idx['socs'] if s_['nh'] and s_['nat']=='cotee'),key=lambda s_:-s_['nh'])[:20]
+write('llms.txt',seo.llms(SITE_URL,BUILT,{'elus':len(idx['elus']),'holders':sum(1 for e in idx['elus'] if e['nh']),'socs':sum(1 for s_ in idx['socs'] if s_['nh']),
+      'mv':sum(1 for m in mv if m['m']!='valeur')},TOP,FAQ))
+# clé IndexNow (Bing, Yandex…), publiée à la racine du site : le workflow signale ensuite les pages modifiées
+KEY=seo.indexnow_key()
+if KEY: write(f'{KEY}.txt',KEY)
 print(len(elus),C.Counter(e['cat'] for e in elus),len(socs),len(mv),C.Counter(m['m'] for m in mv),sum(len(e['h']) for e in elus))
 print('groupes',sum(1 for e in elus if e.get('g')),'natures',C.Counter(s_['nat'] for s_ in socs if s_['holders']))
 print('index',os.path.getsize(os.path.join(PUB,'index.html')),'octets')

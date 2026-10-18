@@ -22,8 +22,14 @@ Chaque lundi, GitHub Actions (`.github/workflows/site.yml`) :
 Le site construit dans `public/` comprend l'accueil (listes, filtres et recherche ; l'état des filtres et du tri est dans
 l'adresse, par exemple `#elus?cat=depute&dep=69&tri=-v`), une page statique par élu (`elus/<id>.html`) et par société
 (`societes/<id>.html`), les exports `donnees/*.csv` et `donnees/registre.json`, un flux RSS des mouvements (`flux.xml`)
-et un `sitemap.xml`. La page Chiffres donne une vue d'ensemble par secteur, par groupe et par fonction. La variable de dépôt `SITE_URL` donne l'adresse publique utilisée par le flux et le sitemap
+un `sitemap.xml` et un `llms.txt`. La page Chiffres donne une vue d'ensemble par secteur, par groupe et par fonction. La variable de dépôt `SITE_URL` donne l'adresse publique utilisée par le flux et le sitemap
 (par défaut `https://trades-survey.github.io/trades-survey/`).
+
+Référencement (`site/seo.py`) : l'accueil, la méthode (`methode.html`) et les index `elus/` et `societes/` sont rendus au build et lisibles
+sans JavaScript ; chaque page porte une adresse canonique, une description, un aperçu de partage et des données structurées schema.org
+(site, jeu de données, questions fréquentes, fiche de personne ou de société, fil d'Ariane). La date de dernière modification réelle de
+chaque page est gardée dans `data/ref/pages.json` : le sitemap n'annonce comme modifiées que les pages dont le contenu a changé.
+Variables facultatives : `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION` et `INDEXNOW_KEY` (voir `docs/CONFORMITE.md`).
 
 Règle juridique appliquée dans le code : déclarations d'intérêts pour tous, déclarations
 de patrimoine pour les seuls membres du gouvernement. Les DSP des parlementaires ne sont

@@ -79,6 +79,10 @@ R = [
     cas('date de naissance d\'un dirigeant', 'champ non prévu', db=muter(lambda d: d['elus'][0].update(rne=[{'si': '123456789', 'n': 'X', 'fj': 'SAS', 'q': '', 'et': 'A', 'dc': '', 'df': '', 'di': False, 'naissance': '1970-01'}]))),
     cas('SIREN de mandat social invalide', 'SIREN invalide', db=muter(lambda d: d['elus'][0].update(rne=[{'si': 'x', 'n': 'X', 'fj': 'SAS', 'q': '', 'et': 'A', 'dc': '', 'df': '', 'di': False}]))),
     cas('lien vers l\'Assemblée nationale', None, pages={'elus/x.html': FICHE.replace('</nav>', '<a href="https://www.assemblee-nationale.fr/dyn/17/scrutins/1">Scrutin</a></nav>')}),
+    cas('adresse canonique et données structurées', None, pages={'elus/x.html': FICHE.replace('</style>', '</style><link rel="canonical" href="https://trades-survey.github.io/trades-survey/elus/x.html">'
+                                                                                     '<script type="application/ld+json">{"@context":"https://schema.org"}</script>', 1)}),
+    cas('adresse canonique sur un autre site', 'ressource externe', pages={'elus/x.html': FICHE.replace('</style>', '</style><link rel="canonical" href="https://exemple.com/x.html">', 1)}),
+    cas('accueil exclu des moteurs', 'noindex', tpl=TPL.replace('</style>', '</style><meta name="robots" content="noindex">', 1)),
 ]
 for nom, texte, attendu in [('qualification dans le gabarit', "<p>Ce député est en conflit d'intérêts.</p>", True),
                             ('négation acceptée', "<p>Il ne présume d'aucun conflit d'intérêts.</p>", False),
