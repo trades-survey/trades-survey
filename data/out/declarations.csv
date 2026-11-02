@@ -52,6 +52,8 @@ dcdc86b8-8a1d-4fd9-828a-d81007bd44d8,DI,oui,2023-06-30,elu_local,Lucien,ALEXANDE
 7611a18d-ed0b-48cb-9a99-32d8acfdda92,DIA,oui,2024-10-12,depute,laurent,Alexandre,1973-06-09,Député,Député ou sénateur,Aveyron(12),oui
 e4d5cecb-e29c-43cf-a607-ea304f17bf9a,DIA,non,2024-07-19,depute,Henri,Alfandari,1979-10-02,Député,Député ou sénateur,Indre-et-Loire(37),oui
 6f894a12-7a5b-4bf6-b0ae-78dcde8f7d3d,DIA,oui,2024-10-01,depute,Henri,Alfandari,1979-10-02,Député,Député ou sénateur,Indre-et-Loire(37),oui
+775e45f3-c111-4d26-8830-b69ae2e675b8,DI,non,2026-03-03,elu_local,olivier,allain,1964-05-23,Elu régional,vice président,Bretagne (53),oui
+0fb5d5de-faef-4180-9da0-57ea4c099742,DI,oui,2026-06-23,elu_local,olivier,allain,1964-05-23,Elu régional,vice président,Bretagne (53),oui
 613029ac-cd22-464c-af75-5c5b98ebdec8,DI,non,2021-07-14,elu_local,pierre,ALLARD,1963-10-31,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Haute-Vienne (87),oui
 d598860f-5517-4397-bf38-b914c143d9f6,DI,oui,2022-10-04,elu_local,pierre,ALLARD,1963-10-31,Elu départemental,vice president,Haute-Vienne (87),oui
 1440b4f5-1ae9-4ae4-a892-a93b5cd78437,DIA,non,2024-09-05,depute,Alexandre,ALLEGRET-PILOT,1989-01-11,Député,Député ou sénateur,Gard(30),oui
@@ -287,6 +289,7 @@ faed9e38-64ab-4e10-afcd-84b6ed9db591,DI,non,2021-09-01,elu_local,Audrey,Bardot,1
 2e7f2e34-9d3a-4a2d-ae89-93ada3ce8abd,DI,oui,2023-03-09,elu_local,Ericka,BAREIGTS,1967-04-16,Elu régional,Vice-présidente,La Réunion (04),oui
 4af6133c-ff88-4e91-8046-72b4262ba6e5,DI,non,2021-09-11,elu_local,julie,barenton guillas,1975-04-14,Elu régional,vice presidente,Normandie (28),oui
 269085a4-c73d-455c-b2a1-05962db2c8de,DI,oui,2024-01-27,elu_local,julie,barenton guillas,1975-04-14,Elu régional,VP Enseignement Supérieur Recherche Innovation Numérique et Santé,Normandie (28),oui
+32166670-fe33-4d92-91fa-dfbaaf713a3a,DI,oui,2026-05-31,elu_local,julie,barenton guillas,1975-04-14,Elu régional,vice président,Normandie (28),oui
 a538871a-f47d-4b1d-866a-30b4ab490e56,DI,non,2021-07-22,elu_local,Florence,Bariseau,1972-06-24,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Hauts-de-France (32),oui
 694e83c3-f732-48fb-898b-07533d31b4c2,DI,oui,2022-06-20,elu_local,Florence,Bariseau,1972-06-24,Elu régional,vice-président,Hauts-de-France (32),oui
 ff6c2e02-6415-4cd4-b1c8-c6c9d3a85c3e,DI,oui,2024-02-07,elu_local,Florence,Bariseau,1972-06-24,Elu régional,Vice Présidente,Hauts-de-France (32),oui
@@ -332,6 +335,7 @@ d22cfe90-c8e5-41f7-a790-8833c1606e74,DIA,oui,2024-09-05,depute,Jean-Pierre,BATAI
 690d69c4-40e9-45b8-811f-a1b4e17d94ce,DIA,non,2024-07-15,depute,Delphine,BATHO,1973-03-23,Député,Député ou sénateur,Deux-Sèvres(79),oui
 21c3ac20-8952-48b4-8b54-027ef0a2b58f,DIA,oui,2024-10-03,depute,Delphine,BATHO,1973-03-23,Député,Député ou sénateur,Deux-Sèvres(79),oui
 33e66494-baf3-48f5-a476-29f6f607507b,DIA,non,2025-09-17,depute,Delphine,BATHO,1973-03-23,Député,Député ou sénateur,Deux-Sèvres(79),oui
+193200be-7056-4cd4-b4ee-060f5b2fc233,DIA,oui,2026-05-03,depute,Delphine,BATHO,1973-03-23,Député,Député ou sénateur,Deux-Sèvres(79),oui
 4e2f8a43-4ce1-458f-a324-a2cba76175aa,DIA,non,2024-09-05,depute,Marie-Noelle,Battistel,1956-08-20,Député,Député ou sénateur,Isère(38),oui
 827a80f9-df19-4fd3-85e8-334201acf541,DIA,oui,2025-04-03,depute,Marie-Noelle,Battistel,1956-08-20,Député,Député ou sénateur,Isère(38),oui
 327c5b27-e1b6-4504-859b-9b93d967f244,DIA,non,2024-07-19,depute,Romain,Baubry,1989-01-28,Député,Député ou sénateur,Bouches-du-Rhône(13),oui
@@ -381,8 +385,6 @@ f134e92e-ba31-46d5-b8e4-a3327fc5484f,DI,oui,2023-04-01,elu_local,philippe,beauch
 2621c94e-c9d5-420c-bbdd-79a6c4607e1d,DI,oui,2023-11-12,elu_local,philippe,beauchamps,1963-03-29,Elu régional,conseiller titulaire d une delegation,Hauts-de-France (32),oui
 ea35e79f-4fb1-45f7-a27f-ee15fde151b5,DI,oui,2024-02-11,elu_local,philippe,beauchamps,1963-03-29,Elu régional,"vice president en charge des entreprises ,de l 'emploi, de la formation professionnelle",Hauts-de-France (32),oui
 c7806736-8988-4a11-a61c-862fafdf0020,DI,oui,2024-12-29,elu_local,philippe,beauchamps,1963-03-29,Elu régional,vice president en charge de la relation avec les entrprises l emploi la formation professionnelle,Hauts-de-France (32),oui
-17261230-aca5-4c8f-a091-e8b2e67a27b5,DI,non,2021-07-30,elu_local,Frédéric,Beauchef,1972-06-01,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Sarthe (72),oui
-d003181d-f824-4be3-9329-50d241fbec5e,DI,oui,2022-09-27,elu_local,Frédéric,Beauchef,1972-06-01,Elu départemental,Vice-président,Sarthe (72),oui
 f427680a-6fd4-4789-90c0-a328f8265875,DI,non,2021-09-03,elu_local,Stephane,Beaudet,1972-05-25,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Ile-de-France (11),oui
 768ca920-8e62-4de5-a8e0-4354699e1c62,DI,non,2022-05-05,elu_local,Stephane,Beaudet,1972-05-25,Elu régional,Vice président région Ile de France,Ile-de-France (11),oui
 04054004-f19c-408b-8367-53b92d31a1dd,DI,oui,2022-10-10,elu_local,Stephane,Beaudet,1972-05-25,Elu régional,Vice président région Ile de France,Ile-de-France (11),oui
@@ -390,6 +392,7 @@ f427680a-6fd4-4789-90c0-a328f8265875,DI,non,2021-09-03,elu_local,Stephane,Beaude
 ee89362f-5782-4e99-99c6-33130b311164,DI,non,2021-07-16,elu_local,Gilbert,Beaujaneau,1945-04-04,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Vienne (86),oui
 70494f8f-a479-4303-b5d5-db78c49408ed,DI,oui,2021-12-14,elu_local,Gilbert,Beaujaneau,1945-04-04,Elu départemental,vice president,Vienne (86),oui
 79cc9cc5-d419-4de8-942a-532f0706d727,DI,non,2021-08-11,elu_local,Nathalie,BEAULNES-SERENI,1961-04-05,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Seine-et-Marne (77),oui
+79b3814b-8256-4d4d-8ce2-52089d193a5c,DI,oui,2026-05-22,elu_local,Nathalie,BEAULNES-SERENI,1961-04-05,Elu départemental,vice président,Ile-de-France (11),oui
 9b23c303-333d-418b-aad9-9b055ba82241,DI,non,2021-09-11,elu_local,Marie-Pierre,BEAU,1962-07-31,Elu départemental,conseiller titulaire d'une délégation,Loir-et-Cher (41),oui
 10901e02-ca17-4774-bf3c-97e3643c4c4d,DI,non,2021-07-29,autre,Patricia,Beaumont,1973-01-29,Autre,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
 66870362-7773-432c-ad06-5e60da62f084,DIA,non,2024-07-08,depute,josé,BEAURAIN,1971-07-27,Député,Député ou sénateur,Aisne(02),oui
@@ -412,8 +415,10 @@ d418f759-ec64-4367-a1bd-a4e0e22b01f7,DI,oui,2021-08-21,elu_local,Jeanne,Bécart,
 bf587378-5740-47f1-aae3-68b97a9e05de,DIA,oui,2025-12-30,depute,Olivier,BECHT,1976-04-28,Député,Député ou sénateur,Haut-Rhin(68),oui
 b5cfc7a7-59de-41cc-b8d3-62879c809f10,DIA,oui,2026-02-07,depute,Olivier,BECHT,1976-04-28,Député,Député ou sénateur,Haut-Rhin(68),oui
 141f800b-9744-494a-b7ba-6708b1295496,DI,non,2021-09-01,elu_local,xavier,beck,1953-10-24,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Alpes-Maritimes (06),oui
+e2f010fa-59be-4235-afc6-3496b057506f,DI,non,2026-06-15,elu_local,xavier,beck,1953-10-24,Membre d EPCI,vice-president,metropole nicecotedazur,oui
 88b0e60c-f269-4996-81a3-305cc60dfc5b,DI,non,2022-07-22,elu_local,xavier,beck,1953-10-24,Elu départemental,Vice-président,Alpes-Maritimes (06),oui
 287a8d0f-dcb5-4693-b4a7-540281fbb776,DI,oui,2023-12-20,elu_local,xavier,beck,1953-10-24,Elu départemental,1er Vice-président,Alpes-Maritimes (06),oui
+c22a5358-2ff2-4139-9e18-429fcae7ff01,DI,oui,2026-07-31,elu_local,xavier,beck,1953-10-24,Membre d EPCI,Vice-Président,METROPOLE NCA,oui
 d080da06-448b-49ff-b235-1eaa4555baa3,DI,non,2021-09-08,elu_local,Jean Claude,Becousse,1957-12-20,Elu départemental,Conseiller titulaire d'une délégation,Saône-et-Loire (71),oui
 e3c407f8-9efd-49c3-9a75-803c9b932cf5,DI,non,2021-12-12,elu_local,Jean Claude,Becousse,1957-12-20,Elu départemental,conseiller départemental délégué,Saône-et-Loire (71),oui
 1edb268e-7669-47c7-9361-5900617033f1,DI,non,2021-08-11,elu_local,Doriane,becue,1985-10-30,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Nord (59),oui
@@ -493,6 +498,7 @@ e1f2519b-30bd-42ed-9ea9-ba77cf1261d8,DIA,non,2024-09-03,depute,Christophe,Bentz,
 2d5773d2-8272-4e61-bcfa-b4ff819b44c8,DIA,oui,2025-09-14,depute,Christophe,Bentz,1987-07-04,Député,Député ou sénateur,Haute-Marne(52),oui
 9b85da03-f6db-4405-a863-f795b09aea9f,DI,non,2022-10-19,elu_local,Jérôme,BEQ,1968-06-28,Elu départemental,Vice-Président titulaire d'une délégation,Tarn-et-Garonne (82),oui
 fca8d150-7995-486a-8ef8-6783d725294b,DI,oui,2023-02-28,elu_local,Jérôme,BEQ,1968-06-28,Elu départemental,Vice-Président titulaire d'une délégation,Tarn-et-Garonne (82),oui
+6a36ee72-3aa3-422c-a0b0-845810e87501,DI,oui,2026-05-20,elu_local,Jérôme,BEQ,1968-06-28,Elu départemental,conseiller départemental,Tarn-et-Garonne (82),oui
 62582322-66ae-49eb-a4de-51e5af5e9686,DI,non,2021-12-21,elu_local,Nathalie,BERANGER,1967-07-06,Elu régional,conseillère déléguée aux Ressources Humaines,Auvergne-Rhône-Alpes (84),oui
 d71ef892-ecf6-44bd-ab81-e31262400020,DI,non,2024-11-26,elu_local,Danielle,BERAT,1957-11-05,Elu départemental,vice-président en charge de l'eau et de l'assainissement,Marne (51),oui
 e269d3f6-157a-488d-b809-ff2f4ef5e488,DI,oui,2026-04-16,elu_local,Danielle,BERAT,1957-11-05,Elu départemental,vice présidente en charge de l'eau et de l'assainissement,Marne (51),oui
@@ -598,6 +604,7 @@ bcb1e9ab-45e4-4fd5-adfc-b3b0b21776c0,DI,oui,2023-12-11,elu_local,LUDOVIC,BIASOTT
 7020b8fb-271f-4732-9325-79da95e8f30c,DI,non,2021-09-03,elu_local,SYLVIE,BIBAL DIOGO,1961-03-11,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Tarn (81),oui
 8e134881-b1e4-4fe6-aa62-8373a335f02a,DI,non,2024-11-10,elu_local,benoit,BIBERON,1971-12-26,Elu départemental,CONSEILLER TITULAIRE D UNE DELEGATION,Oise (60),oui
 131d3cdb-4bd8-4fd8-8ef7-0b058638ded7,DI,non,2021-08-23,elu_local,André,BIDAUD,1953-12-27,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Allier (03),oui
+2716654a-23ab-4aee-ab4d-eec24b7b73b2,DI,oui,2026-05-29,elu_local,André,BIDAUD,1953-12-27,Elu départemental,vice-président titulaire d'une délégation,Allier (03),oui
 1e563e69-ddbe-4118-aacd-8c651eb7014a,DI,non,2022-01-07,elu_local,Roselyne,BIENVENU,1961-09-16,Elu départemental,Vice-présidente,Maine-et-Loire (49),oui
 ffc6c3f8-4451-462c-8463-8e40508a299a,DI,oui,2024-04-05,elu_local,Roselyne,BIENVENU,1961-09-16,Elu départemental,Vice-présidente,Maine-et-Loire (49),oui
 478ffba0-00d8-40b9-99f1-498f0f63520e,DI,non,2021-08-04,elu_local,Frederic,Bierry,1966-04-21,Collectivité à statut particulier,Elu local ou membre d’un établissement public de coopération intercommunale,Conseil départemental d'Alsace,oui
@@ -627,12 +634,16 @@ fecfe03a-c13d-4018-a59b-04a4ecfe5004,DIA,non,2024-09-08,depute,Benoît,BITEAU,19
 acbb76b0-7c3d-4f20-95d0-47f3d784ce5b,DIA,non,2023-11-12,senateur,Olivier,BITZ,1975-09-16,Sénateur,Député ou sénateur,Orne(61),oui
 cc83e245-3717-4bf7-a441-97e5269a78e0,DIA,oui,2024-02-05,senateur,Olivier,BITZ,1975-09-16,Sénateur,Député ou sénateur,Orne(61),oui
 3f081dab-a5da-4531-b8b5-d498009e332c,DIA,oui,2025-04-17,senateur,Olivier,BITZ,1975-09-16,Sénateur,Député ou sénateur,Orne(61),oui
+d1ae3728-40ac-4f61-b4a1-51acd268fca1,DIA,oui,2026-03-03,senateur,Olivier,BITZ,1975-09-16,Sénateur,Député ou sénateur,Orne(61),oui
+fd5ea929-7aa0-41c4-ba39-21861ce3f7a4,DIA,oui,2026-04-01,senateur,Olivier,BITZ,1975-09-16,Sénateur,Député ou sénateur,Orne(61),oui
 3247a661-58cb-49df-874d-324b3b07d451,DIA,non,2024-07-24,depute,Emmanuel,Blairy,1986-03-14,Député,Député ou sénateur,Pas-de-Calais(62),oui
 ebcd8653-d06c-4a84-933a-8177f4d63feb,DIA,non,2025-02-03,depute,Emmanuel,Blairy,1986-03-14,Député,Député ou sénateur,Pas-de-Calais(62),oui
 1fd283f4-514a-4863-88b7-085c220abbec,DIA,oui,2026-03-23,depute,Emmanuel,Blairy,1986-03-14,Député,Député ou sénateur,Pas-de-Calais(62),oui
 6d0ff84d-2d2b-45bd-8586-77b1f56f3fa3,DI,non,2022-12-11,elu_local,christine,BLANC,1969-04-22,Elu départemental,conseiller titulaire d'une délégation,Côte-d'Or (21),oui
 77337e4e-c770-43e3-862f-90a00ae29e01,DIA,non,2023-12-01,senateur,GREGORY,BLANC,1980-09-01,Sénateur,Député ou sénateur,Maine-et-Loire(49),oui
 df80dcf0-bfca-4969-8e4e-b74d916c0343,DIA,non,2024-03-19,senateur,GREGORY,BLANC,1980-09-01,Sénateur,Député ou sénateur,Maine-et-Loire(49),oui
+9d4d37d0-5845-47ba-9f2d-d581d84bb162,DIA,non,2026-01-13,depute,Benoit,Blanchard,1961-05-01,Député,Député ou sénateur,Val-d'Oise(95),oui
+3e721d8f-f761-473e-8f15-6acaf68f2720,DIA,oui,2026-07-22,depute,Benoit,Blanchard,1961-05-01,Député,Député ou sénateur,Val-d'Oise(95),oui
 20e89ae4-929c-4704-970b-ada03c288c31,DI,non,2022-06-03,elu_local,DAVID,BLANCHARD,1977-01-15,Collectivité à statut particulier,Membre titulaire de la délégation de St Barthélémy,Conseil territorial Saint-Barthélemy,oui
 6f1ce25a-e21d-48bd-a626-758b8151cad6,DI,non,2021-08-09,elu_local,Raphaël,Blanchard,1991-07-08,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Marne (51),oui
 6ac34667-4f12-4bfb-bf01-ad4d14c17301,DI,oui,2023-06-22,elu_local,Raphaël,Blanchard,1991-07-08,Elu départemental,vice-président en charge des sports,Marne (51),oui
@@ -667,6 +678,8 @@ f6deb0a5-82f0-49b1-b899-220cbbe9c158,DI,non,2021-12-12,elu_local,Gilles,BOEUF,19
 d5bacd77-363d-4c2a-abff-06522d1c8c8d,DI,non,2021-07-08,autre,Pascal,BOHIN,1965-09-24,Vice president,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
 10e3ca28-c739-403c-83de-2c976e975640,DI,oui,2022-08-16,elu_local,Pascal,BOHIN,1965-09-24,Elu départemental,VP,Somme (80),oui
 6d81dbf6-c24b-43d1-bf7c-83be9fee8e80,DI,oui,2022-08-10,elu_local,Pascal,BOHIN,1965-09-24,Elu départemental,VP AMEVA,Somme (80),oui
+4dedc3a2-99e3-49dc-bbe3-d2cdfd7fb285,DI,non,2026-05-15,elu_local,jean-luc,bohl,1959-11-28,Maire ou adjoint municipal,MAIRE,Montigny-lès-Metz (57),oui
+997362e9-c5dd-471d-8bae-70b39c95f4f3,DI,oui,2026-07-13,elu_local,jean-luc,bohl,1959-11-28,Membre d EPCI,Vice président,Euro-Metropole de Metz,oui
 dc4c1910-0293-43f6-a1e4-9795910de341,DI,non,2022-06-19,elu_local,Laetitia,BOISSEAU,1964-11-01,Elu départemental,Vice-president delegation autonomie,Val-d'Oise (95),oui
 242e3fe3-db92-4de9-8a5f-c955ee2b97ee,DI,oui,2022-10-26,elu_local,Laetitia,BOISSEAU,1964-11-01,Elu départemental,Vice-president delegation autonomie,Val-d'Oise (95),oui
 718725c0-68e7-4d08-addd-ec392946a1ad,DI,non,2021-08-19,elu_local,Anne-Sophie,Boisseaux,1973-06-01,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Nord (59),oui
@@ -740,12 +753,15 @@ d854a9fa-861e-4896-9a6b-10c735caf8b6,DIA,non,2024-08-08,depute,Ian,Boucard,1988-
 29fc88f9-008e-4cbc-8d4f-5960faa3365c,DI,non,2022-11-10,elu_local,Valérie,BOUCHARD,1970-04-25,Elu départemental,troisième secrétaire,Côte-d'Or (21),oui
 c10c8f97-d2f5-43ac-b802-e99e94e27046,DI,non,2021-08-03,elu_local,Natacha,BOUCHART,1963-05-29,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Hauts-de-France (32),oui
 47fdeec3-9222-434e-83dc-c0b86a1f502d,DI,non,2021-07-28,elu_local,françois,boucher,1958-02-09,Elu départemental,vice président titulaire d'une délégation,Yonne (89),oui
+c13d88c0-832d-4adc-91a9-630530c9acf7,DI,non,2026-03-27,elu_local,Thomas,Boucher,1982-06-23,Maire ou adjoint municipal,Maire,Saint-Sébastien-sur-Loire (44),oui
+afe3f54c-c8d8-4785-a654-21a539fd926b,DI,oui,2026-08-14,elu_local,Thomas,Boucher,1982-06-23,Membre d EPCI,"Conseiller métropolitain, membre du bureau métropolitain",Nantes Métropole,oui
 c87659f8-1102-4bfb-9797-bf8329fa85ae,DI,non,2021-08-03,elu_local,Suzanne,BOUCHET,1952-10-13,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Vaucluse (84),oui
 6fb763f9-b73d-496e-a046-20829d9b5284,DI,non,2024-01-20,autre,Rémi,Bouchez,1956-10-07,Membre ou dirigeant d’une autorité administrative indépendante,membre,Haute Autorité pour la transparence de la vie publique (HATVP),oui
 6dd2a147-93d2-4e89-98e1-53d4d1834798,DI,oui,2024-02-28,autre,Rémi,Bouchez,1956-10-07,Membre ou dirigeant d’une autorité administrative indépendante,Membre du collège,Haute Autorité pour la transparence de la vie publique (HATVP),oui
 dcc72728-dda4-49c6-bf67-a31677fd3238,DI,oui,2025-12-16,autre,Rémi,Bouchez,1956-10-07,Membre ou dirigeant d une autorité administrative indépendante,Membre du collège,Haute Autorité pour la transparence de la vie publique (HATVP),oui
 d934838c-0bb7-474a-977b-24676db7bc8d,DI,non,2021-07-13,elu_local,Alexandre,Bouchier,1977-07-26,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Yonne (89),oui
 8ca711c4-46af-4788-a7b1-2b129e67313e,DI,oui,2021-11-18,elu_local,Alexandre,Bouchier,1977-07-26,Elu départemental,Vice-président titulaire d'une délégation (Ressources Humaines),Yonne (89),oui
+7fef0874-aa4a-447e-a779-b0844c083e38,DI,oui,2026-05-28,elu_local,Alexandre,Bouchier,1977-07-26,Elu départemental,Vice-Président,Yonne (89),oui
 b9e829d1-9bdb-4699-863a-f91e3a36a572,DI,non,2021-08-17,elu_local,Jean michel,Bouchy,1965-11-19,Elu départemental,Vice-Président en charge de l'insertion solidarité logement et habitats,Somme (80),oui
 2c97707a-16fe-4e4d-b35d-cc59e2a212ba,DI,oui,2025-10-17,elu_local,Jean michel,Bouchy,1965-11-19,Elu départemental,vice président titulaire d'une délégation,Somme (80),oui
 b627f0c9-6c7c-4fec-9cc2-e3a279c25174,DI,non,2021-11-24,elu_local,richard,boudet,1963-08-29,Elu départemental,vice président,Cher (18),oui
@@ -812,6 +828,8 @@ b327ac65-83c1-443e-b3aa-7c493ed7774a,DIA,non,2025-10-16,senateur,Brigitte,Bourgu
 cdfda45f-4043-4ba1-beee-28378b4f0b9c,DI,non,2021-08-17,elu_local,Michel,Bournat,1955-08-28,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Essonne (91),oui
 4ebbe7af-a553-47a0-934c-e4cca0d02cb0,DI,oui,2021-10-31,elu_local,Michel,Bournat,1955-08-28,Elu départemental,vice président,Essonne (91),oui
 a04e23f9-c509-43ef-8424-6cab9a287632,DI,oui,2023-05-22,elu_local,Michel,Bournat,1955-08-28,Elu départemental,VICE PRESIDENT,Essonne (91),oui
+bcbc0105-3350-4659-9b59-82f4a2003549,DI,oui,2026-05-23,elu_local,Michel,Bournat,1955-08-28,Elu départemental,"partenariat avec les collectivités,enseignement supérieur et recherche,projets transversaux",Essonne (91),oui
+c3db588e-4def-45e4-bad0-3baf25f3886f,DI,oui,2026-07-31,elu_local,Michel,Bournat,1955-08-28,Elu départemental,vice president,Essonne (91),oui
 cf4be3cb-1772-452f-9bd1-df92ff598260,DIA,non,2024-08-06,depute,Soumya,Bourouaha,1964-03-16,Député,Député ou sénateur,Seine-Saint-Denis(93),oui
 22593385-baf7-40fb-b9c4-a4621912fb33,DIA,non,2025-01-27,depute,Soumya,Bourouaha,1964-03-16,Député,Député ou sénateur,Seine-Saint-Denis(93),oui
 39a5bb71-3350-4a4f-b2de-9fee440cb5de,DI,oui,2025-02-13,elu_local,Murielle,Bourreau,1977-10-15,Elu régional,déléguée spéciale,Ile-de-France (11),oui
@@ -1115,8 +1133,6 @@ f2f8dd94-5a76-4dc1-ac28-70d7f8ced405,DI,non,2023-03-21,elu_local,Alexandre,Cassa
 22889783-f080-48c8-b271-231e4e96ee89,DIA,non,2024-08-21,depute,michel,castellani,1945-09-28,Député,Député ou sénateur,Haute-Corse(2B),oui
 bc40f418-262d-4cb7-89f2-e09495722686,DIA,non,2024-08-29,depute,Eddy,Casterman,1996-07-28,Député,Député ou sénateur,Aisne(02),oui
 f7d29fcd-11fa-4442-893f-5c7120856afe,DIA,oui,2024-12-09,depute,Eddy,Casterman,1996-07-28,Député,Député ou sénateur,Aisne(02),oui
-02b01a67-7d68-4451-8089-db23908609c6,DI,non,2024-08-30,depute_europeen,Laurent,Castillo,1962-03-12,Député européen,Député européen,,oui
-281267e7-0b5d-445e-ab87-f0f57174cc6d,DI,non,2025-09-04,depute_europeen,Laurent,Castillo,1962-03-12,Député européen,Député européen,,oui
 9cba0aba-8f0f-46ef-812a-2ec8bcdbe5e7,DIA,non,2024-08-19,depute,Jean-Victor,CASTOR,1962-04-21,Député,Député ou sénateur,Guyane(973),oui
 e0ad3238-fc26-4179-90cf-16ee12c9669e,DIA,non,2024-10-04,depute,Jean-Victor,CASTOR,1962-04-21,Député,Député ou sénateur,Guyane(973),oui
 ccca286a-2168-4d5d-ab8c-f381423795e2,DI,non,2021-08-27,elu_local,Marie-Carmen,CASTRO,1966-10-21,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Occitanie (76),oui
@@ -1133,6 +1149,8 @@ b08bba51-3727-4133-8145-2f60428c70c4,DI,oui,2026-03-20,elu_local,Jean-Luc,CATANZ
 c5e6c20e-236d-455d-bd1e-2f8cd30b018b,DIA,non,2024-08-26,depute,Gabrielle,Cathala,1992-05-14,Député,Député ou sénateur,Val-d'Oise(95),oui
 20dd292d-f8e6-43b8-9aac-74cd0d15e527,DI,non,2021-07-28,elu_local,Loïc,Cathelain,1981-08-28,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Nord (59),oui
 1e9583f0-ef71-490a-9b17-f5cb9c717ead,DI,oui,2022-02-01,elu_local,Loïc,Cathelain,1981-08-28,Elu départemental,vice-président,Nord (59),oui
+94067f07-05d0-408a-b253-55f4b3dee778,DI,oui,2026-04-20,elu_local,Arnaud,CATHERINE,1972-12-13,Membre d EPCI,vice-président,Communauté d'agglomération du Cotentin,oui
+522a7112-749f-488a-b954-eace32c2543f,DI,oui,2026-08-05,elu_local,Arnaud,CATHERINE,1972-12-13,Membre d EPCI,vice-président,communauté d'agglomération du Cotentin,oui
 6dd2c07d-1d68-49f9-82be-dcf2e66c4f4e,DI,non,2021-11-03,elu_local,christophe,CATHUS,1971-09-10,Elu régional,Conseiller délégué,Nouvelle-Aquitaine (75),oui
 58ee9875-a218-424d-82d2-7a7e553758de,DI,non,2021-11-08,elu_local,pierre,catillon,1994-12-20,Elu départemental,conseiller délégué à l'enfance la famille et la PMI,Alpes-de-Haute-Provence (04),oui
 4af171a4-bedc-4b54-b7bc-0f2fba0f7025,DI,oui,2023-07-25,elu_local,pierre,catillon,1994-12-20,Elu départemental,"Conseiller départemental délégué à l'enfance, la famille et la PMI",Alpes-de-Haute-Provence (04),oui
@@ -1155,6 +1173,8 @@ eb9be1ec-73d3-4e8c-951b-2853a070a7ff,DI,non,2021-08-09,elu_local,annie,cazard,19
 199e23d7-12ce-4a00-97f0-ec1b60ad6cc7,DI,oui,2022-07-06,elu_local,annie,cazard,1952-06-14,Elu départemental,VICE-PRESIDENTE,Aveyron (12),oui
 de4dec1a-3825-4be8-a098-c0b544b3787f,DI,non,2021-12-06,elu_local,JEAN LOUIS,CAZAUBON,1950-12-05,Elu régional,vice president,Occitanie (76),oui
 41c66c04-75ec-4020-ac5b-ddf375a29ff4,DI,non,2022-11-24,elu_local,JEAN LOUIS,CAZAUBON,1950-12-05,Elu régional,vice-président,Occitanie (76),oui
+30d39bf4-149e-45d2-94ef-18b8f17544f0,DI,non,2026-04-11,elu_local,Thomas,CAZENAVE,1978-03-06,Maire ou adjoint municipal,maire,Bordeaux (33),oui
+2ee7107e-9739-4b1b-b343-0396ccd0739e,DI,oui,2026-06-16,elu_local,Thomas,CAZENAVE,1978-03-06,Maire ou adjoint municipal,Maire,Bordeaux (33),oui
 cab7a965-036e-4546-be89-2fdfcef58b5b,DIA,non,2024-08-14,depute,JEAN-RENE,CAZENEUVE,1958-06-09,Député,Député ou sénateur,Gers(32),oui
 06aad3cf-e488-4cf7-83f5-24857c62323d,DIA,oui,2025-03-04,depute,JEAN-RENE,CAZENEUVE,1958-06-09,Député,Député ou sénateur,Gers(32),oui
 ba518644-4f20-4e77-a8a5-df80024196c5,DIA,oui,2026-01-30,depute,JEAN-RENE,CAZENEUVE,1958-06-09,Député,Député ou sénateur,Gers(32),oui
@@ -1250,6 +1270,8 @@ eb34a1b3-34ba-4f28-986e-6f22e5a98a5e,DI,oui,2024-04-09,elu_local,FRANCK,CHARTIER
 4dba0d85-5372-4574-998b-e9450cf13ae5,DI,non,2021-09-16,elu_local,aloïs,chassot,1982-10-13,Elu départemental,conseiller délégué,Savoie (73),oui
 5d819e8b-9199-4f7c-bf32-0be2ed70e6b2,DI,non,2022-10-08,elu_local,Marie-Hélène,Chastre,1957-01-25,Elu départemental,Vice président,Cantal (15),oui
 2de1fad4-b3dc-4cbf-9be4-c3e7c27aeec3,DI,non,2024-02-18,elu_local,Pascal,CHATAGNON,1963-04-01,Elu départemental,Conseiller départemental délégué en charge de la démocratie participative et de la gestion de la relation avec les usagers,Essonne (91),oui
+73ac03cd-6cfc-4e54-ac2a-b9e4d5092235,DI,non,2026-04-20,elu_local,Sébastien,CHATAING,1979-03-04,Maire ou adjoint municipal,Adjoint délégué au sport,Villeurbanne (69),oui
+de4ab038-1bb6-447a-a521-46420e4d87be,DI,oui,2026-06-15,elu_local,Sébastien,CHATAING,1979-03-04,Maire ou adjoint municipal,Adjoint délégué au sport,Villeurbanne (69),oui
 324eb95d-f506-4129-843a-c054a4f31645,DI,non,2021-09-26,elu_local,Françoise,CHATARD,1959-07-09,Elu départemental,Conseillère en charge de la Santé et de l'Egalité,Pyrénées-Orientales (66),oui
 9e8e4766-0f66-42a4-9340-5449944fed27,DI,non,2022-09-08,elu_local,Françoise,CHATARD,1959-07-09,Elu départemental,conseiller titulaire des délégations Santé et Egalité,Pyrénées-Orientales (66),oui
 677589b0-6af9-452f-afb0-37af4382efc7,DI,non,2022-09-12,elu_local,Françoise,CHATARD,1959-07-09,Elu départemental,conseillère titulaire des délégations Santé et Egalité,Pyrénées-Orientales (66),oui
@@ -1369,6 +1391,7 @@ c82ffc9f-d213-4e6c-a50d-ecbdf6245fb1,DI,non,2023-03-14,elu_local,Elisabeth,CLAVE
 4cc6d6c2-1934-41ef-a9e5-8cb6bd4257dc,DIA,oui,2024-10-16,depute,Bruno,Clavet,1989-05-06,Député,Député ou sénateur,Pas-de-Calais(62),oui
 a2e32dd1-9293-44cf-a67d-aa1d3d310088,DI,non,2021-08-06,elu_local,Sophie,CLEMENT,1980-10-18,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Saône-et-Loire (71),oui
 2fa1d8f1-3578-4db7-8e72-0a9c88ef2846,DI,non,2023-05-15,elu_local,Sophie,CLEMENT,1980-10-18,Elu départemental,Vice-présidente en charge de la vie associative,Saône-et-Loire (71),oui
+76ffeb75-92bb-4820-8732-f25a78869c81,DI,oui,2026-05-06,elu_local,Sophie,CLEMENT,1980-10-18,Elu départemental,Vice présidente titulaire d'une délégation à la vie associative,Saône-et-Loire (71),oui
 30197815-b8d7-4f35-9d5a-255c13ab9891,DI,non,2021-09-01,elu_local,Sylvie,Clerc,1976-10-10,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Nord (59),oui
 26019b33-2e44-4ccd-ae15-faf6137ec182,DI,non,2024-09-07,depute_europeen,Christophe,Clergeau,1968-09-01,Député européen,Député européen,,oui
 ae6e7695-dd57-4c9b-b6ca-7847d5992130,DI,oui,2025-04-18,depute_europeen,Christophe,Clergeau,1968-09-01,Député européen,Député européen,,oui
@@ -1462,9 +1485,6 @@ c553699b-bee0-4045-bac6-249f71007096,DI,non,2022-11-29,elu_local,PATRICK,COSSET,
 76420083-b8c8-4ee3-b33c-42a00389005f,DIA,oui,2024-10-11,depute,Mickael,COSSON,1975-11-29,Député,Député ou sénateur,Côtes-d'Armor(22),oui
 6f6d4f30-0fcf-4e15-9b26-9f281b1c1678,DI,non,2021-08-23,elu_local,CLAUDIE,COSTE,1978-02-01,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Ardèche (07),oui
 69f66ff3-4111-48d6-85b8-9cdfe3610ff5,DI,oui,2022-11-17,elu_local,CLAUDIE,COSTE,1978-02-01,Elu départemental,vice présidente ressources humaines,Ardèche (07),oui
-f23e5d96-3e53-414b-bfa1-5d904b5cf298,DI,non,2021-08-01,elu_local,Pascal,Coste,1966-09-13,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Corrèze (19),oui
-8d99ffd4-cdec-417c-9d1e-ef464f869628,DI,oui,2025-05-28,elu_local,Pascal,Coste,1966-09-13,Elu départemental,Président,Corrèze (19),oui
-b7fee2e7-052b-49f8-9b4b-95ee89a81696,DI,oui,2026-03-13,elu_local,Pascal,Coste,1966-09-13,Elu départemental,Présidenty,Corrèze (19),oui
 afe680a6-5613-4bd0-9ff4-58b7e2534c46,DI,non,2022-09-02,autre,Yannis,COSTE,1970-08-20,Autre,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
 155ff385-ce3b-4d20-8af6-409632a17588,DI,oui,2023-02-20,elu_local,Yannis,COSTE,1970-08-20,Collectivité à statut particulier,VICE PRESIDENT,Conseil territorial de Saint-Pierre-et-Miquelon,oui
 56ff59fd-97a4-42ae-aead-19f12e35e38a,DI,non,2022-03-24,elu_local,Jean-Pierre,COT,1974-11-22,Elu départemental,VICE PRESIDENT DU CONSEIL DEPARTEMENTAL DU GERS,Gers (32),oui
@@ -1506,6 +1526,7 @@ faf24c5f-13ad-4a77-b580-ceac69a15696,DI,non,2021-08-22,elu_local,daniel-georges,
 23fe1e80-8d39-44ff-a540-833d9daf8ce4,DI,oui,2023-03-25,elu_local,daniel-georges,COURTOIS,1956-08-29,Elu régional,conseiller titulaire d'une délégation,Ile-de-France (11),oui
 c9efe61f-2424-4a52-b134-7cdb75100f8f,DI,oui,2024-10-23,elu_local,daniel-georges,COURTOIS,1956-08-29,Elu régional,délégué spécial en charge de l'évaluation des politiques publiques et de la certification des comptes,Ile-de-France (11),oui
 1854e50a-8dfa-4efe-bfca-c897226d7e60,DI,oui,2025-06-25,elu_local,daniel-georges,COURTOIS,1956-08-29,Elu régional,conseiller titulaire délégation,Ile-de-France (11),oui
+a459a57c-0317-4b34-abbc-9f9b65d63b0a,DI,oui,2026-05-25,elu_local,daniel-georges,COURTOIS,1956-08-29,Elu régional,délégué spécial en charge de l'évaluation des politiques publiques et de la certification des comptes,Ile-de-France (11),oui
 1cad37c8-a845-445d-a639-a54b4b544a64,DI,non,2021-07-22,elu_local,Jean-Patrick,Courtois,1951-05-20,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Saône-et-Loire (71),oui
 8a1924c8-27f5-4e07-95d5-6481fe01af33,DI,oui,2021-10-22,elu_local,Jean-Patrick,Courtois,1951-05-20,Elu départemental,Vice-Président,Saône-et-Loire (71),oui
 1065bfbc-2501-414c-959e-39477362dd30,DI,oui,2023-05-15,elu_local,Jean-Patrick,Courtois,1951-05-20,Elu départemental,Vice-Président,Saône-et-Loire (71),oui
@@ -1513,6 +1534,8 @@ eedb3eba-9b38-405a-8d5f-c048771b3f54,DI,oui,2023-07-05,elu_local,Jean-Patrick,Co
 b300c013-2a9b-4971-aeb2-a30dc66d3e57,DI,non,2025-12-29,elu_local,Jean-Patrick,Courtois,1951-05-20,Elu départemental,Vice-Président,Saône-et-Loire (71),oui
 d23961f9-e59b-40b6-9c09-fdd1c39d7a82,DI,non,2021-09-09,elu_local,JEAN-PHILIPPE,COURTOIS,1984-11-02,Elu départemental,VICE-PRESIDENT,Guadeloupe (971),oui
 c7ee10b0-201c-48c0-96cd-2fa44e7b5d1a,DI,oui,2022-04-25,elu_local,JEAN-PHILIPPE,COURTOIS,1984-11-02,Elu départemental,VICE-PRESIDENT,Guadeloupe (971),oui
+dc045b96-c2bf-4a9c-b8ee-73bdca4eab47,DI,non,2026-04-08,elu_local,Valerie,Coussinet,1968-11-05,Maire ou adjoint municipal,Adjointe titulaire d'une délégation (commune de + 100 000 hab),Nantes (44),oui
+40e4336a-48da-4f84-8c82-822d125c5940,DI,oui,2026-07-07,elu_local,Valerie,Coussinet,1968-11-06,Maire ou adjoint municipal,Adjointe titulaire d'une délégation (commune de + 100 000 hab),Nantes (44),oui
 55cd225b-f6ef-4aff-b305-49248e37e49b,DI,non,2021-10-20,elu_local,stephanie,coutel,1986-09-22,Elu départemental,conseiller titulaire d'une delegation sur le plan santé,Eure-et-Loir (28),oui
 9cc9d90e-18a8-44e5-b0b4-72605ed693f9,DI,non,2021-09-07,elu_local,Sylvie,COUTHERUT,1969-03-08,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Haute-Saône (70),oui
 8f7501c7-6895-48f4-b3c6-3378a1c8c52e,DI,non,2021-09-13,elu_local,Sylvie,COUTHERUT,1969-03-08,Elu départemental,vive président titulaire d'une délégation,Haute-Saône (70),oui
@@ -1543,6 +1566,7 @@ fddfb8d9-0fb6-40c3-acec-86b3295d51d5,DI,oui,2021-11-09,elu_local,ANDRE,CROCQ,195
 1c884e70-992f-4c1e-86bf-b752767d4283,DI,oui,2023-02-26,elu_local,Martine,MORANCHO CROQUETTE,1952-05-27,Elu départemental,vice-président titulaire d'une délégation: voirie et mobilité,Haute-Garonne (31),oui
 41bf7089-db08-4fd2-b9f9-8cdb398d62b9,DI,non,2022-09-29,elu_local,emmanuel,cros,1969-10-30,Elu départemental,"vice président en charge de l'économie, l'emploie, le tourisme",Tarn-et-Garonne (82),oui
 94b71af1-c855-4669-8748-1af2aabe04a1,DI,non,2022-12-14,elu_local,Guy,CROSNIER,1958-02-04,Elu départemental,conseiller titulaire d'une délégation,Essonne (91),oui
+3c7e052f-7d2d-4a84-a936-a982fd2fc216,DI,non,2026-04-20,elu_local,Fabien,Cruveiller,1979-10-17,Membre d EPCI,Président,Piémont Céveno,oui
 57c5244e-e9e4-414d-ace2-16f6d795efd2,DI,non,2022-01-31,elu_local,daniel,cueff,1955-03-21,Elu régional,vice président,Bretagne (53),oui
 36df1848-ff1b-4254-b8ec-876e9cc7d537,DI,non,2023-02-04,elu_local,daniel,cueff,1955-03-21,Elu régional,vice président,Bretagne (53),oui
 19907dab-2c72-4f98-bebc-6a6634e3c07e,DI,non,2021-10-10,elu_local,Jacqueline,CUENOT - STALDER,1975-09-24,Elu départemental,VP avec délégation,Doubs (25),oui
@@ -1669,7 +1693,6 @@ b5bde2b5-7dff-4cb9-8209-c61a84e98a00,DI,oui,2024-03-17,elu_local,Arnaud,Decagny,
 0c44cc22-0ad7-4b36-bb04-ac739bb68d00,DI,oui,2023-05-13,elu_local,MAEL,DE CALAN,1980-04-30,Elu départemental,Président,Finistère (29),oui
 f19807fb-9e9d-4a23-a31c-df34e6240d17,DI,oui,2023-08-17,elu_local,MAEL,DE CALAN,1980-04-30,Elu départemental,Président,Finistère (29),oui
 b1c7dbfb-db98-4708-8f51-a654cca640b9,DI,oui,2026-02-03,elu_local,MAEL,DE CALAN,1980-04-30,Elu départemental,Président,Finistère (29),oui
-f69c326c-37f5-4524-9d7a-d4398adc414d,DI,non,2021-07-13,autre,François,DE CANSON,1965-05-10,Autre,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
 a7086f80-5d91-468b-8a08-81feab7078a7,DI,non,2022-12-08,elu_local,Guillaume,DECARD,1982-09-16,Elu départemental,Vice-président,Var (83),oui
 f728aa3c-43c0-4c1a-bc4a-9deef05e5d29,DI,oui,2026-01-28,elu_local,Guillaume,DECARD,1982-09-16,Elu départemental,Vice-président,Var (83),oui
 7617897e-cfaf-4162-8033-3b4e8710308a,DI,non,2022-12-09,elu_local,Paolo,DE CARVALHO,1975-01-08,Elu départemental,conseiller departemental,Essonne (91),oui
@@ -1741,6 +1764,8 @@ cddc0a03-3775-4cf9-8f54-9bdac4b3a6e7,DI,non,2022-12-28,elu_local,Elisabeth,DEL G
 7388e422-3b8e-404f-a290-6755df8214a6,DI,oui,2025-06-17,elu_local,Elisabeth,DEL GENINI,1949-08-05,Elu régional,Vice-Présidente,Grand Est (44),oui
 ead77aa7-2f03-412b-9d49-79308b705152,DI,non,2021-07-29,elu_local,Dominique,Dellac,1956-03-19,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Seine-Saint-Denis (93),oui
 2cc4d0bc-8aec-4d4e-999e-d6bebfb847ca,DI,non,2023-02-17,elu_local,Dominique,Dellac,1956-03-19,Elu départemental,"vice-présidente au patrimoine culturel, à la mémoire, au tourisme, à l'éducation artistique et culturelle",Seine-Saint-Denis (93),oui
+df050377-d99b-4f41-8294-3ffd5e9d7db1,DIA,non,2026-05-18,depute,CATHERINE,DELLONG MENG,1960-05-04,Député,Député ou sénateur,Gard(30),oui
+bbc844ad-e222-4cf1-83b2-e5f7f9b8a0ae,DIA,oui,2026-07-20,depute,CATHERINE,DELLONG MENG,1960-05-04,Député,Député ou sénateur,Gard(30),oui
 fd286823-ac99-4163-9eb8-5ebbb11123b6,DI,non,2022-01-06,elu_local,frederic,DELMARES,1967-06-07,Elu départemental,Vice-président titulaire d'une délégation,Dordogne (24),oui
 b3a3e8c8-5101-4d77-942a-6321c31915a5,DI,non,2024-09-16,depute_europeen,Valérie,Deloge,1966-05-09,Député européen,Député européen,,oui
 b2700463-9706-4123-bb93-92a1e4204224,DI,non,2025-02-17,depute_europeen,Valérie,Deloge,1966-05-09,Député européen,Député européen,,oui
@@ -1784,6 +1809,8 @@ bc90f102-9a14-4292-b1d6-be2c7b6e3a95,DI,oui,2023-12-17,elu_local,Cédric,de OLIV
 cf490176-85ae-491c-985b-58351ce204ee,DI,oui,2023-01-20,elu_local,caroline,depallens,1962-09-25,Elu départemental,conseillere departementale presidente de la commission enfance centre departemental de l enfance,Var (83),oui
 b475fb98-01a5-4969-8377-b529dacb434b,DI,non,2024-04-23,elu_local,Marie,DEPAQUY,1973-09-13,Elu départemental,vice-présidente personnes âgées,Marne (51),oui
 0b63cda8-9888-47a9-93dd-d30ca78f7b54,DI,oui,2024-07-22,elu_local,Marie,DEPAQUY,1973-09-13,Elu départemental,vice-présidente,Marne (51),oui
+055c274f-abb3-485f-b310-8792fd5ca751,DI,non,2026-04-08,elu_local,Patrice,Depeige,1973-07-15,Maire ou adjoint municipal,Élu Ville de Rennes Adjoint délégué au patrimoine bâti à l'énergie et à la commande publique,Rennes (35),oui
+ccd3e222-46ca-413e-bcb7-c4c434c028eb,DI,oui,2026-06-22,elu_local,Patrice,Depeige,1973-07-15,Maire ou adjoint municipal,"Adjoint avec délégation patrimoine bati, commande publique et énergie",Rennes (35),oui
 e8fb6bc5-302f-4652-ba6b-f8b107dbdeb7,DIA,non,2024-09-06,depute,Constance,de Pélichy,1986-04-01,Député,Député ou sénateur,Loiret(45),oui
 41aa1910-3aa7-4287-9d87-9004f85f5d25,DIA,non,2025-03-05,depute,Constance,de Pélichy,1986-04-01,Député,Député ou sénateur,Loiret(45),oui
 42383a4b-236f-41ee-a88e-fca75b3cc235,DIA,oui,2026-02-13,depute,Constance,de Pélichy,1986-04-01,Député,Député ou sénateur,Loiret(45),oui
@@ -1878,6 +1905,7 @@ a9954d48-954b-4575-99bd-a014eed01805,DIA,non,2023-12-03,senateur,Elisabeth,Doine
 8db5bdce-7cbc-4c50-a283-6d427ad3355c,DI,non,2021-09-07,elu_local,Céline,Dolgopyatoff Burlet,1980-08-14,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Isère (38),oui
 ff6a726a-f31e-4ac5-ac49-62ba3badd172,DI,oui,2022-06-07,elu_local,Céline,Dolgopyatoff Burlet,1980-08-14,Elu départemental,Vice Présidente Environnement et Biodiversité,Isère (38),oui
 b6ae6765-82bd-4386-88cc-01d1031237f8,DI,oui,2025-10-20,elu_local,Céline,Dolgopyatoff Burlet,1980-08-14,Elu départemental,vice-présidente titulaire d'une délégation,Isère (38),oui
+bf670975-bb57-4264-9542-0f309d877e36,DI,oui,2026-05-22,elu_local,Céline,Dolgopyatoff Burlet,1980-08-14,Elu départemental,Vice présidente titulaire d'une délégation,Isère (38),oui
 8b32b8f4-f168-4a47-8a97-455623ae5619,DI,non,2021-08-29,elu_local,Isabelle,DOLLINGER,1968-04-03,Collectivité à statut particulier,Vice-Présidente,Conseil départemental d'Alsace,oui
 77b8e523-70c4-47c7-bb97-01bf4fc9aa52,DIA,non,2024-07-31,depute,Fanny,Dombre Coste,1956-12-26,Député,Député ou sénateur,Hérault(34),oui
 50df4814-e237-4b76-b57c-c90b34486569,DIA,oui,2025-03-31,depute,Fanny,Dombre Coste,1956-12-26,Député,Député ou sénateur,Hérault(34),oui
@@ -1928,10 +1956,6 @@ d6748524-7611-414c-b90e-4b380bcb73dc,DIA,oui,2024-10-21,depute,Nicole,Dubré-Chi
 10745e3b-abfb-4122-9044-443b8817b97a,DIA,non,2024-07-25,depute,Virginie,Duby-Muller,1979-08-16,Député,Député ou sénateur,Haute-Savoie(74),oui
 ca6c2cda-726b-4c16-ad74-e88cf84ba847,DIA,non,2024-11-15,depute,Virginie,Duby-Muller,1979-08-16,Député,Député ou sénateur,Haute-Savoie(74),oui
 534f3881-8e86-45c5-9312-092f1ec1c7f5,DI,oui,2021-08-19,elu_local,CECILE,DUCHAMP,1969-01-28,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Ardèche (07),oui
-e26c3db5-56c9-4d07-8b05-9fd90e8da8e4,DI,oui,2021-09-06,elu_local,Frédéric,DUCHÉ,1968-05-08,Elu départemental,Vice Président,Eure (27),oui
-f51c8c5e-ee89-4870-a039-274347dfe33a,DI,oui,2021-11-03,elu_local,Frédéric,DUCHÉ,1968-05-08,Elu départemental,Vice Président,Eure (27),oui
-af0639bd-4365-4fac-b8cb-56defc67d228,DI,oui,2022-07-26,elu_local,Frédéric,DUCHÉ,1968-05-08,Elu départemental,Vice Président en charge de l'aménagement du territoire et du soutien aux collectivités locales,Eure (27),oui
-33bcabb9-f95f-4e4c-964c-bbbfd175af4d,DI,oui,2024-01-22,elu_local,Frédéric,DUCHÉ,1968-05-08,Elu départemental,Vice Président,Eure (27),oui
 e89fc6ff-3ce1-440c-99f8-34c5defbf047,DI,non,2021-08-28,elu_local,BERNADETTE,DUCLONA,1983-02-14,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Guyane (03),oui
 adf9198d-3f73-45ed-81ad-c87cade2cb3c,DI,non,2026-05-14,elu_local,vincent guy,ducluzeau,1970-06-12,Membre d EPCI,vice président,grand poitiers,oui
 7a090d31-f3e5-4e9c-940d-46fd0189ebda,DI,non,2026-06-29,elu_local,vincent guy,ducluzeau,1970-06-12,Membre d EPCI,vice président,grand,oui
@@ -2086,6 +2110,7 @@ ff27e651-e7bd-4617-ace1-c9c31307601d,DI,oui,2022-11-12,autre,Isabelle,ESPINOSA,1
 6dda54a2-4bdc-4d5f-a857-f6bb454443d9,DI,non,2021-12-08,elu_local,Bixente,Etcheçaharreta,1989-05-19,Elu régional,conseiller titulaire d'une délégation à la communication - Porte parole,Nouvelle-Aquitaine (75),oui
 06f56198-0fc6-43bd-b810-50167faa2080,DI,non,2021-08-02,elu_local,Clotilde,Eudier,1973-06-25,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Normandie (28),oui
 f387b65d-2c87-4d5a-93f3-297ac1dc2af4,DI,non,2024-03-06,elu_local,Clotilde,Eudier,1973-06-25,Elu régional,vice-president,Normandie (28),oui
+5ff8a145-9d46-44ca-887e-61f30f17f9d9,DI,non,2026-04-23,elu_local,Sébastien,Eugène,1985-10-18,Membre d EPCI,Président,Communauté d'agglomération de la Région de Château-Thierry,oui
 90aeba71-39ce-4adc-aa82-86d0e17cbd2e,DIA,non,2023-11-24,senateur,Jacqueline,EUSTACHE BRINIO,1956-09-05,Sénateur,Député ou sénateur,,oui
 1d5b1079-ad3a-449a-8e44-81478703415f,DIA,non,2023-12-26,senateur,Jacqueline,EUSTACHE BRINIO,1956-09-05,Sénateur,Député ou sénateur,Val-d'Oise(95),oui
 47df302e-506d-4a9b-bb73-500eaa997034,DI,non,2021-09-13,elu_local,MONIA,EVENE-MATEO,1978-04-08,Elu départemental,déléguée ESS et égalité homme femme,Pyrénées-Atlantiques (64),oui
@@ -2119,6 +2144,8 @@ b9beec82-ab79-4edc-8bf0-2f48bc155fa9,DIA,non,2024-08-19,depute,Philippe,FAIT,196
 2889cdcc-3bfa-4717-b686-9f5b2750da09,DI,non,2022-01-24,elu_local,Monique,FALIERES,1964-02-20,Elu régional,Conseillère Régionnale Déléguée,Occitanie (76),oui
 16c19969-5613-465f-a465-47d2aa672a3e,DI,non,2021-08-20,elu_local,Jean-Paul,FALLET,1954-05-08,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Nièvre (58),oui
 b4616f4f-d62b-4faa-8e3d-f9fcd3b08738,DI,oui,2022-05-29,elu_local,Jean-Paul,FALLET,1954-05-08,Elu départemental,conseiller titulaore d'une délégation à l'Habitat et à l'ESS,Nièvre (58),oui
+15b5ae11-4b26-4ca5-af81-efff91d15faf,DI,non,2026-05-31,elu_local,Olivier,Falorni,1972-03-27,Maire ou adjoint municipal,Maire,La Rochelle (17),oui
+b2a61054-4024-4ace-82df-459c7210213d,DI,non,2026-07-28,elu_local,Olivier,Falorni,1972-03-27,Membre d EPCI,PRESIDENT,COMMUNTAUTE D'AGGLOMERATION,oui
 f211c7f1-d40c-4841-9feb-19f88ef15354,DI,oui,2025-12-08,gouvernement,jean-pierre,farandou,1957-07-04,Membre du Gouvernement,Membre du Gouvernement,ministère du travail et des solidarités,oui
 21729875-612d-42ee-8efa-434704f1fad4,DI,non,2026-02-28,gouvernement,jean-pierre,farandou,1957-07-04,Membre du Gouvernement,Membre du Gouvernement,ministère du travail et des solidarités,oui
 f327ee29-29a8-43a9-ad66-ba2cf59e9c86,DSP,non,2025-11-13,gouvernement,jean-pierre,farandou,1957-07-04,Membre du Gouvernement,Membre du Gouvernement,ministère du travail et des solidarités,oui
@@ -2181,6 +2208,8 @@ ef0c3c3a-f53f-4eba-beaf-ac245f73cacc,DI,non,2021-09-09,elu_local,bruno,FENET,195
 3cb7186d-5441-466d-9c20-25dd1b513b69,DI,oui,2022-05-24,elu_local,bruno,FENET,1954-02-21,Elu départemental,conseiller délégué,Indre-et-Loire (37),oui
 c9a4ed39-f5c4-48e3-9103-77f4a3e57523,DI,oui,2022-08-05,elu_local,bruno,FENET,1954-02-21,Elu départemental,conseiller délégué,Indre-et-Loire (37),oui
 d22398cd-97be-4344-940f-1de21f9c0c98,DI,non,2023-07-19,elu_local,Bouchra,Fenzar,1981-04-17,Elu départemental,Vice Présidente en charge des sports,Seine-et-Marne (77),oui
+aeb0fd43-e050-4c9d-8174-3824aff2cccf,DI,oui,2026-04-14,elu_local,Bouchra,Fenzar,1981-04-17,Membre d EPCI,Vice Présidente titulaire d'une délégation,Marne et Gondoire,oui
+64163fd5-7023-4aac-b768-4c4c69cce335,DI,non,2026-08-18,elu_local,Bouchra,Fenzar,1981-04-17,Elu départemental,Vice-présidente titulaire d'une délégation,Seine-et-Marne (77),oui
 84708f1c-bdd7-4d24-aa1a-071c5dcb2487,DIA,non,2023-11-02,senateur,Rémi,FERAUD,1971-08-24,Sénateur,Député ou sénateur,Paris(75),oui
 125452b5-710a-403a-b24f-a9a77d9c225a,DIA,oui,2024-01-31,senateur,Rémi,FERAUD,1971-08-24,Sénateur,Député ou sénateur,Paris(75),oui
 40141f0f-2383-40b0-8901-ad954f919152,DIA,oui,2026-04-20,senateur,Rémi,FERAUD,1971-08-24,Sénateur,Député ou sénateur,Paris(75),oui
@@ -2224,6 +2253,7 @@ deeae5b0-06a6-4be0-9f4f-453fe36569fb,DI,non,2022-11-17,elu_local,BRIGITTE,FISCHE
 a787ddbc-9c7a-42ac-81bd-a0107c383488,DI,non,2024-08-23,depute_europeen,Claire,FITA,1976-12-31,Député européen,Député européen,,oui
 88f616ae-37fd-4333-acb4-29a93d02387f,DI,oui,2025-03-07,depute_europeen,Claire,FITA,1976-12-31,Député européen,Député européen,,oui
 87866641-294e-4c3f-80b7-0ff699a935d2,DI,oui,2025-08-25,depute_europeen,Claire,FITA,1976-12-31,Député européen,Député européen,,oui
+31a7cf61-1122-4164-9655-e5ab7f3d84ef,DI,oui,2026-05-21,depute_europeen,Claire,FITA,1976-12-31,Député européen,Député européen,,oui
 a89810da-41d3-477e-bbf8-95f6a6f5e80b,DI,oui,2021-09-05,elu_local,Françoise,FITER,1956-09-27,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Pyrénées-Orientales (66),oui
 f6aaddd7-765f-4b50-b305-90d3e6163cfb,DI,oui,2022-07-15,elu_local,Françoise,FITER,1956-09-27,Elu départemental,Vice Présidente titulaire d'une délégation,Pyrénées-Orientales (66),oui
 9d37172f-d5ce-46c3-8c34-124322b68b2e,DI,non,2021-08-22,elu_local,Marc,Fleuret,1968-02-19,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Indre (36),oui
@@ -2376,6 +2406,9 @@ dc00b320-5163-409c-8de8-3c5fa7505c60,DI,oui,2024-01-11,gouvernement,CHANTAL,GALE
 1e41e790-2ba6-4a33-ae22-661f6e4f6cb8,DI,non,2026-04-09,gouvernement,Camille,Galliard-Minier,1975-05-26,Membre du Gouvernement,Membre du Gouvernement,ministère chargé de l'autonomie et du handicap,oui
 bdf72987-919a-4237-8122-72e9b1fddf8d,DI,non,2026-05-02,gouvernement,Camille,Galliard-Minier,1975-05-26,Membre du Gouvernement,Membre du Gouvernement,ministère chargé de l'autonomie et du handicap,oui
 adca1851-ccc6-4068-a652-b1e879b543f4,DSP,non,2026-04-09,gouvernement,Camille,Galliard-Minier,1975-05-26,Membre du Gouvernement,Membre du Gouvernement,ministère chargé de l'autonomie et du handicap,oui
+14b890bf-7fdd-45e3-b686-9015e8c7b28a,DI,non,2026-04-12,elu_local,Bruno,Gallier,1955-06-22,Maire ou adjoint municipal,Maire,Brunoy (91),oui
+b08302fa-8e33-48ab-9e98-b9297c8feed3,DI,non,2026-04-12,elu_local,Bruno,Gallier,1955-06-22,Membre d EPCI,vice-president titulaire d'une delegation,VYVS,oui
+4d2bb1d0-5163-4472-a4dc-98b6f8e57562,DI,non,2026-07-22,elu_local,Bruno,Gallier,1955-06-22,Maire ou adjoint municipal,Maire et vice president CA VYVS,Brunoy (91),oui
 c9a3935d-f07c-4c76-8268-b2b2a1719852,DI,non,2021-09-08,elu_local,Anne,GALLO,1970-11-09,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Bretagne (53),oui
 6ded9fa5-c718-4ee8-8736-7f41860991cd,DI,non,2023-02-06,elu_local,Anne,GALLO,1970-11-09,Elu régional,Vice Présidente,Bretagne (53),oui
 ba1a1ad2-a90d-4b33-baa3-2144b6d110a5,DI,non,2021-09-21,elu_local,sébastien,galpier,1988-07-26,Elu départemental,Vice-Président titulaire d'une délégation,Puy-de-Dôme (63),oui
@@ -2391,6 +2424,8 @@ f974cf6c-1ab5-4fc0-8984-840f9604d346,DI,non,2021-09-30,elu_local,GARCIA-VIDAL,MA
 0c62d19b-ece3-49f2-8849-62012a56ee3f,DI,oui,2022-07-25,elu_local,GARCIA-VIDAL,MADELEINE,1947-11-21,Elu départemental,vice présidente,Pyrénées-Orientales (66),oui
 e92e318d-3613-4904-a962-4cd3767612af,DI,non,2021-06-30,autre,GARCIN,Valerie,1969-12-13,Autre,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
 2a2fac73-22f4-4d51-8161-b4a9b4c1ab7b,DI,non,2022-04-16,elu_local,GARCIN,Valerie,1969-12-13,Elu départemental,conseillere titulaire d'une délégation Ressources humaines et jeunesse,Hautes-Alpes (05),oui
+fd1fee17-e8ce-4b5d-9882-0fb7fa6a8b0c,DI,non,2026-05-09,elu_local,Vesselina,Garello,1978-06-01,Membre d EPCI,vice-président titulaire d'une délégation,Communauté d'agglomération de la Provence verte,oui
+b2fa133e-16f6-4d65-a1be-858454ab78b3,DI,non,2026-07-01,elu_local,Vesselina,Garello,1978-06-01,Membre d EPCI,vice-présidente,Communauté d'agglomération de la Provence verte,oui
 02ce2483-3c93-4b3a-8d51-57f1869c837f,DI,non,2025-12-23,elu_local,Grégory,Garestier,1982-08-24,Elu départemental,vice-président titulaire d'une délégation,Yvelines (78),oui
 31f14cd3-8c42-490b-af73-66c0970f56c5,DI,non,2021-10-14,elu_local,alain,gargani,1965-08-21,Elu régional,conseiller régional délégué,Provence-Alpes-Côte d'Azur (93),oui
 6f4b1f4d-86fb-471b-8c18-a65bb407465e,DI,oui,2024-10-26,elu_local,alain,gargani,1965-08-21,Elu régional,conseiller titulaire d'une délégation,Provence-Alpes-Côte d'Azur (93),oui
@@ -2398,6 +2433,7 @@ bdd87e32-dcda-4bb4-b0f3-4ebe3f332f13,DIA,oui,2024-08-12,depute,Marie-Charlotte,G
 5000b69b-5bfb-4411-83bc-27a0dd394d21,DIA,non,2025-02-02,senateur,Laurence,Garnier,1978-04-03,Sénateur,Député ou sénateur,Loire-Atlantique(44),oui
 667455cd-fe39-43df-9905-5d4128c0de23,DIA,non,2025-05-22,senateur,Laurence,Garnier,1978-04-03,Sénateur,Député ou sénateur,Loire-Atlantique(44),oui
 50e7dc46-b96e-426a-9a15-8ff8102e1bf1,DIA,oui,2025-12-14,senateur,Laurence,Garnier,1978-04-03,Sénateur,Député ou sénateur,Loire-Atlantique(44),oui
+b5fff35a-8fea-4a3e-a79d-37dfa6511ea1,DIA,oui,2026-05-10,senateur,Laurence,Garnier,1978-04-03,Sénateur,Député ou sénateur,Loire-Atlantique(44),oui
 798a2df4-3eff-489e-bc60-e9a13cbee47d,DI,oui,2026-07-17,elu_local,Nelly,Garnier,1985-01-08,Elu régional,Vice-présidente chargée de la recherche et de l'enseignement supérieur,Ile-de-France (11),oui
 e28f23f6-5182-4aa1-b6b9-cd4e6639c2ca,DIA,non,2024-07-25,depute,Guillaume,Garot,1966-05-29,Député,Député ou sénateur,Mayenne(53),oui
 dda15687-b47b-4a14-a16a-b69c5a16900c,DIA,oui,2024-09-16,depute,Guillaume,Garot,1966-05-29,Député,Député ou sénateur,Mayenne(53),oui
@@ -2464,6 +2500,8 @@ b5495ef9-4b71-44e7-9b9c-7a7d5bf56f20,DI,non,2022-11-28,elu_local,Gérard,GAZAY,1
 237cf188-6031-48d2-9e86-b2bc0895b1c6,DI,oui,2025-11-27,gouvernement,Edouard,GEFFRAY,1978-10-02,Membre du Gouvernement,Membre du Gouvernement,Ministère de l'éducation nationale,oui
 1daa4f92-3074-46ed-b827-6bddb2874dd0,DI,oui,2026-02-09,gouvernement,Edouard,GEFFRAY,1978-10-02,Membre du Gouvernement,Membre du Gouvernement,Ministère de l'éducation nationale,oui
 1155d9b2-782c-4670-aed4-d0aff6f6aeef,DSP,non,2025-12-08,gouvernement,Edouard,GEFFRAY,1978-10-02,Membre du Gouvernement,Membre du Gouvernement,Ministère de l'éducation nationale,oui
+b4638977-41f9-437b-b698-323ae82a34b6,DI,non,2026-04-19,elu_local,Armelle,GEGOUSSE,1972-07-15,Membre d EPCI,Vice-président titulaire d'une délégation,Lorient,oui
+1346f698-adeb-4e66-bc48-025bcb24602f,DI,oui,2026-07-28,elu_local,Armelle,GEGOUSSE,1972-07-15,Membre d EPCI,vice -présidence,Lorient Agglomération,oui
 3ebc6006-8487-486f-8dcd-7224ea6a1438,DI,non,2021-08-17,elu_local,David,GEHANT,1989-02-23,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Provence-Alpes-Côte d'Azur (93),oui
 3eb77a70-0e34-4836-83ae-0d937766c684,DI,oui,2022-08-18,elu_local,David,GEHANT,1989-02-23,Elu régional,Vice Président,Provence-Alpes-Côte d'Azur (93),oui
 299f78e5-1d19-4964-a5c9-73a979c3c2fa,DI,non,2021-08-02,elu_local,sabine,geil,1960-03-18,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Haute-Garonne (31),oui
@@ -2491,6 +2529,8 @@ a7a3c4dc-8281-45b1-a22e-6c7e347d42ec,DI,non,2021-08-09,elu_local,Jacques,Gente,1
 44a4d0ac-7656-4d37-b84b-48d36c4d7393,DI,non,2025-12-01,elu_local,fabrice,geoffroy,1973-10-05,Elu départemental,vice president titulaire d'une délégation,Charente (16),oui
 89adb603-8266-4f95-b278-657cd2e72de0,DI,oui,2026-03-16,elu_local,fabrice,geoffroy,1973-10-05,Elu départemental,vice président,Charente (16),oui
 94657a68-04fc-4b31-ad56-03c02e662e2d,DI,non,2021-08-12,elu_local,pierre,GEORGET,1951-03-16,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Pas-de-Calais (62),oui
+6d843294-ce16-49ed-b0f3-dc69b153888c,DI,non,2026-05-08,elu_local,Christophe,Geourjon,1966-08-24,Collectivité à statut particulier,"vice-président ""Politique de transition énergétique, traitement et valoriation des déchets, adaptation au changement cllimatique""",Métropole de Lyon,oui
+d25ad56d-426e-42ae-bf29-ae66ded862b4,DI,oui,2026-07-11,elu_local,Christophe,Geourjon,1966-08-24,Collectivité à statut particulier,Vice-président,Métropole de Lyon,oui
 47a53cb9-60de-4a01-8c7d-52f6263f0e98,DI,non,2022-07-13,elu_local,Bernard,GERARD,1953-08-29,Elu régional,conseiller titulaire d'une délégation,Hauts-de-France (32),oui
 f004ac34-0788-43d2-b769-bfcacf5c94dd,DIA,non,2024-08-08,depute,Felicie,Gerard,1974-01-28,Député,Député ou sénateur,Nord(59),oui
 6b298ebc-7379-4097-816b-f12b2abb5391,DIA,oui,2024-12-10,depute,Felicie,Gerard,1974-01-28,Député,Député ou sénateur,Nord(59),oui
@@ -2620,6 +2660,7 @@ e557e048-3727-49d7-b1ef-f4939d0b0b84,DI,non,2021-12-03,elu_local,José,Gonzalez,
 bb3475c0-bd6d-4768-91a5-0c95420fcd70,DIA,oui,2024-09-03,depute,José,GONZALEZ,1943-04-28,Député,Député ou sénateur,Bouches-du-Rhône(13),oui
 b98152de-9704-4230-ab69-0dda149080d2,DIA,oui,2024-10-28,depute,José,GONZALEZ,1943-04-28,Député,Député ou sénateur,Bouches-du-Rhône(13),oui
 a2856ae9-4aae-4d68-a743-a9d08628fcc6,DI,oui,2022-10-25,elu_local,José,Gonzalez,1941-08-19,Elu départemental,Conseiller Départemental,Tarn-et-Garonne (82),oui
+b468135d-6272-4188-963c-718aad642fb4,DI,oui,2026-05-22,elu_local,José,Gonzalez,1941-08-19,Elu départemental,vice-président,Tarn-et-Garonne (82),oui
 0ed716a9-edbb-4a9d-b0ff-d49fb3a2550f,DI,non,2021-08-26,elu_local,Pierre,Gonzalvez,1968-09-13,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Vaucluse (84),oui
 9b1af0e1-7bf7-4d8a-9771-96dd2f93c59b,DI,oui,2022-08-19,elu_local,Pierre,Gonzalvez,1968-09-13,Elu départemental,Vice-Président,Vaucluse (84),oui
 3c1d7fda-cf52-411f-96f8-cd2b90e31877,DI,non,2022-04-13,elu_local,christine,GONZATO ROQUES,1965-05-10,Elu départemental,vice-presidente,Lot-et-Garonne (47),oui
@@ -2676,6 +2717,8 @@ b5093997-0cf0-44b7-875f-9891b8b0cd14,DIA,non,2024-11-20,depute,Olivia,Grégoire,
 0188cae6-b4f4-4a67-a674-5922e0935a9b,DI,non,2021-12-13,elu_local,Gladys,Grelaud,1982-08-17,Elu régional,conseillère régionale,Bretagne (53),oui
 a176d6e6-2993-40dc-b281-7465508b1ea6,DIA,non,2024-07-24,depute,Jean Carles,Grelier,1966-03-15,Député,Député ou sénateur,Sarthe(72),oui
 0f26a07d-9c1d-4f23-9d5a-1d56b36164b3,DIA,oui,2024-11-14,depute,Jean Carles,Grelier,1966-03-15,Député,Député ou sénateur,Sarthe(72),oui
+c9cd4038-d796-466f-98d9-f4dcd16e6df3,DI,non,2026-04-18,elu_local,Jacques,GREMBER,1967-10-20,Membre d EPCI,Vice président,Coeur de Flandre Agglomération,oui
+be5b9b8b-17c1-4138-b793-98e0a358942c,DI,oui,2026-07-16,elu_local,Jacques,GREMBER,1967-10-20,Membre d EPCI,Vice président,Coeur de Flandre Agglomération,oui
 98b3f11c-673b-4934-9e74-02903cca2d36,DI,non,2021-09-01,elu_local,Maryvonne,GRENIER,1945-11-23,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Hautes-Alpes (05),oui
 ec7c7122-c73f-43a0-89ff-4c520e414179,DI,oui,2022-08-01,elu_local,Maryvonne,GRENIER,1945-11-23,Elu départemental,vice-présidente,Hautes-Alpes (05),oui
 caab1e4d-979e-4fbb-89b6-32d31157a349,DIA,oui,2024-07-23,depute,Daniel,GRENON,1948-07-31,Député,Député ou sénateur,Yonne(89),oui
@@ -2691,6 +2734,7 @@ b443d00b-b6d0-4a29-b9c4-fc2d4ff6f7a2,DIA,oui,2023-12-21,senateur,Philippe,GROSVA
 57de6fdb-abfd-48e3-a3c9-e66b39c6cb85,DI,oui,2025-03-25,depute_europeen,Christophe,GRUDLER,1965-04-09,Député européen,Député européen,,oui
 860ca1e4-122a-4b95-b0c2-778e81096658,DIA,oui,2024-09-01,depute,Justine,GRUET,1989-10-23,Député,Député ou sénateur,Jura(39),oui
 22545209-0221-4e4c-8b7b-eca38c9bd519,DIA,oui,2024-12-20,depute,Justine,GRUET,1989-10-23,Député,Député ou sénateur,Jura(39),oui
+3356be8a-edcd-4579-b02d-748ae50306b4,DIA,oui,2026-06-08,depute,Justine,GRUET,1989-10-23,Député,Député ou sénateur,Jura(39),oui
 5780abd5-3647-48a6-9a86-3417df1d4238,DI,non,2021-09-19,autre,Valérie,Guarino,1965-04-01,Autre,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
 0cc7df46-359e-4d36-87f5-267f83703488,DI,oui,2022-09-21,autre,Valérie,Guarino,1965-04-01,Autre,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
 984faf55-8ff1-40f7-ba62-dc0af4002f26,DI,oui,2024-04-16,elu_local,Valérie,Guarino,1965-04-01,Elu départemental,Vice-Presidente,Bouches-du-Rhône (13),oui
@@ -2736,6 +2780,8 @@ a7cfd45a-bdb1-43e9-8132-61406d2a47c0,DI,oui,2023-06-14,elu_local,Jean-Vianney,GU
 c37e1072-7677-4c69-b748-66a43d09c6d8,DI,oui,2026-05-02,elu_local,Jérome,GUILLEM,1967-05-13,Elu régional,conseiller titulaire d'une delegation,Nouvelle-Aquitaine (75),oui
 83ba81ad-58fd-4875-81ec-bbbfd839ecd0,DI,non,2021-12-16,elu_local,patrick,guillemoteau,1958-05-24,Elu régional,président de la CAO,Nouvelle-Aquitaine (75),oui
 ee693422-8c12-48a5-939e-d9f1cff7fc4d,DI,oui,2023-08-27,elu_local,patrick,guillemoteau,1958-05-24,Elu régional,conseiller titulaire d'une délégation : Pdt de la CAO,Nouvelle-Aquitaine (75),oui
+3d8a4cde-8f84-428c-8fde-be8a0243cfce,DI,non,2026-05-09,elu_local,Maxence,Guilliomet-Duché,1997-08-22,Membre d EPCI,Vice-président en charge des Parcours vers l'Emploi,Communauté d'agglomération du Pays de Meaux,oui
+e0635b21-70cf-4a3b-a1ba-365b7eb2ce97,DI,oui,2026-07-09,elu_local,Maxence,Guilliomet-Duché,1997-08-22,Membre d EPCI,Vice-président,Communauté d'agglomération du Pays de Meaux,oui
 ba3d2493-55f1-4d04-b2ca-5937cea8c4de,DI,non,2021-10-18,elu_local,Didier,GUILLON,1961-10-07,Elu départemental,vice président,Finistère (29),oui
 44fbcb6c-ced0-44c5-bc2b-bd3a69721ba5,DI,non,2022-04-12,elu_local,Didier,GUILLON,1961-10-07,Elu départemental,vice président,Finistère (29),oui
 b3faf281-cc2b-4110-8aa7-5b995c7aa994,DI,non,2021-08-18,elu_local,Christophe,Guilloteau,1958-06-18,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Rhône (69),oui
@@ -2749,6 +2795,7 @@ c0d49f41-7a1b-40a1-8325-80d2b9451b19,DIA,non,2024-09-06,depute,Michel,GUINIOT,19
 a9eb327c-07f9-46ed-bd45-de4ab9bf3dc2,DIA,oui,2024-11-09,depute,Michel,GUINIOT,1954-11-29,Député,Député ou sénateur,Oise(60),oui
 cba6fab4-07d9-4d68-aa2a-ab5a19c9e8e2,DI,non,2022-11-28,elu_local,Daniel,Guiraud,1958-05-03,Elu départemental,"Vice-président du CD de Seine-Saint-Denis, titulaire d'une délégation. titulaire d'une délégation",Ile-de-France (11),oui
 90179295-7737-4260-932e-d88a17936f25,DI,oui,2023-05-03,elu_local,Daniel,Guiraud,1958-05-03,Elu départemental,vice-président,Seine-Saint-Denis (93),oui
+2cd9b53a-d3ee-40d3-ad16-6a209a057eda,DI,non,2026-06-02,elu_local,Pascale,Guit Nicol,1963-09-14,Membre d EPCI,Vice-Présidente,Métropole Nice Côte d'Azur,oui
 8cf48874-441c-4e51-ac5f-6b2a1d5f270e,DI,non,2021-09-01,elu_local,PASCALE,GUITTET,1962-10-13,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Vienne (86),oui
 822313fd-8d6b-4433-b684-e23e329a941c,DI,oui,2022-04-01,elu_local,PASCALE,GUITTET,1962-10-13,Elu départemental,"Vice-présidente en charge de la jeunesse, des sports et de la citoyenneté",Vienne (86),oui
 ba54dddd-44cd-4aa8-8dbf-e0dcb99dee0e,DIA,oui,2024-08-12,depute,JORDAN,GUITTON,1995-01-30,Député,Député ou sénateur,Aube(10),oui
@@ -2789,6 +2836,8 @@ dc4a081c-7e4e-4b55-9d69-74b121b70052,DIA,oui,2025-03-13,depute,Ayda,HADIZADEH,19
 23c28354-74f7-48e9-8464-b3d88d209750,DI,oui,2025-12-03,elu_local,Linda,Hajjari,1987-10-05,Elu départemental,Vice-presidente titulaire d'une delegation,Drôme (26),oui
 75dcd54c-8205-4fa5-bef8-417c60a4f63c,DI,non,2026-03-27,elu_local,Linda,Hajjari,1987-10-05,Elu départemental,vice presidente en charge de la santé de l'enfance et de la parentalité,Drôme (26),oui
 a42d2b8b-5129-43be-a922-e458ab0d6668,DI,non,2025-11-01,elu_local,Nabia,HAKKAR,1983-07-06,Elu régional,Vice-Présidente titulaire d'une délégation,Bourgogne-Franche-Comté (27),oui
+72d135d1-0fe0-416d-a5aa-ca75b42d3d50,DI,non,2026-04-16,elu_local,Béatrice,HAKNI-ROBIN,1972-07-05,Maire ou adjoint municipal,Adjointe titulaire d'une délégation,Rennes (35),oui
+4da661fc-02a7-433b-b804-6a42c4ae9012,DI,oui,2026-08-02,elu_local,Béatrice,HAKNI-ROBIN,1972-07-05,Maire ou adjoint municipal,Adjointe titulaire d'une délégation,Rennes (35),oui
 2a6f7d84-e96c-43fe-9fb6-9639ede0d403,DI,non,2021-09-01,elu_local,Marie-Josèphe,AILLERIE épouse HAMARD,1956-08-17,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Maine-et-Loire (49),oui
 b6a927b2-b7f5-4541-bd66-031c2e8ff04f,DI,oui,2022-11-24,elu_local,Marie-Josèphe,AILLERIE épouse HAMARD,1956-08-17,Elu départemental,"Vice-Présidente titulaire d'une délégation ""Transition Ecologique""",Maine-et-Loire (49),oui
 01e02490-47a1-4d2b-86aa-c8ffbddc8ca4,DI,non,2023-07-10,elu_local,Ueva,HAMBLIN,1958-06-17,Collectivité à statut particulier,Représentant,Assemblée de la Polynésie française,oui
@@ -2799,6 +2848,8 @@ f40c384d-ee45-4029-a3d7-7e8736d3101a,DI,non,2022-01-17,elu_local,Denis,Hameau,19
 016c2589-85ca-4ae1-a107-cb2fa127ed2f,DIA,oui,2024-09-03,depute,Marine,Hamelet,1967-07-13,Député,Député ou sénateur,Tarn-et-Garonne(82),oui
 92b66e64-d2f1-4b65-a1c7-3acf97cb0614,DIA,oui,2025-01-20,depute,Marine,Hamelet,1967-07-13,Député,Député ou sénateur,Tarn-et-Garonne(82),oui
 ba1940a0-ad7e-43c9-86c0-81d8c79423eb,DIA,oui,2026-05-11,depute,Marine,Hamelet,1967-07-13,Député,Député ou sénateur,Tarn-et-Garonne(82),oui
+486b89dc-8ca8-44b9-959a-2d6900d760a8,DI,non,2026-05-06,elu_local,Emmanuel,HAMELIN,1957-12-28,Collectivité à statut particulier,"Vice-président en charge de l'enseignement supérieur, de la formation et des filières d'excellence",Métropole de Lyon,oui
+09dfeade-6cc8-4447-8aaa-646b18185ca0,DI,oui,2026-07-02,elu_local,Emmanuel,HAMELIN,1957-12-28,Collectivité à statut particulier,"Vice-président en charge de l'enseignement supérieur, de la formation et des filières d'excellence",Métropole de Lyon,oui
 ef8c987d-a198-4c10-9821-2b2a0a438e43,DI,non,2021-08-16,elu_local,Vincent,Hamen,1983-05-17,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Meurthe-et-Moselle (54),oui
 e49801f3-accf-4c89-bc44-99fa4363c930,DI,oui,2022-09-28,elu_local,Vincent,Hamen,1983-05-17,Elu départemental,vice président titulaire d'une délégation,Meurthe-et-Moselle (54),oui
 e46dc8f8-763c-4d44-a7fc-7939637ed138,DI,non,2021-08-06,elu_local,XAVIER,HAQUIN,1970-08-18,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Val-d'Oise (95),oui
@@ -2848,6 +2899,7 @@ d7affdbf-cb23-4a0b-a6bd-87308d03d823,DI,oui,2023-08-07,elu_local,SANDRINE,HERNAN
 4b7e85fc-7916-4b16-914e-319e5069b024,DIA,oui,2024-12-23,depute,Catherine,Hervieu,1958-05-09,Député,Député ou sénateur,Côte-d'Or(21),oui
 9bb66236-049a-4c2d-a00a-e655d3a65a51,DIA,non,2024-08-06,depute,Celine,HERVIEU,1993-08-19,Député,Député ou sénateur,Paris(75),oui
 5228c103-f537-4b24-91ba-33250e337e8c,DIA,oui,2024-09-17,depute,Celine,HERVIEU,1993-08-19,Député,Député ou sénateur,Paris(75),oui
+f3d177f1-3245-4a04-a341-158a346114c4,DIA,oui,2026-07-20,depute,Celine,HERVIEU,1993-08-19,Député,Député ou sénateur,Paris(75),oui
 7641e8d6-dd76-4f11-b898-d533cd084fb8,DI,non,2022-12-03,elu_local,freddy,Hervochon,1968-08-22,Elu départemental,vice-président,Loire-Atlantique (44),oui
 2539f629-dbf0-428b-a8ac-75630cdc112c,DI,oui,2023-05-21,elu_local,freddy,Hervochon,1968-08-22,Elu départemental,Vice-président titulaire d'une délégation,Loire-Atlantique (44),oui
 617c28ed-6a7b-4158-979c-486031618795,DI,oui,2023-06-17,elu_local,freddy,Hervochon,1968-08-22,Elu départemental,vice-président titulaire d'une délagation,Loire-Atlantique (44),oui
@@ -2894,6 +2946,8 @@ c3e8304c-d1f5-4cda-8a18-da2adb163d34,DI,non,2021-07-13,elu_local,Nadège,HORNBEC
 e71ae478-9830-4ee6-b0b4-eb8b6702044d,DI,oui,2021-12-28,elu_local,Nadège,HORNBECK,1990-01-05,Elu régional,Vice-Présidente,Grand Est (44),oui
 25361f00-0331-41d5-b8a0-613d37ba3017,DI,oui,2023-03-20,elu_local,Nadège,HORNBECK,1990-01-05,Elu régional,Vice-Présidente,Grand Est (44),oui
 23e4102d-6dbb-4bb5-a12b-4fb4e77ea6a5,DI,non,2023-06-16,elu_local,Nadège,HORNBECK,1990-01-05,Elu régional,Vice-présidente,Grand Est (44),oui
+d37e7c4a-fda5-419e-8b01-392620ba0c51,DI,non,2026-05-26,elu_local,Nadège,HORNBECK,1990-01-05,Elu régional,Vice-présidente,Grand Est (44),oui
+3376db46-d347-43a8-ba8d-b7eb5a6ae604,DI,non,2026-06-02,elu_local,Nadège,HORNBECK,1990-01-05,Elu régional,Vice-présidente,Grand Est (44),oui
 763a3a95-00a3-4b84-a7a0-ad11acc0a6c7,DI,non,2025-01-30,elu_local,Brice,HORTEFEUX,1958-05-11,Elu régional,Elu régional,Auvergne-Rhône-Alpes (84),oui
 ba026a8b-6a5d-412d-b7d6-26abd6134402,DI,non,2025-06-25,elu_local,Brice,HORTEFEUX,1958-05-11,Elu régional,Elu régional,Auvergne-Rhône-Alpes (84),oui
 d1fe7e57-9669-46b2-bdf6-111e6390548f,DI,non,2022-10-18,elu_local,Pascal,HOUBRON,1967-02-22,Elu régional,CONSEILLER REGIONAL,Normandie (28),oui
@@ -2971,6 +3025,7 @@ c38257b3-33ef-42b2-88b5-1ad13581bad8,DIA,oui,2024-10-10,depute,Jean-Michel,JACQU
 5b38fc17-9fc7-4ddf-b667-c08026c4faf9,DIA,non,2023-12-21,senateur,OLIVIER,JACQUIN,1964-05-08,Sénateur,Député ou sénateur,Meurthe-et-Moselle(54),oui
 d9a8eea7-2f03-4592-978a-61a3af40af13,DIA,non,2023-11-17,senateur,Yannick,Jadot,1967-07-27,Sénateur,Député ou sénateur,Paris(75),oui
 28808229-9ff5-4f15-91d8-591687d7859a,DIA,non,2024-01-30,senateur,Yannick,Jadot,1967-07-27,Sénateur,Député ou sénateur,Paris(75),oui
+154fe973-742b-40eb-b2f0-cc623f193248,DI,non,2026-04-13,elu_local,Edith,JAMES,1979-06-28,Maire ou adjoint municipal,Adjointe à l'Education et aux droits des enfants,Nantes (44),oui
 3b4b0e30-2919-4427-9b92-b77aeccd5d8f,DI,non,2024-08-19,depute_europeen,France,Jamet,1961-02-05,Député européen,Député européen,,oui
 9af016b8-8e81-4834-bcbf-14b64f2d7025,DI,oui,2025-02-08,depute_europeen,France,Jamet,1961-02-05,Député européen,Député européen,,oui
 451f1a07-69d3-4085-97dc-24cbe53284fd,DI,non,2024-11-21,elu_local,Jean Pierre,JAMMES,1957-10-01,Elu départemental,vice-président,Lot (46),oui
@@ -3008,6 +3063,8 @@ dd52b3d8-d474-48e2-a227-b8cfa2abe33f,DIA,non,2025-04-07,depute,Pascal,JENFT,1966
 c9b471c0-bc29-4262-bf07-3e346ff6e5dc,DI,oui,2024-10-31,elu_local,Benoit,JIMENEZ,1989-07-15,Elu régional,délégué spécial,Ile-de-France (11),oui
 bd7d612e-2c23-4211-bf13-1b35df146c4c,DI,non,2023-01-12,elu_local,Brahim,Jlalji,1970-10-27,Elu régional,conseiller titulaire d'une délégation,Nouvelle-Aquitaine (75),oui
 844c3c98-b608-4f4c-8241-1315729eefaa,DI,non,2021-09-13,elu_local,Sophie,Joissains,1969-10-25,Elu régional,Vice-président,Provence-Alpes-Côte d'Azur (93),oui
+489e5779-c232-406e-8a9c-6f3882b74130,DI,non,2026-05-26,elu_local,Sophie,Joissains,1969-10-25,Maire ou adjoint municipal,Maire,Aix-en-Provence (13),oui
+efef66ef-0e97-43bc-bbcc-f78d6b3b384a,DI,non,2026-06-16,elu_local,Sophie,Joissains,1969-10-25,Membre d EPCI,Vice-président,Aix-Marseille Provence,oui
 c25505b6-27ad-4b8d-b547-734482ac6af3,DI,oui,2021-09-20,elu_local,Sophie,Joissains,1969-10-25,Elu régional,Vice-président,Provence-Alpes-Côte d'Azur (93),oui
 cb2e8a7d-328c-41dd-9b10-dd3f382e01ff,DIA,non,2024-08-25,depute,François,JOLIVET,1966-03-21,Député,Député ou sénateur,Indre(36),oui
 7c4235fe-177a-4aa0-b3e0-b2424796f294,DIA,oui,2025-04-06,depute,François,JOLIVET,1966-03-21,Député,Député ou sénateur,Indre(36),oui
@@ -3030,6 +3087,7 @@ c414704d-ff4e-4a33-80c1-c6e4342aa478,DIA,oui,2023-12-29,senateur,bernard,jomier,
 1092fe89-e3c3-4733-a2cf-9839ba454c90,DIA,oui,2025-01-09,depute,Tiffany,Joncour,1989-09-02,Député,Député ou sénateur,Rhône(69),oui
 2622d2cc-a3f8-453f-950d-c37ecd64554b,DI,non,2024-09-11,depute_europeen,Virginie,Joron,1973-12-11,Député européen,Député européen,,oui
 6edb1b72-0a12-44e1-8ff7-dd55c602a02d,DI,oui,2025-03-17,depute_europeen,Virginie,Joron,1973-12-11,Député européen,Député européen,,oui
+a8ec56a6-9b65-43d7-b116-eb3428dddf49,DI,oui,2026-04-30,depute_europeen,Virginie,Joron,1973-12-11,Député européen,Député européen,,oui
 bff3146c-cb3c-4d70-9f15-ec12372ed03e,DIA,non,2023-10-15,senateur,Lauriane,JOSENDE,1977-06-13,Sénateur,Député ou sénateur,Pyrénées-Orientales(66),oui
 d56a31c9-0130-4805-b40b-9b7930f7c9e7,DIA,oui,2024-02-04,senateur,Lauriane,JOSENDE,1977-06-13,Sénateur,Député ou sénateur,Pyrénées-Orientales(66),oui
 92d9691a-9153-4b34-b35a-eb012632b6b4,DIA,oui,2024-06-17,senateur,Lauriane,JOSENDE,1977-06-13,Sénateur,Député ou sénateur,Pyrénées-Orientales(66),oui
@@ -3045,6 +3103,7 @@ a5cac25b-75fe-4304-b978-e02021fdc95e,DIA,oui,2024-10-28,depute,Florence,JOUBERT,
 71d9fea7-98d4-45ba-9786-9df76e53cdc4,DI,non,2021-08-23,elu_local,Nicole,JOULIA,1948-03-21,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Bouches-du-Rhône (13),oui
 bca005bf-b98b-466c-b514-7de9220ca7a4,DI,oui,2022-06-30,elu_local,Nicole,JOULIA,1948-03-21,Elu départemental,Vice Présidente,Bouches-du-Rhône (13),oui
 88da0e09-1320-4388-8654-a8db14b18547,DI,oui,2024-03-18,elu_local,Nicole,JOULIA,1948-03-21,Elu départemental,Vice Présidente,Bouches-du-Rhône (13),oui
+4816595a-9328-4036-9cd9-e86c3908baa8,DI,oui,2026-05-20,elu_local,Nicole,JOULIA,1948-03-21,Elu départemental,Vice Présidente déléguée à la Culture,Bouches-du-Rhône (13),oui
 1720e76b-a935-4d88-9b54-a66f127c8bef,DI,non,2021-08-25,elu_local,EMMANUEL,JOULIÉ,1976-11-16,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Tarn (81),oui
 81cd50ea-5892-481d-ad4d-372a30f15522,DI,oui,2026-02-24,elu_local,EMMANUEL,JOULIÉ,1976-11-16,Elu départemental,Conseiller titutlaire d'une délégation,Tarn (81),oui
 edeb1baa-e305-41cf-bf1d-d1ffc7c9e45f,DI,non,2022-07-06,elu_local,Elisabeth,Jouneaux-Pedrono,1960-11-16,Elu régional,conseillère régionale déléguée aux formations sanitaires et sociales,Bretagne (53),oui
@@ -3099,6 +3158,8 @@ d04c1acb-035a-4d4f-a1e2-13d8f43b8403,DI,oui,2024-08-02,depute_europeen,Fabienne,
 1c7725fa-d5a1-4628-918e-3dbc993f8f7a,DI,oui,2025-03-22,depute_europeen,Fabienne,Keller,1959-10-20,Député européen,Député européen,,oui
 09567712-487c-4870-9ad0-af34726c8b0e,DIA,non,2024-07-30,depute,fatiha,keloua hachi,1971-06-05,Député,Député ou sénateur,Seine-Saint-Denis(93),oui
 a2d7a50c-f6ad-4387-9a1d-787af3e88997,DIA,oui,2024-10-07,depute,fatiha,keloua hachi,1971-06-05,Député,Député ou sénateur,Seine-Saint-Denis(93),oui
+7b941de9-e1f6-46d7-9a82-5bf85e94211d,DI,non,2026-04-01,elu_local,Franck Valder,Kenmogne Kamguia,1996-06-11,Maire ou adjoint municipal,Adjoint au Maire en charge de la politique de circulation et stationnement,Orléans (45),oui
+c1681530-766d-4d96-9ffd-e1cede93f62c,DI,oui,2026-07-23,elu_local,Franck Valder,Kenmogne Kamguia,1996-06-11,Maire ou adjoint municipal,Adjoint au Maire,Orléans (45),oui
 7af4f256-905d-4f54-956f-a209b98ff6c4,DIA,non,2024-08-09,depute,andy,kerbrat,1990-10-01,Député,Député ou sénateur,Loire-Atlantique(44),oui
 9dba68dc-66a3-4b11-8da5-95b398a625a6,DIA,oui,2025-06-23,depute,andy,kerbrat,1990-10-01,Député,Député ou sénateur,Loire-Atlantique(44),oui
 6ca11267-329e-473d-b687-6fc007f53ef5,DIA,non,2023-11-07,senateur,Eric,Kerrouche,1967-10-02,Sénateur,Député ou sénateur,Landes(40),oui
@@ -3235,6 +3296,8 @@ e02d46b5-2abe-4abd-8721-bae04caaac07,DI,non,2021-11-26,elu_local,Gaëlle,Lahorea
 429cd085-3e14-4c0f-8ed9-abf3f65401a9,DI,oui,2025-02-16,elu_local,Gaëlle,Lahoreau,1978-05-27,Elu régional,Vice-présidente déléguée à la démocratie permanente,Centre-Val de Loire (24),oui
 99bcf0f9-5d60-427e-9971-22214c503b99,DI,non,2021-08-05,elu_local,Isabelle,LAHORE,1959-01-08,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Pyrénées-Atlantiques (64),oui
 e474985e-e1b2-4dec-a292-0dcff48386aa,DI,oui,2022-10-23,elu_local,Isabelle,LAHORE,1959-01-08,Elu départemental,vice-présidente titulaire d'une délégation,Pyrénées-Atlantiques (64),oui
+2e6721cb-360e-4819-b901-c79b6955aea3,DI,non,2026-05-29,elu_local,Alexandre,LAI-KANE-CHEONG,1988-12-01,Maire ou adjoint municipal,Maire,Sainte-Suzanne (974),oui
+b08fbb3c-1adf-44e7-9542-125057305f5b,DI,oui,2026-08-20,elu_local,Alexandre,LAI-KANE-CHEONG,1988-12-01,Maire ou adjoint municipal,Maire,Sainte-Suzanne (974),oui
 d746c761-4f6c-4d1c-b878-a1c178f682bc,DI,oui,2022-03-27,elu_local,Dominique,LAIN,1965-08-02,Elu départemental,Vice président du conseil départemental,Var (83),oui
 3991b795-cce0-475c-9516-1bebf42c64f0,DI,oui,2023-01-22,elu_local,Dominique,LAIN,1965-08-02,Elu départemental,vice president titulaire d'une délégation,Var (83),oui
 21402120-5b0e-4c68-9843-57c646fa8356,DI,oui,2026-01-17,elu_local,Dominique,LAIN,1965-08-02,Elu départemental,Vice President,Var (83),oui
@@ -3265,6 +3328,8 @@ c732724c-1e12-40ad-99ab-4a280903063f,DI,oui,2024-03-27,elu_local,Séverin,LAMOTT
 6551efb8-f8f4-46b7-96e3-242016a0cc34,DIA,oui,2025-03-31,depute,THOMAS,LAM,1981-10-22,Député,Député ou sénateur,Hauts-de-Seine(92),oui
 bacac641-d766-4a96-8da4-6d253389f500,DI,non,2021-08-04,elu_local,alain,LAMY,1968-05-25,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Côte-d'Or (21),oui
 a6ed5d63-7458-44e3-9dd1-ac0d648abc5e,DI,non,2021-08-15,elu_local,Laurence,Lamy,1972-03-27,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Lot-et-Garonne (47),oui
+e7f12349-119e-4471-a0ae-98e1e3ae872d,DI,non,2026-04-19,elu_local,Nathalie,LANA,1964-06-13,Maire ou adjoint municipal,adjoint titulaire d'une délégation aux bâtiment,Montreuil (93),oui
+43c281d7-37c9-4041-b3ed-f7d11342ab0e,DI,non,2026-07-15,elu_local,Nathalie,LANA,1964-06-13,Maire ou adjoint municipal,adjoint titulaire d'une délégation à la vie associative,Montreuil (93),oui
 861cf7c2-3402-480f-a0f1-e2d1cbd223cb,DI,non,2026-02-25,elu_local,Eric,Lançon,1959-05-28,Elu régional,conseiller titulaire délégué,Bourgogne-Franche-Comté (27),oui
 be79d253-e9cc-4864-9139-09677a53de68,DI,non,2021-12-12,elu_local,Agnès,Langevine,1968-10-24,Elu régional,"Vice présidente en charge du Climat, Pacte Vert et Habitat durable",Occitanie (76),oui
 9f7b6bf9-f1fe-4e1c-a9bf-6b4d0795defb,DI,oui,2022-11-06,elu_local,Agnès,Langevine,1968-10-24,Elu régional,vice-présidente,Occitanie (76),oui
@@ -3315,6 +3380,8 @@ df388a43-4b3e-46ef-ae6b-43cf863be1be,DI,non,2021-08-19,elu_local,Jean-Jacques,LA
 ec1c49fe-5ea4-4ef1-a68c-2bf1295500fc,DIA,non,2024-07-23,depute,Philippe,LATOMBE,1975-04-21,Député,Député ou sénateur,Vendée(85),oui
 8e15ac46-941b-4be3-beaf-344df115adac,DIA,non,2024-10-10,depute,Philippe,LATOMBE,1975-04-21,Député,Député ou sénateur,Vendée(85),oui
 f24fc79a-4481-4ba6-b9e4-bd9a05fabca3,DI,oui,2021-08-07,elu_local,Béatrice,LATOUCHE,1973-04-19,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Pays de la Loire (52),oui
+5b5874c4-d936-4baf-adf5-0b52047db39e,DIA,non,2026-05-26,depute,Alim,LATRECHE,1979-12-05,Député,Député ou sénateur,Isère(38),oui
+b2afb130-5f1e-4f3f-90b8-2c2c11f03ddd,DIA,oui,2026-07-25,depute,Alim,LATRECHE,1979-12-05,Député,Député ou sénateur,Isère(38),oui
 da6505d4-2d51-4de0-9a2a-c75b6b564adc,DI,non,2021-08-04,elu_local,JEAN-JACQUES,LAUGA,1949-10-17,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Corrèze (19),oui
 1d792e76-8165-4844-9d85-d6bf427e282d,DIA,non,2023-11-27,senateur,Michel,LAUGIER,1956-07-11,Sénateur,Député ou sénateur,Yvelines(78),oui
 fe231b5a-1a34-43d6-a742-97045cd61176,DIA,oui,2023-12-14,senateur,Michel,LAUGIER,1956-07-11,Sénateur,Député ou sénateur,Yvelines(78),oui
@@ -3471,6 +3538,7 @@ b9cd9ee6-e9d3-4472-903f-7389d22f430f,DI,oui,2023-02-23,elu_local,Jean-Paul,LEGEN
 6176eb56-ccdb-4c31-b240-5cba3b712da4,DIA,non,2023-11-10,senateur,Ronan,Le Gleut,1976-08-21,Sénateur,Député ou sénateur,représentant les Français établis hors de France (Sénat série 1),oui
 232aade8-de36-480f-8b55-55eba0bba4e5,DIA,non,2023-12-13,senateur,Ronan,Le Gleut,1976-08-21,Sénateur,Député ou sénateur,représentant les Français établis hors de France (Sénat série 1),oui
 fe73275d-43ca-4152-a7f8-9cc00aa5982e,DIA,non,2024-09-02,depute,Sarah,Legrain,1985-11-17,Député,Député ou sénateur,Paris(75),oui
+ab3b51df-9b52-4a04-8a89-30f0d65f727f,DIA,oui,2026-03-10,depute,Sarah,Legrain,1985-11-17,Député,Député ou sénateur,Paris(75),oui
 54e7ad55-e82c-482d-84ec-9cea685d7656,DI,oui,2021-09-20,elu_local,ALAIN,LE GRAND,1971-05-27,Elu départemental,VICE PRESIDENT,Finistère (29),oui
 0683073e-8994-47a5-8f29-13b6baa41215,DI,oui,2021-11-30,elu_local,ALAIN,LE GRAND,1971-05-27,Elu départemental,VICE PRESIDENT,Finistère (29),oui
 4d367c12-9eed-44aa-9b67-cba3e1f2024b,DI,oui,2021-12-01,elu_local,ALAIN,LE GRAND,1971-05-27,Elu départemental,VICE PRESIDENT,Finistère (29),oui
@@ -3498,9 +3566,6 @@ df8b8f9c-5a43-4589-b506-3b9b83add420,DIA,oui,2026-02-06,depute,Didier,LEMAIRE,19
 b2bf7d62-d6b8-4c38-a8c5-9dfd44cc872a,DI,non,2023-05-07,elu_local,François,LEMAIRE,1968-01-04,Elu départemental,vice-président titulaire d'une délégation,Pas-de-Calais (62),oui
 76f488ca-3db8-4d19-aad9-c317497810e6,DI,oui,2025-09-17,elu_local,François,LEMAIRE,1968-01-04,Elu départemental,vice-président,Pas-de-Calais (62),oui
 8abacc08-2265-4014-afd3-bcf65dfd5c14,DI,non,2021-07-24,elu_local,jacques,lemare,1946-02-25,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Eure-et-Loir (28),oui
-7fa67e51-6db8-4721-b3c9-4d44c5c697c3,DI,non,2021-07-29,elu_local,Dominique,LE MENER,1958-11-12,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Sarthe (72),oui
-65f733f8-646c-404e-bdf7-b5dfb339219a,DI,oui,2023-11-24,elu_local,Dominique,LE MENER,1958-11-12,Elu départemental,PRESIDENT,Sarthe (72),oui
-b15ef7c0-6a04-49e9-9297-b1c29aecd819,DI,oui,2025-03-06,elu_local,Dominique,LE MENER,1958-11-12,Elu départemental,president,Sarthe (72),oui
 005da0ad-9344-499a-b849-3a68f6726130,DIA,non,2024-08-05,depute,Annaïg,LE MEUR,1973-04-29,Député,Député ou sénateur,Finistère(29),oui
 652263a6-bea3-480a-bcbf-5472aa89a938,DIA,non,2024-12-09,depute,Annaïg,LE MEUR,1973-04-29,Député,Député ou sénateur,Finistère(29),oui
 f0f82dad-5d69-4c55-b575-5f3f6ecb08bf,DI,non,2022-02-08,elu_local,Gaël,Le Meur,1973-01-07,Elu régional,conseillere regionale déléguée aux formations maritimes et aux filières halieutiques,Bretagne (53),oui
@@ -3698,8 +3763,10 @@ e58af92e-5df6-4e41-86b9-d1d0a5019c71,DI,oui,2023-10-24,elu_local,Cliff,LOUSSAN,1
 5e980d1b-2360-4417-83a0-2d4a5f8a84b3,DI,non,2021-08-08,elu_local,Franck,LOUVRIER,1968-05-30,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Pays de la Loire (52),oui
 c6341ba0-754e-4880-a032-d717968e7fdc,DI,oui,2021-10-24,elu_local,Franck,LOUVRIER,1968-05-30,Elu régional,Vice-président,Pays de la Loire (52),oui
 ab0e3c7f-f37c-4a16-b4b4-99d73bbc3a30,DI,non,2023-05-23,elu_local,Franck,LOUVRIER,1968-05-30,Elu régional,Vice-président,Pays de la Loire (52),oui
+557a83cc-8244-4f30-8d42-bae6dd7247b1,DI,non,2026-04-21,elu_local,Arnaud,Lozzi,1985-07-23,Maire ou adjoint municipal,adjoint titulaire d'une délégation,Montreuil (93),oui
 d771dbdd-bb73-4433-bf18-09ae4ec77efa,DI,non,2021-08-25,elu_local,bénédicte,luberriaga,1969-07-22,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Pyrénées-Atlantiques (64),oui
 5f671977-a631-486a-a52f-0d6f0b0482fd,DI,non,2022-02-15,elu_local,bénédicte,luberriaga,1969-07-22,Elu départemental,conseiller titulaire d'une délégation,Pyrénées-Atlantiques (64),oui
+8d6c37ce-a576-4927-8ce4-76e9243fa0c5,DIA,non,2026-04-21,depute,Marie-Philippe,LUBET,1957-09-06,Député,Député ou sénateur,Loiret(45),oui
 6bb10207-325b-4a84-a9fe-46618d9f3b92,DIA,non,2023-11-17,senateur,Monique,LUBIN,1963-07-16,Sénateur,Député ou sénateur,Landes(40),oui
 e5a3c698-9e31-47fc-a9ff-b726c3b295c2,DIA,oui,2024-01-08,senateur,Monique,LUBIN,1963-07-16,Sénateur,Député ou sénateur,Landes(40),oui
 2e046ca4-b015-4d9a-9ecd-cbac3bb13fb2,DIA,non,2024-09-08,depute,Benjamin,LUCAS,1990-10-08,Député,Député ou sénateur,Yvelines(78),oui
@@ -3712,6 +3779,8 @@ ea8b1933-b8c1-47e8-87c0-5b951d63eff1,DI,non,2021-12-19,elu_local,Yannick,LUCOT,1
 0ea4fd64-5754-42a6-86b0-8d9da8eefa29,DI,oui,2022-11-28,elu_local,Yannick,LUCOT,1968-07-07,Elu régional,Conseiller délégué,Auvergne-Rhône-Alpes (84),oui
 f5bad976-688d-41b4-959b-cb6e13f8107a,DI,non,2021-07-24,elu_local,daisy,LUCZAK,1962-05-16,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Seine-et-Marne (77),oui
 801bbdc1-be52-4f92-89a1-dea2bf8994f0,DI,oui,2022-10-25,elu_local,daisy,LUCZAK,1962-05-16,Elu départemental,vice-presdente,Seine-et-Marne (77),oui
+0405d00d-eab9-453e-a5b1-27032afed750,DIA,non,2026-04-10,depute,Véronique,LUDMANN,1963-03-17,Député,Député ou sénateur,Oise(60),oui
+312fe0cc-8d1c-4473-a9cc-6a1e854fb84a,DIA,non,2026-07-07,depute,Véronique,LUDMANN,1963-03-17,Député,Député ou sénateur,Oise(60),oui
 0b95f3c9-f34b-4773-8533-4ff8c760e2c6,DI,non,2022-01-26,elu_local,Aude,Lumeau-Preceptis,1973-02-22,Elu départemental,Conseillère titulaire d'une délégation,Haute-Garonne (31),oui
 6b716668-5915-4ca2-9665-b44a41f77f0c,DI,non,2023-02-28,elu_local,Aude,Lumeau-Preceptis,1973-02-22,Elu départemental,conseillère départementale déléguée au dialogue citoyen,Haute-Garonne (31),oui
 47328ca6-e393-4135-8844-419c2285948f,DI,non,2024-12-15,elu_local,Jean-Pierre,LUNOT,1966-05-05,Elu départemental,Conseiller délégué à l'eau,Puy-de-Dôme (63),oui
@@ -3755,6 +3824,7 @@ f74ee81f-ce40-4a0e-adc4-d49df5371db7,DI,non,2021-10-26,elu_local,Ginette,MAGRAS,
 96e36365-673a-4989-8445-44001db42a79,DI,non,2026-04-10,autre,Jean,Maïa,1970-06-24,Membre ou dirigeant d une autorité administrative indépendante,Président,Haute Autorité pour la transparence de la vie publique (HATVP),oui
 b5286d35-d658-4f4c-a498-9ef6939ea2ae,DIA,non,2024-09-02,depute,Sylvain,Maillard,1974-04-28,Député,Député ou sénateur,Paris(75),oui
 e1c10d46-7195-43d5-b205-2419bd09c3e3,DIA,non,2025-02-03,depute,Sylvain,Maillard,1974-04-28,Député,Député ou sénateur,Paris(75),oui
+bf6dc4a1-d49e-4bde-88fd-39167cb853a6,DIA,oui,2026-08-17,depute,Sylvain,Maillard,1974-04-28,Député,Député ou sénateur,Paris(75),oui
 b2fb3f48-7ba3-47ab-93e0-eab411d4fa48,DIA,non,2024-09-02,depute,Frédéric Jean Rémy,MAILLOT,1986-11-15,Député,Député ou sénateur,Réunion(974),oui
 69a01d01-2fc3-4e5f-a32b-6313427ee58b,DIA,oui,2024-10-18,depute,Frédéric Jean Rémy,MAILLOT,1986-11-15,Député,Député ou sénateur,Réunion(974),oui
 13e3c9aa-6869-44d7-af53-a2af8ceef01c,DI,non,2021-07-05,elu_local,Emilie,Maillou,1980-02-11,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Lot-et-Garonne (47),oui
@@ -3876,6 +3946,8 @@ fa237424-c82f-444f-97d3-b92d51fa28a3,DIA,oui,2024-08-01,depute,Sandra,Marsaud,19
 89b425f2-8c72-423e-a08d-036f43cafd75,DIA,non,2024-01-06,senateur,Hervé,MARSEILLE,1954-08-20,Sénateur,Député ou sénateur,Hauts-de-Seine(92),oui
 fe9c8114-8468-4699-ad7b-6ec3eb6f1caf,DIA,oui,2024-03-21,senateur,Hervé,MARSEILLE,1954-08-20,Sénateur,Député ou sénateur,Hauts-de-Seine(92),oui
 fb884c0f-a031-4cc0-8fed-229a311de97a,DIA,oui,2025-04-21,senateur,Hervé,MARSEILLE,1954-08-20,Sénateur,Député ou sénateur,Hauts-de-Seine(92),oui
+c33c018c-4ee6-4ee3-ab72-7ef32c32a9eb,DIA,oui,2026-02-12,senateur,Hervé,MARSEILLE,1954-08-20,Sénateur,Député ou sénateur,Hauts-de-Seine(92),oui
+7791f85f-f449-4754-9dd4-4382b02d457f,DIA,oui,2026-06-24,senateur,Hervé,MARSEILLE,1954-08-20,Sénateur,Député ou sénateur,Hauts-de-Seine(92),oui
 06b64fe4-42a7-4779-b265-fb6f0d778a38,DI,non,2022-01-17,elu_local,ETIENNE,MARTEGOUTTE,1975-12-21,Elu départemental,Vice-président titulaire d'une délégation,Indre-et-Loire (37),oui
 f86319af-fe13-417f-bb54-28820e3e50d1,DI,non,2022-02-12,elu_local,Arnaud,MARTHEY,1973-09-29,Elu régional,Conseiller régional délégué,Bourgogne-Franche-Comté (27),oui
 d83da245-6b26-4d6f-a654-ce5f3faabd6a,DIA,non,2024-08-18,depute,alexandra,martin,1968-10-25,Député,Député ou sénateur,Alpes-Maritimes(06),oui
@@ -3905,6 +3977,7 @@ efb90b41-ca20-44ba-8708-f0b2fb0f9194,DI,non,2021-09-06,elu_local,Sandrine,MARTIN
 c83077a2-bb5c-4c27-bf1c-cd4a13eb05aa,DI,non,2021-08-02,elu_local,Manoëlle,Martin,1970-07-25,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Hauts-de-France (32),oui
 930ddcf1-7133-428e-a8af-16c69f65d1de,DI,oui,2021-12-26,elu_local,Manoëlle,Martin,1970-07-25,Elu régional,Vice-Présidente,Hauts-de-France (32),oui
 9adaf203-7419-4e70-beb8-f7bd8e8d8da3,DI,oui,2024-02-25,elu_local,Manoëlle,Martin,1970-07-25,Elu régional,Vice-Présidente,Hauts-de-France (32),oui
+94a04874-6900-42ae-a644-81c725372c50,DI,oui,2026-05-17,elu_local,Manoëlle,Martin,1970-07-25,Elu régional,Vice-Présidente,Hauts-de-France (32),oui
 b8c71e2f-aea8-4898-9d5e-0ede30848e4c,DI,oui,2021-11-02,elu_local,Marie-Pierre,MARTIN,1954-05-11,Elu départemental,Vice-présidente en charge du handicap,Maine-et-Loire (49),oui
 ba2e2548-8b8d-4516-a026-a76991b4cd26,DIA,non,2024-09-04,depute,Patrice,MARTIN,1963-09-13,Député,Député ou sénateur,Seine-Maritime(76),oui
 33404103-1910-4838-b1a8-1be8bc8f3298,DIA,oui,2025-03-19,depute,Patrice,MARTIN,1963-09-13,Député,Député ou sénateur,Seine-Maritime(76),oui
@@ -3926,6 +3999,7 @@ e94fab90-e6d4-4a96-9d8c-649fc22fa00f,DI,non,2024-11-21,elu_local,Isabelle,Masseb
 bba90545-18b3-4681-ad73-fa9d3ab95534,DI,oui,2025-03-09,elu_local,Isabelle,Massebeuf,1967-12-17,Elu régional,conseillère déléguée,Auvergne-Rhône-Alpes (84),oui
 093207f3-e061-4d98-9b02-aea49ce88d35,DIA,non,2024-08-01,depute,Denis,MASSEGLIA,1981-04-11,Député,Député ou sénateur,Maine-et-Loire(49),oui
 2a15a967-60e1-4918-a915-d0875c92e24c,DIA,oui,2024-12-02,depute,Denis,MASSEGLIA,1981-04-11,Député,Député ou sénateur,Maine-et-Loire(49),oui
+73c58921-fae3-415c-981f-dc485e2ed1f6,DIA,oui,2026-06-15,depute,Denis,MASSEGLIA,1981-04-11,Député,Député ou sénateur,Maine-et-Loire(49),oui
 a1d5007a-23c2-4393-9a4a-31f0f998d5d7,DIA,non,2023-11-30,senateur,MICHEL,MASSET,1965-10-09,Sénateur,Député ou sénateur,Lot-et-Garonne(47),oui
 c0da1a27-4d0f-4aee-8b23-af101c06417d,DIA,oui,2024-02-27,senateur,MICHEL,MASSET,1965-10-09,Sénateur,Député ou sénateur,Lot-et-Garonne(47),oui
 ea0f5a05-7592-48f4-b692-0c9c70f14919,DI,non,2022-11-29,elu_local,Jean-Louis,MASSON,1954-02-05,Elu départemental,Président,Var (83),oui
@@ -3979,6 +4053,8 @@ eb1f744a-5e95-4b65-be02-99b0aeb9b8bc,DI,non,2022-04-23,elu_local,Nicolas,Méary,
 06ad1366-f169-4b9f-805f-1bf129bb6c76,DI,oui,2024-12-17,elu_local,Nicolas,Méary,1976-06-29,Elu départemental,Vice-Président transition écologique et biodiversité,Essonne (91),oui
 d7a3a482-31e8-46ac-80af-ea032aa6d6d8,DI,non,2024-07-24,depute_europeen,nora,mebarek,1972-07-22,Député européen,Député européen,,oui
 aef4e813-22ea-467d-af1e-6e1539a88c2b,DI,non,2025-03-18,depute_europeen,nora,mebarek,1972-07-22,Député européen,Député européen,,oui
+069e275e-fd64-4e98-811c-d4c7a2f1409c,DI,non,2026-04-25,elu_local,Josiane,MEHLEN,1957-09-21,Membre d EPCI,Vice président,M2A,oui
+aacd437d-0aee-429a-a6ae-53594f15b97f,DI,oui,2026-06-21,elu_local,Josiane,MEHLEN,1957-09-21,Membre d EPCI,Vice-Présidente titulaire d'une délégation,M2A,oui
 ec48a610-a53c-4471-9334-925cf9beb030,DI,non,2021-09-29,elu_local,Emeline,MEHUKAJ,1990-08-03,Elu départemental,Conseillère déléguée à l'emploi et l'insertion professionnelle,Drôme (26),oui
 5eff03bd-dc63-48c2-9e56-1018dbdb788f,DI,non,2025-12-01,elu_local,Emeline,MEHUKAJ,1990-08-03,Elu départemental,Conseiller titulaire d'une délégation,Drôme (26),oui
 76257b93-2b66-4b2e-bc4a-caa6e5a0ec6f,DI,oui,2026-01-13,elu_local,Emeline,MEHUKAJ,1990-08-03,Elu départemental,Conseiller titulaire d'une délégation,Drôme (26),oui
@@ -4010,6 +4086,8 @@ b0a61e97-cc0b-4e40-a544-6e65563ddc10,DIA,non,2024-07-15,depute,Thomas,Ménagé,1
 eab4bd7e-84c0-47f2-b044-c97a1ba062b0,DI,oui,2022-01-16,elu_local,Michel,MENARD,1961-05-20,Elu départemental,Président,Loire-Atlantique (44),oui
 f2ad0209-9907-4daa-8209-3261a5fbc36a,DIA,non,2024-09-09,depute,Ludovic,Mendes,1987-04-11,Député,Député ou sénateur,Moselle(57),oui
 2de2b272-aef1-41c4-8751-a55d16ad33f4,DIA,oui,2024-10-02,depute,Ludovic,Mendes,1987-04-11,Député,Député ou sénateur,Moselle(57),oui
+ac968b4f-3a40-4196-9d28-5484030f8677,DI,non,2026-04-22,elu_local,jacky,MENICHON,1956-10-17,Membre d EPCI,président,communauté de communes saone beaujolais,oui
+40af172a-5660-4b8b-b04f-a30a5b39352e,DI,oui,2026-07-29,elu_local,jacky,MENICHON,1956-10-17,Membre d EPCI,president,Communauté de communes Saone beaujolais,oui
 f375573e-7907-48d1-936b-dc6488e12ed3,DIA,non,2023-11-26,senateur,Franck,MENONVILLE,1972-10-03,Sénateur,Député ou sénateur,Meuse(55),oui
 ec76769a-6753-4be7-a35b-d98d74d68c75,DIA,oui,2023-12-14,senateur,Franck,MENONVILLE,1972-10-03,Sénateur,Député ou sénateur,Meuse(55),oui
 035001e5-da6c-45d7-997e-8dcb16aaddd9,DIA,oui,2025-02-12,senateur,Franck,MENONVILLE,1972-10-03,Sénateur,Député ou sénateur,Meuse(55),oui
@@ -4156,6 +4234,7 @@ fe390eac-9911-45c1-9e06-4e214b9e904b,DI,oui,2024-10-27,elu_local,MARIE-PIERRE,MO
 00b054e0-31a5-4ce1-8262-19fe942241e0,DI,non,2021-08-27,elu_local,Yves,MORAINE,1970-01-20,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Bouches-du-Rhône (13),oui
 d8a5f0bc-0a03-4b05-8827-6328f4c2e52e,DI,non,2022-11-21,elu_local,Yves,MORAINE,1970-01-20,Elu départemental,Vice-président titulaire d'une délégation,Bouches-du-Rhône (13),oui
 44fa736e-958a-4a47-a6a4-ab8e4b28b9b8,DI,non,2021-08-15,elu_local,Maryline,MORALLET,1967-03-26,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Territoire de Belfort (90),oui
+15deac9e-5206-437a-8c9d-5ff328f1dc8c,DI,non,2026-05-08,elu_local,Maryline,MORALLET,1967-03-26,Membre d EPCI,vice présidente,Grand Belfort Communauté d'Agglomération,oui
 b358017f-5d14-4dc6-812c-2fc3bb81b68d,DI,non,2021-08-02,elu_local,Christelle,MORANÇAIS,1975-01-28,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Pays de la Loire (52),oui
 390a38a3-8160-4e78-ad05-a4d0de7bbd8a,DI,oui,2022-01-31,elu_local,Christelle,MORANÇAIS,1975-01-28,Elu régional,Présidente,Pays de la Loire (52),oui
 465b5273-ca9e-4fd6-8eb5-08fe1817a397,DI,non,2021-08-22,elu_local,patrice,MORANCAIS,1961-08-20,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Creuse (23),oui
@@ -4197,6 +4276,8 @@ f3f512d0-671d-4d13-a112-e424d7eceee9,DI,oui,2023-05-23,elu_local,Annick,MORIZIO,
 227cfbd3-34d7-4678-a412-6e96f6a645dc,DI,non,2021-08-15,elu_local,Francis,Morlon,1977-07-09,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Aude (11),oui
 82580302-f9f5-4473-be54-ab967ed1ee28,DI,oui,2023-05-15,elu_local,Francis,Morlon,1977-07-09,Elu départemental,Vice-président délégué à la Transition écologique,Aude (11),oui
 570c5fbd-855b-4d5d-82fd-154e74145374,DI,non,2024-10-22,elu_local,Jérôme,MOROGE,1979-08-23,Elu régional,conseiller délégué,Auvergne-Rhône-Alpes (84),oui
+2a73e248-ceee-4088-9faf-6450e5c9ca27,DI,non,2026-04-14,elu_local,François,MORTON,1969-08-30,Maire ou adjoint municipal,Maire,Guyancourt (78),oui
+6e8b3fdc-5345-4625-ab2b-48cae1c64bfd,DI,oui,2026-07-15,elu_local,François,MORTON,1969-08-30,Maire ou adjoint municipal,Maire,Guyancourt (78),oui
 d8140980-5a0c-41a1-ba9f-d7fd0c412b71,DI,non,2021-09-23,elu_local,marie josé,Moser,1950-03-29,Elu départemental,vice présidente titulaire d'une délégation,Ardennes (08),oui
 668b78fb-bed7-43d3-8032-c8f8d56ebbb5,DI,oui,2024-05-07,elu_local,marie josé,Moser,1950-03-29,Elu départemental,vice-presidente,Ardennes (08),oui
 e421d5cc-f6ce-481a-9751-a161b047ae13,DI,non,2021-09-07,elu_local,Christiane,MOSNIER,1965-09-18,Elu départemental,conseiller titulaire d'une délégation,Haute-Loire (43),oui
@@ -4223,6 +4304,8 @@ f08ecbf0-f95d-4a05-b162-15c73ea41265,DI,oui,2023-03-28,elu_local,Etienne,MOULIN,
 8b781212-aa68-4d0f-8bc0-53411986769b,DI,oui,2025-10-22,elu_local,Gilles,MOUNIER,1969-04-04,Elu départemental,vice-Président titulaire d'une délégation,Finistère (29),oui
 48023fef-cc1a-4da3-971f-ffa5bd663f6c,DI,non,2022-09-07,elu_local,Aline,Mouquet,1970-07-07,Elu départemental,présidente de la commission d'appel d'offres et de la commission départementale de délégation de service public,Gironde (33),oui
 9d414d7a-0c91-41b7-bc32-c17ed9659bb4,DI,oui,2023-05-15,elu_local,Aline,Mouquet,1970-07-07,Elu départemental,présidente de la commission d'appel d'offres et de la commission départementale de délégation de service public,Gironde (33),oui
+44d153c9-088b-4698-8688-bc53ba78e09e,DI,non,2026-04-29,elu_local,François,MOURRA,1948-10-25,Membre d EPCI,VICE PRESIDENT,COMMUNUATE URBAINE DU GRAND REIMS,oui
+7f8410ad-e245-49ea-a756-df747e4a6752,DI,oui,2026-06-22,elu_local,François,MOURRA,1948-10-25,Membre d EPCI,Vice président CU Grand Reims,CU Grand Reims,oui
 5ccd5983-d3a5-47be-adc2-eb2e20133379,DI,non,2025-11-24,gouvernement,Naima,Moutchou,1980-11-04,Membre du Gouvernement,Membre du Gouvernement,Ministère des outre-mer,oui
 4bbf04fd-a14e-4264-9b2f-a2a60451496e,DI,oui,2026-03-05,gouvernement,Naima,Moutchou,1980-11-04,Membre du Gouvernement,Membre du Gouvernement,Ministère des outre-mer,oui
 d042bdf0-9e69-4520-b67e-5f1ebae99ab2,DSP,non,2025-11-24,gouvernement,Naima,Moutchou,1980-11-04,Membre du Gouvernement,Membre du Gouvernement,Ministère des outre-mer,oui
@@ -4243,9 +4326,6 @@ b7b0f50a-f7aa-4176-8fa3-ba8a9dfa4898,DI,non,2021-09-09,elu_local,Fabien,Mulyk,19
 18c22796-caf5-4246-a136-8ad31664f70d,DI,oui,2022-10-09,elu_local,Arnaud,Murgia,1984-11-16,Elu départemental,vice-président titulaire dune délégation,Hautes-Alpes (05),oui
 62138b04-0f23-4a60-9816-f80c4c133923,DI,non,2021-09-06,elu_local,LUCIEN,MURZI,1963-05-02,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Loire (42),oui
 d8b61722-3419-4cc4-8caf-d6694c12b8a4,DI,non,2024-01-19,elu_local,LUCIEN,MURZI,1963-05-02,Elu départemental,CONSEILLER DEPARTEMENTAL DELEGUE,Loire (42),oui
-9558e3ba-e79f-48dd-b078-c42831e5b7cf,DI,non,2021-07-23,elu_local,Renaud,Muselier,1959-05-06,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Provence-Alpes-Côte d'Azur (93),oui
-f9347f2a-bc73-40e4-b606-d556722bb9db,DI,oui,2022-12-22,elu_local,Renaud,Muselier,1959-05-06,Elu régional,PRESIDENT,Provence-Alpes-Côte d'Azur (93),oui
-8da4065e-22c2-4a04-a4aa-5a08574e9e5c,DI,oui,2025-09-19,elu_local,Renaud,Muselier,1959-05-06,Elu régional,President,Provence-Alpes-Côte d'Azur (93),oui
 fa6864c6-acce-4d8a-938b-464cf55186e5,DI,non,2022-05-20,elu_local,louis,MUSSINGTON,1961-11-09,Collectivité à statut particulier,PRESIDENT,Conseil territorial Saint-Martin,oui
 2de50ef9-32a7-4345-bc5c-04aefd0d2615,DI,oui,2022-11-27,elu_local,louis,MUSSINGTON,1961-11-09,Collectivité à statut particulier,PRESIDENT,Conseil territorial Saint-Martin,oui
 6ad6175a-82b9-4f7e-8627-fb6a8ccda039,DI,non,2023-05-22,elu_local,CATHERINE,MUSSOTTE,1969-08-05,Elu départemental,Conseillère départementale déléguée chargée de l'Action sociale territoriale,Val-de-Marne (94),oui
@@ -4322,6 +4402,8 @@ a2685adf-771b-4525-ab4d-0d2bf2a4b396,DI,non,2022-03-01,elu_local,Gaëlle,NIQUE,1
 24519e18-22c1-4bbe-8713-c838471ece62,DI,non,2021-08-31,elu_local,Bérengère,NOGUIER,1981-12-16,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Gard (30),oui
 873ac317-1c7b-4e90-860f-ecd7f4afc5b6,DI,oui,2023-05-14,elu_local,Bérengère,NOGUIER,1981-12-16,Elu départemental,Vice-Présidente déléguée à la transition écologique et à la biodiversité,Gard (30),oui
 7f81afb8-6b80-4a3a-a919-230b33a3ed7c,DI,oui,2026-03-06,elu_local,Emmanuel,Noiret,1971-06-03,Elu départemental,conseiller titulaire d'une delegation,Somme (80),oui
+40266fa5-d584-4207-8047-927329d4a673,DI,non,2026-04-23,elu_local,Raphaël,NORBLIN,1966-08-31,Membre d EPCI,Vice-président,Evreux Porte de NORMANDIE,oui
+123fab90-c4dc-442a-953e-9c29bc899958,DI,oui,2026-07-14,elu_local,Raphaël,NORBLIN,1966-08-31,Membre d EPCI,Vice-président,EVREUX PORTE DE NORMANDIE,oui
 c5abc3bd-9532-4043-87cd-485bcc1b3f51,DIA,non,2024-09-08,depute,Sandrine,Nosbé,1972-10-29,Député,Député ou sénateur,Isère(38),oui
 0031372d-bbfc-4cf2-913a-4b7b31ae3603,DIA,oui,2024-12-18,depute,Sandrine,Nosbé,1972-10-29,Député,Député ou sénateur,Isère(38),oui
 e45e542d-3895-4800-98a8-26a80301906a,DI,non,2022-07-08,elu_local,jean-louis,nouhaud,1947-04-13,Elu départemental,president conseiller delegue a la sante animale,Haute-Vienne (87),oui
@@ -4355,6 +4437,10 @@ f42049cd-b76d-44bc-8ee7-b501f5f09cca,DIA,non,2024-09-02,depute,Karl,OLIVE,1969-0
 bbe18890-58f6-48b4-a79f-715e896ec953,DI,non,2024-10-22,elu_local,Pierre,OLIVER,1992-06-09,Elu régional,Conseiller délégué aux fonds européens et aux Métropoles,Auvergne-Rhône-Alpes (84),oui
 ba2857a4-8600-4507-b82e-761a680d598c,DI,oui,2025-02-25,elu_local,Pierre,OLIVER,1992-06-09,Elu régional,Conseiller délégué aux fonds européens et aux Métropoles,Auvergne-Rhône-Alpes (84),oui
 cab6c9df-2c2d-4f50-b23a-4b23cfe0c032,DI,non,2021-07-30,elu_local,Aristide,OLIVIER,1981-09-26,Elu régional,Elu local ou membre d’un établissement public de coopération intercommunale,Normandie (28),oui
+8416704c-3d45-4ab2-83af-d232571c3d56,DI,non,2026-05-28,elu_local,Aristide,OLIVIER,1981-09-26,Maire ou adjoint municipal,Maire de Caen,Caen (14),oui
+cea53cce-0a41-4dc4-8011-100db0c675da,DI,oui,2026-06-29,elu_local,Aristide,OLIVIER,1981-09-26,Maire ou adjoint municipal,Maire,Caen (14),oui
+3e4991b0-82bc-4a70-b5c0-7ef30848df95,DI,non,2026-04-14,elu_local,Pascal,OLIVIER,1965-03-02,Membre d EPCI,Président,Communauté de communes Val de Gâtine,oui
+16e82732-6c73-4ddd-8965-16f241dbba46,DI,oui,2026-07-15,elu_local,Pascal,OLIVIER,1965-03-03,Membre d EPCI,Président,VAL DE GATINE,oui
 84ad58a4-8683-4be6-b1bd-9a8d1933ad0e,DI,non,2024-09-02,depute_europeen,Philippe,olivier,1961-08-30,Député européen,Député européen,,oui
 ffc788a8-630d-4ba9-8dc6-de26eae5d49e,DI,oui,2024-12-13,depute_europeen,Philippe,olivier,1961-08-30,Député européen,Député européen,,oui
 d505dba9-7661-4498-9d67-c6032479ecb5,DI,non,2024-12-11,elu_local,martine,ollivier,1956-10-18,Elu départemental,conseillère départementale déléguée,Ardèche (07),oui
@@ -4455,6 +4541,8 @@ dad1c38a-9977-4d30-b9bf-de295ce7c75b,DIA,non,2026-04-02,depute,Charlotte,LECOCQ,
 77ca5515-5a67-40e4-ade7-ce3ffc47f32e,DI,oui,2022-05-02,elu_local,Yves,PARTRAT,1953-12-05,Elu départemental,Conseiller titulaire d’une delegation,Loire (42),oui
 aab40836-c76b-4316-b995-1b22338c6ea0,DI,non,2021-08-19,elu_local,Bruno,PASCAL,1963-05-13,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Gard (30),oui
 34e05404-5081-442f-b04e-6a88b70783f9,DI,non,2024-02-23,elu_local,Bruno,PASCAL,1963-05-13,Elu départemental,vice-président titulaire d'une délégation,Gard (30),oui
+fe140ee5-9fbe-48eb-848d-da6bd6f1c9e3,DI,non,2026-04-14,elu_local,JEROME,PASCO,1976-10-12,Membre d EPCI,PRESIDENT,PAYS DE CONCHES,oui
+f91c9afd-d87d-434c-a4c1-15e8acca23af,DI,oui,2026-07-16,elu_local,JEROME,PASCO,1976-10-12,Membre d EPCI,PRESIDENT,PAYS DE CONCHES,oui
 979dffcd-e02e-4bbf-9f48-e67f4a064901,DI,non,2021-07-19,elu_local,Rémi,PASCREAU,1963-08-24,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Vendée (85),oui
 b4944093-3f51-40c3-b6a7-7811c68083db,DI,oui,2023-05-30,elu_local,Rémi,PASCREAU,1963-08-24,Elu départemental,Président de commission,Vendée (85),oui
 bad3e98c-68fa-4d04-a5c8-50966452e251,DI,non,2025-10-21,elu_local,Rémi,PASCREAU,1963-08-24,Elu départemental,conseiller,Vendée (85),oui
@@ -4594,6 +4682,8 @@ da46f736-dd20-4838-aff7-14ae6f9e4eb1,DI,non,2021-10-24,elu_local,BRUNO,PEYLACHON
 820f62a3-8e48-49f9-83cf-c0df18f89c9e,DI,oui,2022-09-25,elu_local,BRUNO,PEYLACHON,1964-01-09,Elu départemental,Vice-président,Rhône (69),oui
 71a1418c-0b1f-447c-8538-df7a79863b23,DI,oui,2023-11-24,elu_local,BRUNO,PEYLACHON,1964-01-09,Elu départemental,Vice-président,Rhône (69),oui
 a1cfb37e-322d-40e6-8778-8bd7d2dfedc4,DI,non,2021-08-02,elu_local,Franck,PEYRET,1965-05-18,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Corrèze (19),oui
+cbd1e75f-fb69-43fe-a32c-3d28d27cbc71,DI,non,2026-04-10,elu_local,eric,Peyron,1960-07-01,Membre d EPCI,Vice-président,Roannais agglomération,oui
+ff03811d-fe05-4cdc-897c-d4c61f4d8a38,DI,oui,2026-06-19,elu_local,eric,Peyron,1960-07-01,Membre d EPCI,vice président,roannais agglomération,oui
 48fc7d9f-0f35-4a87-ab90-b94b4fe8b7ea,DI,non,2021-09-14,elu_local,valerie,peysselon,1966-12-01,Elu départemental,Conseillère départementale déléguée aux personnes âgées,Loire (42),oui
 268e6b4b-dd88-4fdc-8d41-d6e22002c02d,DI,oui,2022-01-15,elu_local,valerie,peysselon,1966-12-01,Elu départemental,conseillère départementale déléguée aux personnes âgées,Loire (42),oui
 806088e1-8cc7-4e2a-ac04-d2a46f260924,DI,oui,2022-06-08,elu_local,valerie,peysselon,1966-12-01,Elu départemental,conseillère départemantale déléguée personnes âgées,Loire (42),oui
@@ -4604,6 +4694,7 @@ a1cfb37e-322d-40e6-8778-8bd7d2dfedc4,DI,non,2021-08-02,elu_local,Franck,PEYRET,1
 80fe25e3-0bb6-4967-ba11-43fd066e93b6,DI,non,2021-09-09,elu_local,Renaud,PFEFFER,1980-02-08,Elu régional,Vice président,Auvergne-Rhône-Alpes (84),oui
 1f8d5981-04ba-4f5a-9d5d-f6afc6ccb954,DI,oui,2022-04-08,elu_local,Renaud,PFEFFER,1980-02-08,Elu régional,Vice président,Auvergne-Rhône-Alpes (84),oui
 9a24baf7-a1d1-4c2e-bcf0-e16022e59adb,DI,non,2024-11-17,elu_local,Renaud,PFEFFER,1980-02-08,Elu régional,VICE PRESIDENT EN CHARGE DE LA SECURITE ET DU SPORT,Auvergne-Rhône-Alpes (84),oui
+952bd386-2c7e-4908-9112-8b25ab6c68ab,DI,non,2026-04-09,elu_local,Marie-Gabrielle,Pfister,1971-05-21,Membre d EPCI,Vice-présidente,Loire Forez Agglomération,oui
 d3db8137-90f1-4f9c-8cc0-3030b24f99e9,DI,oui,2025-01-25,elu_local,FREDERIC,PFLIEGERSDOERFFER,1964-11-11,Elu régional,"Conseiller titulaire titulaire d'une délégation relevant du domaine ""Eau""",Grand Est (44),oui
 9345f61b-5a24-4c6c-b088-adfe3e15335d,DI,oui,2021-08-02,elu_local,Eric,Phélippeau,1981-08-28,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Drôme (26),oui
 a449070c-de78-4530-89f6-5ff63971eb27,DI,oui,2021-12-19,elu_local,Eric,Phélippeau,1981-08-28,Elu départemental,Vice-président,Drôme (26),oui
@@ -4781,6 +4872,7 @@ b12a4eb0-b0fa-421d-bb3f-76d9657fe196,DI,non,2023-07-05,elu_local,Catherine,LUGA 
 c784f0c2-a2d8-4d1d-a835-4a7c79534f03,DI,oui,2023-10-06,elu_local,Catherine,LUGA Epse PUCHON,1957-05-31,Collectivité à statut particulier,Représentante à l'assemblée,Assemblée de la Polynésie française,oui
 ef29ca06-00bd-46dd-853d-48de5749341f,DI,non,2021-09-01,elu_local,Alexandre,Pueyo,1979-05-04,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Val-d'Oise (95),oui
 cc6352ec-9752-4330-bfb0-f565593ced21,DI,non,2021-08-27,elu_local,Véronique,PUGEAT,1955-02-19,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Drôme (26),oui
+b8df11bc-b5de-4fe3-9ed5-a4dea12cb226,DI,non,2026-05-18,elu_local,VÃ©ronique,PUGEAT,1955-02-19,Elu départemental,Vice Présidente titulaire d'une délégation,Drôme (26),oui
 4cb4896f-cace-455f-b3df-c40c4846ce6b,DIA,non,2023-11-12,senateur,Frédérique,Puissat,1967-11-04,Sénateur,Député ou sénateur,Isère(38),oui
 f7c913b9-1d2e-4275-94a7-f8e9c5aa0055,DIA,oui,2024-04-01,senateur,Frédérique,Puissat,1967-11-04,Sénateur,Député ou sénateur,Isère(38),oui
 fbc0bebe-6c56-4e59-9062-b44e5ffedd06,DI,oui,2023-07-21,elu_local,Sonia,PUNUA,1959-02-06,Collectivité à statut particulier,Représentante,Assemblée de la Polynésie française,oui
@@ -4810,6 +4902,8 @@ eb097315-c5c5-4fcc-9fd7-776ca106a4a0,DI,oui,2022-11-14,elu_local,Nicole,QUILLIEN
 f4cd77f4-df52-4969-a338-ef6c31d41b8f,DI,non,2022-12-09,elu_local,Nicole,QUILLIEN,1956-03-03,Elu départemental,Vice Présidente du Conseil départemental,Ariège (09),oui
 16804f15-0091-462f-8670-a7cb24ebeb2b,DI,oui,2021-08-23,elu_local,Brice,RABASTE,1981-12-24,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Seine-et-Marne (77),oui
 465997bd-607f-4793-bc1e-1034c61dc950,DI,non,2022-10-20,elu_local,Brice,RABASTE,1981-12-24,Elu départemental,Vice-président,Seine-et-Marne (77),oui
+ffa9e958-f167-4436-851a-53619a73649e,DI,non,2026-03-25,elu_local,Ali,RABEH,1984-12-17,Maire ou adjoint municipal,Maire,Trappes (78),oui
+4d557b53-3deb-475b-ba95-1963c2ec96de,DI,oui,2026-07-23,elu_local,Ali,RABEH,1984-12-17,Maire ou adjoint municipal,Maire,Trappes (78),oui
 742a3e7d-09b8-4dce-a98f-eb9fb79b5f4b,DI,non,2021-11-23,elu_local,DOMINIQUE,RABELLE,1950-04-29,Elu départemental,vice presidente,Charente-Maritime (17),oui
 602e87ee-0686-4288-af53-54873e81c7af,DI,oui,2022-10-23,elu_local,DOMINIQUE,RABELLE,1950-04-29,Elu départemental,vice presidente,Charente-Maritime (17),oui
 bf3c271e-c8a8-4a2d-9c9a-203a01100edf,DI,non,2021-09-02,autre,Catherine,Rabou,1960-06-18,Autre,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
@@ -4929,6 +5023,7 @@ dc72ecac-9b07-4a83-a69f-ff50c18d5413,DI,oui,2024-09-29,elu_local,Claude,RIBOULET
 e6155bc1-027c-4f8e-82db-dda5819f1689,DI,oui,2025-07-01,elu_local,Claude,RIBOULET,1975-04-14,Elu départemental,président,Allier (03),oui
 2a61fec5-5152-496b-a5c5-c710316015ef,DI,non,2022-10-14,elu_local,Laurent,RICHARD,1954-10-27,Elu départemental,Vice-président délégué à la santé,Yvelines (78),oui
 a7339260-0fa3-4488-a910-4c475630ad81,DIA,non,2023-11-28,senateur,Olivia,Richard,1977-02-22,Sénateur,Député ou sénateur,représentant les Français établis hors de France (Sénat série 1),oui
+e5cfbed9-7d91-4d29-ab1b-2333b3740c8d,DI,non,2026-05-28,elu_local,olivier,richard,1986-09-25,Membre d EPCI,vice-président titulaire d'une délégation,Valence Romans Agglo,oui
 5060bd1a-f76f-46ec-82d9-a72e3f6274e1,DI,non,2025-09-17,elu_local,ALAIN,RICHARDSON,1963-08-31,Collectivité à statut particulier,Vice-président,Conseil territorial Saint-Martin,oui
 a4ab88a8-c384-4e02-9228-7082f6e85f56,DI,oui,2026-04-21,elu_local,ALAIN,RICHARDSON,1963-08-31,Collectivité à statut particulier,vice-president,Conseil territorial Saint-Martin,oui
 813a54f9-3946-4e94-a730-4ffd26254477,DI,non,2021-07-09,elu_local,Olivier,Richefou,1959-04-04,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Mayenne (53),oui
@@ -4999,6 +5094,8 @@ a0ee72cc-d941-4294-83dd-eef6c74f3a5e,DI,non,2022-12-05,elu_local,Christian,ROBAC
 af68de96-cab1-4161-8511-b22a23ea5cfe,DI,oui,2023-06-13,elu_local,christine,robin,1959-08-26,Elu départemental,VIce-Présidente,Saône-et-Loire (71),oui
 7136e507-0426-4862-8a04-685cc902d1c9,DI,non,2021-09-01,elu_local,clotilde,robin,1972-11-10,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Loire (42),oui
 036c322f-0113-45c8-9317-9d69d73cf907,DI,non,2021-08-11,elu_local,Rosine,Robinet,1980-10-16,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Corrèze (19),oui
+f60146a2-b2e2-455e-bd0c-4a00b425ff9e,DI,non,2026-05-10,elu_local,Florian,ROBIN,1992-12-23,Membre d EPCI,Vice Président,Le Grand Narbonne,oui
+accb06e6-0c40-4d4c-a14c-cca547bfeb44,DI,oui,2026-06-26,elu_local,Florian,ROBIN,1992-12-23,Membre d EPCI,Vice Président,Le Grand Narbonne,oui
 aff14192-37c4-47b7-9029-8768da7cdb12,DI,non,2021-10-23,elu_local,Annie,ROBINSON CHOCHO,1956-12-06,Collectivité à statut particulier,Vice présidente déléguée à l'éducation et aux constructions scolaires,Assemblée de Guyane,oui
 1633a384-455d-4440-89aa-dba28082a954,DI,non,2022-05-22,elu_local,Annie,ROBINSON CHOCHO,1956-12-06,Collectivité à statut particulier,Vice-présidente,Assemblée de Guyane,oui
 2641bbfa-626a-4eee-a24f-08a9334972fb,DI,non,2021-08-25,autre,ELISABETH,ROBLOT,1968-09-01,Autre,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
@@ -5042,6 +5139,7 @@ eef76ebc-aa8e-49ec-91bc-269c13e33c01,DIA,non,2025-09-05,depute,Anne-Sophie,Ronce
 1a36ce5f-5c29-45ae-ada1-b9aef842b504,DIA,non,2023-11-29,senateur,David,ROS,1970-08-10,Sénateur,Député ou sénateur,Essonne(91),oui
 3ac25058-f5e1-4e73-b16e-7894df80f59e,DIA,non,2024-02-09,senateur,David,ROS,1970-08-10,Sénateur,Député ou sénateur,Essonne(91),oui
 a4b921a4-059c-43ac-adea-c9d4593d2bc4,DIA,oui,2024-06-23,senateur,David,ROS,1970-08-10,Sénateur,Député ou sénateur,Essonne(91),oui
+8c72b921-9f01-42ce-a805-f7ef01a81ae9,DI,non,2026-05-06,elu_local,Jeremy,ROSEAU,1978-08-11,Membre d EPCI,Président,TERRE D'AUGE,oui
 5fc43c97-74f6-43cd-9039-57aaa43806c0,DIA,non,2024-08-01,depute,xavier,ROSEREN,1970-01-12,Député,Député ou sénateur,Haute-Savoie(74),oui
 f7cb9699-299a-46f0-a95d-2bb144c08db4,DIA,oui,2024-10-14,depute,xavier,ROSEREN,1970-01-12,Député,Député ou sénateur,Haute-Savoie(74),oui
 125f636c-a3c3-40d2-8622-8fdfc7a7a104,DI,non,2021-07-07,elu_local,Alexandra,Rosetti,1967-09-14,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Yvelines (78),oui
@@ -5163,6 +5261,8 @@ a7bb7af5-3b44-4fab-a4d5-add678f82378,DI,oui,2022-05-20,elu_local,Martial,SADDIER
 bd3ce0a8-2b58-4014-ae85-b73867bf32d0,DI,oui,2025-02-17,elu_local,Martial,SADDIER,1969-10-15,Elu départemental,Président,Haute-Savoie (74),oui
 21b12da7-cf32-4bf8-8126-ffb8cf2e8dda,DI,oui,2026-04-03,elu_local,Martial,SADDIER,1969-10-15,Elu départemental,Président,Haute-Savoie (74),oui
 322a15a5-e5a8-4049-9ba0-b22724f0c459,DI,non,2021-06-28,elu_local,Abdel-Madjid,SADI,1962-02-11,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Seine-Saint-Denis (93),oui
+383e7f7e-711d-4761-a8d3-fb70db48f32d,DI,oui,2026-06-06,elu_local,Christine,Sadin,1966-02-14,Membre d EPCI,Vice Présidente,capi,oui
+b7ec6b0b-a9c1-46ae-83ca-5bd2c2bc3518,DI,oui,2026-08-05,elu_local,Christine,Sadin,1966-02-14,Membre d EPCI,Vice-Présidente,CAPI,oui
 80e6949b-9321-4dc9-bf80-c801841b5bbc,DI,non,2021-09-07,elu_local,Jean Philippe,Sadoul,1964-11-12,Elu départemental,Vice Président,Aveyron (12),oui
 43802413-cfc8-438c-a2d6-709edac0fbfd,DI,non,2021-11-23,elu_local,MARIE PIERRE,SADOURNY GOMEZ,1962-11-11,Elu départemental,vice-presidente,Pyrénées-Orientales (66),oui
 857c8fb2-ddf8-47ba-a54c-6102a378458f,DI,non,2022-04-04,elu_local,MARIE PIERRE,SADOURNY GOMEZ,1962-11-11,Elu départemental,vice président titulaire d'une délégation,Pyrénées-Orientales (66),oui
@@ -5212,6 +5312,10 @@ f1401c69-6097-485b-ada5-1362d415cec6,DI,non,2022-11-29,elu_local,Paul,SALVADOR,1
 1e1b1008-911a-4c78-8a5b-1d4a1c563709,DI,oui,2023-01-02,elu_local,Andrée,Samat,1950-08-07,Elu départemental,Vice-Présidente titulaire d'une délégation,Var (83),oui
 2ac1e72f-6dd9-47d4-88dd-6ca1c28e0485,DI,oui,2024-12-12,elu_local,Andrée,Samat,1950-08-07,Elu départemental,Vice Présidente titulaire d'une délégation,Var (83),oui
 953d671f-8216-45f2-90bb-23218f0e1dea,DI,non,2021-07-19,elu_local,Nicolas,SAMSOEN,1970-12-29,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Essonne (91),oui
+d484da45-ab32-4225-846e-8868c64eb01f,DI,non,2026-05-24,elu_local,david,samzun,1970-01-20,Maire ou adjoint municipal,MAIRE,Saint-Nazaire (44),oui
+12961b41-5246-44fb-a8ca-091e8b4c637b,DI,non,2026-05-27,elu_local,david,samzun,1970-01-20,Membre d EPCI,President,Carène ST NAZAIRE AGGLO,oui
+f15eb486-6c11-4e9c-8aec-aa92a8eb688a,DI,oui,2026-08-01,elu_local,david,samzun,1970-01-20,Membre d EPCI,President,Carene ST Nazaire Agglo,oui
+46175263-d72e-46db-82be-5d2776ece342,DI,non,2026-08-01,elu_local,david,samzun,1970-01-20,Maire ou adjoint municipal,Maire,Saint-Nazaire (44),oui
 3f4fc9b3-bb45-4467-a56d-ea628b8d693e,DI,non,2024-09-15,depute_europeen,Julien,SANCHEZ,1983-10-19,Député européen,Député européen,,oui
 3b8ba36f-c87f-4d79-b838-64dc8b0f51a7,DI,oui,2024-11-25,depute_europeen,Julien,SANCHEZ,1983-10-19,Député européen,Député européen,,oui
 fa340c88-367c-4f4b-89b3-67dde9480a78,DI,non,2021-08-28,elu_local,helene,sandragne,1960-01-23,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Aude (11),oui
@@ -5226,8 +5330,6 @@ e09c1895-27ef-4102-82e4-c18a5ecc8d24,DI,oui,2021-10-25,elu_local,thierry,santell
 d9188911-b5fa-466e-a16d-43b093bc51b8,DI,oui,2022-08-31,elu_local,thierry,santelli,1970-07-21,Elu départemental,vice president,Bouches-du-Rhône (13),oui
 433c3363-8c9a-4bd0-ae89-7040ab7492c3,DIA,non,2024-07-23,depute,isabelle,santiago,1965-09-20,Député,Député ou sénateur,Val-de-Marne(94),oui
 3e79c06c-c1c7-4b74-8533-2f25eae1ee82,DIA,oui,2025-02-07,depute,isabelle,santiago,1965-09-20,Député,Député ou sénateur,Val-de-Marne(94),oui
-96393779-0de3-4965-a3fa-843729ccd94b,DI,non,2021-09-01,elu_local,DOMINIQUE,SANTONI,1964-04-16,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Vaucluse (84),oui
-3a8ea452-e1c4-4a29-8f28-b9ccc79efc8f,DI,oui,2021-10-28,elu_local,DOMINIQUE,SANTONI,1964-04-16,Elu départemental,président,Vaucluse (84),oui
 a2ad2d8b-a70f-4e7b-9129-25f073cc6b9e,DI,oui,2024-09-08,depute_europeen,eric,sargiacomo,1969-10-31,Député européen,Député européen,,oui
 7a365943-4d88-4a4c-9c63-13bfdb94a7be,DI,oui,2024-11-24,depute_europeen,eric,sargiacomo,1969-10-31,Député européen,Député européen,,oui
 7e8ce0ac-d70b-422a-ac02-149776c2d566,DI,non,2023-06-21,elu_local,sylvie,SARTIRANO,1968-10-07,Elu départemental,conseillère départementale,Allier (03),oui
@@ -5261,8 +5363,12 @@ ad6587cb-5c02-4f3b-89b1-5350800f5bec,DIA,non,2024-03-18,senateur,pascal,savoldel
 cd665bb8-d96c-4c68-ad08-e0321e57c252,DI,non,2024-09-12,depute_europeen,SBAI,Majdouline,1977-09-10,Député européen,Député européen,,oui
 54776631-4051-4c06-9530-4641fe1439ca,DIA,non,2024-09-05,depute,Raphael,Schellenberger,1990-02-14,Député,Député ou sénateur,Haut-Rhin(68),oui
 5e524467-a33c-462e-bf50-407c1021bb04,DIA,oui,2025-03-18,depute,Raphael,Schellenberger,1990-02-14,Député,Député ou sénateur,Haut-Rhin(68),oui
+feedfe49-708b-43b2-961c-7fb85364dc9c,DI,non,2026-05-10,elu_local,Matthieu,Schlesinger,1982-02-23,Maire ou adjoint municipal,Maire,Olivet (45),oui
+7d2aea1a-01c5-47e9-8fce-c57a001056e1,DI,oui,2026-07-01,elu_local,Matthieu,Schlesinger,1982-02-23,Maire ou adjoint municipal,Maire,Olivet (45),oui
 224a061b-c806-4efd-9eff-ddacbb7b4a8a,DI,non,2021-08-29,elu_local,Pascale,SCHMIDIGER,1961-09-15,Collectivité à statut particulier,Elu local ou membre d’un établissement public de coopération intercommunale,Conseil départemental d'Alsace,oui
 67333017-c96e-4c5c-8c66-da6473ecc3ee,DI,non,2022-10-01,elu_local,Pascale,SCHMIDIGER,1961-09-15,Collectivité à statut particulier,vice président,Conseil départemental d'Alsace,oui
+ac41bbcb-4281-4038-87dd-296c0c52f57a,DI,non,2026-04-11,elu_local,Gilles,SCHMITT,1974-06-23,Membre d EPCI,VP,Cotentin,oui
+3dc23101-40a9-4460-9ed4-c366810da72a,DI,non,2026-07-03,elu_local,Gilles,SCHMITT,1974-06-23,Membre d EPCI,VP,Cotentin,oui
 c5fefb2c-3c37-4c4d-9704-a3f187360d21,DI,non,2021-09-16,elu_local,Nathalie,SCHMITT,1964-11-18,Elu départemental,Vice-présidente en charge de la Jeunesse et des Collèges,Savoie (73),oui
 367364a6-77c4-42e7-9527-66b7be5f31db,DI,oui,2022-10-02,autre,Nathalie,SCHMITT,1964-11-18,Elu d�partemental/Savoie (73)/,Titulaire d'une fonction soumise uniquement au dépôt d’une déclaration d’intérêts,,oui
 273613e8-c0c5-4e59-ac95-5d49304f6fac,DI,non,2022-09-14,elu_local,Brigitte,Schneider,1968-03-24,Elu départemental,"Vice-Présidente déléguée à l'insertion, l'emploi, la formation",Moselle (57),oui
@@ -5275,6 +5381,7 @@ b4c04f7b-3ca7-4033-9221-160bccb2b7ed,DIA,non,2025-05-14,depute,Philippe,SCHRECK,
 5447cd70-dfe6-46c3-b6f7-4a077ccf7f64,DI,oui,2021-10-16,elu_local,Gilbert,SCHUH,1953-06-07,Elu départemental,"Vice président délégué aux relations internationales, au transfrontalier, au multilinguisme, et à la Grande Région",Moselle (57),oui
 749c03ed-935f-42d9-9a0e-5e3aad68bb8e,DI,oui,2022-08-08,elu_local,Gilbert,SCHUH,1953-06-07,Elu départemental,"Vice président délégué aux relations internationales, au transfrontalier, au multilinguisme, et à la Grande Région",Moselle (57),oui
 7af79310-26d1-4b27-aa99-da41cfb66059,DI,oui,2023-04-18,elu_local,Gilbert,SCHUH,1953-06-07,Elu départemental,"Vice président délégué aux relations internationales, au transfrontalier, au multilinguisme, et à la Grande Région",Moselle (57),oui
+17be2e41-fd63-498a-855a-01ea764a9e60,DI,oui,2026-05-10,elu_local,Gilbert,SCHUH,1953-06-07,Elu départemental,vice-président titulaire d'une délégation27032023,Moselle (57),oui
 b050753c-9ded-4d83-9f97-9cffa6114496,DI,non,2021-08-18,elu_local,MURIEL,SCOLAN,1954-03-08,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Val-d'Oise (95),oui
 49e904ff-343d-42f9-9808-e2efba0ecba4,DI,oui,2022-10-17,elu_local,MURIEL,SCOLAN,1954-03-08,Elu départemental,Vice présidente titulaire d'une délégation,Val-d'Oise (95),oui
 4cccac84-1587-436a-9a1c-340d71ff693a,DIA,non,2024-09-04,depute,SABRINA,SEBAIHI,1981-05-10,Député,Député ou sénateur,Hauts-de-Seine(92),oui
@@ -5322,12 +5429,13 @@ c868df8d-3bb5-464c-b724-23126a8242ef,DI,oui,2023-09-25,elu_local,Françoise,SERR
 ccbbe015-e353-44d2-abd9-065489122c13,DIA,non,2024-08-07,depute,OLIVIER,SERVA,1974-06-21,Député,Député ou sénateur,Guadeloupe(971),oui
 3a6d2f2b-2788-4fd0-b0c3-5701b4bdc213,DIA,oui,2025-11-14,depute,OLIVIER,SERVA,1974-06-21,Député,Député ou sénateur,Guadeloupe(971),oui
 bbac25f4-8c73-4bbb-82c9-dd3fd263705d,DI,non,2021-10-08,elu_local,CLEMENT,SERVAT,1982-06-02,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Pyrénées-Atlantiques (64),oui
-f9aac3db-0243-439c-b890-e7957aa99dd8,DI,non,2022-11-17,elu_local,Gabriel,SERVILLE,1959-09-27,Elu régional,Président,Guyane (03),oui
-a9223fab-6ada-414f-b992-3dad86e4263a,DI,non,2023-01-28,elu_local,Gabriel,SERVILLE,1959-09-27,Elu régional,Président,Guyane (03),oui
+4ec88bb4-2046-465f-8188-6131bc874a45,DI,non,2026-05-06,elu_local,Cédric,Seureau,1982-05-17,Membre d EPCI,Vice-Président chargé de l'eau et l'assainissement et les eaux pluviales urbaines,Lannion-Trégor Communauté,oui
 1d056616-6d43-4e7a-a8ef-0e3be7bea32c,DI,non,2023-07-07,elu_local,Edwin,SHIRO ABE PEU,1950-06-05,Collectivité à statut particulier,Représentant de l'assemblée,Assemblée de la Polynésie française,oui
 0117a4e7-aa55-4f59-b3cd-36ab3ece035e,DI,non,2024-05-22,elu_local,Edwin,SHIRO ABE PEU,1950-06-05,Elu régional,Représentant de l'APF,Tahiti,oui
 26e020ba-1c40-4538-820d-0d8482c55d56,DIA,non,2024-09-05,depute,ANNE,SICARD,1967-06-15,Député,Député ou sénateur,Val-d'Oise(95),oui
 82cc7d87-7025-4db0-a319-fe190a32c6c3,DIA,oui,2025-03-31,depute,ANNE,SICARD,1967-06-15,Député,Député ou sénateur,Val-d'Oise(95),oui
+7f850f65-118a-4f80-a637-80d3df436324,DIA,oui,2026-05-09,depute,ANNE,SICARD,1967-06-15,Député,Député ou sénateur,Val-d'Oise(95),oui
+ef1634ff-ae46-481c-8142-e9a825b6c863,DIA,oui,2026-07-29,depute,ANNE,SICARD,1967-06-15,Député,Député ou sénateur,Val-d'Oise(95),oui
 f0bf236a-1cce-4423-9a20-32f01b3b64ad,DI,non,2024-12-08,elu_local,Julie,ILIOZER,1987-03-19,Elu départemental,Conseillère déléguée à la Culture,Ardèche (07),oui
 9a55f518-6cf0-43ea-9b24-7a761699b1f7,DI,oui,2024-12-18,elu_local,Julie,ILIOZER,1987-03-19,Elu départemental,Conseillère départementale déléguée à la Culture,Ardèche (07),oui
 9c064bc1-6819-4203-907e-72891f9ad676,DIA,non,2023-11-11,senateur,Bruno,Sido,1951-02-19,Sénateur,Député ou sénateur,Haute-Marne(52),oui
@@ -5335,13 +5443,11 @@ f0bf236a-1cce-4423-9a20-32f01b3b64ad,DI,non,2024-12-08,elu_local,Julie,ILIOZER,1
 36c34bf5-fdae-4b7c-b546-af15ddef303a,DI,oui,2021-08-27,elu_local,Nicolas,Siegler,1980-12-06,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Nord (59),oui
 e038e0e6-abb7-4ac3-aa54-c235ab567eb0,DI,oui,2021-12-14,elu_local,Nicolas,Siegler,1980-12-06,Elu départemental,Vice-président,Nord (59),oui
 6804c17a-dcb0-4d58-9399-83d28b84d59d,DI,oui,2024-05-26,elu_local,Nicolas,Siegler,1980-12-06,Elu départemental,Vice-président,Nord (59),oui
+92eab0b5-1d08-4c69-b9a8-79949ed74930,DI,oui,2026-05-19,elu_local,Nicolas,Siegler,1980-12-06,Elu départemental,Vice-président de conseil départemental,Nord (59),oui
 fcd2a6e5-e651-4c40-bf2b-d4c1a8906560,DI,non,2021-07-07,elu_local,Georges,SIFFREDI,1956-07-28,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Hauts-de-Seine (92),oui
 17230af8-9879-4026-94d2-172562716471,DI,non,2021-08-30,elu_local,Hélène,SIGOT-LEMOINE,1965-02-07,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Meuse (55),oui
 12f57eff-2154-4c80-b671-8b3fa9cfc897,DI,oui,2022-09-19,elu_local,Hélène,SIGOT-LEMOINE,1965-02-07,Elu départemental,vice-président,Meuse (55),oui
 7d1e1d6e-c1c7-48c8-8b27-f16ee9a3296d,DI,non,2022-03-24,elu_local,MIKAEL,SIHOU,1979-03-01,Elu régional,conseille commerce artisanat,La Réunion (04),oui
-44068f23-fea1-4f5f-837b-5d91c1cc37dd,DI,non,2022-01-12,elu_local,Antoine,Sillani,1991-03-13,Elu régional,Conseiller Régional Délégué,Hauts-de-France (32),oui
-f42a6d82-1364-4809-8966-380b28e323b3,DI,oui,2023-07-10,elu_local,Antoine,Sillani,1991-03-13,Elu régional,conseiller regional délégué,Hauts-de-France (32),oui
-e47be5a0-2b93-419f-a18e-cd22c94c2f33,DI,oui,2024-03-17,elu_local,Antoine,Sillani,1991-03-13,Elu régional,VICE PRESIDENT EN CHARGE DU SPORT DE LA JEUNESSE ET DE LA VIE ASSOCIATIVE,Hauts-de-France (32),oui
 0ed220a2-e214-4a6d-9ef0-8e6aa0b896f0,DI,oui,2024-03-21,elu_local,Antoine,Sillani,1991-03-13,Elu régional,"vice président titulaire d'une délégation, en charge du sport, de la jeunesse et de la vie associative",Hauts-de-France (32),oui
 e53f3c06-c90a-4303-bb31-2f420c066523,DI,oui,2025-09-21,elu_local,Antoine,Sillani,1991-03-13,Elu régional,vice-président en charge des sports de la jeunesse et de la vie associative,Hauts-de-France (32),oui
 25a893cf-d731-47e4-9809-cf62c2e837bf,DI,oui,2025-12-26,elu_local,Antoine,Sillani,1991-03-13,Elu régional,vice-président en charge des sports de la jeunesse et de la vie associative,Hauts-de-France (32),oui
@@ -5413,6 +5519,7 @@ c5ac246f-a4e3-4091-bb26-030af01337ac,DIA,oui,2026-04-08,depute,Thierry,Sother,19
 8f98b062-320e-4f0b-8c29-f8db923a0f91,DI,oui,2021-09-10,elu_local,Yann,SOULABAILLE,1969-02-16,Elu départemental,Vice president,Ille-et-Vilaine (35),oui
 b6284711-bea2-4afb-835c-cdfa4ad71d81,DI,oui,2022-08-04,elu_local,Yann,SOULABAILLE,1969-02-16,Elu départemental,"vice-président Biodiversité, Espaces Naturels et Eau",Ille-et-Vilaine (35),oui
 2720088d-2ccc-4052-ba25-ff5813df56fb,DI,oui,2021-08-26,elu_local,Bérengère,Soulard,1973-07-29,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Vendée (85),oui
+aca45f30-b698-4d03-82cb-2560d36a7367,DI,non,2026-04-09,elu_local,frédéric,soulier,1965-12-08,Maire ou adjoint municipal,maire,Brive-la-Gaillarde (19),oui
 42650542-62cf-4085-a573-03a6e703e486,DI,non,2021-10-03,elu_local,Samia,Soultani-Vigneron,1972-02-18,Elu régional,Vice-présidente titulaire d'une délégation,Pays de la Loire (52),oui
 150f35a3-f303-48d9-a721-201cc0a021fa,DI,oui,2023-10-03,elu_local,Samia,Soultani-Vigneron,1972-02-18,Elu régional,Vice-présidente titulaire d’une délégation,Pays de la Loire (52),oui
 db9b42f0-4605-4f82-976c-0797d2b30b49,DI,oui,2024-09-10,elu_local,Samia,Soultani-Vigneron,1972-02-18,Elu régional,Vice-présidente titulaire d une délégation,Pays de la Loire (52),oui
@@ -5673,6 +5780,8 @@ aebe314b-6e8c-447d-80a8-a6052fc4af49,DI,oui,2022-10-15,elu_local,Yves,TROUSSELLE
 fda19537-23ca-4894-8fe3-82289f7580bd,DI,non,2021-07-27,elu_local,Stéphane,TROUSSEL,1970-04-07,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Seine-Saint-Denis (93),oui
 7d58b22c-3f26-4460-b2aa-6ac82750326d,DIA,non,2024-07-14,depute,Aurélie,Trouvé,1979-09-20,Député,Député ou sénateur,Seine-Saint-Denis(93),oui
 861435e6-0a98-4c7e-8716-fcd746b0593d,DIA,oui,2024-10-12,depute,Aurélie,Trouvé,1979-09-20,Député,Député ou sénateur,Seine-Saint-Denis(93),oui
+19ce54b8-4736-4872-8c6d-0dbb60e2ebe1,DIA,non,2026-01-07,depute,Nicolas,TRYZNA,1987-12-15,Député,Député ou sénateur,Val-de-Marne(94),oui
+a1de675b-3dc5-4633-8b6e-0282e2844e0d,DIA,non,2026-07-20,depute,Nicolas,TRYZNA,1987-12-15,Député,Député ou sénateur,Val-de-Marne(94),oui
 446617f9-695a-4b84-a4d3-506c7b4dc916,DI,non,2023-07-10,elu_local,Vahinetua Hilda,TUAHU,1963-04-16,Collectivité à statut particulier,Représentant Assemblée Territoriale de la Polynésie Française,Assemblée de la Polynésie française,oui
 a0b80e3e-8096-4709-a1a3-4ba6b16b7a05,DI,non,2023-10-05,elu_local,Vahinetua Hilda,TUAHU,1963-04-16,Collectivité à statut particulier,représentant,Assemblée de la Polynésie française,oui
 043fbdb2-2e8a-4bbd-b4ea-7c7eb4eb941b,DI,oui,2024-08-27,elu_local,GILLES,TURLAN,1969-07-17,Elu départemental,Vice-Président,Tarn (81),oui
@@ -5757,6 +5866,8 @@ aa455323-58c4-48a7-8d65-b85e2b6ff459,DI,oui,2023-05-04,elu_local,Patrice,VERCHER
 d835b749-43a6-49f6-97f2-407e9f5ace78,DI,oui,2023-02-04,elu_local,bernard,verdier,1947-05-25,Elu départemental,vice-president,Hautes-Pyrénées (65),oui
 cc1dedf3-b94f-4e90-bc18-1efad6bc0e25,DI,non,2021-08-24,elu_local,Nelly,VERGEZ,1972-02-27,Elu départemental,Elu local ou membre d’un établissement public de coopération intercommunale,Charente (16),oui
 b3cffe5b-b673-40f8-bce2-b48f7160ed68,DI,non,2026-04-02,elu_local,Magali,Vergnes,1961-10-24,Elu départemental,Conseillere,Aude (11),oui
+601c31af-5071-40ea-8064-7d15a2f5a12b,DI,non,2026-04-05,elu_local,Patrice,VERGRIETE,1968-07-04,Membre d EPCI,président,Communauté urbaine de Dunkerque,oui
+bc549a4d-1042-49fa-80f3-b56f631c9a41,DI,non,2026-04-05,elu_local,Patrice,VERGRIETE,1968-07-04,Maire ou adjoint municipal,Maire,Dunkerque (59),oui
 83d73a43-8e92-40c8-9f68-20fafa42fa0f,DI,oui,2021-10-04,elu_local,Pierre,Véricel,1955-10-01,Elu départemental,conseiller titulaire délégation,Loire (42),oui
 f5b2dbec-05ae-46e6-9132-bcb55db947e2,DI,oui,2022-04-08,elu_local,Pierre,Véricel,1955-10-01,Elu départemental,Délégué,Loire (42),oui
 956604ad-19c2-4c62-8fa9-44a249ccc893,DIA,non,2023-10-28,senateur,SYLVIE,VERMEILLET,1967-06-10,Sénateur,Député ou sénateur,Jura(39),oui
@@ -5764,6 +5875,8 @@ f5b2dbec-05ae-46e6-9132-bcb55db947e2,DI,oui,2022-04-08,elu_local,Pierre,Véricel
 657971c3-0e21-438c-876e-da52efcf880c,DIA,oui,2025-09-11,senateur,SYLVIE,VERMEILLET,1967-06-10,Sénateur,Député ou sénateur,Jura(39),oui
 87147c9d-43eb-45af-94bf-29ea2ad81bf6,DI,non,2021-09-14,elu_local,brigitte,vermillet,1958-08-01,Elu départemental,vice-président titualaire d'une délégation,Essonne (91),oui
 d177f829-f028-472c-ae84-3f859ad89d2b,DI,non,2023-05-14,elu_local,brigitte,vermillet,1958-08-01,Elu départemental,vice présidente,Essonne (91),oui
+cddb4ec3-ee41-43a5-b701-7309195d0edb,DI,oui,2026-05-10,elu_local,brigitte,vermillet,1958-08-01,Elu départemental,vice présidente,Essonne (91),oui
+9d38dd5c-79ae-45f9-9434-4769d385d4a9,DI,non,2026-09-20,elu_local,brigitte,vermillet,1958-08-01,Elu départemental,Vice présidente,Essonne (91),oui
 c2d65bcc-3998-41e4-bf0e-560c8322b38f,DIA,non,2024-07-25,depute,ANTOINE,VERMOREL,1993-02-17,Député,Député ou sénateur,Loire(42),oui
 19573bb3-e67f-407d-af2f-a028012dc631,DIA,oui,2024-10-02,depute,ANTOINE,VERMOREL,1993-02-17,Député,Député ou sénateur,Loire(42),oui
 13df0835-5ce3-48ad-acaf-294ab878acef,DIA,oui,2025-06-16,depute,ANTOINE,VERMOREL,1993-02-17,Député,Député ou sénateur,Loire(42),oui

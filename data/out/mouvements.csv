@@ -66,6 +66,10 @@ Henri,Alfandari,interets,JPMJA,,position_initiale,,,e4d5cecb-e29c-43cf-a607-ea30
 Henri,Alfandari,interets,SC Trésorière,,position_initiale,,,e4d5cecb-e29c-43cf-a607-ea304f17bf9a,2024-07-19,,31893,,7997023,,
 Henri,Alfandari,interets,Holding Saint Gatien,,baisse,e4d5cecb-e29c-43cf-a607-ea304f17bf9a,2024-07-19,6f894a12-7a5b-4bf6-b0ae-78dcde8f7d3d,2024-10-01,1,1,2509,2190,0,-319
 Henri,Alfandari,interets,SC Trésorière,,hausse,e4d5cecb-e29c-43cf-a607-ea304f17bf9a,2024-07-19,6f894a12-7a5b-4bf6-b0ae-78dcde8f7d3d,2024-10-01,31893,54611,7997023,7997023,22718,0
+olivier,allain,interets,earl de la roche blanche,,apparition,775e45f3-c111-4d26-8830-b69ae2e675b8,2026-03-03,0fb5d5de-faef-4180-9da0-57ea4c099742,2026-06-23,,50,,4000,50,4000
+olivier,allain,interets,fdj united,,apparition,775e45f3-c111-4d26-8830-b69ae2e675b8,2026-03-03,0fb5d5de-faef-4180-9da0-57ea4c099742,2026-06-23,,1,,3013,1,3013
+olivier,allain,interets,participation crca,,apparition,775e45f3-c111-4d26-8830-b69ae2e675b8,2026-03-03,0fb5d5de-faef-4180-9da0-57ea4c099742,2026-06-23,,1,,15093,1,15093
+olivier,allain,interets,sarl de kerimard,,apparition,775e45f3-c111-4d26-8830-b69ae2e675b8,2026-03-03,0fb5d5de-faef-4180-9da0-57ea4c099742,2026-06-23,,41,,4100,41,4100
 Alexandre,ALLEGRET-PILOT,interets,21 YIELD,,position_initiale,,,1440b4f5-1ae9-4ae4-a892-a93b5cd78437,2024-09-05,,0,,21000,,
 Alexandre,ALLEGRET-PILOT,interets,4A ENGINEERING,,position_initiale,,,1440b4f5-1ae9-4ae4-a892-a93b5cd78437,2024-09-05,,4000,,163200,,
 Alexandre,ALLEGRET-PILOT,interets,Air France,,position_initiale,,,1440b4f5-1ae9-4ae4-a892-a93b5cd78437,2024-09-05,,0,,30,,
@@ -522,11 +526,6 @@ Pierre-Henri,Carbonnel,interets,SASU PAG,,apparition,d530b60c-9e1c-4682-9143-cc8
 Marie-Claire,CARRERE-GEE,interets,SLE Bearn,,position_initiale,,,3a7e2d48-7996-4452-83ca-91ba9e093583,2025-02-05,,236,,4720,,
 THIERRY,CARRERE,interets,SARL 2C,,position_initiale,,,0e75ed9f-00f5-4a73-a3fc-007a6eb8f363,2021-08-08,,1000,,3750,,
 MAUD,CARUHEL,interets,RAILCOOP,,apparition,f8f0fbb2-00f0-4795-9a1b-5c4dff6974ad,2021-09-18,bef50bd5-75a0-46b1-833b-27eb0d8a61af,2022-10-02,,1,,100,1,100
-Laurent,Castillo,interets,SAS Castillo Patrimoine,,position_initiale,,,02b01a67-7d68-4451-8089-db23908609c6,2024-08-30,,200,,32000,,
-Laurent,Castillo,interets,SAS NISSORL,,position_initiale,,,02b01a67-7d68-4451-8089-db23908609c6,2024-08-30,,200,,1053,,
-Laurent,Castillo,interets,All is event,,apparition,02b01a67-7d68-4451-8089-db23908609c6,2024-08-30,281267e7-0b5d-445e-ab87-f0f57174cc6d,2025-09-04,,150,,260000,150,260000
-Laurent,Castillo,interets,SAS Castillo Patrimoine,,disparition,02b01a67-7d68-4451-8089-db23908609c6,2024-08-30,281267e7-0b5d-445e-ab87-f0f57174cc6d,2025-09-04,200,,32000,,-200,-32000
-Laurent,Castillo,interets,SAS NISSORL,,hausse,02b01a67-7d68-4451-8089-db23908609c6,2024-08-30,281267e7-0b5d-445e-ab87-f0f57174cc6d,2025-09-04,200,200,1053,550000,0,548947
 Jean-Victor,CASTOR,interets,EIFFAGE ENERGIE,,position_initiale,,,9cba0aba-8f0f-46ef-812a-2ec8bcdbe5e7,2024-08-19,,6,,1520,,
 Loïc,Cathelain,interets,3M,,position_initiale,,,20dd292d-f8e6-43b8-9aac-74cd0d15e527,2021-07-28,,7,,1188,,
 Loïc,Cathelain,interets,ABC Arbitrage,,position_initiale,,,20dd292d-f8e6-43b8-9aac-74cd0d15e527,2021-07-28,,305,,2159,,
@@ -563,6 +562,7 @@ Loïc,Cathelain,interets,TF1,,position_initiale,,,20dd292d-f8e6-43b8-9aac-74cd0d
 Loïc,Cathelain,interets,Total,,position_initiale,,,20dd292d-f8e6-43b8-9aac-74cd0d15e527,2021-07-28,,99,,3608,,
 JEAN LOUIS,CAZAUBON,interets,sarl les 2 pics,,position_initiale,,,de4dec1a-3825-4be8-a098-c0b544b3787f,2021-12-06,,250,,250000,,
 JEAN LOUIS,CAZAUBON,interets,sarl les 2 pics,,baisse,de4dec1a-3825-4be8-a098-c0b544b3787f,2021-12-06,41c66c04-75ec-4020-ac5b-ddf375a29ff4,2022-11-24,250,70,250000,70000,-180,-180000
+Thomas,CAZENAVE,interets,Ecole de la rénovation énergétique,,position_initiale,,,30d39bf4-149e-45d2-94ef-18b8f17544f0,2026-04-11,,3240,,90268,,
 JEAN-RENE,CAZENEUVE,interets,Alstom,,position_initiale,,,cab7a965-036e-4546-be89-2fdfcef58b5b,2024-08-14,,32,,548,,
 JEAN-RENE,CAZENEUVE,interets,Bouygues SA,,position_initiale,,,cab7a965-036e-4546-be89-2fdfcef58b5b,2024-08-14,,11808,,356728,,
 JEAN-RENE,CAZENEUVE,interets,LACLAREE,,position_initiale,,,cab7a965-036e-4546-be89-2fdfcef58b5b,2024-08-14,,10000,,129390,,
@@ -727,6 +727,7 @@ Edouard,COURTIAL,interets,SAS FARM'R,,apparition,b1a513e0-0782-4cfe-af01-cf55da6
 Edouard,COURTIAL,interets,SAS FC CHAMBLY OISE,,apparition,b1a513e0-0782-4cfe-af01-cf55da624771,2023-11-20,200e25a6-d261-41c4-ac81-c0a384fac991,2024-02-12,,1,,1000,1,1000
 Edouard,COURTIAL,interets,SAS FARM'R,,disparition,cd3e96e0-4dc6-49c1-a958-225dbfb3ac3d,2024-05-07,2a7fc6a8-7355-410a-8f43-ffade5774932,2025-05-19,80,,4972,,-80,-4972
 JEAN-PHILIPPE,COURTOIS,interets,AUCUNE,,position_initiale,,,d23961f9-e59b-40b6-9c09-fdd1c39d7a82,2021-09-09,,0,,0,,
+Valerie,Coussinet,interets,ECHO FORMATIONS,,position_initiale,,,dc045b96-c2bf-4a9c-b8ee-73bdca4eab47,2026-04-08,,10000,,1000,,
 Sylvie,COUTHERUT,interets,C.Y. Constructions,,apparition,8f7501c7-6895-48f4-b3c6-3378a1c8c52e,2021-09-13,255a3820-dd9e-46c6-94a6-b785a1d97bb0,2022-02-07,,1,,2300,1,2300
 Dominique,COUTIERE,interets,PASKAP,,position_initiale,,,a2225105-10a6-4235-a719-52474ea3ba81,2021-09-10,,800,,44932,,
 Dominique,COUTIERE,interets,SCDC,,position_initiale,,,a2225105-10a6-4235-a719-52474ea3ba81,2021-09-10,,23508,,68903000,,
@@ -763,9 +764,6 @@ MAEL,DE CALAN,interets,Al Louarn Conseil SASU,,position_initiale,,,832ca758-d822
 MAEL,DE CALAN,interets,Corum Butler SAS,,position_initiale,,,832ca758-d822-4035-8fff-45ecfbf81082,2021-09-12,,71570,,1000000,,
 MAEL,DE CALAN,interets,Al Louarn Conseil SASU,,baisse,1a077420-ab4f-4cd8-9632-c45c11130c35,2021-12-14,0c44cc22-0ad7-4b36-bb04-ac739bb68d00,2023-05-13,1000,1000,55000,52000,0,-3000
 MAEL,DE CALAN,interets,Corum Butler SAS,,disparition,1a077420-ab4f-4cd8-9632-c45c11130c35,2021-12-14,0c44cc22-0ad7-4b36-bb04-ac739bb68d00,2023-05-13,71570,,1000000,,-71570,-1000000
-François,DE CANSON,interets,SAS BELLISA,,position_initiale,,,f69c326c-37f5-4524-9d7a-d4398adc414d,2021-07-13,,65005,,1200000,,
-François,DE CANSON,interets,SAS CAMPING DU PANSARD,,position_initiale,,,f69c326c-37f5-4524-9d7a-d4398adc414d,2021-07-13,,3000,,2000000,,
-François,DE CANSON,interets,SARL JANY FRANCE,,position_initiale,,,f69c326c-37f5-4524-9d7a-d4398adc414d,2021-07-13,,500,,139000,,
 Paolo,DE CARVALHO,interets,D2C ASSOCIES,,apparition,7617897e-cfaf-4162-8033-3b4e8710308a,2022-12-09,612b5453-e299-4e5b-9f31-2a3fe5827a24,2025-05-20,,50,,16000,50,16000
 Bénédicte,de Choulot,interets,DOUCHET DE LAVENNE ASSOCIES,,position_initiale,,,27dca0b6-f5e9-4214-9415-1d68cdde4dee,2021-08-27,,10,,10440,,
 Bénédicte,de Choulot,interets,EURL FBL,,position_initiale,,,27dca0b6-f5e9-4214-9415-1d68cdde4dee,2021-08-27,,100,,62640,,
@@ -795,6 +793,8 @@ Valéry,Denis,interets,Moodwork,,position_initiale,,,71dabfd2-e3b3-40e7-9a30-4b5
 Coralie,DENOUES,interets,ADEPRO,,position_initiale,,,9024165b-a8bb-40ac-9c73-c5916a8fb677,2021-07-28,,3000,,30000,,
 Coralie,DENOUES,interets,SARL DENOUES & Co,,position_initiale,,,9024165b-a8bb-40ac-9c73-c5916a8fb677,2021-07-28,,18000,,18000,,
 caroline,depallens,interets,SARL OPTIQUE LUNETTERIE DEPALLENS,,position_initiale,,,1a89cff9-3927-49f9-8f89-3da6e28f3da0,2021-10-19,,500,,0,,
+Patrice,Depeige,interets,LUMISCOP,,position_initiale,,,055c274f-abb3-485f-b310-8792fd5ca751,2026-04-08,,1000,,0,,
+Patrice,Depeige,interets,LUMISCOP,,disparition,055c274f-abb3-485f-b310-8792fd5ca751,2026-04-08,ccd3e222-46ca-413e-bcb7-c4c434c028eb,2026-06-22,1000,,0,,-1000,0
 Constance,de Pélichy,interets,Turboself Groupe,,position_initiale,,,e8fb6bc5-302f-4652-ba6b-f8b107dbdeb7,2024-09-06,,1000,,475000,,
 Constance,de Pélichy,interets,Turboself Groupe,,hausse,e8fb6bc5-302f-4652-ba6b-f8b107dbdeb7,2024-09-06,41aa1910-3aa7-4287-9d87-9004f85f5d25,2025-03-05,1000,2000,475000,834000,1000,359000
 jean-luc,deprince,interets,earl de duges,,position_initiale,,,fa2ae980-e033-445c-b60b-08e213a36370,2021-11-22,,207,,3187,,
@@ -902,8 +902,6 @@ Céline,Dolgopyatoff Burlet,interets,SAS ARIES,,disparition,8db5bdce-7cbc-4c50-a
 ALEXANDRA,DUBLANCHE,interets,SCP SCGD,,position_initiale,,,3061f661-8db4-484a-ab2b-a7c39456dd1c,2021-09-06,,20,,2000,,
 Virginie,Duby-Muller,interets,Crédit agricole,,position_initiale,,,10745e3b-abfb-4122-9044-443b8817b97a,2024-07-25,,12421,,12421,,
 Virginie,Duby-Muller,interets,SA Mont-Blanc,,position_initiale,,,10745e3b-abfb-4122-9044-443b8817b97a,2024-07-25,,2,,32,,
-Frédéric,DUCHÉ,interets,SA HLM RURALE DE L'EURE,,position_initiale,,,e26c3db5-56c9-4d07-8b05-9fd90e8da8e4,2021-09-06,,100,,20,,
-Frédéric,DUCHÉ,interets,ROBIN WOOD,,apparition,af0639bd-4365-4fac-b8cb-56defc67d228,2022-07-26,33bcabb9-f95f-4e4c-964c-bbbfd175af4d,2024-01-22,,25,,1000,25,1000
 vincent guy,ducluzeau,interets,sas bapaga,,apparition,adf9198d-3f73-45ed-81ad-c87cade2cb3c,2026-05-14,7a090d31-f3e5-4e9c-940d-46fd0189ebda,2026-06-29,,1000,,0,1000,0
 Peio,DUFAU,interets,Enargia,,position_initiale,,,69f7d02c-f2db-414b-8b88-c9ba77888ffc,2024-09-08,,1,,100,,
 Peio,DUFAU,interets,Enercoop,,position_initiale,,,69f7d02c-f2db-414b-8b88-c9ba77888ffc,2024-09-08,,1,,100,,
@@ -1018,6 +1016,7 @@ Romain,Eskenazi,interets,BPCE,,position_initiale,,,6fa5e691-dadd-45d3-b898-e1ff4
 Christian,ESTROSI,interets,SAS HOPKINS & HOPKINS,,position_initiale,,,069e497f-f067-47e4-a6fe-6b1663f33b08,2021-09-23,,1000,,1000,,
 Bixente,Etcheçaharreta,interets,Sokoa,,position_initiale,,,6dda54a2-4bdc-4d5f-a857-f6bb454443d9,2021-12-08,,50,,1164,,
 Clotilde,Eudier,interets,SAS DE Gromesnil,,apparition,06f56198-0fc6-43bd-b810-50167faa2080,2021-08-02,f387b65d-2c87-4d5a-93f3-297ac1dc2af4,2024-03-06,,50000,,0,50000,0
+Sébastien,Eugène,interets,Société Générale (PEA),,position_initiale,,,5ff8a145-9d46-44ca-887e-61f30f17f9d9,2026-04-23,,26,,1941,,
 Auguste,Evrard,interets,Caisse locale - Crédit Agricole,,position_initiale,,,900ac0d3-89ca-4556-9932-3f1d80a11043,2024-09-06,,150,,229,,
 Agnes,Evren,interets,BABYLONE EURL,,position_initiale,,,7c63b903-18ef-4af7-95c2-7fc44c4bd000,2023-11-18,,0,,2500,,
 Agnes,Evren,interets,BABYLONE EURL,,disparition,7c63b903-18ef-4af7-95c2-7fc44c4bd000,2023-11-18,fd5f820a-ca93-47d1-8720-336b913b23ed,2024-03-20,0,,2500,,0,-2500
@@ -1082,6 +1081,7 @@ Olivier,FAYSSAT,interets,Total Energies,,position_initiale,,,f698cdfc-44cb-405c-
 Olivier,FAYSSAT,interets,VEOLIA Environnement,,position_initiale,,,f698cdfc-44cb-405c-a152-1450fc58332e,2024-09-02,,20,,596,,
 Olivier,FAYSSAT,interets,VINCI,,position_initiale,,,f698cdfc-44cb-405c-a152-1450fc58332e,2024-09-02,,20,,2159,,
 Bouchra,Fenzar,interets,RIZKI BOUCHRA OPTIQUE,,position_initiale,,,d22398cd-97be-4344-940f-1de21f9c0c98,2023-07-19,,100,,0,,
+Bouchra,Fenzar,interets,RIZKI BOUCHRA OPTIQUE,,hausse,aeb0fd43-e050-4c9d-8174-3824aff2cccf,2026-04-14,64163fd5-7023-4aac-b768-4c4c69cce335,2026-08-18,100,100,0,173839,0,173839
 Thérèse,Ferde,interets,CRCAMR,,position_initiale,,,c72f2fc3-4144-4306-8bab-5eef77d5fbde,2021-09-03,,904,,1383,,
 Marc,Ferracci,interets,Icare Finance,,position_initiale,,,8d4d0d8f-d239-4b4a-8994-898e8cc05765,2026-01-06,,6049,,22670940,,
 Emmanuel,Ferrand,interets,Crédit Agricole SA,,position_initiale,,,1c26b128-7dd6-4494-8bbc-041c5810e6c2,2021-12-08,,170,,2341,,
@@ -1226,6 +1226,7 @@ jean baptiste,gagnoux,interets,Crédit agricole,,position_initiale,,,086f3d8b-cd
 LESLIE,GAILLARD,interets,EIRL LESLIE GAILLARD,,position_initiale,,,7aca1046-657b-4a88-a226-d34cc0a5db34,2021-11-03,,100,,215000,,
 sébastien,galpier,interets,cabinet de lattre,,position_initiale,,,ba1a1ad2-a90d-4b33-baa3-2144b6d110a5,2021-09-21,,3000,,30000,,
 sébastien,galpier,interets,JAUDE IMMOBILIER,,apparition,ba1a1ad2-a90d-4b33-baa3-2144b6d110a5,2021-09-21,9e7831b5-13ae-4ee5-b632-9010c1f67616,2025-02-03,,2500,,2500,2500,2500
+Vesselina,Garello,interets,Agora formation conseil,,position_initiale,,,fd1fee17-e8ce-4b5d-9882-0fb7fa6a8b0c,2026-05-09,,2,,1000,,
 Grégory,Garestier,interets,Amundi Asset Management Amundi,,position_initiale,,,02ce2483-3c93-4b3a-8d51-57f1869c837f,2025-12-23,,20,,966,,
 Grégory,Garestier,interets,Amundi PEA US Tech Screened UC,,position_initiale,,,02ce2483-3c93-4b3a-8d51-57f1869c837f,2025-12-23,,30,,2008,,
 Grégory,Garestier,interets,Amundi STOXX Europe 600 Banks,,position_initiale,,,02ce2483-3c93-4b3a-8d51-57f1869c837f,2025-12-23,,40,,2379,,
@@ -1247,6 +1248,9 @@ Laurence,Garnier,interets,Thalès,,position_initiale,,,5000b69b-5bfb-4411-83bc-2
 Laurence,Garnier,interets,Veolia Environnement,,position_initiale,,,5000b69b-5bfb-4411-83bc-27a0dd394d21,2025-02-02,,1170,,31407,,
 Laurence,Garnier,interets,Thalès,,hausse,667455cd-fe39-43df-9905-5d4128c0de23,2025-05-22,50e7dc46-b96e-426a-9a15-8ff8102e1bf1,2025-12-14,170,214,26537,49455,44,22918
 Laurence,Garnier,interets,Veolia Environnement,,hausse,667455cd-fe39-43df-9905-5d4128c0de23,2025-05-22,50e7dc46-b96e-426a-9a15-8ff8102e1bf1,2025-12-14,1170,1410,31407,41087,240,9680
+Laurence,Garnier,interets,Saint-Gobain,,apparition,50e7dc46-b96e-426a-9a15-8ff8102e1bf1,2025-12-14,b5fff35a-8fea-4a3e-a79d-37dfa6511ea1,2026-05-10,,200,,15836,200,15836
+Laurence,Garnier,interets,Thalès,,baisse,50e7dc46-b96e-426a-9a15-8ff8102e1bf1,2025-12-14,b5fff35a-8fea-4a3e-a79d-37dfa6511ea1,2026-05-10,214,214,49455,48770,0,-685
+Laurence,Garnier,interets,Veolia Environnement,,hausse,50e7dc46-b96e-426a-9a15-8ff8102e1bf1,2025-12-14,b5fff35a-8fea-4a3e-a79d-37dfa6511ea1,2026-05-10,1410,1410,41087,50506,0,9419
 Nelly,Garnier,interets,GEFIP EUROLAND,,position_initiale,,,798a2df4-3eff-489e-bc60-e9a13cbee47d,2026-07-17,,135,,62088,,
 Nelly,Garnier,interets,SG Liquidité PEA,,position_initiale,,,798a2df4-3eff-489e-bc60-e9a13cbee47d,2026-07-17,,2,,37045,,
 Thomas,Gassilloud,interets,SARL Luxinet,,position_initiale,,,b81047c6-fbe6-40ce-8c1c-14ee09d61558,2024-07-29,,22900,,875000,,
@@ -1511,6 +1515,7 @@ Laurent,Jacobelli,interets,SCPI PERIAL,,position_initiale,,,d278c7e0-a091-48f2-a
 Sylvie,Jacq,interets,SYBAJUX,,position_initiale,,,a2d40e67-cfa1-482d-8f86-74b580b3d065,2021-10-03,,0,,1,,
 OLIVIER,JACQUIN,interets,S.C.O.P. S.A. ARDELAINE,,position_initiale,,,3082a788-709d-4e1a-8bca-75d0cc5a79c7,2023-10-21,,125,,2000,,
 Yannick,Jadot,interets,Energie Partagée Investissement,,position_initiale,,,d9a8eea7-2f03-4592-978a-61a3af40af13,2023-11-17,,30,,3000,,
+Edith,JAMES,interets,SCIC Les Impertinant es,,position_initiale,,,154fe973-742b-40eb-b2f0-cc623f193248,2026-04-13,,1,,20,,
 olivier,jardé,interets,crédit agricole,,position_initiale,,,045f60d9-f00e-46ca-8337-2fc104d1134d,2021-07-19,,0,,60823,,
 olivier,jardé,interets,caisse d'epargne,,apparition,045f60d9-f00e-46ca-8337-2fc104d1134d,2021-07-19,8cfd00c8-8fb5-4c26-836a-7d607757fb73,2025-02-14,,0,,1361,0,1361
 olivier,jardé,interets,crédit agricole,,baisse,045f60d9-f00e-46ca-8337-2fc104d1134d,2021-07-19,8cfd00c8-8fb5-4c26-836a-7d607757fb73,2025-02-14,0,0,60823,30889,0,-29934
@@ -1749,6 +1754,7 @@ Dominique,LOTTE,interets,demeures de Saone,,position_initiale,,,7af8c04c-b81f-46
 ALINE,LOUISY-LOUIS,interets,DYMA'SANTE,,apparition,013dff4a-e566-4f91-9991-2f57c39679ac,2021-10-21,d6777c17-c0cd-4d84-a7f2-3070f039f79a,2024-01-17,,640,,3734,640,3734
 Franck,LOUVRIER,interets,Agence Mai 68,,apparition,5e980d1b-2360-4417-83a0-2d4a5f8a84b3,2021-08-08,c6341ba0-754e-4880-a032-d717968e7fdc,2021-10-24,,1,,1000,1,1000
 Franck,LOUVRIER,interets,PUBLICIS GROUPE SA,,apparition,c6341ba0-754e-4880-a032-d717968e7fdc,2021-10-24,ab0e3c7f-f37c-4a16-b4b4-99d73bbc3a30,2023-05-23,,597,,32500,597,32500
+Arnaud,Lozzi,interets,Casden banque Populaire,,position_initiale,,,557a83cc-8244-4f30-8d42-bae6dd7247b1,2026-04-21,,0,,0,,
 Yannick,LUCOT,interets,Caisse d'épargne,,position_initiale,,,ea8b1933-b8c1-47e8-87c0-5b951d63eff1,2021-12-19,,5,,106,,
 Jean-Pierre,LUNOT,interets,SIOO,,position_initiale,,,47328ca6-e393-4135-8844-419c2285948f,2024-12-15,,6,,18029,,
 Nathalie,MADER,interets,SCI,,apparition,b0b296c6-c1ca-4eac-8c57-6a9fd52a3d63,2022-01-17,d6b30988-172a-45a6-aceb-b909e9968264,2024-03-21,,13,,130,13,130
@@ -1757,6 +1763,10 @@ Sylvain,Maillard,interets,CORUSCANT SAS,,position_initiale,,,b5286d35-d658-4f4c-
 Sylvain,Maillard,interets,PALPATINE SAS,,position_initiale,,,b5286d35-d658-4f4c-a498-9ef6939ea2ae,2024-09-02,,400,,100000,,
 Sylvain,Maillard,interets,Plan de la tour SAS,,position_initiale,,,b5286d35-d658-4f4c-a498-9ef6939ea2ae,2024-09-02,,1000,,27000000,,
 Sylvain,Maillard,interets,Work for good Vendredi,,position_initiale,,,b5286d35-d658-4f4c-a498-9ef6939ea2ae,2024-09-02,,100,,75000,,
+Sylvain,Maillard,interets,ECOLE INTEGRALE PREPA,,apparition,e1c10d46-7195-43d5-b205-2419bd09c3e3,2025-02-03,bf6dc4a1-d49e-4bde-88fd-39167cb853a6,2026-08-17,,75000,,7500,75000,7500
+Sylvain,Maillard,interets,KOMEET Vendredi Work for Good,,apparition,e1c10d46-7195-43d5-b205-2419bd09c3e3,2025-02-03,bf6dc4a1-d49e-4bde-88fd-39167cb853a6,2026-08-17,,100,,75000,100,75000
+Sylvain,Maillard,interets,Plan de la Tour SAS,,baisse,e1c10d46-7195-43d5-b205-2419bd09c3e3,2025-02-03,bf6dc4a1-d49e-4bde-88fd-39167cb853a6,2026-08-17,1000,1000,27000000,20000000,0,-7000000
+Sylvain,Maillard,interets,Work for good Vendredi,,disparition,e1c10d46-7195-43d5-b205-2419bd09c3e3,2025-02-03,bf6dc4a1-d49e-4bde-88fd-39167cb853a6,2026-08-17,100,,75000,,-100,-75000
 Pierre,MAISONNAT,interets,Crédit Agricole SA,,position_initiale,,,f53d5698-f0e7-4ea0-8b80-d596dc521313,2021-07-29,,70,,826,,
 richard,Mallié,interets,NOKIA,,position_initiale,,,8c07ec8a-d12a-4e2b-9bcd-20dd0bb0ba2d,2021-09-12,,2750,,13860,,
 Emmanuel,MANDON,interets,AXA,,position_initiale,,,f8be307a-d1a1-47d2-943b-f32dbd6b2bc6,2024-09-07,,60,,1920,,
@@ -2068,31 +2078,29 @@ JEAN,MORIN,interets,SCPI AEW CILOGE HAB6,,position_initiale,,,e38bee67-2863-4bf8
 JEAN,MORIN,interets,EURL la Gauguinerie,,apparition,e38bee67-2863-4bf8-bfe3-c6d452ece6df,2021-08-30,bdaae3fc-8a09-4d68-9469-c1eaa5e4eaa5,2022-02-17,,80,,0,80,0
 Frédéric,MOTTE,interets,Sas financière de l'achigan,,position_initiale,,,18d16b57-98af-41da-a4c0-68e2590d1b17,2022-08-29,,0,,0,,
 CHRISTIAN,MOUNIER,interets,sarl maki,,position_initiale,,,2d022f25-9182-4590-ad11-8a12e6f0e0f7,2021-08-02,,24,,12000,,
+François,MOURRA,interets,AIR LIQUIDE,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,207,,38989,,
+François,MOURRA,interets,AIRBUS,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,80,,13273,,
+François,MOURRA,interets,CARREFOUR,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,910,,15074,,
+François,MOURRA,interets,DASSAULT,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,185,,54834,,
+François,MOURRA,interets,EIFFAGE,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,200,,27048,,
+François,MOURRA,interets,ENGIE,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,103,,2912,,
+François,MOURRA,interets,LA FRANCAISE DES JEUX,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,543,,13422,,
+François,MOURRA,interets,LANSON BCC,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,55,,1501,,
+François,MOURRA,interets,LAURENT PERRIER,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,65,,5590,,
+François,MOURRA,interets,LOREAL,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,137,,51710,,
+François,MOURRA,interets,LVMH,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,159,,74992,,
+François,MOURRA,interets,MAISON POMMERY,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,246,,2520,,
+François,MOURRA,interets,MICROSOFT,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,10,,15074,,
+François,MOURRA,interets,PERNOD RICARD,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,283,,18563,,
+François,MOURRA,interets,SAFRAN,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,17,,4941,,
+François,MOURRA,interets,SCHNEIDER ELECTRIQUE,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,162,,44597,,
+François,MOURRA,interets,THALLES,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,73,,16826,,
+François,MOURRA,interets,TOTAL ENERGIES,,position_initiale,,,44d153c9-088b-4698-8688-bc53ba78e09e,2026-04-29,,116,,9117,,
 Naima,Moutchou,patrimoine,SCM SAINT O,,position_initiale,,,d042bdf0-9e69-4520-b67e-5f1ebae99ab2,2025-11-24,,,,29700,,
 Naima,Moutchou,patrimoine,SCM SAINT O,,baisse,d042bdf0-9e69-4520-b67e-5f1ebae99ab2,2025-11-24,5784dc94-12d6-4aa5-a44e-12dd229c18ae,2026-03-05,,,29700,0,,-29700
 jean paul,Mulot,interets,Verdin&R,,position_initiale,,,9591876e-3793-41b4-860e-30cf22f648e9,2022-02-01,,8,,350000,,
 Fabien,Mulyk,interets,Banque Populaire des Alpes,,position_initiale,,,b7b0f50a-f7aa-4176-8fa3-ba8a9dfa4898,2021-09-09,,5,,50,,
 Arnaud,Murgia,interets,Agence 4102,,position_initiale,,,916c9c89-7982-4047-9682-34e51ab5e51b,2021-11-30,,100,,400,,
-Renaud,Muselier,interets,Bel Ombre Gestion Ltd,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,410,,0,,
-Renaud,Muselier,interets,Belle Rivière Gestion Ltd,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,250,,0,,
-Renaud,Muselier,interets,CLINIQUE SAINT MARTIN,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,10,,660,,
-Renaud,Muselier,interets,FRM HOLDING,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,678810,,2918892,,
-Renaud,Muselier,interets,Liberty Ski Ventures Llc,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,0,,0,,
-Renaud,Muselier,interets,Ma Maison à la Mer Cie Ltée,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,5818876,,1905000,,
-Renaud,Muselier,interets,SARL AMBULANCES ST MARTIN,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,480,,260000,,
-Renaud,Muselier,interets,SC PABA,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,850,,46000,,
-Renaud,Muselier,interets,SC PAFA,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,850,,48000,,
-Renaud,Muselier,interets,SOREP,,position_initiale,,,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,,18,,740520,,
-Renaud,Muselier,interets,SARL AMBULANCES ST MARTIN,,hausse,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,480,480,260000,388500,0,128500
-Renaud,Muselier,interets,SOREP,,hausse,9558e3ba-e79f-48dd-b078-c42831e5b7cf,2021-07-23,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,18,18,740520,752000,0,11480
-Renaud,Muselier,interets,Belle Rivière Gestion Ltd,,disparition,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,8da4065e-22c2-4a04-a4aa-5a08574e9e5c,2025-09-19,250,,0,,-250,0
-Renaud,Muselier,interets,CLINIQUE SAINT MARTIN,,hausse,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,8da4065e-22c2-4a04-a4aa-5a08574e9e5c,2025-09-19,10,15,660,2985,5,2325
-Renaud,Muselier,interets,FRM HOLDING,,hausse,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,8da4065e-22c2-4a04-a4aa-5a08574e9e5c,2025-09-19,678810,678810,2918892,4206000,0,1287108
-Renaud,Muselier,interets,Ma Maison à la Mer Cie Ltée,,hausse,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,8da4065e-22c2-4a04-a4aa-5a08574e9e5c,2025-09-19,5818876,5818876,1905000,2200000,0,295000
-Renaud,Muselier,interets,SARL AMBULANCES ST MARTIN,,hausse,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,8da4065e-22c2-4a04-a4aa-5a08574e9e5c,2025-09-19,480,480,388500,444217,0,55717
-Renaud,Muselier,interets,SC PABA,,hausse,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,8da4065e-22c2-4a04-a4aa-5a08574e9e5c,2025-09-19,850,850,46000,54000,0,8000
-Renaud,Muselier,interets,SC PAFA,,hausse,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,8da4065e-22c2-4a04-a4aa-5a08574e9e5c,2025-09-19,850,850,48000,64000,0,16000
-Renaud,Muselier,interets,SOREP,,hausse,f9347f2a-bc73-40e4-b606-d556722bb9db,2022-12-22,8da4065e-22c2-4a04-a4aa-5a08574e9e5c,2025-09-19,18,18,752000,769500,0,17500
 karine,nabenesa,interets,DERICHEBOURG SA,,position_initiale,,,9ff2ae77-8370-4ecd-a57d-22ad19c4fcb2,2021-09-01,,500,,5000,,
 karine,nabenesa,interets,GENFIT,,position_initiale,,,9ff2ae77-8370-4ecd-a57d-22ad19c4fcb2,2021-09-01,,220,,807,,
 karine,nabenesa,interets,SOCIETE GENERALE,,position_initiale,,,9ff2ae77-8370-4ecd-a57d-22ad19c4fcb2,2021-09-01,,100,,2665,,
@@ -2136,6 +2144,9 @@ Cédric,NOUVELOT,interets,NCGC Invest Nord,,position_initiale,,,2bb7d5df-98f5-4e
 LAURENT,NUNEZ,patrimoine,PEA (LCL CREDIT LYONNAIS),,position_initiale,,,e4e3a7c0-bed2-4549-81f5-35eaa9ce17e9,2025-11-23,,,,1469,,
 LAURENT,NUNEZ,patrimoine,PEA (LCL CREDIT LYONNAIS),,hausse,e4e3a7c0-bed2-4549-81f5-35eaa9ce17e9,2025-11-23,323781a6-bd3b-4134-bf7e-30a963bfa27b,2026-02-09,,,1469,14420,,12951
 Karl,OLIVE,interets,KO PRODUCTION,,position_initiale,,,f42049cd-b76d-44bc-8ee7-b501f5f09cca,2024-09-02,,765,,7650,,
+Pascal,OLIVIER,interets,BNP PARIBAS,,position_initiale,,,3e4991b0-82bc-4a70-b5c0-7ef30848df95,2026-04-14,,230,,20700,,
+Pascal,OLIVIER,interets,FDJ United,,position_initiale,,,3e4991b0-82bc-4a70-b5c0-7ef30848df95,2026-04-14,,220,,5670,,
+Pascal,OLIVIER,interets,SOCIETE GENERALE,,position_initiale,,,3e4991b0-82bc-4a70-b5c0-7ef30848df95,2026-04-14,,300,,21550,,
 Philippe,olivier,interets,Champrosay tradition SARL,,position_initiale,,,84ad58a4-8683-4be6-b1bd-9a8d1933ad0e,2024-09-02,,200,,25000,,
 Philippe,olivier,interets,Kherillo SARL,,position_initiale,,,84ad58a4-8683-4be6-b1bd-9a8d1933ad0e,2024-09-02,,200,,472000,,
 Philippe,olivier,interets,Champrosay tradition SARL,,disparition,84ad58a4-8683-4be6-b1bd-9a8d1933ad0e,2024-09-02,ffc788a8-630d-4ba9-8dc6-de26eae5d49e,2024-12-13,200,,25000,,-200,-25000
@@ -2547,6 +2558,7 @@ evelyne,Renaud Garabedian,interets,SOCIETE DE L'UNIVERS,,position_initiale,,,ea0
 evelyne,Renaud Garabedian,interets,Traktir,,position_initiale,,,ea0ffa1b-bc9b-433f-8f0d-9ca67680c491,2023-12-01,,10,,1785000,,
 evelyne,Renaud Garabedian,interets,Vivarinco,,position_initiale,,,ea0ffa1b-bc9b-433f-8f0d-9ca67680c491,2023-12-01,,52,,1,,
 Hervé,REYNAUD,interets,Crédit agricole + engie (PEA),,apparition,b70868e1-272e-422b-9c29-273371e11ad4,2024-02-12,75203347-4e49-4bfb-a84e-05dae4ef5b10,2026-01-04,,100,,645,100,645
+olivier,richard,interets,sas stork wine company,,position_initiale,,,e5cfbed9-7d91-4d29-ab1b-2333b3740c8d,2026-05-28,,3750,,250000,,
 ALAIN,RICHARDSON,interets,CABINET D'EXPERTISE COMPTABLE RICHARDSON : CECOR,,position_initiale,,,5060bd1a-f76f-46ec-82d9-a72e3f6274e1,2025-09-17,,3000,,400000,,
 ALAIN,RICHARDSON,interets,CABINET D'EXPERTISE COMPTABLE RICHARDSON : CECOR,,hausse,5060bd1a-f76f-46ec-82d9-a72e3f6274e1,2025-09-17,a4ab88a8-c384-4e02-9228-7082f6e85f56,2026-04-21,3000,3000,400000,500000,0,100000
 ALAIN,RICHARDSON,interets,SARL BUSINESS EQUIPMENT & SUPPLIES - SALES & RENTALS,,apparition,5060bd1a-f76f-46ec-82d9-a72e3f6274e1,2025-09-17,a4ab88a8-c384-4e02-9228-7082f6e85f56,2026-04-21,,40,,2000,40,2000
@@ -2585,6 +2597,9 @@ Laurence,Robert-Dehault,interets,SANOFI,,position_initiale,,,4d7232b0-5690-4ef4-
 Laurence,Robert-Dehault,interets,Schneider electric,,position_initiale,,,4d7232b0-5690-4ef4-a9c9-acbc447cd0aa,2024-07-10,,20,,4502,,
 Laurence,Robert-Dehault,interets,Universal music group,,position_initiale,,,4d7232b0-5690-4ef4-a9c9-acbc447cd0aa,2024-07-10,,202,,5619,,
 Laurence,Robert-Dehault,interets,Vivendi,,position_initiale,,,4d7232b0-5690-4ef4-a9c9-acbc447cd0aa,2024-07-10,,745,,7450,,
+Florian,ROBIN,interets,Air France,,position_initiale,,,f60146a2-b2e2-455e-bd0c-4a00b425ff9e,2026-05-10,,2,,20,,
+Florian,ROBIN,interets,Elior Group,,position_initiale,,,f60146a2-b2e2-455e-bd0c-4a00b425ff9e,2026-05-10,,15,,40,,
+Florian,ROBIN,interets,Française des Jeux,,position_initiale,,,f60146a2-b2e2-455e-bd0c-4a00b425ff9e,2026-05-10,,20,,454,,
 Pierre-Jean,ROCHETTE,interets,CARS ROCHETTE,,position_initiale,,,c2ad624c-931c-4ae5-9199-78304bbe0c91,2023-11-27,,159000,,159000,,
 Pierre-Jean,ROCHETTE,interets,SARL FINANCIERE ROCHETTE,,position_initiale,,,c2ad624c-931c-4ae5-9199-78304bbe0c91,2023-11-27,,20015,,200160,,
 Pierre-Jean,ROCHETTE,interets,UNITED,,position_initiale,,,c2ad624c-931c-4ae5-9199-78304bbe0c91,2023-11-27,,2000,,2000,,
@@ -2658,7 +2673,12 @@ Hugues,SAURY,interets,AMUNDI STRAT ACT EURO C FCP 3D,,position_initiale,,,4c658a
 Hugues,SAURY,interets,PS OLIVET,,position_initiale,,,4c658afe-bdf4-4876-be9b-e85e1bd30d5d,2023-11-29,,143,,214,,
 Hugues,SAURY,interets,AMUNDI STRAT ACT EURO C FCP 3D,,disparition,4c658afe-bdf4-4876-be9b-e85e1bd30d5d,2023-11-29,ab522318-7f85-44dd-9a4e-a7789bd8d6de,2023-12-22,10,,2234,,-10,-2234
 Raphael,Schellenberger,interets,Crédit Mutuel,,position_initiale,,,54776631-4051-4c06-9530-4641fe1439ca,2024-09-05,,1,,15,,
+Matthieu,Schlesinger,interets,BNP Paribas,,position_initiale,,,feedfe49-708b-43b2-961c-7fb85364dc9c,2026-05-10,,45,,4119,,
+Matthieu,Schlesinger,interets,Crédit agricole,,position_initiale,,,feedfe49-708b-43b2-961c-7fb85364dc9c,2026-05-10,,100,,1822,,
+Matthieu,Schlesinger,interets,Société générale,,position_initiale,,,feedfe49-708b-43b2-961c-7fb85364dc9c,2026-05-10,,20,,2565,,
 Pascale,SCHMIDIGER,interets,Airbus,,position_initiale,,,224a061b-c806-4efd-9eff-ddacbb7b4a8a,2021-08-29,,97,,12657,,
+Gilles,SCHMITT,interets,Crédit Agricole,,position_initiale,,,ac41bbcb-4281-4038-87dd-296c0c52f57a,2026-04-11,,400,,6770,,
+Gilles,SCHMITT,interets,Orange,,position_initiale,,,ac41bbcb-4281-4038-87dd-296c0c52f57a,2026-04-11,,1450,,17182,,
 Nathalie,SCHMITT,interets,CAP VERT ENERGIE 0S1.3,,position_initiale,,,c5fefb2c-3c37-4c4d-9704-a3f187360d21,2021-09-16,,10,,100000,,
 Nathalie,SCHMITT,interets,SCPI PIERRE INVESTISSEMENT 8,,position_initiale,,,c5fefb2c-3c37-4c4d-9704-a3f187360d21,2021-09-16,,40,,29016,,
 Brigitte,Schneider,interets,BNP Paribas,,position_initiale,,,273613e8-c0c5-4e59-ac95-5d49304f6fac,2022-09-14,,38,,1900,,
@@ -2722,12 +2742,8 @@ Bruno,Sido,interets,SCM Saint Louis en Vallage,,position_initiale,,,9c064bc1-681
 Bruno,Sido,interets,Sarl SIDO TA,,disparition,9c064bc1-6819-4203-907e-72891f9ad676,2023-11-11,20f402f5-aaf1-4a32-9c63-27a1b4eee345,2023-12-16,100,,250000,,-100,-250000
 Bruno,Sido,interets,SCM Saint Louis en Vallage,,disparition,9c064bc1-6819-4203-907e-72891f9ad676,2023-11-11,20f402f5-aaf1-4a32-9c63-27a1b4eee345,2023-12-16,1400,,1950000,,-1400,-1950000
 Nicolas,Siegler,interets,SAS LE VAUBAN,,apparition,e038e0e6-abb7-4ac3-aa54-c235ab567eb0,2021-12-14,6804c17a-dcb0-4d58-9399-83d28b84d59d,2024-05-26,,100,,100,100,100
-Antoine,Sillani,interets,compte parts sociales crédit agricole,,apparition,44068f23-fea1-4f5f-837b-5d91c1cc37dd,2022-01-12,f42a6d82-1364-4809-8966-380b28e323b3,2023-07-10,,2017,,3086,2017,3086
-Antoine,Sillani,interets,credit agricole Compte PEA PME,,apparition,44068f23-fea1-4f5f-837b-5d91c1cc37dd,2022-01-12,f42a6d82-1364-4809-8966-380b28e323b3,2023-07-10,,1,,15,1,15
-Antoine,Sillani,interets,Credit agricole PEA,,apparition,44068f23-fea1-4f5f-837b-5d91c1cc37dd,2022-01-12,f42a6d82-1364-4809-8966-380b28e323b3,2023-07-10,,1,,15,1,15
-Antoine,Sillani,interets,compte parts sociales crédit agricole,,baisse,f42a6d82-1364-4809-8966-380b28e323b3,2023-07-10,e47be5a0-2b93-419f-a18e-cd22c94c2f33,2024-03-17,2017,0,3086,0,-2017,-3086
-Antoine,Sillani,interets,credit agricole Compte PEA PME,,disparition,f42a6d82-1364-4809-8966-380b28e323b3,2023-07-10,e47be5a0-2b93-419f-a18e-cd22c94c2f33,2024-03-17,1,,15,,-1,-15
-Antoine,Sillani,interets,Credit agricole PEA,,disparition,f42a6d82-1364-4809-8966-380b28e323b3,2023-07-10,e47be5a0-2b93-419f-a18e-cd22c94c2f33,2024-03-17,1,,15,,-1,-15
+Nicolas,Siegler,interets,SAS LE VAUBAN,,disparition,6804c17a-dcb0-4d58-9399-83d28b84d59d,2024-05-26,92eab0b5-1d08-4c69-b9a8-79949ed74930,2026-05-19,100,,100,,-100,-100
+Antoine,Sillani,interets,compte parts sociales crédit agricole,,position_initiale,,,0ed220a2-e214-4a6d-9ef0-8e6aa0b896f0,2024-03-21,,0,,0,,
 Antoine,Sillani,interets,compte parts sociales crédit agricole,,disparition,0ed220a2-e214-4a6d-9ef0-8e6aa0b896f0,2024-03-21,e53f3c06-c90a-4303-bb31-2f420c066523,2025-09-21,0,,0,,0,0
 Antoine,Sillani,interets,Credit Agricole,,apparition,0ed220a2-e214-4a6d-9ef0-8e6aa0b896f0,2024-03-21,e53f3c06-c90a-4303-bb31-2f420c066523,2025-09-21,,0,,0,0,0
 Mireille,SIMIAN,interets,Andalcress,,position_initiale,,,989e8834-7987-4d9b-a32e-7702576528bb,2021-08-11,,75,,57000,,

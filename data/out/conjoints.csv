@@ -52,6 +52,8 @@ dcdc86b8-8a1d-4fd9-828a-d81007bd44d8,non,INFIRMIERE LIBERALE,
 7611a18d-ed0b-48cb-9a99-32d8acfdda92,non,aide soignante,fonction publique hospitalière
 e4d5cecb-e29c-43cf-a607-ea304f17bf9a,oui,,
 6f894a12-7a5b-4bf6-b0ae-78dcde8f7d3d,oui,,
+775e45f3-c111-4d26-8830-b69ae2e675b8,oui,,
+0fb5d5de-faef-4180-9da0-57ea4c099742,oui,,
 613029ac-cd22-464c-af75-5c5b98ebdec8,oui,,
 d598860f-5517-4397-bf38-b914c143d9f6,non,,retraitée
 1440b4f5-1ae9-4ae4-a892-a93b5cd78437,oui,,
@@ -289,6 +291,7 @@ faed9e38-64ab-4e10-afcd-84b6ed9db591,non,Principal du collège,Ministère de l'�
 2e7f2e34-9d3a-4a2d-ae89-93ada3ce8abd,non,Gérant,
 4af6133c-ff88-4e91-8046-72b4262ba6e5,non,gerant,sarl
 269085a4-c73d-455c-b2a1-05962db2c8de,non,Chef de secteur,NGE
+32166670-fe33-4d92-91fa-dfbaaf713a3a,non,Chef de secteur,NGE
 a538871a-f47d-4b1d-866a-30b4ab490e56,non,gestionnaire privé,CIC
 694e83c3-f732-48fb-898b-07533d31b4c2,non,gestionnaire privé,CIC
 ff6c2e02-6415-4cd4-b1c8-c6c9d3a85c3e,non,directeur agence banque Privée,CIC
@@ -334,6 +337,7 @@ d22cfe90-c8e5-41f7-a790-8833c1606e74,oui,,
 690d69c4-40e9-45b8-811f-a1b4e17d94ce,non,Urbaniste,Agence nationale de rénovation urbaine (ANRU)
 21c3ac20-8952-48b4-8b54-027ef0a2b58f,non,Urbaniste,Agence nationale de rénovation urbaine (ANRU)
 33e66494-baf3-48f5-a476-29f6f607507b,non,Urbaniste,Agence nationale de rénovation urbaine (ANRU)
+193200be-7056-4cd4-b4ee-060f5b2fc233,non,Urbaniste,Agence nationale de rénovation urbaine (ANRU)
 4e2f8a43-4ce1-458f-a324-a2cba76175aa,oui,,
 827a80f9-df19-4fd3-85e8-334201acf541,oui,,
 327c5b27-e1b6-4504-859b-9b93d967f244,oui,,
@@ -383,10 +387,6 @@ f134e92e-ba31-46d5-b8e4-a3327fc5484f,oui,,
 2621c94e-c9d5-420c-bbdd-79a6c4607e1d,non,prof de lycée pro,education nationale
 ea35e79f-4fb1-45f7-a27f-ee15fde151b5,non,prof de lycée pro,education nationale
 c7806736-8988-4a11-a61c-862fafdf0020,oui,,
-17261230-aca5-4c8f-a091-e8b2e67a27b5,non,caue :,Conseil départemental de l’Orne
-17261230-aca5-4c8f-a091-e8b2e67a27b5,non,,Région des Pays-de-la-loire
-d003181d-f824-4be3-9329-50d241fbec5e,non,,Conseil départemental de l’Orne
-d003181d-f824-4be3-9329-50d241fbec5e,non,,Région des Pays-de-la-loire
 f427680a-6fd4-4789-90c0-a328f8265875,oui,,
 768ca920-8e62-4de5-a8e0-4354699e1c62,oui,,
 04054004-f19c-408b-8367-53b92d31a1dd,oui,,
@@ -394,6 +394,7 @@ f427680a-6fd4-4789-90c0-a328f8265875,oui,,
 ee89362f-5782-4e99-99c6-33130b311164,non,,Retraité
 70494f8f-a479-4303-b5d5-db78c49408ed,non,,Retraité
 79cc9cc5-d419-4de8-942a-532f0706d727,non,Gérant,MEDIAGEST CONSEILS
+79b3814b-8256-4d4d-8ce2-52089d193a5c,non,Gérant,MEDIAGEST CONSEILS
 9b23c303-333d-418b-aad9-9b055ba82241,non,retraité,
 10901e02-ca17-4774-bf3c-97e3643c4c4d,non,Infirmier,Centre Hospitalier
 66870362-7773-432c-ad06-5e60da62f084,oui,,
@@ -416,8 +417,10 @@ d418f759-ec64-4367-a1bd-a4e0e22b01f7,oui,,
 bf587378-5740-47f1-aae3-68b97a9e05de,non,Cheffe du service,Conseil de l'Europe
 b5cfc7a7-59de-41cc-b8d3-62879c809f10,non,Cheffe du service,Conseil de l'Europe
 141f800b-9744-494a-b7ba-6708b1295496,oui,,
+e2f010fa-59be-4235-afc6-3496b057506f,oui,,
 88b0e60c-f269-4996-81a3-305cc60dfc5b,oui,,
 287a8d0f-dcb5-4693-b4a7-540281fbb776,oui,,
+c22a5358-2ff2-4139-9e18-429fcae7ff01,oui,,
 d080da06-448b-49ff-b235-1eaa4555baa3,oui,,
 e3c407f8-9efd-49c3-9a75-803c9b932cf5,oui,,
 1edb268e-7669-47c7-9361-5900617033f1,non,Responsable,LE ROUGE
@@ -497,6 +500,7 @@ e1f2519b-30bd-42ed-9ea9-ba77cf1261d8,oui,,
 2d5773d2-8272-4e61-bcfa-b4ff819b44c8,oui,,
 9b85da03-f6db-4405-a863-f795b09aea9f,non,contractuelle ADE,CD
 fca8d150-7995-486a-8ef8-6783d725294b,non,contractuelle ADE,CD
+6a36ee72-3aa3-422c-a0b0-845810e87501,non,contractuelle ADE,CD
 62582322-66ae-49eb-a4de-51e5af5e9686,oui,,
 d71ef892-ecf6-44bd-ab81-e31262400020,oui,,
 e269d3f6-157a-488d-b809-ff2f4ef5e488,oui,,
@@ -606,6 +610,7 @@ bcb1e9ab-45e4-4fd5-adfc-b3b0b21776c0,oui,,
 7020b8fb-271f-4732-9325-79da95e8f30c,non,Technicien,EDF
 8e134881-b1e4-4fe6-aa62-8373a335f02a,non,GERANTE SOCIETE,NON SALARIEE
 131d3cdb-4bd8-4fd8-8ef7-0b058638ded7,non,infirmière,libérale
+2716654a-23ab-4aee-ab4d-eec24b7b73b2,non,infirmière,libérale
 1e563e69-ddbe-4118-aacd-8c651eb7014a,non,Menuiserie-- -Ebénisterie,Artisan
 ffc6c3f8-4451-462c-8463-8e40508a299a,non,Menuiserie-- -Ebénisterie,Artisan
 478ffba0-00d8-40b9-99f1-498f0f63520e,non,Directrice de structure,Fédération nationales des SCoT
@@ -635,12 +640,16 @@ fecfe03a-c13d-4018-a59b-04a4ecfe5004,non,Activités artistiques,"Artiste - Auteu
 acbb76b0-7c3d-4f20-95d0-47f3d784ce5b,non,Assistante Sociale,Centre Psychothérapique de l'Orne
 cc83e245-3717-4bf7-a441-97e5269a78e0,non,Assistante Sociale,Centre Psychothérapique de l'Orne
 3f081dab-a5da-4531-b8b5-d498009e332c,non,Assistante Sociale,Centre Psychothérapique de l'Orne
+d1ae3728-40ac-4f61-b4a1-51acd268fca1,non,Assistante Sociale,Centre Psychothérapique de l'Orne
+fd5ea929-7aa0-41c4-ba39-21861ce3f7a4,non,Assistante Sociale,Centre Psychothérapique de l'Orne
 3247a661-58cb-49df-874d-324b3b07d451,oui,,
 ebcd8653-d06c-4a84-933a-8177f4d63feb,oui,,
 1fd283f4-514a-4863-88b7-085c220abbec,oui,,
 6d0ff84d-2d2b-45bd-8586-77b1f56f3fa3,non,MEDECIN HOSPITALIER,CH LA CHARTREUSE
 77337e4e-c770-43e3-862f-90a00ae29e01,non,Directrice de cabinet,mairie Loire-Authion
 df80dcf0-bfca-4969-8e4e-b74d916c0343,non,Directrice de cabinet,mairie Loire-Authion
+9d4d37d0-5845-47ba-9f2d-d581d84bb162,oui,,
+3e721d8f-f761-473e-8f15-6acaf68f2720,oui,,
 20e89ae4-929c-4704-970b-ada03c288c31,non,Infirmière libérale Diplômée d'état,
 6f1ce25a-e21d-48bd-a626-758b8151cad6,oui,,
 6ac34667-4f12-4bfb-bf01-ad4d14c17301,oui,,
@@ -675,6 +684,8 @@ f6deb0a5-82f0-49b1-b899-220cbbe9c158,oui,,
 d5bacd77-363d-4c2a-abff-06522d1c8c8d,non,Professeur des écoles,Éducation nationale
 10e3ca28-c739-403c-83de-2c976e975640,non,"Professeur des écoles,",Éducation nationale
 6d81dbf6-c24b-43d1-bf7c-83be9fee8e80,non,"Professeur des écoles,",Éducation nationale
+4dedc3a2-99e3-49dc-bbe3-d2cdfd7fb285,non,Attachée principale,Euro-Métropole de Metz
+997362e9-c5dd-471d-8bae-70b39c95f4f3,non,Attachée principale,Euro-Métropole de Metz
 dc4c1910-0293-43f6-a1e4-9795910de341,non,DRH,SPB
 242e3fe3-db92-4de9-8a5f-c955ee2b97ee,non,DRH,SPB
 718725c0-68e7-4d08-addd-ec392946a1ad,oui,,
@@ -752,12 +763,15 @@ d854a9fa-861e-4896-9a6b-10c735caf8b6,oui,,
 29fc88f9-008e-4cbc-8d4f-5960faa3365c,oui,,
 c10c8f97-d2f5-43ac-b802-e99e94e27046,oui,,
 47fdeec3-9222-434e-83dc-c0b86a1f502d,non,infirmiere,conseil général de l'yonne
+c13d88c0-832d-4adc-91a9-630530c9acf7,oui,,
+afe3f54c-c8d8-4785-a654-21a539fd926b,oui,,
 c87659f8-1102-4bfb-9797-bf8329fa85ae,oui,,
 6fb763f9-b73d-496e-a046-20829d9b5284,oui,,
 6dd2a147-93d2-4e89-98e1-53d4d1834798,non,,Retraitée
 dcc72728-dda4-49c6-bf67-a31677fd3238,non,,Retraitée
 d934838c-0bb7-474a-977b-24676db7bc8d,non,Ressources Humaines,Finaduc
 8ca711c4-46af-4788-a7b1-2b129e67313e,non,Ressources Humaines,Finaduc
+7fef0874-aa4a-447e-a779-b0844c083e38,non,Ressources Humaines,Finaduc
 b9e829d1-9bdb-4699-863a-f91e3a36a572,non,"Association liée à l'insertion, la formation.",Amiens avenir jeunes
 2c97707a-16fe-4e4d-b35d-cc59e2a212ba,non,,retraite
 b627f0c9-6c7c-4fec-9cc2-e3a279c25174,non,chirurgien dentiste,
@@ -826,6 +840,8 @@ b327ac65-83c1-443e-b3aa-7c493ed7774a,oui,,
 cdfda45f-4043-4ba1-beee-28378b4f0b9c,oui,,
 4ebbe7af-a553-47a0-934c-e4cca0d02cb0,oui,,
 a04e23f9-c509-43ef-8424-6cab9a287632,oui,,
+bcbc0105-3350-4659-9b59-82f4a2003549,oui,,
+c3db588e-4def-45e4-bad0-3baf25f3886f,oui,,
 cf4be3cb-1772-452f-9bd1-df92ff598260,non,Plombier,MTD Pure Water
 22593385-baf7-40fb-b9c4-a4621912fb33,non,Plombier,MTD Pure Water
 39a5bb71-3350-4a4f-b2de-9fee440cb5de,oui,,
@@ -1139,8 +1155,6 @@ f2f8dd94-5a76-4dc1-ac28-70d7f8ced405,non,Directrice de la Communication,Ville de
 22889783-f080-48c8-b271-231e4e96ee89,non,Retraitée,
 bc40f418-262d-4cb7-89f2-e09495722686,oui,,
 f7d29fcd-11fa-4442-893f-5c7120856afe,oui,,
-02b01a67-7d68-4451-8089-db23908609c6,non,Professeur Mathématique,Education Nationale
-281267e7-0b5d-445e-ab87-f0f57174cc6d,non,Professeur Mathématique,Education Nationale
 9cba0aba-8f0f-46ef-812a-2ec8bcdbe5e7,non,Directrice; de,Centre Hospitalier de Cayenne
 e0ad3238-fc26-4179-90cf-16ee12c9669e,non,Directrice; de,Centre Hospitalier de Cayenne
 ccca286a-2168-4d5d-ab8c-f381423795e2,non,Cadre,Entreprise GABARE
@@ -1157,6 +1171,8 @@ b08bba51-3727-4133-8145-2f60428c70c4,non,Responsable Conseils juridiques.,MMA IA
 c5e6c20e-236d-455d-bd1e-2f8cd30b018b,non,Elève-magistrat,Ministère de la Justice
 20dd292d-f8e6-43b8-9aac-74cd0d15e527,oui,,
 1e9583f0-ef71-490a-9b17-f5cb9c717ead,oui,,
+94067f07-05d0-408a-b253-55f4b3dee778,non,Fonctionnaire,Cherbourg en Cotentin
+522a7112-749f-488a-b954-eace32c2543f,non,Fonctionnaire,Cherbourg en Cotentin
 6dd2c07d-1d68-49f9-82be-dcf2e66c4f4e,oui,,
 58ee9875-a218-424d-82d2-7a7e553758de,oui,,
 4af171a4-bedc-4b54-b7bc-0f2fba0f7025,oui,,
@@ -1179,6 +1195,8 @@ eb9be1ec-73d3-4e8c-951b-2853a070a7ff,oui,,
 199e23d7-12ce-4a00-97f0-ec1b60ad6cc7,oui,,
 de4dec1a-3825-4be8-a098-c0b544b3787f,non,employée,ge
 41c66c04-75ec-4020-ac5b-ddf375a29ff4,non,RETRAITEE AGRICOLE,RETRAITEE
+30d39bf4-149e-45d2-94ef-18b8f17544f0,non,Maitre de conférence,Université
+2ee7107e-9739-4b1b-b343-0396ccd0739e,non,Maitre de conférence,Université
 cab7a965-036e-4546-be89-2fdfcef58b5b,oui,,
 06aad3cf-e488-4cf7-83f5-24857c62323d,non,,Retraitée
 ba518644-4f20-4e77-a8a5-df80024196c5,non,,Retraitée
@@ -1274,6 +1292,8 @@ eb34a1b3-34ba-4f28-986e-6f22e5a98a5e,non,Assistante direction,WESER
 4dba0d85-5372-4574-998b-e9450cf13ae5,non,avocat,
 5d819e8b-9199-4f7c-bf32-0be2ed70e6b2,oui,,
 2de1fad4-b3dc-4cbf-9be4-c3e7c27aeec3,oui,,
+73ac03cd-6cfc-4e54-ac2a-b9e4d5092235,oui,,
+de4ab038-1bb6-447a-a521-46420e4d87be,oui,,
 324eb95d-f506-4129-843a-c054a4f31645,oui,,
 9e8e4766-0f66-42a4-9340-5449944fed27,oui,,
 677589b0-6af9-452f-afb0-37af4382efc7,oui,,
@@ -1399,6 +1419,7 @@ c82ffc9f-d213-4e6c-a50d-ecbdf6245fb1,oui,,
 4cc6d6c2-1934-41ef-a9e5-8cb6bd4257dc,oui,,
 a2e32dd1-9293-44cf-a67d-aa1d3d310088,non,Gendarme,GENDARMERIE
 2fa1d8f1-3578-4db7-8e72-0a9c88ef2846,non,Gendarme,GENDARMERIE
+76ffeb75-92bb-4820-8732-f25a78869c81,non,Gendarme,GENDARMERIE
 30197815-b8d7-4f35-9d5a-255c13ab9891,non,Technicien méthode,Nestlé France
 26019b33-2e44-4ccd-ae15-faf6137ec182,non,Président,Groupe VYV
 ae6e7695-dd57-4c9b-b6ca-7847d5992130,non,Président,Groupe VYV
@@ -1492,9 +1513,6 @@ c553699b-bee0-4045-bac6-249f71007096,non,admitratif,mairie
 76420083-b8c8-4ee3-b33c-42a00389005f,non,Educatrice spécialisée,CONSEIL DEPARTEMENTALE 22
 6f6d4f30-0fcf-4e15-9b26-9f281b1c1678,non,Colporteur vente huile et produits dérivés alimentaires,Huilerie Richard
 69f66ff3-4111-48d6-85b8-9cdfe3610ff5,non,Colporteur vente huile et produits dérivés alimentaires,Huilerie Richard
-f23e5d96-3e53-414b-bfa1-5d904b5cf298,non,Professeur,Lycée professionnel agricole
-8d99ffd4-cdec-417c-9d1e-ef464f869628,non,Professeur,Lycée professionnel agricole
-b7fee2e7-052b-49f8-9b4b-95ee89a81696,non,Professeur,Lycée professionnel agricole à
 afe680a6-5613-4bd0-9ff4-58b7e2534c46,non,assistante Maternelle,
 155ff385-ce3b-4d20-8af6-409632a17588,non,assistante Maternelle,
 56ff59fd-97a4-42ae-aead-19f12e35e38a,oui,,
@@ -1536,6 +1554,7 @@ faf24c5f-13ad-4a77-b580-ceac69a15696,non,contrôleur général économique et fi
 23fe1e80-8d39-44ff-a540-833d9daf8ce4,non,contrôleur général économique et financier,Ministere de l' économie et des finances - Ministerede l' action et des comptes publics
 c9efe61f-2424-4a52-b134-7cdb75100f8f,non,,retraité
 1854e50a-8dfa-4efe-bfca-c897226d7e60,non,,retraité
+a459a57c-0317-4b34-abbc-9f9b65d63b0a,non,,retraité
 1cad37c8-a845-445d-a639-a54b4b544a64,non,pharmacien titulaire,
 8a1924c8-27f5-4e07-95d5-6481fe01af33,non,pharmacien titulaire,Courtois Janine
 1065bfbc-2501-414c-959e-39477362dd30,non,Retraitée,
@@ -1543,6 +1562,8 @@ eedb3eba-9b38-405a-8d5f-c048771b3f54,non,Retraitée,
 b300c013-2a9b-4971-aeb2-a30dc66d3e57,non,Retraitée,
 d23961f9-e59b-40b6-9c09-fdd1c39d7a82,non,cadre,CHU Guadeloupe
 c7ee10b0-201c-48c0-96cd-2fa44e7b5d1a,non,cadre,CHU Guadeloupe
+dc045b96-c2bf-4a9c-b8ee-73bdca4eab47,non,Agent de fabrication,Randstat
+40e4336a-48da-4f84-8c82-822d125c5940,non,Agent de fabrication,Randstat
 55cd225b-f6ef-4aff-b305-49248e37e49b,non,ouvrier manoeuvre dans le BTP,BRUNO DASSE
 9cc9d90e-18a8-44e5-b0b4-72605ed693f9,oui,,
 8f7501c7-6895-48f4-b3c6-3378a1c8c52e,oui,,
@@ -1573,6 +1594,7 @@ fddfb8d9-0fb6-40c3-acec-86b3295d51d5,oui,,
 1c884e70-992f-4c1e-86bf-b752767d4283,non,"Retraité,",Retraité
 41bf7089-db08-4fd2-b9f9-8cdb398d62b9,non,Annimatrice,EHPAD LAGUEPIE
 94b71af1-c855-4669-8748-1af2aabe04a1,non,Assistante de Direction,BNP PARIBAS
+3c7e052f-7d2d-4a84-a936-a982fd2fc216,oui,,
 57c5244e-e9e4-414d-ace2-16f6d795efd2,oui,,
 36df1848-ff1b-4254-b8ec-876e9cc7d537,non,retraitée,retraitée
 19907dab-2c72-4f98-bebc-6a6634e3c07e,oui,,
@@ -1709,7 +1731,6 @@ b5bde2b5-7dff-4cb9-8209-c61a84e98a00,non,Directrice Générale des Services,Vill
 0c44cc22-0ad7-4b36-bb04-ac739bb68d00,non,Responsable de service,Crédit Mutuel Arkéa
 f19807fb-9e9d-4a23-a31c-df34e6240d17,non,Responsable de service,Crédit Mutuel Arkéa
 b1c7dbfb-db98-4708-8f51-a654cca640b9,non,Responsable de service,Crédit Mutuel Arkéa
-f69c326c-37f5-4524-9d7a-d4398adc414d,oui,,
 a7086f80-5d91-468b-8a08-81feab7078a7,non,Visuel Merchandiser,LVMH
 f728aa3c-43c0-4c1a-bc4a-9deef05e5d29,oui,,
 7617897e-cfaf-4162-8033-3b4e8710308a,non,SECRETAIRE,L2N
@@ -1784,6 +1805,8 @@ cddc0a03-3775-4cf9-8f54-9bdac4b3a6e7,oui,,
 7388e422-3b8e-404f-a290-6755df8214a6,oui,,
 ead77aa7-2f03-412b-9d49-79308b705152,oui,,
 2cc4d0bc-8aec-4d4e-999e-d6bebfb847ca,oui,,
+df050377-d99b-4f41-8294-3ffd5e9d7db1,oui,,
+bbc844ad-e222-4cf1-83b2-e5f7f9b8a0ae,oui,,
 fd286823-ac99-4163-9eb8-5ebbb11123b6,non,,Communauté d'agglomération bergeracoise
 b3a3e8c8-5101-4d77-942a-6321c31915a5,non,Professeur de lycée professionnel,Education national
 b2700463-9706-4123-bb93-92a1e4204224,non,Professeur de lycée professionnel,Education national
@@ -1837,6 +1860,8 @@ bc90f102-9a14-4292-b1d6-be2c7b6e3a95,oui,,
 cf490176-85ae-491c-985b-58351ce204ee,oui,,
 b475fb98-01a5-4969-8377-b529dacb434b,non,DIRECTEUR D'AGENCE cadre dirigeant,SMTP (LINGENHELD)
 0b63cda8-9888-47a9-93dd-d30ca78f7b54,non,DIRECTEUR D'AGENCE cadre dirigeant,SMTP (LINGENHELD)
+055c274f-abb3-485f-b310-8792fd5ca751,non,Professeur des écoles,- SERVICE DEPARTEMENTAL DE L EDUCATION NATIONALE :
+ccd3e222-46ca-413e-bcb7-c4c434c028eb,non,Professeur des écoles,- SERVICE DEPARTEMENTAL DE L EDUCATION NATIONALE :
 e8fb6bc5-302f-4652-ba6b-f8b107dbdeb7,non,Cadre,AFCCRE
 41aa1910-3aa7-4287-9d87-9004f85f5d25,non,Cadre,AFCCRE
 42383a4b-236f-41ee-a88e-fca75b3cc235,non,Cadre,AFCCRE
@@ -1937,6 +1962,7 @@ a9954d48-954b-4575-99bd-a014eed01805,non,retraité,
 8db5bdce-7cbc-4c50-a283-6d427ad3355c,oui,,
 ff6a726a-f31e-4ac5-ac49-62ba3badd172,oui,,
 b6ae6765-82bd-4386-88cc-01d1031237f8,non,Gérant de la Eurl Fabelec Gérant de la SAS La Télécabine Co-gérant de la SAS La Stass',
+bf670975-bb57-4264-9542-0f309d877e36,non,Gérant de la Eurl Fabelec Gérant de la SAS La Télécabine,
 8b32b8f4-f168-4a47-8a97-455623ae5619,non,Agent Logistique Transport,SCHAEFFLER FRANCE
 77b8e523-70c4-47c7-bb97-01bf4fc9aa52,non,Ingénieur RD chef de projet,
 50df4814-e237-4b76-b57c-c90b34486569,non,Ingénieur RD chef de projet,
@@ -1989,10 +2015,6 @@ d6748524-7611-414c-b90e-4b380bcb73dc,oui,,
 10745e3b-abfb-4122-9044-443b8817b97a,non,Directeur commercial,MGB
 ca6c2cda-726b-4c16-ad74-e88cf84ba847,non,Directeur commercial,MGB
 534f3881-8e86-45c5-9312-092f1ec1c7f5,oui,,
-e26c3db5-56c9-4d07-8b05-9fd90e8da8e4,non,,CPAM de l'Eure
-f51c8c5e-ee89-4870-a039-274347dfe33a,non,,CPAM de l'Eure
-af0639bd-4365-4fac-b8cb-56defc67d228,non,,CPAM de l'Eure
-33bcabb9-f95f-4e4c-964c-bbbfd175af4d,non,,CPAM de l'Eure
 e89fc6ff-3ce1-440c-99f8-34c5defbf047,non,étudiant,
 adf9198d-3f73-45ed-81ad-c87cade2cb3c,oui,,
 7a090d31-f3e5-4e9c-940d-46fd0189ebda,oui,,
@@ -2149,6 +2171,7 @@ ff27e651-e7bd-4617-ace1-c9c31307601d,oui,,
 6dda54a2-4bdc-4d5f-a857-f6bb454443d9,oui,,
 06f56198-0fc6-43bd-b810-50167faa2080,non,agriculture,earl
 f387b65d-2c87-4d5a-93f3-297ac1dc2af4,non,agriculture,earl
+5ff8a145-9d46-44ca-887e-61f30f17f9d9,non,Commercial,Sabre
 90aeba71-39ce-4adc-aa82-86d0e17cbd2e,non,,RETRAITE
 90aeba71-39ce-4adc-aa82-86d0e17cbd2e,non,consultant sous le régime de MICRO ENTREPRISE,consultant
 1d5b1079-ad3a-449a-8e44-81478703415f,non,,RETRAITE
@@ -2185,6 +2208,8 @@ b9beec82-ab79-4edc-8bf0-2f48bc155fa9,oui,,
 2889cdcc-3bfa-4717-b686-9f5b2750da09,non,Retraité,SNCF
 16c19969-5613-465f-a465-47d2aa672a3e,oui,,
 b4616f4f-d62b-4faa-8e3d-f9fcd3b08738,oui,,
+15b5ae11-4b26-4ca5-af81-efff91d15faf,non,Assistante,Groupe hospitalier La Rochelle/Ré/ Aunis
+b2a61054-4024-4ace-82df-459c7210213d,non,Assistante,Groupe hospitalier La Rochelle/Ré/ Aunis
 f211c7f1-d40c-4841-9feb-19f88ef15354,non,présidente d'une SASU,independant
 f211c7f1-d40c-4841-9feb-19f88ef15354,non,SENIOR MANAGER,USIDE
 21729875-612d-42ee-8efa-434704f1fad4,non,présidente d'une SASU,independant
@@ -2258,6 +2283,8 @@ ef0c3c3a-f53f-4eba-beaf-ac245f73cacc,oui,,
 3cb7186d-5441-466d-9c20-25dd1b513b69,oui,,
 c9a4ed39-f5c4-48e3-9103-77f4a3e57523,oui,,
 d22398cd-97be-4344-940f-1de21f9c0c98,non,Consultant,INFOCOM GROUP
+aeb0fd43-e050-4c9d-8174-3824aff2cccf,non,Consultant,HN Services
+64163fd5-7023-4aac-b768-4c4c69cce335,non,Consultant,HN Services
 84708f1c-bdd7-4d24-aa1a-071c5dcb2487,non,Directeur Financier,Crédit Agricole Consumer Finance
 125452b5-710a-403a-b24f-a9a77d9c225a,non,Directeur Financier,Crédit Agricole Consumer Finance
 40141f0f-2383-40b0-8901-ad954f919152,non,Directeur Financier,Crédit Agricole Consumer Finance
@@ -2301,6 +2328,7 @@ deeae5b0-06a6-4be0-9f4f-453fe36569fb,oui,,
 a787ddbc-9c7a-42ac-81bd-a0107c383488,non,Chef de service,Conseil Départemental de Haute-Garonne
 88f616ae-37fd-4333-acb4-29a93d02387f,non,Chef de service,Conseil Départemental de Haute-Garonne
 87866641-294e-4c3f-80b7-0ff699a935d2,non,Directeur adjoint,Conseil Départemental de Haute-Garonne
+31a7cf61-1122-4164-9655-e5ab7f3d84ef,non,Directeur adjoint,Conseil Départemental de Haute-Garonne
 a89810da-41d3-477e-bbf8-95f6a6f5e80b,non,retraité,Retraité
 f6aaddd7-765f-4b50-b305-90d3e6163cfb,non,retraité,Retraité
 9d37172f-d5ce-46c3-8c34-124322b68b2e,non,,ADIL
@@ -2453,6 +2481,9 @@ dc00b320-5163-409c-8de8-3c5fa7505c60,oui,,
 5a04e616-cfd0-4762-b45e-aa524f27d3b6,non,Professeur des écoles,Education Nationale
 1e41e790-2ba6-4a33-ae22-661f6e4f6cb8,non,VP,SCHNEIDER ELECTRIC
 bdf72987-919a-4237-8122-72e9b1fddf8d,non,VP,SCHNEIDER ELECTRIC
+14b890bf-7fdd-45e3-b686-9015e8c7b28a,oui,,
+b08302fa-8e33-48ab-9e98-b9297c8feed3,oui,,
+4d2bb1d0-5163-4472-a4dc-98b6f8e57562,non,Retraité,
 c9a3935d-f07c-4c76-8268-b2b2a1719852,non,Cadre,POLE EMPLOI
 6ded9fa5-c718-4ee8-8736-7f41860991cd,non,Cadre,POLE EMPLOI
 ba1a1ad2-a90d-4b33-baa3-2144b6d110a5,non,cadre,KEEP COOL
@@ -2472,6 +2503,8 @@ f974cf6c-1ab5-4fc0-8984-840f9604d346,non,,POLICE NATIONALE
 0c62d19b-ece3-49f2-8849-62012a56ee3f,non,,POLICE NATIONALE
 e92e318d-3613-4904-a962-4cd3767612af,non,Agriculteur,
 2a2fac73-22f4-4d51-8161-b4a9b4c1ab7b,non,Agriculteur,
+fd1fee17-e8ce-4b5d-9882-0fb7fa6a8b0c,oui,,
+b2fa133e-16f6-4d65-a1be-858454ab78b3,oui,,
 02ce2483-3c93-4b3a-8d51-57f1869c837f,oui,,
 31f14cd3-8c42-490b-af73-66c0970f56c5,oui,,
 6f4b1f4d-86fb-471b-8c18-a65bb407465e,oui,,
@@ -2479,6 +2512,7 @@ bdd87e32-dcda-4bb4-b0f3-4ebe3f332f13,oui,,
 5000b69b-5bfb-4411-83bc-27a0dd394d21,non,Médecin,Clinique Mutualiste de l'Estuaire Saint-Nazaire
 667455cd-fe39-43df-9905-5d4128c0de23,non,Médecin,Clinique Mutualiste de l'Estuaire Saint-Nazaire
 50e7dc46-b96e-426a-9a15-8ff8102e1bf1,non,Médecin,Clinique Mutualiste de l'Estuaire Saint-Nazaire
+b5fff35a-8fea-4a3e-a79d-37dfa6511ea1,non,Médecin,Clinique Mutualiste de l'Estuaire Saint-Nazaire
 798a2df4-3eff-489e-bc60-e9a13cbee47d,non,Réalisateur,Indépendant
 e28f23f6-5182-4aa1-b6b9-cd4e6639c2ca,oui,,
 dda15687-b47b-4a14-a16a-b69c5a16900c,oui,,
@@ -2549,6 +2583,8 @@ b5495ef9-4b71-44e7-9b9c-7a7d5bf56f20,non,Cadre superieure de santé aux hopitaux
 237cf188-6031-48d2-9e86-b2bc0895b1c6,non,Chargée de cours,Institut catholique de Paris
 1daa4f92-3074-46ed-b827-6bddb2874dd0,non,Professeure de lettres,Ministère de l'éducation nationale
 1daa4f92-3074-46ed-b827-6bddb2874dd0,non,Chargée de cours,Institut catholique de Paris
+b4638977-41f9-437b-b698-323ae82a34b6,oui,,
+1346f698-adeb-4e66-bc48-025bcb24602f,oui,,
 3ebc6006-8487-486f-8dcd-7224ea6a1438,oui,,
 3eb77a70-0e34-4836-83ae-0d937766c684,oui,,
 299f78e5-1d19-4964-a5c9-73a979c3c2fa,non,responsable,honewell aérospace toulouse
@@ -2575,6 +2611,8 @@ a7a3c4dc-8281-45b1-a22e-6c7e347d42ec,oui,,
 44a4d0ac-7656-4d37-b84b-48d36c4d7393,non,Directrice financière,
 89adb603-8266-4f95-b278-657cd2e72de0,non,Directrice financière,
 94657a68-04fc-4b31-ad56-03c02e662e2d,oui,,
+6d843294-ce16-49ed-b0f3-dc69b153888c,non,Cheffe de service,Région Auvergne-Rhône-Alpes
+d25ad56d-426e-42ae-bf29-ae66ded862b4,non,Cheffe de service,Région Auvergne-Rhône-Alpes
 47a53cb9-60de-4a01-8c7d-52f6263f0e98,oui,,
 f004ac34-0788-43d2-b769-bfcacf5c94dd,oui,,
 6b298ebc-7379-4097-816b-f12b2abb5391,oui,,
@@ -2722,6 +2760,7 @@ e557e048-3727-49d7-b1ef-f4939d0b0b84,oui,,
 bb3475c0-bd6d-4768-91a5-0c95420fcd70,non,Retraitée,
 b98152de-9704-4230-ab69-0dda149080d2,non,Retraitée,
 a2856ae9-4aae-4d68-a743-a9d08628fcc6,oui,,
+b468135d-6272-4188-963c-718aad642fb4,oui,,
 0ed716a9-edbb-4a9d-b0ff-d49fb3a2550f,oui,,
 9b1af0e1-7bf7-4d8a-9771-96dd2f93c59b,non,Gérante. Activité de conseil de gestion en entreprise.,Micro-entreprise
 3c1d7fda-cf52-411f-96f8-cd2b90e31877,non,,MFR vallée du Lot
@@ -2781,6 +2820,8 @@ b5093997-0cf0-44b7-875f-9891b8b0cd14,non,Superviseur VFX,Digital district
 0188cae6-b4f4-4a67-a674-5922e0935a9b,oui,,
 a176d6e6-2993-40dc-b281-7465508b1ea6,non,Enseignement à domicile,
 0f26a07d-9c1d-4f23-9d5a-1d56b36164b3,non,Enseignement à domicile,
+c9cd4038-d796-466f-98d9-f4dcd16e6df3,non,Infirmière,Mairie de Bailleul
+be5b9b8b-17c1-4138-b793-98e0a358942c,non,Infirmière,Mairie de Bailleul
 98b3f11c-673b-4934-9e74-02903cca2d36,oui,,
 ec7c7122-c73f-43a0-89ff-4c520e414179,non,,"Professeur certifié,"
 caab1e4d-979e-4fbb-89b6-32d31157a349,oui,,
@@ -2796,6 +2837,7 @@ b443d00b-b6d0-4a29-b9c4-fc2d4ff6f7a2,oui,,
 57de6fdb-abfd-48e3-a3c9-e66b39c6cb85,non,Médecin généraliste,Profession libérale
 860ca1e4-122a-4b95-b0c2-778e81096658,non,Auto-entrepreneur en location de meublés,Lui même
 22545209-0221-4e4c-8b7b-eca38c9bd519,non,Auto-entrepreneur en location de meublés,Lui même
+3356be8a-edcd-4579-b02d-748ae50306b4,non,Auto-entrepreneur en location de meublés,Lui même
 5780abd5-3647-48a6-9a86-3417df1d4238,non,Médecin Ophtalmologiste,Médecin Libéral
 0cc7df46-359e-4d36-87f5-267f83703488,non,Médecin Ophtalmologiste,Médecin Libéral
 984faf55-8ff1-40f7-ba62-dc0af4002f26,non,Médecin Ophtalmologiste,Médecin Libéral
@@ -2843,6 +2885,8 @@ a7cfd45a-bdb1-43e9-8132-61406d2a47c0,oui,,
 c37e1072-7677-4c69-b748-66a43d09c6d8,non,Visiteuse médicale,Arsylab
 83ba81ad-58fd-4875-81ec-bbbfd839ecd0,oui,,
 ee693422-8c12-48a5-939e-d9f1cff7fc4d,oui,,
+3d8a4cde-8f84-428c-8fde-be8a0243cfce,non,Commissaire de Justice,SELARL Evidence
+e0635b21-70cf-4a3b-a1ba-365b7eb2ce97,non,Commissaire de Justice,SELARL Evidence
 ba3d2493-55f1-4d04-b2ca-5937cea8c4de,oui,,
 44fbcb6c-ced0-44c5-bc2b-bd3a69721ba5,oui,,
 b3faf281-cc2b-4110-8aa7-5b995c7aa994,oui,,
@@ -2856,6 +2900,7 @@ c0d49f41-7a1b-40a1-8325-80d2b9451b19,non,RETRAITEE,
 a9eb327c-07f9-46ed-bd45-de4ab9bf3dc2,non,RETRAITEE,
 cba6fab4-07d9-4d68-aa2a-ab5a19c9e8e2,non,Présidente,SNCFConseil
 90179295-7737-4260-932e-d88a17936f25,non,Présidente,SNCFConseil
+2cd9b53a-d3ee-40d3-ad16-6a209a057eda,non,,Retraité
 8cf48874-441c-4e51-ac5f-6b2a1d5f270e,non,médecin généraliste,profession libérale
 822313fd-8d6b-4433-b684-e23e329a941c,non,médecin généraliste,profession libérale
 ba54dddd-44cd-4aa8-8dbf-e0dcb99dee0e,oui,,
@@ -2895,6 +2940,8 @@ dc4a081c-7e4e-4b55-9d69-74b121b70052,non,Directeur général délégué,Agence L
 23c28354-74f7-48e9-8464-b3d88d209750,non,CONDUCTEUR TRAVAUX,CASSIUS GROUPE
 75dcd54c-8205-4fa5-bef8-417c60a4f63c,non,CONDUCTEUR TRAVAUX,CASSIUS GROUPE
 a42d2b8b-5129-43be-a922-e458ab0d6668,non,Chirurgien-Dentiste,MUTUALITE FRANCAISE COMTOISE
+72d135d1-0fe0-416d-a5aa-ca75b42d3d50,non,Informaticien,FRANCE OLIVE
+4da661fc-02a7-433b-b804-6a42c4ae9012,non,Informaticien,FRANCE OLIVE
 2a6f7d84-e96c-43fe-9fb6-9639ede0d403,non,Agriculteur-Eleveur retraité,
 b6a927b2-b7f5-4541-bd66-031c2e8ff04f,non,Agriculteur-Eleveur retraité,
 01e02490-47a1-4d2b-86aa-c8ffbddc8ca4,non,Personnelle de cuisine,Vice-Rectorat
@@ -2905,6 +2952,8 @@ f40c384d-ee45-4029-a3d7-7e8736d3101a,oui,,
 016c2589-85ca-4ae1-a107-cb2fa127ed2f,oui,,
 92b66e64-d2f1-4b65-a1c7-3acf97cb0614,oui,,
 ba1940a0-ad7e-43c9-86c0-81d8c79423eb,oui,,
+486b89dc-8ca8-44b9-959a-2d6900d760a8,non,Déléguée régionale,Véolia
+09dfeade-6cc8-4447-8aaa-646b18185ca0,non,Déléguée régionale,Véolia
 ef8c987d-a198-4c10-9821-2b2a0a438e43,non,"activités bancaires, coordinateur d'audit",BNP Paribas
 e49801f3-accf-4c89-bc44-99fa4363c930,non,"activités bancaires, coordinateur d'audit",BNP Paribas
 e46dc8f8-763c-4d44-a7fc-7939637ed138,oui,,
@@ -2954,6 +3003,7 @@ d7affdbf-cb23-4a0b-a6bd-87308d03d823,non,SAPEUR POMPIER,SDIS DE LA GIRONDE
 4b7e85fc-7916-4b16-914e-319e5069b024,non,retraité,
 9bb66236-049a-4c2d-a00a-e655d3a65a51,oui,,
 5228c103-f537-4b24-91ba-33250e337e8c,oui,,
+f3d177f1-3245-4a04-a341-158a346114c4,oui,,
 7641e8d6-dd76-4f11-b898-d533cd084fb8,non,Assistante commerciale,Macocco Ouest
 2539f629-dbf0-428b-a8ac-75630cdc112c,non,Assistante commerciale,Macocco Ouest
 617c28ed-6a7b-4158-979c-486031618795,non,Assistante commerciale,Macocco Ouest
@@ -3003,6 +3053,8 @@ c3e8304c-d1f5-4cda-8a18-da2adb163d34,oui,,
 e71ae478-9830-4ee6-b0b4-eb8b6702044d,oui,,
 25361f00-0331-41d5-b8a0-613d37ba3017,oui,,
 23e4102d-6dbb-4bb5-a12b-4fb4e77ea6a5,oui,,
+d37e7c4a-fda5-419e-8b01-392620ba0c51,oui,,
+3376db46-d347-43a8-ba8d-b7eb5a6ae604,oui,,
 763a3a95-00a3-4b84-a7a0-ad11acc0a6c7,oui,,
 ba026a8b-6a5d-412d-b7d6-26abd6134402,non,,Sans activité
 d1fe7e57-9669-46b2-bdf6-111e6390548f,oui,,
@@ -3083,6 +3135,7 @@ c38257b3-33ef-42b2-88b5-1ad13581bad8,oui,,
 5b38fc17-9fc7-4ddf-b667-c08026c4faf9,non,exploitante agricole,
 d9a8eea7-2f03-4592-978a-61a3af40af13,oui,,
 28808229-9ff5-4f15-91d8-591687d7859a,oui,,
+154fe973-742b-40eb-b2f0-cc623f193248,oui,,
 3b4b0e30-2919-4427-9b92-b77aeccd5d8f,oui,,
 9af016b8-8e81-4834-bcbf-14b64f2d7025,oui,,
 451f1a07-69d3-4085-97dc-24cbe53284fd,oui,,
@@ -3119,6 +3172,8 @@ dd52b3d8-d474-48e2-a227-b8cfa2abe33f,non,Employée administrative,Département d
 c9b471c0-bc29-4262-bf07-3e346ff6e5dc,oui,,
 bd7d612e-2c23-4211-bf13-1b35df146c4c,non,Professeure,Rectorat de Poitiers
 844c3c98-b608-4f4c-8241-1315729eefaa,oui,,
+489e5779-c232-406e-8a9c-6f3882b74130,oui,,
+efef66ef-0e97-43bc-bbcc-f78d6b3b384a,oui,,
 c25505b6-27ad-4b8d-b547-734482ac6af3,oui,,
 cb2e8a7d-328c-41dd-9b10-dd3f382e01ff,non,Responsable,Chambre de Métiers et de l'Artisanat de région Centre Val de Loire
 7c4235fe-177a-4aa0-b3e0-b2424796f294,non,Responsable,Chambre de Métiers et de l'Artisanat de région Centre Val de Loire
@@ -3141,6 +3196,7 @@ c414704d-ff4e-4a33-80c1-c6e4342aa478,non,Professeur de danse,Est Ensemble
 1092fe89-e3c3-4733-a2cf-9839ba454c90,non,Frigoriste,Auto-entrepreneur
 2622d2cc-a3f8-453f-950d-c37ecd64554b,oui,,
 6edb1b72-0a12-44e1-8ff7-dd55c602a02d,oui,,
+a8ec56a6-9b65-43d7-b116-eb3428dddf49,oui,,
 bff3146c-cb3c-4d70-9f15-ec12372ed03e,oui,,
 d56a31c9-0130-4805-b40b-9b7930f7c9e7,oui,,
 92d9691a-9153-4b34-b35a-eb012632b6b4,oui,,
@@ -3156,6 +3212,7 @@ a5cac25b-75fe-4304-b978-e02021fdc95e,oui,,
 71d9fea7-98d4-45ba-9786-9df76e53cdc4,oui,,
 bca005bf-b98b-466c-b514-7de9220ca7a4,oui,,
 88da0e09-1320-4388-8654-a8db14b18547,oui,,
+4816595a-9328-4036-9cd9-e86c3908baa8,oui,,
 1720e76b-a935-4d88-9b54-a66f127c8bef,non,AIDE AUXILIAIRE DE PUERICULTURE,CCTA
 81cd50ea-5892-481d-ad4d-372a30f15522,non,AIDE AUXILIAIRE DE PUERICULTURE,CCTA
 edeb1baa-e305-41cf-bf1d-d1ffc7c9e45f,oui,,
@@ -3210,6 +3267,8 @@ d04c1acb-035a-4d4f-a1e2-13d8f43b8403,oui,,
 1c7725fa-d5a1-4628-918e-3dbc993f8f7a,oui,,
 09567712-487c-4870-9ad0-af34726c8b0e,non,Gérant,HOTEL
 a2d7a50c-f6ad-4387-9a1d-787af3e88997,non,Gérant,HOTEL
+7b941de9-e1f6-46d7-9a82-5bf85e94211d,oui,,
+c1681530-766d-4d96-9ffd-e1cede93f62c,oui,,
 7af4f256-905d-4f54-956f-a209b98ff6c4,non,Professeur d'histoire-géographie,EDUCATION NATIONAL
 9dba68dc-66a3-4b11-8da5-95b398a625a6,oui,,
 6ca11267-329e-473d-b687-6fc007f53ef5,non,Directrice,PETR Adour Landes Océanes
@@ -3353,6 +3412,8 @@ e02d46b5-2abe-4abd-8721-bae04caaac07,oui,,
 429cd085-3e14-4c0f-8ed9-abf3f65401a9,oui,,
 99bcf0f9-5d60-427e-9971-22214c503b99,non,Exploitant agricole,SCEA
 e474985e-e1b2-4dec-a292-0dcff48386aa,non,Exploitant agricole,SCEA
+2e6721cb-360e-4819-b901-c79b6955aea3,oui,,
+b08fbb3c-1adf-44e7-9542-125057305f5b,oui,,
 d746c761-4f6c-4d1c-b878-a1c178f682bc,non,Directrice Générale des services,Mairie de Flassans
 3991b795-cce0-475c-9516-1bebf42c64f0,non,Directrice Générale des services,Mairie de Flassans
 21402120-5b0e-4c68-9843-57c646fa8356,non,Directrice,Conseil départemental du Var
@@ -3384,6 +3445,8 @@ c732724c-1e12-40ad-99ab-4a280903063f,oui,,
 6551efb8-f8f4-46b7-96e3-242016a0cc34,non,HEAD OF COMMUNICATIONS,EMOTORS
 bacac641-d766-4a96-8da4-6d253389f500,non,,LA CAVE DE SOMBERNON
 a6ed5d63-7458-44e3-9dd1-ac0d648abc5e,non,Chargé de mission,Alliance Healthcare
+e7f12349-119e-4471-a0ae-98e1e3ae872d,non,Gestionnaire de réseau,SUEZ
+43c281d7-37c9-4041-b3ed-f7d11342ab0e,non,Gestionnaire de réseau,SUEZ
 861cf7c2-3402-480f-a0f1-e2d1cbd223cb,non,Infirmière,Ministère santé
 be79d253-e9cc-4864-9139-09677a53de68,non,Avocat,activite liberale
 9f7b6bf9-f1fe-4e1c-a9bf-6b4d0795defb,non,Avocat,activite liberale
@@ -3436,6 +3499,8 @@ df388a43-4b3e-46ef-ae6b-43cf863be1be,oui,,
 ec1c49fe-5ea4-4ef1-a68c-2bf1295500fc,oui,,
 8e15ac46-941b-4be3-beaf-344df115adac,oui,,
 f24fc79a-4481-4ba6-b9e4-bd9a05fabca3,oui,,
+5b5874c4-d936-4baf-adf5-0b52047db39e,oui,,
+b2afb130-5f1e-4f3f-90b8-2c2c11f03ddd,oui,,
 da6505d4-2d51-4de0-9a2a-c75b6b564adc,oui,,
 1d792e76-8165-4844-9d85-d6bf427e282d,non,sans activités,
 fe231b5a-1a34-43d6-a742-97045cd61176,non,sans activités,
@@ -3593,6 +3658,8 @@ b9cd9ee6-e9d3-4472-903f-7389d22f430f,non,Avocate,Profession libérale
 232aade8-de36-480f-8b55-55eba0bba4e5,non,Chargé de clientèle,Scholz and Friends
 fe73275d-43ca-4152-a7f8-9cc00aa5982e,non,Régisseur dans le cinéma sous statut d'intermittent du spectacle. Employeurs variables.,Variable
 fe73275d-43ca-4152-a7f8-9cc00aa5982e,non,Régisseur,La France Insoumise
+ab3b51df-9b52-4a04-8a89-30f0d65f727f,non,Régisseur dans le cinéma sous statut d'intermittent du spectacle. Employeurs variables.,Variable
+ab3b51df-9b52-4a04-8a89-30f0d65f727f,non,Régisseur,La France Insoumise
 54e7ad55-e82c-482d-84ec-9cea685d7656,non,Fonctionnaire de police,MINISTERE DE L INTERIEUR
 0683073e-8994-47a5-8f29-13b6baa41215,non,Fonctionnaire de police,MINISTERE DE L INTERIEUR
 4d367c12-9eed-44aa-9b67-cba3e1f2024b,non,Fonctionnaire de police,MINISTERE DE L INTERIEUR
@@ -3621,9 +3688,6 @@ df8b8f9c-5a43-4589-b506-3b9b83add420,non,Infirmière libérale,Cabinet infirmier
 b2bf7d62-d6b8-4c38-a8c5-9dfd44cc872a,non,Chargée de mission,Communauté Agglomération Lens Liévin
 76f488ca-3db8-4d19-aad9-c317497810e6,non,Chargée de mission,Communauté Agglomération Lens Liévin
 8abacc08-2265-4014-afd3-bcf65dfd5c14,oui,,
-7fa67e51-6db8-4721-b3c9-4d44c5c697c3,non,Professeur des écoles(ER),Education nationale
-65f733f8-646c-404e-bdf7-b5dfb339219a,non,Professeur des écoles(ER),Education nationale
-b15ef7c0-6a04-49e9-9297-b1c29aecd819,non,Professeur des écoles(ER),Education nationale
 005da0ad-9344-499a-b849-3a68f6726130,non,masseur-kinésithérapeute,profession libérale
 652263a6-bea3-480a-bcbf-5472aa89a938,non,masseur-kinésithérapeute,profession libérale
 f0f82dad-5d69-4c55-b575-5f3f6ecb08bf,oui,,
@@ -3827,8 +3891,10 @@ e58af92e-5df6-4e41-86b9-d1d0a5019c71,non,Gestionnaire financier,Vice Rectorat de
 5e980d1b-2360-4417-83a0-2d4a5f8a84b3,non,Galiériste,Art Escale
 c6341ba0-754e-4880-a032-d717968e7fdc,non,Galiériste,Art Escale
 ab0e3c7f-f37c-4a16-b4b4-99d73bbc3a30,non,Galiériste,Art Escale
+557a83cc-8244-4f30-8d42-bae6dd7247b1,oui,,
 d771dbdd-bb73-4433-bf18-09ae4ec77efa,non,plombier,artisan
 5f671977-a631-486a-a52f-0d6f0b0482fd,non,plombier,artisan
+8d6c37ce-a576-4927-8ce4-76e9243fa0c5,oui,,
 6bb10207-325b-4a84-a9fe-46618d9f3b92,non,retraité,
 e5a3c698-9e31-47fc-a9ff-b726c3b295c2,non,retraité,
 2e046ca4-b015-4d9a-9ecd-cbac3bb13fb2,non,Chargée de mission auprès de la directrice de Campus France,Campus France
@@ -3841,6 +3907,8 @@ ea8b1933-b8c1-47e8-87c0-5b951d63eff1,non,Directrice Générale Adjointe,Viltaïs
 0ea4fd64-5754-42a6-86b0-8d9da8eefa29,non,Directrice Générale Adjointe,Viltaïs
 f5bad976-688d-41b4-959b-cb6e13f8107a,non,Mécanique de précision chargé d etablir les prix des pièces à usine,ADI KALFA
 801bbdc1-be52-4f92-89a1-dea2bf8994f0,non,Mécanique de précision chargé d etablir les prix des pièces à usine,ADI KALFA
+0405d00d-eab9-453e-a5b1-27032afed750,oui,,
+312fe0cc-8d1c-4473-a9cc-6a1e854fb84a,non,,Retraité
 0b95f3c9-f34b-4773-8533-4ff8c760e2c6,non,Directeur des affaires stratégiques,Econocom
 6b716668-5915-4ca2-9665-b44a41f77f0c,non,Directeur des affaires stratégiques,Econocom
 47328ca6-e393-4135-8844-419c2285948f,non,Directrice de centre,AFPA
@@ -3884,6 +3952,7 @@ f74ee81f-ce40-4a0e-adc4-d49df5371db7,non,Conducteur de concasseur,Dillinger Hutt
 96e36365-673a-4989-8445-44001db42a79,oui,,
 b5286d35-d658-4f4c-a498-9ef6939ea2ae,oui,,
 e1c10d46-7195-43d5-b205-2419bd09c3e3,non,,sans emploi
+bf6dc4a1-d49e-4bde-88fd-39167cb853a6,non,Dirigeante,SophSat SAS
 b2fb3f48-7ba3-47ab-93e0-eab411d4fa48,oui,,
 69a01d01-2fc3-4e5f-a32b-6313427ee58b,oui,,
 13e3c9aa-6869-44d7-af53-a2af8ceef01c,non,Auxiliaire Ambulancier,Société d.Ambulance
@@ -4019,6 +4088,8 @@ fa237424-c82f-444f-97d3-b92d51fa28a3,oui,,
 fe9c8114-8468-4699-ad7b-6ec3eb6f1caf,non,retraitée,
 fe9c8114-8468-4699-ad7b-6ec3eb6f1caf,non,Mandataire immobilier,Autoentrepreneur
 fb884c0f-a031-4cc0-8fed-229a311de97a,non,Mandataire immobilier,Autoentrepreneur
+c33c018c-4ee6-4ee3-ab72-7ef32c32a9eb,non,Mandataire immobilier,Autoentrepreneur
+7791f85f-f449-4754-9dd4-4382b02d457f,non,Mandataire immobilier,Autoentrepreneur
 06b64fe4-42a7-4779-b265-fb6f0d778a38,non,Principale de collège,Education Nationale
 f86319af-fe13-417f-bb54-28820e3e50d1,non,DIRECTRICE,GITE DE FRANCE 25
 d83da245-6b26-4d6f-a654-ce5f3faabd6a,non,,retraité
@@ -4048,6 +4119,7 @@ efb90b41-ca20-44ba-8708-f0b2fb0f9194,oui,,
 c83077a2-bb5c-4c27-bf1c-cd4a13eb05aa,non,,Retraité
 930ddcf1-7133-428e-a8af-16c69f65d1de,non,,Retraité
 9adaf203-7419-4e70-beb8-f7bd8e8d8da3,non,,Retraité
+94a04874-6900-42ae-a644-81c725372c50,non,,Retraité
 b8c71e2f-aea8-4898-9d5e-0ede30848e4c,non,,Hôpital
 ba2e2548-8b8d-4516-a026-a76991b4cd26,non,Exploitante agricole,
 33404103-1910-4838-b1a8-1be8bc8f3298,non,Exploitante agricole,SCEA
@@ -4067,6 +4139,7 @@ e94fab90-e6d4-4a96-9d8c-649fc22fa00f,non,Activité industrielle de production de
 bba90545-18b3-4681-ad73-fa9d3ab95534,non,Activité industrielle de production de fils,SA Massebeuf Textiles
 093207f3-e061-4d98-9b02-aea49ce88d35,non,technicienne qualité,Evolis
 2a15a967-60e1-4918-a915-d0875c92e24c,non,technicienne qualité,Evolis
+73c58921-fae3-415c-981f-dc485e2ed1f6,non,technicienne qualité,Evolis
 a1d5007a-23c2-4393-9a4a-31f0f998d5d7,oui,,
 c0da1a27-4d0f-4aee-8b23-af101c06417d,oui,,
 ea0f5a05-7592-48f4-b692-0c9c70f14919,oui,,
@@ -4120,6 +4193,8 @@ eb1f744a-5e95-4b65-be02-99b0aeb9b8bc,oui,,
 06ad1366-f169-4b9f-805f-1bf129bb6c76,non,Doctorant,Université Paris Nanterre
 d7a3a482-31e8-46ac-80af-ea032aa6d6d8,non,Chef du service,Association Villevieille
 aef4e813-22ea-467d-af1e-6e1539a88c2b,non,Chef du service,Association Villevieille
+069e275e-fd64-4e98-811c-d4c7a2f1409c,oui,,
+aacd437d-0aee-429a-a6ae-53594f15b97f,oui,,
 ec48a610-a53c-4471-9334-925cf9beb030,oui,,
 5eff03bd-dc63-48c2-9e56-1018dbdb788f,non,chef d'entreprise,EPCH Consulting
 76257b93-2b66-4b2e-bc4a-caa6e5a0ec6f,non,chef d'entreprise,EPCH Consulting
@@ -4151,6 +4226,8 @@ b0a61e97-cc0b-4e40-a544-6e65563ddc10,non,Magistrat administratif,Fonction publiq
 eab4bd7e-84c0-47f2-b044-c97a1ba062b0,oui,,
 f2ad0209-9907-4daa-8209-3261a5fbc36a,oui,,
 2de2b272-aef1-41c4-8751-a55d16ad33f4,oui,,
+ac968b4f-3a40-4196-9d28-5484030f8677,oui,,
+40af172a-5660-4b8b-b04f-a30a5b39352e,oui,,
 f375573e-7907-48d1-936b-dc6488e12ed3,non,Exploitante agricole,SCEA
 f375573e-7907-48d1-936b-dc6488e12ed3,non,Cogérante,SCEA
 ec76769a-6753-4be7-a35b-d98d74d68c75,non,Exploitante agricole,SCEA
@@ -4308,6 +4385,7 @@ fe390eac-9911-45c1-9e06-4e214b9e904b,non,Chargé d'affaires Commerce internation
 00b054e0-31a5-4ce1-8262-19fe942241e0,non,Avocate,
 d8a5f0bc-0a03-4b05-8827-6328f4c2e52e,non,Avocate,
 44fa736e-958a-4a47-a6a4-ab8e4b28b9b8,non,Technicien Qualité,General Electric
+15deac9e-5206-437a-8c9d-5ff328f1dc8c,non,Gestionnaire métrologie,Arabelles Solutions
 b358017f-5d14-4dc6-812c-2fc3bb81b68d,non,,megagence
 b358017f-5d14-4dc6-812c-2fc3bb81b68d,non,société d'investissements et de participations,valorège
 390a38a3-8160-4e78-ad05-a4d0de7bbd8a,non,,megagence
@@ -4352,6 +4430,8 @@ f3f512d0-671d-4d13-a112-e424d7eceee9,non,,Retraité
 227cfbd3-34d7-4678-a412-6e96f6a645dc,non,Chargée de projet,Les Transméduses
 82580302-f9f5-4473-be54-ab967ed1ee28,non,Chargée de projet,Les Transméduses
 570c5fbd-855b-4d5d-82fd-154e74145374,non,naturopathe,autoentrepreneur
+2a73e248-ceee-4088-9faf-6450e5c9ca27,non,Enseignante,Education Nationale
+6e8b3fdc-5345-4625-ab2b-48cae1c64bfd,non,Enseignante,Education Nationale
 d8140980-5a0c-41a1-ba9f-d7fd0c412b71,oui,,
 668b78fb-bed7-43d3-8032-c8f8d56ebbb5,oui,,
 e421d5cc-f6ce-481a-9751-a161b047ae13,non,,RTCA Régie transport Cté Agglomération du Puy en Velay
@@ -4378,6 +4458,8 @@ f08ecbf0-f95d-4a05-b162-15c73ea41265,non,,Conseil de l’Ordre des médecins
 8b781212-aa68-4d0f-8bc0-53411986769b,non,,Evel'Up
 48023fef-cc1a-4da3-971f-ffa5bd663f6c,non,professeur d'Histoire-Géographie,Education nationale
 9d414d7a-0c91-41b7-bc32-c17ed9659bb4,non,professeur d'Histoire-Géographie,Education nationale
+44d153c9-088b-4698-8688-bc53ba78e09e,oui,,
+7f8410ad-e245-49ea-a756-df747e4a6752,oui,,
 5ccd5983-d3a5-47be-adc2-eb2e20133379,non,Avocat,Exercice en nom propre
 4bbf04fd-a14e-4264-9b2f-a2a60451496e,non,Avocat,Exercice en nom propre
 06c9f776-420f-44a9-88c8-52fd3b0e92e4,non,Retraitée,retraitée
@@ -4396,9 +4478,6 @@ b7b0f50a-f7aa-4176-8fa3-ba8a9dfa4898,oui,,
 18c22796-caf5-4246-a136-8ad31664f70d,oui,,
 62138b04-0f23-4a60-9816-f80c4c133923,oui,,
 d8b61722-3419-4cc4-8caf-d6694c12b8a4,oui,,
-9558e3ba-e79f-48dd-b078-c42831e5b7cf,oui,,
-f9347f2a-bc73-40e4-b606-d556722bb9db,oui,,
-8da4065e-22c2-4a04-a4aa-5a08574e9e5c,oui,,
 fa6864c6-acce-4d8a-938b-464cf55186e5,non,EMPLOYEE DE BANQUE CHARGE DE LA CLIENTELE DES PROFESSIONNELS,LCL ANTILLES GUYANE
 2de50ef9-32a7-4345-bc5c-04aefd0d2615,non,EMPLOYEE DE BANQUE CHARGE DE LA CLIENTELE DES PROFESSIONNELS,LCL ANTILLES GUYANE
 6ad6175a-82b9-4f7e-8627-fb6a8ccda039,oui,,
@@ -4476,6 +4555,8 @@ a2685adf-771b-4525-ab4d-0d2bf2a4b396,non,Bureautique et comptabilité,SCP NIQUE 
 24519e18-22c1-4bbe-8713-c838471ece62,oui,,
 873ac317-1c7b-4e90-860f-ecd7f4afc5b6,oui,,
 7f81afb8-6b80-4a3a-a919-230b33a3ed7c,non,chef d'exploitation agricole,GAEC
+40266fa5-d584-4207-8047-927329d4a673,non,Facilitatrice de parcours de vie,LADAPT
+123fab90-c4dc-442a-953e-9c29bc899958,non,Facilitatrice de parcours de vie,LADAPT
 c5abc3bd-9532-4043-87cd-485bcc1b3f51,oui,,
 0031372d-bbfc-4cf2-913a-4b7b31ae3603,oui,,
 e45e542d-3895-4800-98a8-26a80301906a,oui,,
@@ -4509,6 +4590,10 @@ f42049cd-b76d-44bc-8ee7-b501f5f09cca,non,DIRECTRICE RÉGIONALE ADJOINTE,Korian
 bbe18890-58f6-48b4-a79f-715e896ec953,non,Directrice de Cabinet,Région Auvergne-Rhône-Alpes
 ba2857a4-8600-4507-b82e-761a680d598c,non,Directrice de Cabinet,Région Auvergne-Rhône-Alpes
 cab6c9df-2c2d-4f50-b23a-4b23cfe0c032,non,Docteur au CHU,Ministère de la santé et Ministère de l'enseignement supérieur et de la recherche
+8416704c-3d45-4ab2-83af-d232571c3d56,non,CHU de Caen. Praticien hospitalier,
+cea53cce-0a41-4dc4-8011-100db0c675da,non,CHU de Caen. Praticien hospitalier,
+3e4991b0-82bc-4a70-b5c0-7ef30848df95,non,Clerc de Notaire,SCP
+16e82732-6c73-4ddd-8965-16f241dbba46,non,Clerc de Notaire,SCP
 84ad58a4-8683-4be6-b1bd-9a8d1933ad0e,non,Mandat électif,Conseillère régionale
 ffc788a8-630d-4ba9-8dc6-de26eae5d49e,non,Mandat électif,Conseillère régionale
 d505dba9-7661-4498-9d67-c6032479ecb5,oui,,
@@ -4608,6 +4693,8 @@ dad1c38a-9977-4d30-b9bf-de295ce7c75b,oui,,
 77ca5515-5a67-40e4-ade7-ce3ffc47f32e,non,HUISSIER,LIBERAL
 aab40836-c76b-4316-b995-1b22338c6ea0,non,Cadre de la fonction publique territoriale.,Centre Départemental de Gestion de la Fonction Publique Territoriale du Gard
 34e05404-5081-442f-b04e-6a88b70783f9,non,Cadre de la fonction publique territoriale.,Centre Départemental de Gestion de la Fonction Publique Territoriale du Gard
+fe140ee5-9fbe-48eb-848d-da6bd6f1c9e3,non,Assistante,CDC CONCHES
+f91c9afd-d87d-434c-a4c1-15e8acca23af,non,Assistante,CDC CONCHES
 979dffcd-e02e-4bbf-9f48-e67f4a064901,non,Comptable,Lycée
 b4944093-3f51-40c3-b6a7-7811c68083db,non,Comptable,Lycée
 bad3e98c-68fa-4d04-a5c8-50966452e251,non,Comptable,Lycée
@@ -4754,6 +4841,8 @@ da46f736-dd20-4838-aff7-14ae6f9e4eb1,non,ASSISTANTE DENTAIRE,CABINET
 820f62a3-8e48-49f9-83cf-c0df18f89c9e,non,ASSISTANTE DENTAIRE,CABINET
 71a1418c-0b1f-447c-8538-df7a79863b23,non,ASSISTANTE DENTAIRE,CABINET
 a1cfb37e-322d-40e6-8778-8bd7d2dfedc4,non,Employé de maison avec plusieurs particuliers,SESU
+cbd1e75f-fb69-43fe-a32c-3d28d27cbc71,non,enseignante,éducation nationale
+ff03811d-fe05-4cdc-897c-d4c61f4d8a38,non,enseignante,éducation nationale
 48fc7d9f-0f35-4a87-ab90-b94b4fe8b7ea,non,,Keolis Lyon
 268e6b4b-dd88-4fdc-8d41-d6e22002c02d,non,,Keolis Lyon
 806088e1-8cc7-4e2a-ac04-d2a46f260924,non,,Keolis Lyon
@@ -4764,6 +4853,7 @@ a1cfb37e-322d-40e6-8778-8bd7d2dfedc4,non,Employé de maison avec plusieurs parti
 80fe25e3-0bb6-4967-ba11-43fd066e93b6,non,,Blue enerfreeze
 1f8d5981-04ba-4f5a-9d5d-f6afc6ccb954,non,,Blue enerfreeze
 9a24baf7-a1d1-4c2e-bcf0-e16022e59adb,non,communication/marketing,Blue enerfreeze
+952bd386-2c7e-4908-9112-8b25ab6c68ab,non,Directeur associatif,Entraide Pierre Valdo
 d3db8137-90f1-4f9c-8cc0-3030b24f99e9,non,Principale du collège,EDUCATION NATIONALE
 9345f61b-5a24-4c6c-b088-adfe3e15335d,non,Sans activité,
 a449070c-de78-4530-89f6-5ff63971eb27,non,,SOCIETE RHODANIENNE DES CARS GINHOUX
@@ -4942,6 +5032,7 @@ b12a4eb0-b0fa-421d-bb3f-76d9657fe196,non,Retraité,
 c784f0c2-a2d8-4d1d-a835-4a7c79534f03,non,Retraité,
 ef29ca06-00bd-46dd-853d-48de5749341f,non,Chargée de mission,Association Léonard de Vinci / IIM
 cc6352ec-9752-4330-bfb0-f565593ced21,oui,,
+b8df11bc-b5de-4fe3-9ed5-a4dea12cb226,oui,,
 4cb4896f-cace-455f-b3df-c40c4846ce6b,oui,,
 f7c913b9-1d2e-4275-94a7-f8e9c5aa0055,oui,,
 fbc0bebe-6c56-4e59-9062-b44e5ffedd06,oui,,
@@ -4972,6 +5063,8 @@ eb097315-c5c5-4fcc-9fd7-776ca106a4a0,oui,,
 f4cd77f4-df52-4969-a338-ef6c31d41b8f,oui,,
 16804f15-0091-462f-8670-a7cb24ebeb2b,non,Directrice des ressources humaines,CAMG
 465997bd-607f-4793-bc1e-1034c61dc950,non,Directrice des ressources humaines,CAMG
+ffa9e958-f167-4436-851a-53619a73649e,non,directrice d'ESAT,AIES
+4d557b53-3deb-475b-ba95-1963c2ec96de,non,directrice d'ESAT,AIES
 742a3e7d-09b8-4dce-a98f-eb9fb79b5f4b,oui,,
 602e87ee-0686-4288-af53-54873e81c7af,oui,,
 bf3c271e-c8a8-4a2d-9c9a-203a01100edf,oui,,
@@ -5097,6 +5190,7 @@ dc72ecac-9b07-4a83-a69f-ff50c18d5413,oui,,
 e6155bc1-027c-4f8e-82db-dda5819f1689,oui,,
 2a61fec5-5152-496b-a5c5-c710316015ef,non,Cadre,UBAF (Banque)
 a7339260-0fa3-4488-a910-4c475630ad81,non,,Architecte libéral
+e5cfbed9-7d91-4d29-ab1b-2333b3740c8d,non,assistant,sas stork wine company
 5060bd1a-f76f-46ec-82d9-a72e3f6274e1,non,Agent administratif,Collectivité de ST-MARTIN
 a4ab88a8-c384-4e02-9228-7082f6e85f56,non,Agent administratif.,Collectivité de ST-MARTIN
 813a54f9-3946-4e94-a730-4ffd26254477,oui,,
@@ -5165,6 +5259,8 @@ a0ee72cc-d941-4294-83dd-eef6c74f3a5e,non,Adjointe administrative,SIETREM
 af68de96-cab1-4161-8511-b22a23ea5cfe,oui,,
 7136e507-0426-4862-8a04-685cc902d1c9,non,"artisan, second oeuvre",auto entrepreneur
 036c322f-0113-45c8-9317-9d69d73cf907,non,Réalisation d'éléments en béton,Activité individuelle : statut Micro-entreprise
+f60146a2-b2e2-455e-bd0c-4a00b425ff9e,oui,,
+accb06e6-0c40-4d4c-a14c-cca547bfeb44,oui,,
 aff14192-37c4-47b7-9029-8768da7cdb12,oui,,
 1633a384-455d-4440-89aa-dba28082a954,non,,Retraité
 2641bbfa-626a-4eee-a24f-08a9334972fb,oui,,
@@ -5208,6 +5304,7 @@ eef76ebc-aa8e-49ec-91bc-269c13e33c01,non,Directeur,CARCDSF
 1a36ce5f-5c29-45ae-ada1-b9aef842b504,non,Directrice .,Commissariat à l'Energie Atomique
 3ac25058-f5e1-4e73-b16e-7894df80f59e,non,Directrice,Commissariat à l'Energie Atomique
 a4b921a4-059c-43ac-adea-c9d4593d2bc4,non,Directrice,Commissariat à l'Energie Atomique
+8c72b921-9f01-42ce-a805-f7ef01a81ae9,non,Comptable,OGEC
 5fc43c97-74f6-43cd-9039-57aaa43806c0,oui,,
 f7cb9699-299a-46f0-a95d-2bb144c08db4,oui,,
 125f636c-a3c3-40d2-8622-8fdfc7a7a104,oui,,
@@ -5328,6 +5425,8 @@ a7bb7af5-3b44-4fab-a4d5-add678f82378,non,Employée,OMS Genève (Suisse)
 bd3ce0a8-2b58-4014-ae85-b73867bf32d0,non,Employée,OMS Genève
 21b12da7-cf32-4bf8-8126-ffb8cf2e8dda,non,Employée,OMS Genève
 322a15a5-e5a8-4049-9ba0-b22724f0c459,non,,SO SAVEURS
+383e7f7e-711d-4761-a8d3-fb70db48f32d,non,Retraité,
+b7ec6b0b-a9c1-46ae-83ca-5bd2c2bc3518,non,Retraité,
 80e6949b-9321-4dc9-bf80-c801841b5bbc,non,,Mairie de Luc-la-Primaube
 43802413-cfc8-438c-a2d6-709edac0fbfd,non,RETAITE,RETRAITE
 857c8fb2-ddf8-47ba-a54c-6102a378458f,non,RETAITE,RETRAITE
@@ -5378,6 +5477,10 @@ f1401c69-6097-485b-ada5-1362d415cec6,oui,,
 1e1b1008-911a-4c78-8a5b-1d4a1c563709,oui,,
 2ac1e72f-6dd9-47d4-88dd-6ca1c28e0485,oui,,
 953d671f-8216-45f2-90bb-23218f0e1dea,non,Directrice des Ressources humaines,Centre des Monuments Nationaux
+d484da45-ab32-4225-846e-8868c64eb01f,non,communication,Groupe CISN
+12961b41-5246-44fb-a8ca-091e8b4c637b,non,communication,Groupe CISN
+f15eb486-6c11-4e9c-8aec-aa92a8eb688a,non,communication,Groupe CISN
+46175263-d72e-46db-82be-5d2776ece342,non,communication,Groupe CISN
 3f4fc9b3-bb45-4467-a56d-ea628b8d693e,oui,,
 3b8ba36f-c87f-4d79-b838-64dc8b0f51a7,oui,,
 fa340c88-367c-4f4b-89b3-67dde9480a78,oui,,
@@ -5392,8 +5495,6 @@ e09c1895-27ef-4102-82e4-c18a5ecc8d24,oui,,
 d9188911-b5fa-466e-a16d-43b093bc51b8,oui,,
 433c3363-8c9a-4bd0-ae89-7040ab7492c3,oui,,
 3e79c06c-c1c7-4b74-8533-2f25eae1ee82,oui,,
-96393779-0de3-4965-a3fa-843729ccd94b,non,conception graphique,lui même
-3a8ea452-e1c4-4a29-8f28-b9ccc79efc8f,non,conception graphique,lui même
 a2ad2d8b-a70f-4e7b-9129-25f073cc6b9e,non,Sage-femme libérale,profession libérale
 7a365943-4d88-4a4c-9c63-13bfdb94a7be,non,Sage-femme libérale,profession libérale
 7e8ce0ac-d70b-422a-ac02-149776c2d566,non,Educateur sportif,Mairie de Montluçon
@@ -5427,8 +5528,12 @@ ad6587cb-5c02-4f3b-89b1-5350800f5bec,non,Cadre Coordonnateur,CPAM
 cd665bb8-d96c-4c68-ad08-e0321e57c252,non,Directeur adjoint,ADEME
 54776631-4051-4c06-9530-4641fe1439ca,non,Directrice de la communication,CD90
 5e524467-a33c-462e-bf50-407c1021bb04,non,Directrice de la communication,CD90
+feedfe49-708b-43b2-961c-7fb85364dc9c,non,Cheffe de service,Ministère de l'Intérieur
+7d2aea1a-01c5-47e9-8fce-c57a001056e1,non,Cheffe de service,Ministère de l'Intérieur
 224a061b-c806-4efd-9eff-ddacbb7b4a8a,non,Sénior Compliance Officer,RUAG MRO
 67333017-c96e-4c5c-8c66-da6473ecc3ee,non,Sénior Compliance Officer,RUAG MRO
+ac41bbcb-4281-4038-87dd-296c0c52f57a,non,Professeure,Education Nationale
+3dc23101-40a9-4460-9ed4-c366810da72a,non,Professeure,Education Nationale
 c5fefb2c-3c37-4c4d-9704-a3f187360d21,non,Artisan Taxi,TAXI
 367364a6-77c4-42e7-9527-66b7be5f31db,non,Artisan Taxi,TAXI
 273613e8-c0c5-4e59-ac95-5d49304f6fac,oui,,
@@ -5441,6 +5546,7 @@ b4c04f7b-3ca7-4033-9221-160bccb2b7ed,non,professeur libéral de yoga,auto entrep
 5447cd70-dfe6-46c3-b6f7-4a077ccf7f64,oui,,
 749c03ed-935f-42d9-9a0e-5e3aad68bb8e,oui,,
 7af79310-26d1-4b27-aa99-da41cfb66059,oui,,
+17be2e41-fd63-498a-855a-01ea764a9e60,oui,,
 b050753c-9ded-4d83-9f97-9cffa6114496,non,,RETRAITE
 49e904ff-343d-42f9-9808-e2efba0ecba4,non,,RETRAITE
 4cccac84-1587-436a-9a1c-340d71ff693a,oui,,
@@ -5495,13 +5601,16 @@ c868df8d-3bb5-464c-b724-23126a8242ef,non,Directeur de cabinet,ARS Nouvelle - Aqu
 ccbbe015-e353-44d2-abd9-065489122c13,non,PERSONNEL DE DIRECTION,EDUCATION NATIONALE
 3a6d2f2b-2788-4fd0-b0c3-5701b4bdc213,non,PERSONNEL DE DIRECTION,EDUCATION NATIONALE
 bbac25f4-8c73-4bbb-82c9-dd3fd263705d,non,PROFESSEUR DES ECOLES,DSDEN PYRENEES ATLANTIQUES
-f9aac3db-0243-439c-b890-e7957aa99dd8,non,Professeur,Education Nationale
-a9223fab-6ada-414f-b992-3dad86e4263a,non,Professeur,Education Nationale
+4ec88bb4-2046-465f-8188-6131bc874a45,oui,,
 1d056616-6d43-4e7a-a8ef-0e3be7bea32c,non,Retraitée,
 0117a4e7-aa55-4f59-b3cd-36ab3ece035e,non,Retraitée,
 26e020ba-1c40-4538-820d-0d8482c55d56,non,Aménagement et promotion immobilière,SEMPRO et SPL 92
 82cc7d87-7025-4db0-a319-fe190a32c6c3,non,Aménagement et promotion immobilière,SEMPRO et SPL 92
 82cc7d87-7025-4db0-a319-fe190a32c6c3,non,Président Directeur Général,SAIGI
+7f850f65-118a-4f80-a637-80d3df436324,non,Aménagement et promotion immobilière,SEMPRO et SPL 92
+7f850f65-118a-4f80-a637-80d3df436324,non,Président Directeur Général,SAIGI
+ef1634ff-ae46-481c-8142-e9a825b6c863,non,Aménagement et promotion immobilière,SEMPRO et SPL 92
+ef1634ff-ae46-481c-8142-e9a825b6c863,non,Président Directeur Général,SAIGI
 f0bf236a-1cce-4423-9a20-32f01b3b64ad,non,TECHNICO SEDENTAIRE,SONEPAR
 9a55f518-6cf0-43ea-9b24-7a761699b1f7,non,TECHNICO SEDENTAIRE,SONEPAR
 9c064bc1-6819-4203-907e-72891f9ad676,non,- retraitée,
@@ -5509,13 +5618,11 @@ f0bf236a-1cce-4423-9a20-32f01b3b64ad,non,TECHNICO SEDENTAIRE,SONEPAR
 36c34bf5-fdae-4b7c-b546-af15ddef303a,non,"Cadre commercial, responsable de secteur pour les établissements de débits de boissons, hôteliers et de restauration.",Nespresso France
 e038e0e6-abb7-4ac3-aa54-c235ab567eb0,non,"Cadre commercial, responsable de secteur pour les établissements de débits de boissons, hôteliers et de restauration.",Nespresso France
 6804c17a-dcb0-4d58-9399-83d28b84d59d,non,Présidente de la société commerciale d'activités hôtelières et para-hôtelières.,SAS LE VAUBAN
+92eab0b5-1d08-4c69-b9a8-79949ed74930,non,Responsable d'hébergements touristiques,NICEAN
 fcd2a6e5-e651-4c40-bf2b-d4c1a8906560,oui,,
 17230af8-9879-4026-94d2-172562716471,oui,,
 12f57eff-2154-4c80-b671-8b3fa9cfc897,oui,,
 7d1e1d6e-c1c7-48c8-8b27-f16ee9a3296d,non,Dirigeante salarié,E-TERRA
-44068f23-fea1-4f5f-837b-5d91c1cc37dd,non,Acheteuse bois,kingfischer
-f42a6d82-1364-4809-8966-380b28e323b3,non,Acheteuse bois,kingfischer
-e47be5a0-2b93-419f-a18e-cd22c94c2f33,non,Acheteuse bois,kingfischer
 0ed220a2-e214-4a6d-9ef0-8e6aa0b896f0,non,Acheteuse bois,kingfischer
 e53f3c06-c90a-4303-bb31-2f420c066523,non,Acheteuse dans le domaine du bois,Société Kingfischer
 25a893cf-d731-47e4-9809-cf62c2e837bf,non,Acheteuse dans le domaine du bois,Société Kingfischer
@@ -5587,6 +5694,7 @@ c5ac246f-a4e3-4091-bb26-030af01337ac,non,Technicienne du sommeil indépendante.,
 8f98b062-320e-4f0b-8c29-f8db923a0f91,oui,,
 b6284711-bea2-4afb-835c-cdfa4ad71d81,oui,,
 2720088d-2ccc-4052-ba25-ff5813df56fb,non,Exploitant agricole,
+aca45f30-b698-4d03-82cb-2560d36a7367,oui,,
 42650542-62cf-4085-a573-03a6e703e486,oui,,
 150f35a3-f303-48d9-a721-201cc0a021fa,oui,,
 db9b42f0-4605-4f82-976c-0797d2b30b49,oui,,
@@ -5851,6 +5959,8 @@ aebe314b-6e8c-447d-80a8-a6052fc4af49,non,Enseignant Bac Pro et BTS Pro,Education
 fda19537-23ca-4894-8fe3-82289f7580bd,non,,VILLE DE PIERREFITTE
 7d58b22c-3f26-4460-b2aa-6ac82750326d,non,chargé de mission,EELV
 861435e6-0a98-4c7e-8716-fcd746b0593d,non,chargé de mission,EELV
+19ce54b8-4736-4872-8c6d-0dbb60e2ebe1,non,Directeur marketing,Orange
+a1de675b-3dc5-4633-8b6e-0282e2844e0d,non,Directeur marketing,Orange
 446617f9-695a-4b84-a4d3-506c7b4dc916,oui,,
 a0b80e3e-8096-4709-a1a3-4ba6b16b7a05,oui,,
 043fbdb2-2e8a-4bbd-b4ea-7c7eb4eb941b,oui,,
@@ -5937,6 +6047,8 @@ aa455323-58c4-48a7-8d65-b85e2b6ff459,oui,,
 d835b749-43a6-49f6-97f2-407e9f5ace78,oui,,
 cc1dedf3-b94f-4e90-bc18-1efad6bc0e25,oui,,
 b3cffe5b-b673-40f8-bce2-b48f7160ed68,oui,,
+601c31af-5071-40ea-8064-7d15a2f5a12b,oui,,
+bc549a4d-1042-49fa-80f3-b56f631c9a41,oui,,
 83d73a43-8e92-40c8-9f68-20fafa42fa0f,non,retraitée,
 f5b2dbec-05ae-46e6-9132-bcb55db947e2,non,retraitée,
 956604ad-19c2-4c62-8fa9-44a249ccc893,oui,,
@@ -5944,6 +6056,8 @@ f5b2dbec-05ae-46e6-9132-bcb55db947e2,non,retraitée,
 657971c3-0e21-438c-876e-da52efcf880c,oui,,
 87147c9d-43eb-45af-94bf-29ea2ad81bf6,oui,,
 d177f829-f028-472c-ae84-3f859ad89d2b,non,retraité,retraité
+cddb4ec3-ee41-43a5-b701-7309195d0edb,oui,,
+9d38dd5c-79ae-45f9-9434-4769d385d4a9,oui,,
 c2d65bcc-3998-41e4-bf0e-560c8322b38f,non,CHARGEE DE MISSION,ASSOCIATION ARCHANGE AUTISME
 19573bb3-e67f-407d-af2f-a028012dc631,non,CHARGEE DE MISSION,ASSOCIATION ARCHANGE AUTISME
 13df0835-5ce3-48ad-acaf-294ab878acef,non,CHARGEE DE MISSION,ASSOCIATION ARCHANGE AUTISME
